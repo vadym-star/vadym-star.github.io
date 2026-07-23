@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vadym Starynets — CV</title>
+<style>
+  :root{
+    --ink:#1f2733; --muted:#5b6675; --line:#e4e8ee;
+    --accent:#2b59c3; --accent-soft:#eaf0fb;
+    --side:#1b2333; --side-ink:#e8edf5; --side-muted:#9fb0c8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#8a94a6;color:var(--ink);
+    font-family:"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    font-size:10.3px;line-height:1.5;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .page{width:210mm;min-height:297mm;margin:14px auto;background:#fff;
+    display:grid;grid-template-columns:64mm 1fr;box-shadow:0 6px 30px rgba(0,0,0,.25)}
+  /* ---------- Sidebar ---------- */
+  .side{background:var(--side);color:var(--side-ink);padding:20px 16px}
+  .side .name{font-size:21px;font-weight:700;line-height:1.15;letter-spacing:.2px}
+  .side .role{color:var(--accent);font-weight:600;margin-top:4px;font-size:11px;
+    color:#8fb0ff}
+  .side h2{font-size:10px;text-transform:uppercase;letter-spacing:1.4px;
+    color:#fff;margin:18px 0 8px;padding-bottom:5px;border-bottom:1px solid #33405a}
+  .side a{color:var(--side-ink);text-decoration:none}
+  .contact li{list-style:none;display:flex;gap:8px;margin:6px 0;color:var(--side-muted);
+    word-break:break-word}
+  .contact .k{color:#6f83a6;min-width:14px;text-align:center}
+  .skillgroup{margin-bottom:10px}
+  .skillgroup .t{color:#fff;font-weight:600;font-size:9.6px;margin-bottom:3px}
+  .chips{display:flex;flex-wrap:wrap;gap:4px}
+  .chip{background:#26314a;color:#cdd8ea;border-radius:4px;padding:2px 6px;font-size:9px}
+  .edu{margin:8px 0}
+  .edu .d{color:#fff;font-weight:600;font-size:9.8px}
+  .edu .s{color:var(--side-muted)}
+  .edu .y{color:#6f83a6;font-size:9px}
+  .lang{display:flex;justify-content:space-between;color:var(--side-muted);margin:4px 0}
+  .lang b{color:#fff;font-weight:600}
+  /* ---------- Main ---------- */
+  .main{padding:20px 22px}
+  .summary{color:var(--muted);font-size:10.4px;line-height:1.6}
+  .summary b{color:var(--ink)}
+  h2.sec{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent);
+    margin:16px 0 9px;display:flex;align-items:center;gap:8px}
+  h2.sec::after{content:"";flex:1;height:1px;background:var(--line)}
+  .job{margin-bottom:12px}
+  .job .h{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+  .job .title{font-weight:700;font-size:11.4px;color:var(--ink)}
+  .job .co{color:var(--accent);font-weight:600}
+  .job .when{color:var(--muted);font-size:9.4px;white-space:nowrap}
+  .job .place{color:var(--muted);font-size:9.4px;margin-top:1px}
+  ul.b{margin:6px 0 0 0;padding-left:0;list-style:none}
+  ul.b li{position:relative;padding-left:14px;margin:4px 0;color:#39424f}
+  ul.b li::before{content:"";position:absolute;left:2px;top:6px;width:4px;height:4px;
+    border-radius:50%;background:var(--accent)}
+  ul.b li b{color:var(--ink)}
+  .proj{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px dashed var(--line)}
+  .proj:last-child{border-bottom:0}
+  .proj .pn{font-weight:700;color:var(--ink)}
+  .proj .pd{color:var(--muted)}
+  .proj .pl{color:var(--accent);font-size:9.4px;white-space:nowrap;font-weight:600}
+  .tag{display:inline-block;background:var(--accent-soft);color:var(--accent);
+    border-radius:4px;padding:1px 6px;font-size:8.8px;font-weight:600;margin-left:6px;vertical-align:middle}
+  @media print{
+    html,body{background:#fff}
+    .page{margin:0;box-shadow:none;width:auto;min-height:auto}
+    @page{size:A4;margin:0}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <!-- SIDEBAR -->
+  <aside class="side">
+    <div class="name">Vadym<br>Starynets</div>
+    <div class="role">Fullstack Developer</div>
+
+    <h2>Contact</h2>
+    <ul class="contact">
+      <li><span class="k">✉</span><a href="mailto:work.starynets@gmail.com">work.starynets@gmail.com</a></li>
+      <li><span class="k">☎</span>+380 93 769 8333</li>
+      <li><span class="k">◍</span>Nesebar, Bulgaria · open to remote / EU</li>
+      <li><span class="k">⌥</span><a href="https://vadym-star.github.io">vadym-star.github.io</a></li>
+      <li><span class="k">in</span><a href="https://linkedin.com/in/vadymstarynets">linkedin.com/in/vadymstarynets</a></li>
+      <li><span class="k">gh</span><a href="https://github.com/vadym-star">github.com/vadym-star</a></li>
+    </ul>
+
+    <h2>Skills</h2>
+    <div class="skillgroup"><div class="t">Languages</div>
+      <div class="chips"><span class="chip">JavaScript</span><span class="chip">TypeScript</span><span class="chip">Python</span><span class="chip">HTML/CSS</span></div></div>
+    <div class="skillgroup"><div class="t">Frontend</div>
+      <div class="chips"><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">Responsive UI</span></div></div>
+    <div class="skillgroup"><div class="t">Backend</div>
+      <div class="chips"><span class="chip">Node.js</span><span class="chip">NestJS</span><span class="chip">REST APIs</span><span class="chip">PostgreSQL</span><span class="chip">Redis</span><span class="chip">Socket.IO</span></div></div>
+    <div class="skillgroup"><div class="t">AI &amp; Automation</div>
+      <div class="chips"><span class="chip">AI-assisted dev (Claude)</span><span class="chip">Prompt engineering</span><span class="chip">GPT-4o-mini</span><span class="chip">n8n</span><span class="chip">Web scraping</span><span class="chip">Telegram Bot API</span></div></div>
+    <div class="skillgroup"><div class="t">Web &amp; DevOps</div>
+      <div class="chips"><span class="chip">WordPress</span><span class="chip">cPanel/WHM</span><span class="chip">DNS &amp; domains</span><span class="chip">SEO</span><span class="chip">NocoDB</span><span class="chip">Git</span></div></div>
+
+    <h2>Education</h2>
+    <div class="edu"><div class="d">Fullstack Developer</div><div class="s">GoIT</div><div class="y">2023 – 2024</div></div>
+    <div class="edu"><div class="d">BA, Philosophy</div><div class="s">Kyiv-Mohyla Academy</div><div class="y">2021 – 2025</div></div>
+
+    <h2>Languages</h2>
+    <div class="lang"><b>Ukrainian</b><span>Native</span></div>
+    <div class="lang"><b>English</b><span>Professional</span></div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+    <p class="summary"><b>Fullstack developer who ships real, production products with AI as a core tool.</b>
+      Co-founder of a launched scheduling SaaS spanning web, iOS and Android; at Best Driver Kyiv I build
+      AI-driven automations, online examination platforms and full web infrastructure end to end — from
+      idea and workflow design through to deployment and support.</p>
+
+    <h2 class="sec">Experience</h2>
+
+    <div class="job">
+      <div class="h">
+        <div class="title">Co-Founder &amp; Developer <span class="co">· Narval</span></div>
+        <div class="when">Apr 2026 – Present</div>
+      </div>
+      <div class="place">Remote · scheduling &amp; client-management SaaS</div>
+      <ul class="b">
+        <li>Co-founded a <b>mobile-first scheduling &amp; client-management platform</b> for service businesses (nail, barber, brow &amp; lash, massage and tattoo studios); originated the product concept and end-to-end workflow design.</li>
+        <li>Shipped the full product across native <b>iOS (SwiftUI)</b>, <b>Android (Kotlin)</b> and <b>web (Next.js)</b> — backed by <b>NestJS/TypeScript</b>, PostgreSQL, Redis and real-time Socket.IO; integrated Paddle billing, APNs/FCM push and GDPR-compliant data handling.</li>
+        <li>Took the product <b>from idea to public launch</b> (July 2026), building AI-assisted with Claude alongside my co-founder.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="h">
+        <div class="title">AI Prompt Engineer <span class="co">· Best Driver Kyiv</span></div>
+        <div class="when">Aug 2025 – Present</div>
+      </div>
+      <div class="place">Remote · driver-certification training (Code 95, ADR, TACHO)</div>
+      <ul class="b">
+        <li>Built <b>AI-driven competitor price-monitoring</b> automations with <b>n8n</b>, web scraping and <b>GPT-4o-mini</b> (to parse scraped data resiliently), plus <b>Telegram Bot API</b> integrations to reach phone-gated pricing; delivered structured competitor datasets.</li>
+        <li>Developed and deployed <b>online driver-examination platforms</b> (Code 95 / ADR and boat-operator) on a <b>React + Python</b> stack, serving multiple business entities — live at <b>adrtest.com.ua</b> and <b>katertest.com.ua</b>.</li>
+        <li>Ran <b>B2B lead-generation &amp; email outreach</b>: sourced transport/logistics firms via YouControl &amp; Opendatabot (KVED filtering), executed ProtonMail campaigns and handled inbound replies.</li>
+        <li>Managed <b>web infrastructure end to end</b>: server migrations via cPanel/WHM, domain &amp; DNS management (Hostiq), WordPress builds, SEO, and email/hosting troubleshooting.</li>
+        <li>Curated training-content datasets in <b>NocoDB</b>; selected as <b>task lead</b> on a multi-site delivery (May 2026).</li>
+      </ul>
+    </div>
+
+    <h2 class="sec">Selected Projects</h2>
+    <div class="proj">
+      <div><span class="pn">Narval</span><span class="tag">Next.js · NestJS · iOS · Android</span><div class="pd">Scheduling &amp; client-management SaaS for service businesses.</div></div>
+      <div class="pl">narval.cloud</div>
+    </div>
+    <div class="proj">
+      <div><span class="pn">ADR / Code 95 Exam Platform</span><span class="tag">React · Python</span><div class="pd">Online driver-certification testing system with exam &amp; practice modes.</div></div>
+      <div class="pl">adrtest.com.ua</div>
+    </div>
+    <div class="proj">
+      <div><span class="pn">Судноводії — Boat-Operator Exam</span><span class="tag">React · Python</span><div class="pd">Examination platform for boat/skipper licensing.</div></div>
+      <div class="pl">katertest.com.ua</div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

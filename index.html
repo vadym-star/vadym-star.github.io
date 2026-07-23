@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vadym Starynets — Fullstack Developer</title>
+<meta name="description" content="Fullstack developer who ships real, production products with AI as a core tool. Co-founder of Narval.">
+<style>
+  :root{
+    --bg:#0d1117; --panel:#161b25; --panel2:#1c2330;
+    --ink:#e8edf5; --muted:#9aa7bd; --line:#252c3a;
+    --accent:#4d7cff; --accent2:#6ee7d0;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);
+    font-family:"Segoe UI",Inter,system-ui,Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+  /* nav */
+  nav{position:sticky;top:0;z-index:10;background:rgba(13,17,23,.82);
+    backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  nav .logo{font-weight:800;letter-spacing:.3px}
+  nav .logo span{color:var(--accent)}
+  nav .links{display:flex;gap:22px;font-size:14px}
+  nav .links a{color:var(--muted)}nav .links a:hover{color:var(--ink)}
+  nav .cta{border:1px solid var(--accent);color:var(--accent);padding:7px 14px;border-radius:8px;font-size:13px}
+  nav .cta:hover{background:var(--accent);color:#fff}
+  /* hero */
+  header.hero{padding:90px 0 60px;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;top:-160px;right:-120px;width:520px;height:520px;
+    background:radial-gradient(circle at center,rgba(77,124,255,.28),transparent 62%);filter:blur(10px)}
+  .hero::after{content:"";position:absolute;bottom:-200px;left:-140px;width:480px;height:480px;
+    background:radial-gradient(circle at center,rgba(110,231,208,.16),transparent 62%)}
+  .hero .eyebrow{color:var(--accent2);font-weight:600;letter-spacing:1.5px;text-transform:uppercase;font-size:13px}
+  .hero h1{font-size:52px;line-height:1.08;margin:14px 0 18px;font-weight:800;letter-spacing:-1px}
+  .hero h1 .grad{background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p.lede{font-size:19px;color:var(--muted);max-width:640px}
+  .hero .actions{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+  .btn{padding:11px 20px;border-radius:10px;font-weight:600;font-size:14px;border:1px solid var(--line)}
+  .btn.primary{background:linear-gradient(90deg,var(--accent),#6a5cff);color:#fff;border:0}
+  .btn.primary:hover{filter:brightness(1.08)}
+  .btn.ghost{color:var(--ink)}.btn.ghost:hover{border-color:var(--accent)}
+  .hero .meta{margin-top:26px;color:var(--muted);font-size:14px;display:flex;gap:18px;flex-wrap:wrap}
+  .hero .meta b{color:var(--ink)}
+  /* sections */
+  section{padding:56px 0}
+  .sec-head{display:flex;align-items:center;gap:14px;margin-bottom:30px}
+  .sec-head h2{font-size:26px;font-weight:800;letter-spacing:-.3px}
+  .sec-head .num{color:var(--accent);font-weight:700;font-size:15px;font-family:ui-monospace,monospace}
+  .sec-head .rule{flex:1;height:1px;background:var(--line)}
+  /* projects */
+  .project{display:grid;grid-template-columns:1.05fr 1fr;gap:0;background:var(--panel);
+    border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:26px}
+  .project.rev{grid-template-columns:1fr 1.05fr}
+  .project .shot{min-height:280px;background:#0b0e14;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .project .shot img{width:100%;height:100%;object-fit:cover;object-position:top}
+  .project.rev .shot{order:2}
+  .placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg,#182238,#0f1622);color:#41506b;font-weight:700;font-size:15px;
+    letter-spacing:.5px;text-align:center;padding:20px}
+  .project .body{padding:30px}
+  .project .kicker{color:var(--accent2);font-size:12.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase}
+  .project h3{font-size:23px;font-weight:800;margin:8px 0 10px}
+  .project p{color:var(--muted);font-size:15px}
+  .stack{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 18px}
+  .stack span{background:var(--panel2);border:1px solid var(--line);color:#c3cee2;
+    border-radius:6px;padding:3px 9px;font-size:12px}
+  .plinks{display:flex;gap:16px;font-size:14px;font-weight:600}
+  .plinks a{color:var(--accent)}.plinks a:hover{text-decoration:underline}
+  .plinks a.dim{color:var(--muted)}
+  /* about */
+  .about{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:34px;
+    display:grid;grid-template-columns:1.4fr 1fr;gap:34px}
+  .about p{color:var(--muted);font-size:15.5px}.about p b{color:var(--ink)}
+  .about h4{font-size:13px;text-transform:uppercase;letter-spacing:1.2px;color:var(--accent2);margin-bottom:12px}
+  .skills-col .row{margin-bottom:12px}
+  .skills-col .t{font-size:13px;color:var(--ink);font-weight:600;margin-bottom:4px}
+  .skills-col .chips{display:flex;flex-wrap:wrap;gap:6px}
+  .skills-col .chips span{background:var(--panel2);border:1px solid var(--line);color:#b9c5da;border-radius:6px;padding:2px 8px;font-size:11.5px}
+  /* footer */
+  footer{border-top:1px solid var(--line);padding:44px 0;text-align:center;color:var(--muted)}
+  footer .big{font-size:24px;font-weight:800;color:var(--ink);margin-bottom:10px}
+  footer .fl{display:flex;gap:22px;justify-content:center;margin-top:16px;font-size:14px}
+  footer .fl a:hover{color:var(--accent)}
+  footer .cr{margin-top:26px;font-size:12.5px;color:#5a677d}
+  @media(max-width:760px){
+    .hero h1{font-size:38px}
+    .project,.project.rev,.about{grid-template-columns:1fr}
+    .project.rev .shot{order:0}
+    nav .links{display:none}
+  }
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <div class="logo">Vadym<span>.</span>Starynets</div>
+  <div class="links">
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="./cv.html">CV</a>
+    <a href="mailto:work.starynets@gmail.com">Contact</a>
+  </div>
+  <a class="cta" href="./cv.html" target="_blank">Download CV</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="eyebrow">Fullstack Developer</div>
+  <h1>I ship real products<br>with <span class="grad">AI as a core tool.</span></h1>
+  <p class="lede">Co-founder of a launched scheduling SaaS spanning web, iOS and Android. I take ideas from
+    concept and workflow design all the way to deployed, production software — building fast, AI-assisted.</p>
+  <div class="actions">
+    <a class="btn primary" href="#work">View my work</a>
+    <a class="btn ghost" href="./cv.html" target="_blank">Download CV</a>
+  </div>
+  <div class="meta">
+    <span>◍ <b>Nesebar, Bulgaria</b> · open to remote / EU</span>
+    <span>✉ <a href="mailto:work.starynets@gmail.com"><b>work.starynets@gmail.com</b></a></span>
+    <span><a href="https://github.com/vadym-star" target="_blank"><b>GitHub</b></a></span>
+    <span><a href="https://linkedin.com/in/vadymstarynets" target="_blank"><b>LinkedIn</b></a></span>
+  </div>
+</div></header>
+
+<section id="work"><div class="wrap">
+  <div class="sec-head"><span class="num">01</span><h2>Selected Work</h2><div class="rule"></div></div>
+
+  <!-- Narval -->
+  <article class="project">
+    <div class="shot"><div class="placeholder" data-shot="narval">Narval — screenshot coming</div></div>
+    <div class="body">
+      <div class="kicker">Co-Founder &amp; Developer · Launched 2026</div>
+      <h3>Narval</h3>
+      <p>A mobile-first scheduling &amp; client-management platform for service businesses — nail studios,
+        barbershops, brow &amp; lash bars, massage and tattoo studios. Solo pros get a personal calendar with
+        client, service and revenue tracking; teams get a shared board with a column per employee. I originated
+        the product concept and the workflows, and shipped it across web, iOS and Android.</p>
+      <div class="stack"><span>Next.js</span><span>NestJS</span><span>TypeScript</span><span>PostgreSQL</span><span>Redis</span><span>Socket.IO</span><span>iOS · SwiftUI</span><span>Android · Kotlin</span><span>AI-assisted (Claude)</span></div>
+      <div class="plinks"><a href="https://narval.cloud" target="_blank">Visit narval.cloud →</a></div>
+    </div>
+  </article>
+
+  <!-- ADR / Code 95 -->
+  <article class="project rev">
+    <div class="shot"><div class="placeholder" data-shot="adrtest">ADR / Code 95 platform — screenshot coming</div></div>
+    <div class="body">
+      <div class="kicker">Best Driver Kyiv · Examination Platform</div>
+      <h3>ADR / Code 95 Exam Platform</h3>
+      <p>An online driver-certification testing system for professional-driver qualifications (Code 95) and
+        dangerous-goods transport (ADR). Practice mode and timed exam mode with error limits, built to serve a
+        real training business. Developed on a React front end with a Python back end.</p>
+      <div class="stack"><span>React</span><span>JavaScript</span><span>Python</span><span>REST API</span></div>
+      <div class="plinks"><a href="https://adrtest.com.ua/courses" target="_blank">Visit adrtest.com.ua →</a></div>
+    </div>
+  </article>
+
+  <!-- Katertest -->
+  <article class="project">
+    <div class="shot"><div class="placeholder" data-shot="katertest">Судноводії platform — screenshot coming</div></div>
+    <div class="body">
+      <div class="kicker">Best Driver Kyiv · Examination Platform</div>
+      <h3>Судноводії — Boat-Operator Exam</h3>
+      <p>A sister examination platform for boat/skipper operator licensing, sharing the same testing engine:
+        a full practice test and a strict exam mode with time and error limits. Clean, focused UI for
+        candidates preparing for their certification.</p>
+      <div class="stack"><span>React</span><span>JavaScript</span><span>Python</span><span>REST API</span></div>
+      <div class="plinks"><a href="https://katertest.com.ua/courses" target="_blank">Visit katertest.com.ua →</a></div>
+    </div>
+  </article>
+</div></section>
+
+<section id="about"><div class="wrap">
+  <div class="sec-head"><span class="num">02</span><h2>About</h2><div class="rule"></div></div>
+  <div class="about">
+    <div>
+      <p><b>I'm a fullstack developer who builds and ships real, production software using AI as a core tool.</b></p>
+      <p style="margin-top:14px">As co-founder of <b>Narval</b>, I took my own idea from concept to a launched
+        product on web, iOS and Android. At <b>Best Driver Kyiv</b> I work across the whole stack as an AI Prompt
+        Engineer — building AI-driven automations (n8n, web scraping, GPT-4o-mini, Telegram bots), online
+        examination platforms, B2B outreach systems, and full web infrastructure, from WordPress and SEO to
+        server migrations and DNS.</p>
+      <p style="margin-top:14px">I hold a philosophy degree from Kyiv-Mohyla Academy, which keeps me focused on
+        the <b>why</b> behind what I build. Always open to interesting fullstack roles and collaborations.</p>
+    </div>
+    <div class="skills-col">
+      <h4>Toolbox</h4>
+      <div class="row"><div class="t">Frontend</div><div class="chips"><span>React</span><span>Next.js</span><span>TypeScript</span></div></div>
+      <div class="row"><div class="t">Backend</div><div class="chips"><span>Node.js</span><span>NestJS</span><span>PostgreSQL</span><span>Redis</span></div></div>
+      <div class="row"><div class="t">AI &amp; Automation</div><div class="chips"><span>Claude</span><span>Prompt engineering</span><span>GPT-4o-mini</span><span>n8n</span></div></div>
+      <div class="row"><div class="t">Web &amp; DevOps</div><div class="chips"><span>WordPress</span><span>cPanel/WHM</span><span>DNS</span><span>SEO</span></div></div>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="big">Let's build something.</div>
+  <div>Open to fullstack roles, freelance and collaborations.</div>
+  <div class="fl">
+    <a href="mailto:work.starynets@gmail.com">Email</a>
+    <a href="https://linkedin.com/in/vadymstarynets" target="_blank">LinkedIn</a>
+    <a href="https://github.com/vadym-star" target="_blank">GitHub</a>
+    <a href="./cv.html" target="_blank">CV</a>
+  </div>
+  <div class="cr">© 2026 Vadym Starynets</div>
+</div></footer>
+</body>
+</html>
