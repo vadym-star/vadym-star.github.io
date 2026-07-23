@@ -13,12 +13,13 @@
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{background:#8a94a6;color:var(--ink);
     font-family:"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
-    font-size:10.3px;line-height:1.5;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  .page{width:210mm;min-height:auto;margin:14px auto;background:#fff;
+    font-size:12.2px;line-height:1.6;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .page{width:210mm;min-height:auto;margin:14px auto;
+    background:linear-gradient(to right,var(--side) 0,var(--side) 64mm,#fff 64mm,#fff 100%);
     display:grid;grid-template-columns:64mm 1fr;box-shadow:0 6px 30px rgba(0,0,0,.25)}
   /* ---------- Sidebar ---------- */
   .side{background:var(--side);color:var(--side-ink);padding:20px 16px}
-  .avatar{width:104px;height:104px;border-radius:50%;margin:0 auto 14px;display:flex;
+  .avatar{width:90px;height:90px;border-radius:50%;margin:0 auto 10px;display:flex;
     align-items:center;justify-content:center;object-fit:cover;overflow:hidden;
     border:3px solid #3a486492;background:linear-gradient(135deg,#2b3856,#1b2333);
     color:#8fb0ff;font-weight:800;font-size:32px;letter-spacing:1px}
@@ -28,12 +29,12 @@
   .side .role{color:var(--accent);font-weight:600;margin-top:4px;font-size:11px;
     color:#8fb0ff}
   .side h2{font-size:10px;text-transform:uppercase;letter-spacing:1.4px;
-    color:#fff;margin:18px 0 8px;padding-bottom:5px;border-bottom:1px solid #33405a}
+    color:#fff;margin:13px 0 7px;padding-bottom:5px;border-bottom:1px solid #33405a}
   .side a{color:var(--side-ink);text-decoration:none}
-  .contact li{list-style:none;display:flex;gap:8px;margin:6px 0;color:var(--side-muted);
+  .contact li{list-style:none;display:flex;gap:8px;margin:5px 0;color:var(--side-muted);
     word-break:break-word}
   .contact .k{color:#6f83a6;min-width:14px;text-align:center}
-  .skillgroup{margin-bottom:10px}
+  .skillgroup{margin-bottom:7px}
   .skillgroup .t{color:#fff;font-weight:600;font-size:9.6px;margin-bottom:3px}
   .chips{display:flex;flex-wrap:wrap;gap:4px}
   .chip{background:#26314a;color:#cdd8ea;border-radius:4px;padding:2px 6px;font-size:9px}
@@ -44,20 +45,20 @@
   .lang{display:flex;justify-content:space-between;color:var(--side-muted);margin:4px 0}
   .lang b{color:#fff;font-weight:600}
   /* ---------- Main ---------- */
-  .main{padding:20px 22px}
+  .main{padding:28px 30px}
   .summary{color:var(--muted);font-size:10.4px;line-height:1.6}
   .summary b{color:var(--ink)}
-  h2.sec{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent);
-    margin:16px 0 9px;display:flex;align-items:center;gap:8px}
+  h2.sec{font-size:11.5px;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent);
+    margin:22px 0 12px;display:flex;align-items:center;gap:8px}
   h2.sec::after{content:"";flex:1;height:1px;background:var(--line)}
-  .job{margin-bottom:12px}
+  .job{margin-bottom:16px}
   .job .h{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
   .job .title{font-weight:700;font-size:11.4px;color:var(--ink)}
   .job .co{color:var(--accent);font-weight:600}
   .job .when{color:var(--muted);font-size:9.4px;white-space:nowrap}
   .job .place{color:var(--muted);font-size:9.4px;margin-top:1px}
   ul.b{margin:6px 0 0 0;padding-left:0;list-style:none}
-  ul.b li{position:relative;padding-left:14px;margin:4px 0;color:#39424f}
+  ul.b li{position:relative;padding-left:14px;margin:7px 0;color:#39424f}
   ul.b li::before{content:"";position:absolute;left:2px;top:6px;width:4px;height:4px;
     border-radius:50%;background:var(--accent)}
   ul.b li b{color:var(--ink)}
@@ -70,13 +71,13 @@
   .proj a.pl:hover{text-decoration:underline}
   .tag{display:inline-flex;align-items:center;background:var(--accent-soft);color:var(--accent);
     border-radius:4px;padding:1px 6px;font-size:8.8px;font-weight:600;line-height:1.4}
-  .medu{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:4px 0;border-bottom:1px dashed var(--line)}
+  .medu{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:9px 0;border-bottom:1px dashed var(--line)}
   .medu .mn{color:#39424f}.medu .mn b{color:var(--ink)}
   .medu .my{color:var(--muted);font-size:9.4px;white-space:nowrap}
-  .mlang{display:flex;gap:28px;color:#39424f;padding:5px 0}.mlang b{color:var(--ink)}
+  .mlang{display:flex;gap:28px;color:#39424f;padding:11px 0}.mlang b{color:var(--ink)}
   @media print{
-    html,body{background:#fff}
-    .page{margin:0;box-shadow:none;width:auto;min-height:auto}
+    html,body{background:linear-gradient(to right,var(--side) 0,var(--side) 64mm,#fff 64mm,#fff 100%)}
+    .page{box-shadow:none;margin:0}
     @page{size:A4;margin:0}
   }
 </style>
@@ -111,6 +112,13 @@
     <div class="skillgroup"><div class="t">Web &amp; DevOps</div>
       <div class="chips"><span class="chip">WordPress</span><span class="chip">cPanel/WHM</span><span class="chip">DNS &amp; domains</span><span class="chip">SEO</span><span class="chip">NocoDB</span><span class="chip">Git</span></div></div>
 
+    <h2>Education</h2>
+    <div class="edu"><div class="d">Fullstack Developer</div><div class="s">GoIT</div><div class="y">2023 – 2024</div></div>
+    <div class="edu"><div class="d">Bachelor of Philosophy</div><div class="s">Kyiv-Mohyla Academy</div><div class="y">2021 – 2025</div></div>
+
+    <h2>Languages</h2>
+    <div class="lang"><b>Ukrainian</b><span>Native</span></div>
+    <div class="lang"><b>English</b><span>Professional</span></div>
   </aside>
 
   <!-- MAIN -->
@@ -151,27 +159,18 @@
     </div>
 
     <h2 class="sec">Selected Projects</h2>
-    <p style="color:var(--muted);font-size:9.3px;margin:-3px 0 9px">🔒 The Best Driver Kyiv platforms are private, paywalled company products — full screenshots &amp; write-ups on <a href="https://vadym-star.github.io" style="color:var(--accent);font-weight:600;text-decoration:none">vadym-star.github.io</a></p>
+    <p style="color:var(--muted);font-size:9.3px;margin:-3px 0 9px">🔒 The Best Driver Kyiv platforms are private company products — full screenshots &amp; write-ups on <a href="https://vadym-star.github.io" style="color:var(--accent);font-weight:600;text-decoration:none">vadym-star.github.io</a></p>
     <div class="proj">
-      <div><div class="prow"><span class="pn">Narval</span><span class="tag">iOS · Android · Web</span></div><div class="pd">Scheduling &amp; client-management SaaS — native iOS &amp; Android apps plus a full web platform.</div></div>
+      <div><div class="prow"><span class="pn">Narval</span><span class="tag">iOS · Android · Web</span><span class="tag" style="background:#e7f6ee;color:#1a8a55">Current · 2026</span></div><div class="pd">Scheduling &amp; client-management SaaS — native iOS &amp; Android apps plus a full web platform.</div></div>
       <a class="pl" href="https://narval.cloud">narval.cloud&nbsp;↗</a>
     </div>
     <div class="proj">
-      <div><div class="prow"><span class="pn">ADR / Code 95 Exam Platform</span><span class="tag">React · Python</span></div><div class="pd">Online driver-certification testing system with exam &amp; practice modes.</div></div>
+      <div><div class="prow"><span class="pn">ADR / Code 95 Exam Platform</span><span class="tag">React · Python</span><span class="tag" style="background:#eef1f6;color:#5b6675">2024</span></div><div class="pd">Online driver-certification testing system with exam &amp; practice modes.</div></div>
       <a class="pl" href="https://vadym-star.github.io" style="color:var(--muted)">Private&nbsp;·&nbsp;portfolio&nbsp;↗</a>
     </div>
     <div class="proj">
-      <div><div class="prow"><span class="pn">Судноводії — Boat-Operator Exam</span><span class="tag">React · Python</span></div><div class="pd">Examination platform for boat/skipper licensing.</div></div>
+      <div><div class="prow"><span class="pn">Судноводії — Boat-Operator Exam</span><span class="tag">React · Python</span><span class="tag" style="background:#eef1f6;color:#5b6675">2025</span></div><div class="pd">Examination platform for boat/skipper licensing.</div></div>
       <a class="pl" href="https://vadym-star.github.io" style="color:var(--muted)">Private&nbsp;·&nbsp;portfolio&nbsp;↗</a>
     </div>
-
-    <h2 class="sec">Education</h2>
-    <div class="medu"><span class="mn">Fullstack Developer — <b>GoIT</b></span><span class="my">2023 – 2024</span></div>
-    <div class="medu"><span class="mn">Bachelor of Philosophy — <b>National University of Kyiv-Mohyla Academy</b></span><span class="my">2021 – 2025</span></div>
-
-    <h2 class="sec">Languages</h2>
-    <div class="mlang"><span><b>Ukrainian</b> · Native</span><span><b>English</b> · Professional</span></div>
-  </main>
-</div>
-</body>
+  </main></div></body>
 </html>
