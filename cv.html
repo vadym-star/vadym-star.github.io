@@ -14,7 +14,7 @@
   html,body{background:#8a94a6;color:var(--ink);
     font-family:"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
     font-size:10.3px;line-height:1.5;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  .page{width:210mm;min-height:297mm;margin:14px auto;background:#fff;
+  .page{width:210mm;min-height:auto;margin:14px auto;background:#fff;
     display:grid;grid-template-columns:64mm 1fr;box-shadow:0 6px 30px rgba(0,0,0,.25)}
   /* ---------- Sidebar ---------- */
   .side{background:var(--side);color:var(--side-ink);padding:20px 16px}
@@ -61,13 +61,19 @@
   ul.b li::before{content:"";position:absolute;left:2px;top:6px;width:4px;height:4px;
     border-radius:50%;background:var(--accent)}
   ul.b li b{color:var(--ink)}
-  .proj{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px dashed var(--line)}
+  .proj{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:7px 0;border-bottom:1px dashed var(--line)}
   .proj:last-child{border-bottom:0}
+  .prow{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
   .proj .pn{font-weight:700;color:var(--ink)}
-  .proj .pd{color:var(--muted)}
-  .proj .pl{color:var(--accent);font-size:9.4px;white-space:nowrap;font-weight:600}
-  .tag{display:inline-block;background:var(--accent-soft);color:var(--accent);
-    border-radius:4px;padding:1px 6px;font-size:8.8px;font-weight:600;margin-left:6px;vertical-align:middle}
+  .proj .pd{color:var(--muted);margin-top:2px}
+  .proj a.pl,.proj .pl{color:var(--accent);font-size:9.4px;white-space:nowrap;font-weight:600;text-decoration:none}
+  .proj a.pl:hover{text-decoration:underline}
+  .tag{display:inline-flex;align-items:center;background:var(--accent-soft);color:var(--accent);
+    border-radius:4px;padding:1px 6px;font-size:8.8px;font-weight:600;line-height:1.4}
+  .medu{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:4px 0;border-bottom:1px dashed var(--line)}
+  .medu .mn{color:#39424f}.medu .mn b{color:var(--ink)}
+  .medu .my{color:var(--muted);font-size:9.4px;white-space:nowrap}
+  .mlang{display:flex;gap:28px;color:#39424f;padding:5px 0}.mlang b{color:var(--ink)}
   @media print{
     html,body{background:#fff}
     .page{margin:0;box-shadow:none;width:auto;min-height:auto}
@@ -105,13 +111,6 @@
     <div class="skillgroup"><div class="t">Web &amp; DevOps</div>
       <div class="chips"><span class="chip">WordPress</span><span class="chip">cPanel/WHM</span><span class="chip">DNS &amp; domains</span><span class="chip">SEO</span><span class="chip">NocoDB</span><span class="chip">Git</span></div></div>
 
-    <h2>Education</h2>
-    <div class="edu"><div class="d">Fullstack Developer</div><div class="s">GoIT</div><div class="y">2023 – 2024</div></div>
-    <div class="edu"><div class="d">BA, Philosophy</div><div class="s">Kyiv-Mohyla Academy</div><div class="y">2021 – 2025</div></div>
-
-    <h2>Languages</h2>
-    <div class="lang"><b>Ukrainian</b><span>Native</span></div>
-    <div class="lang"><b>English</b><span>Professional</span></div>
   </aside>
 
   <!-- MAIN -->
@@ -152,19 +151,26 @@
     </div>
 
     <h2 class="sec">Selected Projects</h2>
-    <p style="color:var(--muted);font-size:9.3px;margin:-3px 0 9px">🔒 The Best Driver Kyiv platforms are private, paywalled company products — full screenshots &amp; write-ups on <b style="color:var(--accent)">vadym-star.github.io</b></p>
+    <p style="color:var(--muted);font-size:9.3px;margin:-3px 0 9px">🔒 The Best Driver Kyiv platforms are private, paywalled company products — full screenshots &amp; write-ups on <a href="https://vadym-star.github.io" style="color:var(--accent);font-weight:600;text-decoration:none">vadym-star.github.io</a></p>
     <div class="proj">
-      <div><span class="pn">Narval</span><span class="tag">iOS · Android · Web</span><div class="pd">Scheduling &amp; client-management SaaS — native iOS &amp; Android apps plus a full web platform.</div></div>
-      <div class="pl">narval.cloud</div>
+      <div><div class="prow"><span class="pn">Narval</span><span class="tag">iOS · Android · Web</span></div><div class="pd">Scheduling &amp; client-management SaaS — native iOS &amp; Android apps plus a full web platform.</div></div>
+      <a class="pl" href="https://narval.cloud">narval.cloud&nbsp;↗</a>
     </div>
     <div class="proj">
-      <div><span class="pn">ADR / Code 95 Exam Platform</span><span class="tag">React · Python</span><div class="pd">Online driver-certification testing system with exam &amp; practice modes.</div></div>
-      <div class="pl" style="color:var(--muted)">Private · portfolio ↗</div>
+      <div><div class="prow"><span class="pn">ADR / Code 95 Exam Platform</span><span class="tag">React · Python</span></div><div class="pd">Online driver-certification testing system with exam &amp; practice modes.</div></div>
+      <a class="pl" href="https://vadym-star.github.io" style="color:var(--muted)">Private&nbsp;·&nbsp;portfolio&nbsp;↗</a>
     </div>
     <div class="proj">
-      <div><span class="pn">Судноводії — Boat-Operator Exam</span><span class="tag">React · Python</span><div class="pd">Examination platform for boat/skipper licensing.</div></div>
-      <div class="pl" style="color:var(--muted)">Private · portfolio ↗</div>
+      <div><div class="prow"><span class="pn">Судноводії — Boat-Operator Exam</span><span class="tag">React · Python</span></div><div class="pd">Examination platform for boat/skipper licensing.</div></div>
+      <a class="pl" href="https://vadym-star.github.io" style="color:var(--muted)">Private&nbsp;·&nbsp;portfolio&nbsp;↗</a>
     </div>
+
+    <h2 class="sec">Education</h2>
+    <div class="medu"><span class="mn">Fullstack Developer — <b>GoIT</b></span><span class="my">2023 – 2024</span></div>
+    <div class="medu"><span class="mn">Bachelor of Philosophy — <b>National University of Kyiv-Mohyla Academy</b></span><span class="my">2021 – 2025</span></div>
+
+    <h2 class="sec">Languages</h2>
+    <div class="mlang"><span><b>Ukrainian</b> · Native</span><span><b>English</b> · Professional</span></div>
   </main>
 </div>
 </body>
