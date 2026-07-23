@@ -72,6 +72,27 @@
   .plinks{display:flex;gap:16px;font-size:14px;font-weight:600}
   .plinks a{color:var(--accent)}.plinks a:hover{text-decoration:underline}
   .plinks a.dim{color:var(--muted)}
+  .project .shot img{cursor:zoom-in;transition:opacity .15s}
+  .project .shot img:hover{opacity:.9}
+  /* gallery images kept in DOM for the lightbox, strip hidden to keep cards compact */
+  .gallery{display:none}
+  .shot-badge{position:absolute;bottom:12px;right:12px;background:rgba(6,9,14,.72);color:#fff;
+    font-size:12px;font-weight:600;padding:5px 11px;border-radius:20px;display:inline-flex;align-items:center;
+    gap:5px;pointer-events:none;backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.14)}
+  /* lightbox */
+  .lb{position:fixed;inset:0;background:rgba(6,9,14,.94);z-index:100;display:none;
+    align-items:center;justify-content:center;padding:40px}
+  .lb.open{display:flex}
+  .lb img{max-width:94vw;max-height:88vh;object-fit:contain;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+  .lb button{position:absolute;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
+    color:#fff;width:46px;height:46px;border-radius:50%;font-size:22px;cursor:pointer;display:flex;
+    align-items:center;justify-content:center;transition:background .15s}
+  .lb button:hover{background:rgba(255,255,255,.22)}
+  .lb .lb-close{top:22px;right:26px}
+  .lb .lb-prev{left:22px;top:50%;transform:translateY(-50%)}
+  .lb .lb-next{right:22px;top:50%;transform:translateY(-50%)}
+  .lb .lb-count{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);
+    color:#cfd8e6;font-size:13px;letter-spacing:.4px}
   /* about */
   .about{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:34px;
     display:grid;grid-template-columns:1.4fr 1fr;gap:34px}
@@ -131,7 +152,7 @@
 
   <!-- Narval -->
   <article class="project">
-    <div class="shot"><div class="placeholder" data-shot="narval">Narval — screenshot coming</div></div>
+    <div class="shot"><img src="assets/shots/narval1.png" alt="Narval — landing page" data-gallery="narval" loading="lazy"><div class="shot-badge">🔍 7 screenshots</div></div>
     <div class="body">
       <div class="kicker">Co-Founder &amp; Developer · Launched 2026</div>
       <h3>Narval</h3>
@@ -142,12 +163,20 @@
         shipping native iOS and Android apps plus a full web platform.</p>
       <div class="stack"><span>Next.js</span><span>NestJS</span><span>TypeScript</span><span>PostgreSQL</span><span>Redis</span><span>Socket.IO</span><span>iOS · SwiftUI</span><span>Android · Kotlin</span><span>AI-assisted (Claude)</span></div>
       <div class="plinks"><a href="https://narval.cloud" target="_blank">Visit narval.cloud →</a></div>
+      <div class="gallery">
+        <img src="assets/shots/narval2.png" alt="Narval — calendar" data-gallery="narval" loading="lazy">
+        <img src="assets/shots/narval3.png" alt="Narval — new appointment" data-gallery="narval" loading="lazy">
+        <img src="assets/shots/narval5.png" alt="Narval — revenue" data-gallery="narval" loading="lazy">
+        <img src="assets/shots/narval6.png" alt="Narval — overview" data-gallery="narval" loading="lazy">
+        <img src="assets/shots/narval8.png" alt="Narval — working hours" data-gallery="narval" loading="lazy">
+        <img src="assets/shots/narval13.png" alt="Narval — pricing" data-gallery="narval" loading="lazy">
+      </div>
     </div>
   </article>
 
   <!-- ADR / Code 95 -->
   <article class="project rev">
-    <div class="shot"><div class="placeholder" data-shot="adrtest">ADR / Code 95 platform — screenshot coming</div></div>
+    <div class="shot"><img src="assets/shots/adr1.png" alt="ADR / Code 95 — login" data-gallery="adr" loading="lazy"><div class="shot-badge">🔍 6 screenshots</div></div>
     <div class="body">
       <div class="kicker">Best Driver Kyiv · Examination Platform</div>
       <h3>ADR / Code 95 Exam Platform</h3>
@@ -156,12 +185,19 @@
         real training business. Developed on a React front end with a Python back end.</p>
       <div class="stack"><span>React</span><span>JavaScript</span><span>Python</span><span>REST API</span></div>
       <div class="plinks"><span style="color:var(--muted);font-weight:600">🔒 Private, paywalled company platform</span></div>
+      <div class="gallery">
+        <img src="assets/shots/adr2.png" alt="ADR — courses" data-gallery="adr" loading="lazy">
+        <img src="assets/shots/adr3.png" alt="ADR — ticket selection" data-gallery="adr" loading="lazy">
+        <img src="assets/shots/adr4.png" alt="ADR — exam question" data-gallery="adr" loading="lazy">
+        <img src="assets/shots/adr5.png" alt="ADR — admin panel" data-gallery="adr" loading="lazy">
+        <img src="assets/shots/adr7.png" alt="ADR — course management" data-gallery="adr" loading="lazy">
+      </div>
     </div>
   </article>
 
   <!-- Katertest -->
   <article class="project">
-    <div class="shot"><div class="placeholder" data-shot="katertest">Судноводії platform — screenshot coming</div></div>
+    <div class="shot"><img src="assets/shots/kater1.png" alt="Судноводії — login" data-gallery="kater" loading="lazy"><div class="shot-badge">🔍 6 screenshots</div></div>
     <div class="body">
       <div class="kicker">Best Driver Kyiv · Examination Platform</div>
       <h3>Судноводії — Boat-Operator Exam</h3>
@@ -170,6 +206,13 @@
         candidates preparing for their certification.</p>
       <div class="stack"><span>React</span><span>JavaScript</span><span>Python</span><span>REST API</span></div>
       <div class="plinks"><span style="color:var(--muted);font-weight:600">🔒 Private, paywalled company platform</span></div>
+      <div class="gallery">
+        <img src="assets/shots/kater2.png" alt="Судноводії — courses" data-gallery="kater" loading="lazy">
+        <img src="assets/shots/kater3.png" alt="Судноводії — ticket selection" data-gallery="kater" loading="lazy">
+        <img src="assets/shots/kater4.png" alt="Судноводії — exam question" data-gallery="kater" loading="lazy">
+        <img src="assets/shots/kater5.png" alt="Судноводії — admin panel" data-gallery="kater" loading="lazy">
+        <img src="assets/shots/kater7.png" alt="Судноводії — DOCX course import" data-gallery="kater" loading="lazy">
+      </div>
     </div>
   </article>
 </div></section>
@@ -210,5 +253,43 @@
   </div>
   <div class="cr">© 2026 Vadym Starynets</div>
 </div></footer>
+
+<div class="lb" id="lb" aria-hidden="true">
+  <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+  <button class="lb-prev" id="lbPrev" aria-label="Previous">&#8249;</button>
+  <img id="lbImg" src="" alt="">
+  <button class="lb-next" id="lbNext" aria-label="Next">&#8250;</button>
+  <div class="lb-count" id="lbCount"></div>
+</div>
+
+<script>
+(function(){
+  var lb=document.getElementById('lb'), lbImg=document.getElementById('lbImg'),
+      lbCount=document.getElementById('lbCount');
+  var group=[], idx=0;
+  function show(){ var im=group[idx]; lbImg.src=im.src; lbImg.alt=im.alt;
+    lbCount.textContent=(idx+1)+' / '+group.length; }
+  function open(name, el){
+    group=[].slice.call(document.querySelectorAll('img[data-gallery="'+name+'"]'));
+    idx=group.indexOf(el); if(idx<0) idx=0;
+    show(); lb.classList.add('open'); lb.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+  }
+  function close(){ lb.classList.remove('open'); lb.setAttribute('aria-hidden','true');
+    document.body.style.overflow=''; }
+  function step(d){ idx=(idx+d+group.length)%group.length; show(); }
+  document.querySelectorAll('img[data-gallery]').forEach(function(im){
+    im.addEventListener('click',function(){ open(im.getAttribute('data-gallery'), im); });
+  });
+  document.getElementById('lbClose').addEventListener('click',close);
+  document.getElementById('lbPrev').addEventListener('click',function(e){e.stopPropagation();step(-1);});
+  document.getElementById('lbNext').addEventListener('click',function(e){e.stopPropagation();step(1);});
+  lb.addEventListener('click',function(e){ if(e.target===lb||e.target===lbImg) close(); });
+  document.addEventListener('keydown',function(e){
+    if(!lb.classList.contains('open')) return;
+    if(e.key==='Escape') close(); else if(e.key==='ArrowRight') step(1); else if(e.key==='ArrowLeft') step(-1);
+  });
+})();
+</script>
 </body>
 </html>
