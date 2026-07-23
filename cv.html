@@ -18,7 +18,13 @@
     display:grid;grid-template-columns:64mm 1fr;box-shadow:0 6px 30px rgba(0,0,0,.25)}
   /* ---------- Sidebar ---------- */
   .side{background:var(--side);color:var(--side-ink);padding:20px 16px}
-  .side .name{font-size:21px;font-weight:700;line-height:1.15;letter-spacing:.2px}
+  .avatar{width:104px;height:104px;border-radius:50%;margin:0 auto 14px;display:flex;
+    align-items:center;justify-content:center;object-fit:cover;overflow:hidden;
+    border:3px solid #3a486492;background:linear-gradient(135deg,#2b3856,#1b2333);
+    color:#8fb0ff;font-weight:800;font-size:32px;letter-spacing:1px}
+  .avatar img{width:100%;height:100%;object-fit:cover}
+  .side .name{font-size:21px;font-weight:700;line-height:1.15;letter-spacing:.2px;text-align:center}
+  .side .role{text-align:center}
   .side .role{color:var(--accent);font-weight:600;margin-top:4px;font-size:11px;
     color:#8fb0ff}
   .side h2{font-size:10px;text-transform:uppercase;letter-spacing:1.4px;
@@ -73,14 +79,15 @@
 <div class="page">
   <!-- SIDEBAR -->
   <aside class="side">
-    <div class="name">Vadym<br>Starynets</div>
+    <div class="avatar"><!--PHOTO-->VS</div>
+    <div class="name">Vadym Starynets</div>
     <div class="role">Fullstack Developer</div>
 
     <h2>Contact</h2>
     <ul class="contact">
       <li><span class="k">✉</span><a href="mailto:work.starynets@gmail.com">work.starynets@gmail.com</a></li>
       <li><span class="k">☎</span>+380 93 769 8333</li>
-      <li><span class="k">◍</span>Nesebar, Bulgaria · open to remote / EU</li>
+      <li><span class="k">◍</span>Burgas, Bulgaria · open to remote / EU</li>
       <li><span class="k">⌥</span><a href="https://vadym-star.github.io">vadym-star.github.io</a></li>
       <li><span class="k">in</span><a href="https://linkedin.com/in/vadymstarynets">linkedin.com/in/vadymstarynets</a></li>
       <li><span class="k">gh</span><a href="https://github.com/vadym-star">github.com/vadym-star</a></li>
@@ -94,7 +101,7 @@
     <div class="skillgroup"><div class="t">Backend</div>
       <div class="chips"><span class="chip">Node.js</span><span class="chip">NestJS</span><span class="chip">REST APIs</span><span class="chip">PostgreSQL</span><span class="chip">Redis</span><span class="chip">Socket.IO</span></div></div>
     <div class="skillgroup"><div class="t">AI &amp; Automation</div>
-      <div class="chips"><span class="chip">AI-assisted dev (Claude)</span><span class="chip">Prompt engineering</span><span class="chip">GPT-4o-mini</span><span class="chip">n8n</span><span class="chip">Web scraping</span><span class="chip">Telegram Bot API</span></div></div>
+      <div class="chips"><span class="chip">AI-assisted dev (Claude)</span><span class="chip">Prompt engineering</span><span class="chip">Multiple LLMs</span><span class="chip">n8n</span><span class="chip">Web scraping</span><span class="chip">Telegram Bot API</span></div></div>
     <div class="skillgroup"><div class="t">Web &amp; DevOps</div>
       <div class="chips"><span class="chip">WordPress</span><span class="chip">cPanel/WHM</span><span class="chip">DNS &amp; domains</span><span class="chip">SEO</span><span class="chip">NocoDB</span><span class="chip">Git</span></div></div>
 
@@ -110,9 +117,9 @@
   <!-- MAIN -->
   <main class="main">
     <p class="summary"><b>Fullstack developer who ships real, production products with AI as a core tool.</b>
-      Co-founder of a launched scheduling SaaS spanning web, iOS and Android; at Best Driver Kyiv I build
-      AI-driven automations, online examination platforms and full web infrastructure end to end — from
-      idea and workflow design through to deployment and support.</p>
+      Co-founder of a launched scheduling SaaS available as <b>native iOS &amp; Android apps and a full web
+      platform</b>; at Best Driver Kyiv I build AI-driven automations, online examination platforms and full
+      web infrastructure end to end — from idea and workflow design through to deployment and support.</p>
 
     <h2 class="sec">Experience</h2>
 
@@ -136,7 +143,7 @@
       </div>
       <div class="place">Remote · driver-certification training (Code 95, ADR, TACHO)</div>
       <ul class="b">
-        <li>Built <b>AI-driven competitor price-monitoring</b> automations with <b>n8n</b>, web scraping and <b>GPT-4o-mini</b> (to parse scraped data resiliently), plus <b>Telegram Bot API</b> integrations to reach phone-gated pricing; delivered structured competitor datasets.</li>
+        <li>Built <b>AI-driven competitor price-monitoring</b> automations with <b>n8n</b>, web scraping and <b>LLMs</b> (to parse scraped data resiliently), plus <b>Telegram Bot API</b> integrations to reach phone-gated pricing; delivered structured competitor datasets.</li>
         <li>Developed and deployed <b>online driver-examination platforms</b> (Code 95 / ADR and boat-operator) on a <b>React + Python</b> stack, serving multiple business entities — live at <b>adrtest.com.ua</b> and <b>katertest.com.ua</b>.</li>
         <li>Ran <b>B2B lead-generation &amp; email outreach</b>: sourced transport/logistics firms via YouControl &amp; Opendatabot (KVED filtering), executed ProtonMail campaigns and handled inbound replies.</li>
         <li>Managed <b>web infrastructure end to end</b>: server migrations via cPanel/WHM, domain &amp; DNS management (Hostiq), WordPress builds, SEO, and email/hosting troubleshooting.</li>
@@ -145,17 +152,18 @@
     </div>
 
     <h2 class="sec">Selected Projects</h2>
+    <p style="color:var(--muted);font-size:9.3px;margin:-3px 0 9px">🔒 The Best Driver Kyiv platforms are private, paywalled company products — full screenshots &amp; write-ups on <b style="color:var(--accent)">vadym-star.github.io</b></p>
     <div class="proj">
-      <div><span class="pn">Narval</span><span class="tag">Next.js · NestJS · iOS · Android</span><div class="pd">Scheduling &amp; client-management SaaS for service businesses.</div></div>
+      <div><span class="pn">Narval</span><span class="tag">iOS · Android · Web</span><div class="pd">Scheduling &amp; client-management SaaS — native iOS &amp; Android apps plus a full web platform.</div></div>
       <div class="pl">narval.cloud</div>
     </div>
     <div class="proj">
       <div><span class="pn">ADR / Code 95 Exam Platform</span><span class="tag">React · Python</span><div class="pd">Online driver-certification testing system with exam &amp; practice modes.</div></div>
-      <div class="pl">adrtest.com.ua</div>
+      <div class="pl" style="color:var(--muted)">Private · portfolio ↗</div>
     </div>
     <div class="proj">
       <div><span class="pn">Судноводії — Boat-Operator Exam</span><span class="tag">React · Python</span><div class="pd">Examination platform for boat/skipper licensing.</div></div>
-      <div class="pl">katertest.com.ua</div>
+      <div class="pl" style="color:var(--muted)">Private · portfolio ↗</div>
     </div>
   </main>
 </div>
