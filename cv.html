@@ -75,14 +75,29 @@
   .medu .mn{color:#39424f}.medu .mn b{color:var(--ink)}
   .medu .my{color:var(--muted);font-size:9.4px;white-space:nowrap}
   .mlang{display:flex;gap:28px;color:#39424f;padding:11px 0}.mlang b{color:var(--ink)}
+  /* ---------- Floating actions (screen only) ---------- */
+  .cv-actions{position:fixed;top:16px;right:16px;display:flex;gap:8px;z-index:50;
+    font-family:"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif}
+  .cv-actions a{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;
+    text-decoration:none;padding:9px 14px;border-radius:9px;box-shadow:0 3px 12px rgba(20,30,50,.22)}
+  .cv-actions .back{background:#fff;color:#1f2733;border:1px solid #d7dde6}
+  .cv-actions .back:hover{background:#f1f4f9}
+  .cv-actions .dl{background:var(--accent);color:#fff;border:1px solid var(--accent)}
+  .cv-actions .dl:hover{background:#2148a8}
+  @media(max-width:820px){.cv-actions{top:8px;right:8px}.cv-actions a{padding:8px 11px;font-size:11.5px}}
   @media print{
     html,body{background:linear-gradient(to right,var(--side) 0,var(--side) 64mm,#fff 64mm,#fff 100%)}
     .page{box-shadow:none;margin:0}
+    .cv-actions{display:none}
     @page{size:A4;margin:0}
   }
 </style>
 </head>
 <body>
+<div class="cv-actions">
+  <a class="back" href="./index.html">←&nbsp; Back to portfolio</a>
+  <a class="dl" href="Vadym_Starynets_CV.pdf" download="Vadym_Starynets_CV.pdf">⬇&nbsp; Download PDF</a>
+</div>
 <div class="page">
   <!-- SIDEBAR -->
   <aside class="side">
