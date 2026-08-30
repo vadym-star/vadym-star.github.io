@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>MacroLingo — Design Concepts</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Poppins:wght@400;500;600;700&display=swap">
+<style>
+  :root{
+    --paper:#ffffff;--surface:#f6faf4;--ink:#0f172a;--body:#3f4a5a;--body-2:#6b7686;
+    --line:#e7ede6;--line-2:#dbe4d8;
+    --green:#54b435;--green-dark:#458f2c;--green-tint:#eef7e9;--green-tint-2:#e3f1da;--green-ink:#2f6a1c;
+    --blue:#2f6fd6;--blue-dark:#2559b4;--blue-tint:#eaf2fe;--blue-tint-2:#d4e4fb;--blue-ink:#1f4fa6;
+    --shadow-sm:0 1px 2px rgba(15,23,42,.04),0 4px 14px rgba(15,23,42,.05);
+    --shadow:0 2px 6px rgba(15,23,42,.05),0 16px 40px rgba(15,23,42,.08);
+    --serif:'Merriweather',Georgia,serif;--sans:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{margin:0}
+  body{margin:0;min-height:100vh;background:
+      radial-gradient(46% 50% at 12% 0%, rgba(84,180,53,.08), transparent 60%),
+      radial-gradient(44% 50% at 90% 8%, rgba(47,111,214,.09), transparent 62%),
+      var(--paper);
+    color:var(--body);font-family:var(--sans);font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased}
+  a{text-decoration:none;color:inherit;cursor:pointer}
+  h1,h2,h3{font-family:var(--serif);color:var(--ink);margin:0;line-height:1.15;text-wrap:balance}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+  .grad{background:linear-gradient(105deg,var(--green-dark) 12%,var(--blue) 90%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+
+  header{padding:30px 0}
+  .brand{display:flex;align-items:center;gap:11px;font-family:var(--serif);font-weight:900;font-size:23px;color:var(--ink);letter-spacing:-.01em}
+  .brand .mark{width:30px;height:30px;flex:0 0 auto}
+  .brand b{color:var(--green);font-weight:900}
+
+  .hero{text-align:center;padding:30px 0 12px}
+  .eyebrow{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--green-dark)}
+  .hero h1{font-size:clamp(34px,5vw,52px);letter-spacing:-.02em;margin:16px auto 0;max-width:18ch}
+  .hero p{font-size:18px;color:var(--body);max-width:56ch;margin:20px auto 0}
+
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin:56px 0 40px}
+  @media(max-width:960px){.grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.grid{grid-template-columns:1fr}}
+
+  .card{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:22px;
+    padding:0;overflow:hidden;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;min-height:290px}
+  a.card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--green-tint-2)}
+  .card .tile{aspect-ratio:16/10;position:relative;display:grid;place-items:center;
+    background:radial-gradient(120% 100% at 78% 12%, #dcecd3, transparent 58%),linear-gradient(150deg,#eaf3e4,#dbe8fb)}
+  .card .tag{position:absolute;top:14px;right:14px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+    padding:6px 12px;border-radius:100px;background:#fff;box-shadow:var(--shadow-sm);color:var(--green-dark)}
+  .card .tag.soon{color:var(--body-2)}
+  .card .vnum{font-family:var(--serif);font-weight:900;font-size:54px;line-height:1;
+    background:linear-gradient(120deg,var(--green-dark) 8%,var(--blue) 92%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .card .body{padding:22px 24px 26px;display:flex;flex-direction:column;gap:6px;flex:1}
+  .card h3{font-size:19px}
+  .card .desc{font-size:14px;color:var(--body-2);line-height:1.55;flex:1}
+  .card .cta{margin-top:14px;display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14.5px;color:var(--green-dark)}
+  .card .cta svg{width:15px;height:15px}
+  .card.soon{opacity:.72}
+  .card.soon .tile{background:linear-gradient(150deg,#f1f4ef,#eef2f6)}
+  .card.soon .vnum{background:none;-webkit-text-fill-color:initial;color:#c2ccbe}
+  .card.soon .cta{color:var(--body-2)}
+
+  footer{text-align:center;padding:26px 0 46px;color:var(--body-2);font-size:13.5px;border-top:1px solid var(--line);margin-top:20px}
+  footer b{color:var(--ink);font-weight:600}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#eef7e9"/><path d="M9 21c0-7 4-11 14-13-1 8-6 12-14 13Z" fill="#54b435"/><path d="M9 21c1.5-5 5-8.5 11-10" stroke="#2f6a1c" stroke-width="1.4" stroke-linecap="round"/></svg>
+      <span>Macro<b>Lingo</b></span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow">Website redesign · concept options</span>
+      <h1>Choose a <span class="grad">design concept</span></h1>
+      <p>Each option is a full, clickable homepage mockup in English and Japanese. Open one to explore it, then we can discuss and refine.</p>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="grid">
+
+      <a class="card" href="a2/index.html">
+        <div class="tile"><span class="tag">Ready</span><span class="vnum">A2</span></div>
+        <div class="body">
+          <h3>Concept A-2</h3>
+          <p class="desc">Green-led, with light blue from the logo woven in. 6 pages (Home / About / Our Work) in EN + JP.</p>
+          <span class="cta">Open concept
+            <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </a>
+
+      <a class="card soon" href="a3/index.html">
+        <div class="tile"><span class="tag soon">Coming soon</span><span class="vnum">A3</span></div>
+        <div class="body">
+          <h3>Concept A-3</h3>
+          <p class="desc">A different direction — in progress.</p>
+          <span class="cta">Preview
+            <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </a>
+
+      <a class="card soon" href="a4/index.html">
+        <div class="tile"><span class="tag soon">Coming soon</span><span class="vnum">A4</span></div>
+        <div class="body">
+          <h3>Concept A-4</h3>
+          <p class="desc">A different direction — in progress.</p>
+          <span class="cta">Preview
+            <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </a>
+
+      <a class="card soon" href="a5/index.html">
+        <div class="tile"><span class="tag soon">Coming soon</span><span class="vnum">A5</span></div>
+        <div class="body">
+          <h3>Concept A-5</h3>
+          <p class="desc">A different direction — in progress.</p>
+          <span class="cta">Preview
+            <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Design concepts for the <b>MacroLingo</b> website refresh.</div>
+</footer>
+</body>
+</html>
