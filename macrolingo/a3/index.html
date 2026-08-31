@@ -1,36 +1,530 @@
-<!doctype html>
-<html lang="en">
-<head>
 <meta charset="utf-8">
-<title>Concept A3 — Coming soon | MacroLingo</title>
+<title>MacroLingo Refresh A-3</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Poppins:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap">
 <style>
-  :root{--ink:#0f172a;--body:#3f4a5a;--body-2:#6b7686;--green:#54b435;--green-dark:#458f2c;--blue:#2f6fd6;
-    --serif:'Merriweather',Georgia,serif;--sans:'Poppins',system-ui,sans-serif}
+  :root{
+    --paper:#ffffff;
+    --surface:#f5f8f3;
+    --surface-2:#eef4ea;
+    --ink:#0d1526;
+    --body:#414a59;
+    --body-2:#727c8c;
+    --line:#e6ebe3;
+    --line-2:#d7e0d3;
+    --green:#54b435;--green-dark:#458f2c;--green-tint:#eef7e9;--green-tint-2:#e3f1da;--green-ink:#2f6a1c;
+    --navy:#0f1f3d;--navy-2:#16294c;--blue:#2f6fd6;--blue-dark:#2559b4;--blue-tint:#eaf2fe;--blue-tint-2:#d4e4fb;--blue-ink:#1f4fa6;
+    --hi:rgba(84,180,53,.32);
+    --shadow-sm:0 1px 2px rgba(13,21,38,.04), 0 4px 14px rgba(13,21,38,.05);
+    --shadow:0 2px 6px rgba(13,21,38,.05), 0 18px 44px rgba(13,21,38,.09);
+    --disp:'Space Grotesk', system-ui, -apple-system, Segoe UI, sans-serif;
+    --sans:'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    --container:1180px;
+  }
   *{box-sizing:border-box}
-  body{margin:0;min-height:100vh;display:grid;place-items:center;text-align:center;font-family:var(--sans);color:var(--body);
-    background:radial-gradient(46% 50% at 15% 5%,rgba(84,180,53,.08),transparent 60%),radial-gradient(44% 50% at 88% 10%,rgba(47,111,214,.09),transparent 62%),#fff}
-  .box{padding:40px 28px;max-width:560px}
-  .ver{font-family:var(--serif);font-weight:900;font-size:clamp(60px,12vw,110px);line-height:1;
-    background:linear-gradient(120deg,var(--green-dark) 8%,var(--blue) 92%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-  h1{font-family:var(--serif);color:var(--ink);font-size:clamp(24px,4vw,34px);margin:18px 0 0}
-  p{font-size:17px;margin:16px 0 0;color:var(--body)}
-  a{display:inline-flex;align-items:center;gap:8px;margin-top:30px;font-weight:600;font-size:15px;color:#fff;
-    background:var(--green);padding:13px 24px;border-radius:13px;text-decoration:none;box-shadow:0 6px 18px rgba(84,180,53,.28);cursor:pointer;transition:transform .18s,background .18s}
-  a:hover{background:var(--green-dark);transform:translateY(-2px)}
-  a svg{width:15px;height:15px;transform:scaleX(-1)}
+  html{scroll-behavior:smooth;margin:0;padding:0}
+  body{margin:0;padding:0;background:var(--paper);color:var(--body);font-family:var(--sans);font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  h1,h2,h3,h4{font-family:var(--disp);color:var(--ink);font-weight:600;line-height:1.08;margin:0;letter-spacing:-.02em;text-wrap:balance}
+  p{margin:0}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:rgba(84,180,53,.28);color:var(--ink)}
+  a,button,.btn,.tlink,.srow,.post,.quote,.logo-row .lg,summary{cursor:pointer}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--container);margin:0 auto;padding:0 30px}
+  header .wrap{max-width:1340px}
+  .kick{display:inline-flex;align-items:center;gap:10px;font-family:var(--disp);font-size:12.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+  .kick .n{color:var(--green-dark)}
+  .hl{background:linear-gradient(transparent 58%, var(--hi) 58% 92%, transparent 92%);padding:0 .05em}
+  :focus-visible{outline:2.5px solid var(--green);outline-offset:3px;border-radius:6px}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--disp);font-weight:600;font-size:14.5px;letter-spacing:.01em;padding:14px 26px;border-radius:10px;border:1.5px solid transparent;transition:transform .18s ease,background .18s ease,box-shadow .18s ease,color .18s ease,border-color .18s ease;white-space:nowrap}
+  .btn-primary{background:var(--green);color:#fff;box-shadow:0 8px 20px rgba(84,180,53,.30)}
+  .btn-primary:hover{background:var(--green-dark);transform:translateY(-2px);box-shadow:0 12px 26px rgba(84,180,53,.34)}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line-2)}
+  .btn-ghost:hover{border-color:var(--green);color:var(--green-dark);transform:translateY(-2px)}
+  .btn-light{background:#fff;color:var(--ink)}
+  .btn-light:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+  .btn-outline-l{background:transparent;color:#fff;border-color:rgba(255,255,255,.32)}
+  .btn-outline-l:hover{border-color:#fff;transform:translateY(-2px)}
+  .tlink{display:inline-flex;align-items:center;gap:7px;font-family:var(--disp);font-weight:600;font-size:14px;color:var(--green-dark);transition:gap .18s ease}
+  .tlink:hover{gap:12px}
+  .tlink.blue{color:var(--blue-dark)}
+  .tlink svg{width:15px;height:15px}
+
+  /* header */
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:saturate(1.1) blur(10px);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s}
+  header.scrolled{border-bottom-color:var(--line);box-shadow:0 1px 0 rgba(13,21,38,.02)}
+  .nav{display:flex;align-items:center;gap:30px;height:76px}
+  .brand{display:flex;align-items:center;gap:11px;font-family:var(--disp);font-weight:700;font-size:21px;color:var(--ink);letter-spacing:-.02em}
+  .brand .mark{width:30px;height:30px;flex:0 0 auto}
+  .brand b{color:var(--green);font-weight:700}
+  .nav-links{display:flex;align-items:center;gap:27px;margin-left:12px}
+  .nav-links a{font-size:15px;font-weight:500;color:var(--body);transition:color .16s}
+  .nav-links a:hover,.nav-links a.active{color:var(--ink)}
+  .nav-right{margin-left:auto;display:flex;align-items:center;gap:20px}
+  .lang{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;color:var(--body-2)}
+  .lang b{color:var(--ink)}
+  .lang i{width:1px;height:13px;background:var(--line-2)}
+  .lang a:hover{color:var(--green-dark)}
+
+  /* hero (dark) */
+  .hero{position:relative;background:
+      radial-gradient(46% 60% at 88% 0%, rgba(47,111,214,.20), transparent 60%),
+      radial-gradient(40% 55% at 6% 100%, rgba(84,180,53,.16), transparent 60%),
+      var(--navy);color:#e9edf5;overflow:hidden}
+  .hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(70% 70% at 50% 40%,#000,transparent);mask-image:radial-gradient(70% 70% at 50% 40%,#000,transparent);opacity:.5}
+  .hero .wrap{position:relative;display:grid;grid-template-columns:1.35fr .95fr;gap:56px;align-items:center;padding-top:74px;padding-bottom:80px}
+  .hero .kick{color:#8fd67a}
+  .hero .kick .n{color:#9fc0f2}
+  .hero h1{color:#fff;font-size:clamp(38px,5.1vw,62px);font-weight:600;margin:20px 0 0;letter-spacing:-.03em;max-width:15ch}
+  .hero h1 .mark{background:linear-gradient(transparent 58%, rgba(84,180,53,.55) 58% 92%, transparent 92%);padding:0 .05em}
+  .hero .sub{margin-top:22px;font-size:18.5px;line-height:1.65;color:#c4cddd;max-width:52ch}
+  .hero .cta{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
+  /* hero side panel */
+  .hpanel{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:26px 26px 22px;backdrop-filter:blur(4px)}
+  .hpanel .lbl{font-family:var(--disp);font-size:11.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#9fb0cc}
+  .hpanel .stat{display:flex;align-items:baseline;gap:12px;margin-top:10px}
+  .hpanel .stat b{font-family:var(--disp);font-size:52px;font-weight:600;color:#fff;line-height:1;letter-spacing:-.02em}
+  .hpanel .stat span{font-size:14px;color:#c4cddd;line-height:1.35}
+  .hpanel .rule{height:1px;background:rgba(255,255,255,.12);margin:20px 0}
+  .hpanel .clients{display:flex;flex-wrap:wrap;gap:8px}
+  .hpanel .clients .c{font-family:var(--disp);font-size:13px;font-weight:500;color:#dbe3f0;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:99px;padding:6px 13px}
+
+  /* generic section */
+  .sec{padding:88px 0}
+  .sec.tight{padding:66px 0}
+  .band-tint{background:var(--surface)}
+  .band-green{background:var(--green-tint)}
+  .band-blue{background:var(--blue-tint)}
+  .sechead{max-width:64ch}
+  .sechead h2{font-size:clamp(28px,3.4vw,40px);margin-top:14px}
+  .sechead .lead{margin-top:16px;font-size:18px;color:var(--body);max-width:58ch}
+
+  /* clients strip */
+  .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .strip .wrap{display:flex;align-items:center;gap:34px;flex-wrap:wrap;justify-content:space-between;padding-top:26px;padding-bottom:26px}
+  .strip .lbl{font-family:var(--disp);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--body-2)}
+  .logo-row{display:flex;align-items:center;gap:30px;flex-wrap:wrap}
+  .logo-row .lg{font-family:var(--disp);font-weight:600;font-size:19px;color:#98a2b0;letter-spacing:-.01em;transition:color .18s}
+  .logo-row .lg:hover{color:var(--ink)}
+
+  /* numbered service rows */
+  .srows{margin-top:44px;border-top:1px solid var(--line-2)}
+  .srow{display:grid;grid-template-columns:96px 1.1fr 1.4fr auto;gap:28px;align-items:center;padding:30px 18px;border-bottom:1px solid var(--line-2);transition:background .2s,padding .2s;position:relative}
+  .srow:hover{background:var(--paper)}
+  .band-tint .srow:hover{background:#fff}
+  .srow .num{font-family:var(--disp);font-size:30px;font-weight:600;color:var(--green);letter-spacing:-.02em}
+  .srow h3{font-size:23px;font-weight:600}
+  .srow p{font-size:15.5px;color:var(--body);line-height:1.6}
+  .srow .go{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line-2);display:grid;place-items:center;color:var(--ink);transition:all .2s;justify-self:end}
+  .srow:hover .go{background:var(--green);border-color:var(--green);color:#fff;transform:rotate(-45deg)}
+  .srow .go svg{width:18px;height:18px}
+
+  /* NGO feature (blue-led) */
+  .ngo{background:linear-gradient(120deg,var(--navy) 0%,var(--navy-2) 100%);color:#e9edf5;border-radius:26px;overflow:hidden;position:relative}
+  .ngo:before{content:"";position:absolute;right:-60px;top:-60px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(47,111,214,.4),transparent 68%)}
+  .ngo .in{position:relative;display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:center;padding:56px 54px}
+  .ngo .kick{color:#9fc0f2}
+  .ngo h2{color:#fff;font-size:clamp(26px,3vw,36px);margin-top:14px}
+  .ngo .micro{font-family:var(--disp);font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#8fd67a;margin-top:2px}
+  .ngo p{margin-top:16px;color:#c4cddd;font-size:17px;max-width:46ch}
+  .ngo .cta{margin-top:28px;display:flex;gap:14px;flex-wrap:wrap}
+  .ngo .aside{border-left:1px solid rgba(255,255,255,.14);padding-left:40px}
+  .ngo .aside li{list-style:none;display:flex;gap:12px;align-items:flex-start;margin:0 0 16px;font-size:15px;color:#dbe3f0}
+  .ngo .aside ul{margin:0;padding:0}
+  .ngo .aside .tick{flex:0 0 auto;width:22px;height:22px;border-radius:50%;background:rgba(143,214,122,.18);display:grid;place-items:center;color:#8fd67a;margin-top:1px}
+  .ngo .aside .tick svg{width:13px;height:13px}
+
+  /* testimonials */
+  .quotes{display:grid;grid-template-columns:1.4fr 1fr;gap:26px;margin-top:44px}
+  .quote{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:34px;display:flex;flex-direction:column;box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s}
+  .quote:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+  .quote.feat{grid-row:span 2;background:var(--navy);border-color:transparent;color:#e9edf5}
+  .quote .mk{font-family:var(--disp);font-size:52px;line-height:.6;color:var(--green);height:26px}
+  .quote.feat .mk{color:#8fd67a}
+  .quote blockquote{margin:16px 0 0;font-size:16px;line-height:1.62;color:var(--body)}
+  .quote.feat blockquote{color:#dbe3f0;font-size:17px}
+  .quote .who{margin-top:auto;padding-top:22px;display:flex;flex-direction:column;gap:2px}
+  .quote .who b{font-family:var(--disp);font-weight:600;color:var(--ink);font-size:15px}
+  .quote.feat .who b{color:#fff}
+  .quote .who span{font-size:13px;color:var(--body-2)}
+  .quote.feat .who span{color:#9fb0cc}
+
+  /* experts / founder */
+  .experts{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+  .experts .elist{margin:24px 0 0;padding:0}
+  .experts .elist li{list-style:none;display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-top:1px solid var(--line);font-family:var(--disp);font-size:17px;font-weight:500;color:var(--ink)}
+  .experts .elist li:first-child{border-top:none}
+  .experts .elist .tick{flex:0 0 auto;width:26px;height:26px;border-radius:8px;background:var(--green-tint-2);display:grid;place-items:center;color:var(--green-dark);margin-top:1px}
+  .experts .elist .tick svg{width:15px;height:15px}
+  .experts .bio{margin-top:20px;font-size:16px;color:var(--body)}
+  .exphoto{aspect-ratio:4/5;border-radius:22px;background:linear-gradient(150deg,var(--surface-2),var(--blue-tint));position:relative;overflow:hidden;box-shadow:var(--shadow)}
+  .exphoto .cap{position:absolute;left:20px;bottom:18px;font-size:12.5px;color:var(--body-2);background:rgba(255,255,255,.86);padding:6px 12px;border-radius:8px}
+
+  /* FAQ */
+  .faq{margin-top:40px;max-width:860px}
+  .faq details{border-bottom:1px solid var(--line-2)}
+  .faq summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 4px;font-family:var(--disp);font-size:18px;font-weight:500;color:var(--ink)}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary .pl{flex:0 0 auto;width:26px;height:26px;position:relative;transition:transform .25s}
+  .faq summary .pl:before,.faq summary .pl:after{content:"";position:absolute;background:var(--green);border-radius:2px}
+  .faq summary .pl:before{left:12px;top:4px;width:2px;height:18px}
+  .faq summary .pl:after{left:3px;top:12px;width:20px;height:2px}
+  .faq details[open] summary .pl{transform:rotate(45deg)}
+  .faq .ans{padding:0 4px 24px;font-size:15.5px;color:var(--body);max-width:76ch}
+  .faq .ans a{color:var(--green-dark);font-weight:600}
+
+  /* insights (asymmetric) */
+  .posts{display:grid;grid-template-columns:1.3fr 1fr;gap:30px;margin-top:44px}
+  .post{display:flex;flex-direction:column;transition:transform .2s}
+  .post:hover{transform:translateY(-4px)}
+  .post .thumb{aspect-ratio:16/9;border-radius:16px;background:linear-gradient(150deg,var(--green-tint-2),var(--blue-tint));position:relative;overflow:hidden}
+  .post.feat .thumb{aspect-ratio:16/10}
+  .post .cat{font-family:var(--disp);font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-top:18px}
+  .post h3{font-size:20px;font-weight:600;margin-top:8px;line-height:1.25}
+  .post.feat h3{font-size:27px}
+  .post p{margin-top:10px;font-size:15px;color:var(--body-2);line-height:1.55}
+  .plist{display:flex;flex-direction:column}
+  .pli{display:grid;grid-template-columns:auto 1fr;gap:18px;padding:18px 0;border-top:1px solid var(--line);transition:padding .2s}
+  .pli:first-child{border-top:none;padding-top:0}
+  .pli:hover{padding-left:6px}
+  .pli .idx{font-family:var(--disp);font-size:14px;font-weight:600;color:var(--green)}
+  .pli .cat{margin-top:0}
+  .pli h3{font-size:16.5px;margin-top:4px}
+
+  /* CTA band */
+  .ctaband{background:var(--green);border-radius:26px;color:#fff;text-align:center;padding:64px 40px;position:relative;overflow:hidden}
+  .ctaband:before{content:"";position:absolute;inset:0;background:radial-gradient(50% 120% at 50% 0%,rgba(255,255,255,.16),transparent 60%)}
+  .ctaband h2{position:relative;color:#fff;font-size:clamp(28px,3.4vw,42px)}
+  .ctaband p{position:relative;margin:16px auto 0;max-width:52ch;color:rgba(255,255,255,.92);font-size:17px}
+  .ctaband .cta{position:relative;margin-top:30px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+  /* footer */
+  footer{background:var(--navy);color:#c4cddd;padding:70px 0 34px;margin-top:0}
+  footer .cols{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px}
+  footer .brand{color:#fff}
+  footer .brand b{color:#8fd67a}
+  footer .tag{margin-top:16px;font-size:14.5px;color:#9fb0cc;max-width:34ch;line-height:1.6}
+  footer h4{font-family:var(--disp);font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#7f8ea8;margin-bottom:16px}
+  footer ul{list-style:none;margin:0;padding:0}
+  footer li{margin-bottom:11px}
+  footer li a{font-size:14.5px;color:#c4cddd;transition:color .16s}
+  footer li a:hover{color:#fff}
+  footer .foot-bottom{margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13.5px;color:#8fa }
+  footer .foot-bottom{color:#8f9cb4}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:960px){
+    .hero .wrap{grid-template-columns:1fr;gap:36px;padding-top:52px;padding-bottom:56px}
+    .hpanel{max-width:460px}
+    .ngo .in{grid-template-columns:1fr;gap:32px;padding:40px 30px}
+    .ngo .aside{border-left:none;border-top:1px solid rgba(255,255,255,.14);padding-left:0;padding-top:28px}
+    .quotes{grid-template-columns:1fr}
+    .quote.feat{grid-row:auto}
+    .experts{grid-template-columns:1fr;gap:34px}
+    .exphoto{max-width:420px}
+    .posts{grid-template-columns:1fr}
+    footer .cols{grid-template-columns:1fr 1fr;gap:32px}
+    .nav-links{display:none}
+  }
+  @media(max-width:640px){
+    .srow{grid-template-columns:56px 1fr;gap:14px 16px;padding:24px 6px}
+    .srow p{grid-column:1/-1}
+    .srow .go{grid-row:1;grid-column:2;justify-self:end}
+    .srow h3{grid-column:2}
+    footer .cols{grid-template-columns:1fr}
+  }
 </style>
-</head>
-<body>
-  <div class="box">
-    <div class="ver">A3</div>
-    <h1>This concept is in progress</h1>
-    <p>Concept A3 is being designed and will appear here soon.</p>
-    <a href="../index.html"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Back to concepts</a>
+<header id="hdr">
+  <div class="wrap">
+    <nav class="nav">
+      <a class="brand" href="#"><svg class="mark" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="#54b435"/><path d="M11 27c3-9 9-14 18-15-6 3-10 8-12 15-2 0-4 0-6 0z" fill="#fff"/><path d="M20 12c4 0 7 1 9 3" stroke="#2f6fd6" stroke-width="2.4" stroke-linecap="round"/></svg> Macro<b>Lingo</b></a>
+      <div class="nav-links">
+        <a href="#" class="active">Home</a>
+        <a href="#">About</a>
+        <a href="#">Our Work</a>
+        <a href="#services">Services</a>
+        <a href="#insights">Blog</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="nav-right">
+        <span class="lang"><b>EN</b><i></i>日本語</span>
+        <a class="btn btn-primary" href="#contact" style="padding:11px 22px">Get in touch</a>
+      </div>
+    </nav>
   </div>
-</body>
-</html>
+</header>
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy reveal">
+        <span class="kick"><span class="n">01</span> / Japan-based content agency</span>
+        <h1>Digital PR &amp; copywriting for global <span class="mark">science &amp; technology</span>, business, and NGOs</h1>
+        <p class="sub">Helping the world understand your business and technology. Japan-based MacroLingo writes globally impactful content, refines and presents your products and research, and makes you visible in AI search.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#contact">Get a free project estimate</a>
+          <a class="btn btn-outline-l" href="#">See our work</a>
+        </div>
+      </div>
+      <div class="hpanel reveal">
+        <span class="lbl">Trusted for over</span>
+        <div class="stat"><b>15+</b><span>years presenting<br>science to the world</span></div>
+        <div class="rule"></div>
+        <span class="lbl">Selected clients</span>
+        <div class="clients" style="margin-top:12px">
+          <span class="c">Sansan</span><span class="c">Morgenrot</span><span class="c">AP&#8209;PLAT</span><span class="c">CCPI</span><span class="c">Asahi Kasei</span><span class="c">Germanwatch</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENTS STRIP -->
+  <section class="strip">
+    <div class="wrap">
+      <span class="lbl">Trusted where the words really matter</span>
+      <div class="logo-row reveal">
+        <span class="lg">Sansan</span>
+        <span class="lg">Morgenrot</span>
+        <span class="lg">AP&#8209;PLAT</span>
+        <span class="lg">CCPI</span>
+        <span class="lg">Asahi&#8202;Kasei</span>
+        <span class="lg">Germanwatch</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES (numbered rows) -->
+  <section class="sec" id="services">
+    <div class="wrap">
+      <div class="sechead reveal">
+        <span class="kick"><span class="n">02</span> / Services</span>
+        <h2>For science, technology &amp; business</h2>
+        <p class="lead">Expert-driven content, editing, AI search, and PR, built for complex topics and global readers.</p>
+      </div>
+      <div class="srows reveal">
+        <a class="srow" href="#">
+          <span class="num">01</span>
+          <h3>Copywriting &amp; Content</h3>
+          <p>English copywriting for websites, case studies, blogs, sales, thought leadership, corporate communications.</p>
+          <span class="go"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a class="srow" href="#">
+          <span class="num">02</span>
+          <h3>Editing &amp; Proofreading</h3>
+          <p>Certified editing for your research, reports, policy briefs, websites, case studies, and marketing materials.</p>
+          <span class="go"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a class="srow" href="#">
+          <span class="num">03</span>
+          <h3>AI Search Optimization (AI-SEO)</h3>
+          <p>Content, entity, and site reform to increase visibility and citations across AI search and traditional search.</p>
+          <span class="go"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a class="srow" href="#">
+          <span class="num">04</span>
+          <h3>PR &amp; Media</h3>
+          <p>Break into Japan, Korea, ASEAN, and Europe with press release writing and media direction.</p>
+          <span class="go"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NGO FEATURE (blue-led, separated by white) -->
+  <section class="sec tight" id="ngo">
+    <div class="wrap">
+      <div class="ngo reveal">
+        <div class="in">
+          <div>
+            <span class="kick"><span class="n">03</span> / For NGOs, Research Organizations &amp; CSOs</span>
+            <p class="micro">NGO and nonprofit communications</p>
+            <h2>Turn research and project data into content people can use</h2>
+            <p>Case studies, websites, donor communications, editing, AI search, and localization for global audiences.</p>
+            <div class="cta">
+              <a class="btn btn-light" href="#">Explore NGO services</a>
+              <a class="btn btn-outline-l" href="#contact">Discuss a project</a>
+            </div>
+          </div>
+          <div class="aside">
+            <ul>
+              <li><span class="tick"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Case studies &amp; donor impact stories</li>
+              <li><span class="tick"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Websites &amp; annual reports</li>
+              <li><span class="tick"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Editing, AI search &amp; localization</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="sec band-tint" id="clients">
+    <div class="wrap">
+      <div class="sechead reveal">
+        <span class="kick"><span class="n">04</span> / Words from our clients</span>
+        <h2>Trusted where the words really matter</h2>
+      </div>
+      <div class="quotes">
+        <article class="quote feat reveal">
+          <div class="mk">&ldquo;</div>
+          <blockquote>Adam and MacroLingo have supported Sansan&rsquo;s global expansion for several years. Their work spans everything from defining the English used in our product UI to handling marketing and PR, all focused on delivering real value to customers. Adam and MacroLingo bring a professional, collaborative approach, building knowledge of the industry and working closely with our team to choose the right words for the right context.</blockquote>
+          <div class="who"><b>Edward Senju</b><span>Regional CEO, Sansan Global Pte. Ltd.</span></div>
+        </article>
+        <article class="quote reveal">
+          <div class="mk">&ldquo;</div>
+          <blockquote>We work with MacroLingo to translate and localize our web pages, services, and internal and external marketing materials. They&rsquo;ve supported us with extensive language and PR skills that can&rsquo;t be achieved by mere auto-translation.</blockquote>
+          <div class="who"><b>Naoyuki Masuda</b><span>COO, Morgenrot Inc.</span></div>
+        </article>
+        <article class="quote reveal">
+          <div class="mk">&ldquo;</div>
+          <blockquote>MacroLingo drafted clear, well-structured articles based on multiple project documents and quickly incorporated feedback from the projects&rsquo; funder. Their work was prompt and accurate, and the final deliverables were of consistently high quality.</blockquote>
+          <div class="who"><b>Project Coordinator</b><span>Asia-Pacific Climate Change Adaptation Informational Platform (AP-PLAT)</span></div>
+        </article>
+      </div>
+      <div class="quotes" style="grid-template-columns:1fr;margin-top:26px">
+        <article class="quote reveal">
+          <div class="mk">&ldquo;</div>
+          <blockquote>MacroLingo greatly increased the readability and impact of the CCPI website text. That&rsquo;s essential because policy-makers and media read this influential report.</blockquote>
+          <div class="who"><b>Jan Burck</b><span>Senior Adviser, Climate Change Performance Index</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERTS / FOUNDER -->
+  <section class="sec" id="experts">
+    <div class="wrap experts">
+      <div class="reveal">
+        <span class="kick"><span class="n">05</span> / Experts only</span>
+        <h2 style="font-size:clamp(28px,3.4vw,40px);margin-top:14px">Experts only, working for you</h2>
+        <ul class="elist">
+          <li><span class="tick"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Subject specialists for complex content</li>
+          <li><span class="tick"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Certified editing for research and international organizations</li>
+          <li><span class="tick"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Experienced translators and copywriters for global markets</li>
+        </ul>
+        <p class="bio">MacroLingo is led by Adam Goulston, PsyD, MBA, ELS, an American translator, editor, and content strategist based in Osaka, Japan.</p>
+        <div style="margin-top:26px"><a class="btn btn-ghost" href="#">About our approach</a></div>
+      </div>
+      <div class="exphoto reveal"><span class="cap">Dr. Adam Goulston, Osaka, Japan</span></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sec band-tint" id="faq">
+    <div class="wrap">
+      <div class="sechead reveal">
+        <span class="kick"><span class="n">06</span> / FAQ</span>
+        <h2>Frequently asked questions</h2>
+      </div>
+      <div class="faq reveal">
+        <details open><summary>What kind of writing do you do?<span class="pl"></span></summary><div class="ans">We write case studies, website copy, articles, thought leadership, sales and marketing materials, corporate communications, landing pages, and research-based public content. We also edit research, reports, policy briefs, donor impact studies, high-level integrated works like the CCPI climate performance index, and other existing organizational documents.</div></details>
+        <details><summary>Do you do non-English copywriting?<span class="pl"></span></summary><div class="ans">Typically, no. But we have a network of talented translators in Asia, and we love to help. Ask us.</div></details>
+        <details><summary>Do you do free trials?<span class="pl"></span></summary><div class="ans">If a freebie is what it takes to win you over, we&rsquo;ll consider it. Please contact us.</div></details>
+        <details><summary>How does payment work?<span class="pl"></span></summary><div class="ans">We can accept direct bank transfer (globally from anywhere or domestically in Japan), PayPal, and credit card payment. For established agencies, organizations, and verifiable individuals, we ask for payment upon completion. For some first-time clients, we may ask for a deposit before starting.</div></details>
+        <details><summary>Aren&rsquo;t you a translation company?<span class="pl"></span></summary><div class="ans">Yes, translation is central in our services for Japanese clients. This is because, even if they are requesting services such as copywriting and branding, the source materials and guidance are in Japanese. It&rsquo;s also because we are right here in Osaka, Japan. We do not put translation at the top of our English services page, as it is not a commonly requested service for non-Japanese clients.</div></details>
+        <details><summary>Do you do web design?<span class="pl"></span></summary><div class="ans">We do homepage reform and localization. We generally do not create new sites from scratch. Contact us and tell us specifically what you&rsquo;re looking for.</div></details>
+        <details><summary>Are you a freelancer?<span class="pl"></span></summary><div class="ans">MacroLingo LLC (formerly Scize Group LLC) is a registered company in Japan. Freelancers are individuals working on an informal basis, often as a &ldquo;side hustle.&rdquo; They can be completely inexperienced or quite competent. MacroLingo gives you the security and professionalism of a proper company.</div></details>
+        <details><summary>What are your qualifications?<span class="pl"></span></summary><div class="ans">MacroLingo is owned and operated by a US-born expat, Dr. Adam Goulston. In addition to a doctorate in psychology, Adam holds multiple master&rsquo;s degrees, board-certification as a life sciences editor, and over two decades of corporate, NGO, and academic experience. Others working with MacroLingo have verified academic and professional credentials.</div></details>
+        <details><summary>How do NGOs fit into your work?<span class="pl"></span></summary><div class="ans">MacroLingo works with companies that benefit our planet. As NGOs, research organizations, and civil society organizations champion vital causes like climate change &amp; adaptation, refugees, and renewable energy, we offer a specific lineup of services for them. The main focus is on case studies, but not limited to those. This work is based on our work with top NGOs in Europe, Japan, and other locations + our academic research experience.</div></details>
+        <details><summary>Aren&rsquo;t you in Japan?<span class="pl"></span></summary><div class="ans">We sure are. MacroLingo LLC is MacroLingo合同会社, a registered company in Japan, with the head office in Osaka.</div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSIGHTS -->
+  <section class="sec" id="insights">
+    <div class="wrap">
+      <div class="sechead reveal">
+        <span class="kick"><span class="n">07</span> / Blog</span>
+        <h2>Latest insights</h2>
+      </div>
+      <div class="posts">
+        <a class="post feat reveal" href="#">
+          <div class="thumb"></div>
+          <span class="cat">Climate</span>
+          <h3>Which NGO Case Study Should You Write? 7 Types, Uses, and Examples</h3>
+          <p>Your NGO does not need one case study format. It needs seven, each built for a different reader and a different decision.</p>
+        </a>
+        <div class="plist reveal">
+          <a class="pli" href="#"><span class="idx">01</span><div><span class="cat">Case studies and reports</span><h3>How Much Does Professional NGO Case Study Writing Cost?</h3></div></a>
+          <a class="pli" href="#"><span class="idx">02</span><div><span class="cat">Case studies and reports</span><h3>How to Write an NGO Success Story to Attract Donors</h3></div></a>
+          <a class="pli" href="#"><span class="idx">03</span><div><span class="cat">Case studies and reports</span><h3>Storytelling for Effective NGO Case Studies</h3></div></a>
+          <a class="pli" href="#"><span class="idx">04</span><div><span class="cat">Content</span><h3>How to Structure an NGO Annual Report: A Practical Guide</h3></div></a>
+          <a class="pli" href="#"><span class="idx">05</span><div><span class="cat">Academia</span><h3>How Academic Technology Can Raise Its Profile (and attract media and funding)</h3></div></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT CTA -->
+  <section class="sec tight" id="contact">
+    <div class="wrap">
+      <div class="ctaband reveal">
+        <h2>Let&rsquo;s talk about your next project</h2>
+        <p>6F-313 Osaka Center Building, Kyutaro-machi, Chuo-ku, Osaka-shi, Japan</p>
+        <div class="cta">
+          <a class="btn btn-light" href="#">Get a free project estimate</a>
+          <a class="btn btn-outline-l" href="#">See our work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a class="brand" href="#">Macro<b>Lingo</b></a>
+        <p class="tag">Content writing, editing, planning, localization, and SEO for difficult topics and global audiences.</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Our Work</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Copywriting &amp; Content</a></li>
+          <li><a href="#">Editing &amp; Proofreading</a></li>
+          <li><a href="#">AI Search Optimization</a></li>
+          <li><a href="#">PR &amp; Media</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Osaka, Japan</h4>
+        <ul>
+          <li>6F-313 Osaka Center Building</li>
+          <li>Kyutaro-machi, Chuo-ku</li>
+          <li>Osaka-shi, Japan</li>
+          <li><a href="#">日本語</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>Copyright © 2026 MacroLingo</span>
+      <span>Presenting science, technology &amp; business to the world.</span>
+    </div>
+  </div>
+</footer>
+<script>
+  (function(){
+    var hdr=document.getElementById('hdr');
+    var onScroll=function(){ if(window.scrollY>8){hdr.classList.add('scrolled');}else{hdr.classList.remove('scrolled');} };
+    onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  })();
+</script>
