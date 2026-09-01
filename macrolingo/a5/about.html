@@ -88,7 +88,7 @@
       radial-gradient(44% 56% at 8% -6%, rgba(84,180,53,.09), transparent 60%),
       radial-gradient(48% 62% at 94% -8%, rgba(47,111,214,.11), transparent 62%),
       var(--paper);overflow:hidden}
-  .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,var(--line-2) 18%,var(--line-2) 82%,transparent)}
+  .hero::after{content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:0;width:calc(min(100%, var(--container)) - 60px);height:1px;background:linear-gradient(90deg,transparent,var(--line-2) 8%,var(--line-2) 92%,transparent)}
   .hero .wrap{padding:16px 30px 84px}
   .hero-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:60px;align-items:center}
   .hero-grid.rev{grid-template-columns:.92fr 1.08fr}
