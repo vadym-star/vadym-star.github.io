@@ -133,7 +133,10 @@
   .sechead.center .lead{margin-left:auto;margin-right:auto}
 
   /* trust strip */
-  .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper)}
+  .strip{position:relative;background:var(--paper)}
+  .strip::before,.strip::after{content:"";position:absolute;left:50%;transform:translateX(-50%);width:calc(min(100%, var(--container)) - 60px);height:1px;background:var(--line)}
+  .strip::before{top:0}
+  .strip::after{bottom:0}
   .strip .wrap{display:flex;flex-direction:column;align-items:center;gap:24px;padding:38px 30px 44px}
   .strip .lbl{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--body-2);text-align:center}
   .logo-row{display:flex;align-items:center;justify-content:center;gap:44px;flex-wrap:wrap}
