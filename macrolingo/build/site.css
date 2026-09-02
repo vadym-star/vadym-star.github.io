@@ -309,15 +309,22 @@
 
 /* --- Blog posts ----------------------------------------------------------
    ml-posts   on the Posts widget                                          */
-.ml-posts .elementor-post{
+.ml-posts .elementor-post.elementor-grid-item{
   background: #fff;
   border: 1px solid var(--ml-hairline);
   border-radius: var(--ml-radius);
   overflow: hidden;
-  transition: transform .2s ease, box-shadow .2s ease;
+  box-shadow: var(--ml-shadow-soft);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
   display: flex;
   flex-direction: column;
 }
+.ml-posts .elementor-post.elementor-grid-item:hover{
+  transform: translateY(-4px);
+  box-shadow: var(--ml-shadow-lift);
+  border-color: #DBEFCE;
+}
+.ml-posts .elementor-post__thumbnail__link{ border-radius: 0; overflow: hidden; }
 .ml-posts .elementor-post:hover{ transform: translateY(-4px); box-shadow: var(--ml-shadow-lift); }
 .ml-posts .elementor-post__text{ padding: 22px 24px 26px; display: flex; flex-direction: column; flex: 1; }
 .ml-posts .elementor-post__excerpt{ flex: 1; }
