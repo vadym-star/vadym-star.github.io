@@ -1,0 +1,417 @@
+/* ==========================================================================
+   MacroLingo homepage design rules
+
+   Colours and fonts live in Site Settings (Global Colors / Global Fonts).
+   Everything below reads from them, so changing a swatch there changes the
+   whole page. Nothing here hardcodes a brand colour.
+
+   Each block is a class you add or remove on any element in Elementor under
+   Advanced > CSS Classes. The class names are listed with each block.
+   ========================================================================== */
+
+
+/* --- Shared values -------------------------------------------------------
+   Corner radius, shadows and hairline colour, in one place.               */
+:root{
+  --ml-content-width: 1160px;
+  --ml-radius: 22px;
+  --ml-radius-lg: 30px;
+  --ml-shadow-soft: 0 1px 2px rgba(34,50,74,.04), 0 8px 22px rgba(34,50,74,.06);
+  --ml-shadow-lift: 0 6px 16px rgba(34,50,74,.06), 0 26px 56px rgba(34,50,74,.10);
+  --ml-hairline: var(--e-global-color-mlline);
+  --ml-hairline-strong: #DDE6D6;
+  --ml-blue-hairline: #D7E6FB;
+  --ml-grey-hairline: #E4E9EE;
+}
+
+
+/* --- Background bands ----------------------------------------------------
+   Put one of these on a section container.
+   ml-band-warm  ml-band-mint  ml-band-blue  ml-band-grey                  */
+.ml-band-warm { background-color: var(--e-global-color-mlwarm); }
+.ml-band-mint { background-color: var(--e-global-color-mlmint); }
+.ml-band-blue {
+  background-color: var(--e-global-color-mlblueband);
+  border-top: 1px solid var(--ml-blue-hairline);
+  border-bottom: 1px solid var(--ml-blue-hairline);
+}
+.ml-band-grey {
+  background-color: var(--e-global-color-mlgrey);
+  border-top: 1px solid var(--ml-grey-hairline);
+  border-bottom: 1px solid var(--ml-grey-hairline);
+}
+
+
+/* --- Green highlighter behind a few words --------------------------------
+   ml-highlight
+   Use it inside a heading or a text block, around the words you want to
+   pick out. In the Elementor text editor switch to the Text tab and write:
+   <span class="ml-highlight">your words</span>
+   To take the highlight off, delete the span. To change its colour, edit
+   Green tint in Site Settings > Global Colors.                            */
+.ml-highlight{
+  background-image: linear-gradient(120deg, transparent 0 3%, rgba(84,180,53,.30) 3% 97%, transparent 97%);
+  background-image: linear-gradient(120deg,
+      transparent 0 3%,
+      color-mix(in srgb, var(--e-global-color-primary) 30%, transparent) 3% 97%,
+      transparent 97%);
+  background-repeat: no-repeat;
+  background-position: 0 74%;
+  background-size: 100% 42%;
+  padding: 0 .06em;
+  border-radius: 3px;
+}
+
+
+/* --- Heading that fades from green into blue -----------------------------
+   ml-gradient-heading
+   Meant for one or two headings a page, never more. Blue only ever appears
+   coming out of the green, never as a block of its own next to it.        */
+.ml-gradient-heading .elementor-heading-title{
+  background-image: linear-gradient(102deg,
+      var(--e-global-color-mlgreendark) 18%,
+      var(--e-global-color-accent) 92%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+
+/* --- Small label above a heading -----------------------------------------
+   ml-label            green dot, used everywhere
+   ml-label-centred    same but centred under a centred heading
+   ml-label-red        red dot, Japanese page only, in the blue section     */
+.ml-label .elementor-heading-title{
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--e-global-typography-accent-font-family), sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--e-global-color-mlgreendark);
+}
+.ml-label .elementor-heading-title:before{
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--e-global-color-primary);
+  flex: 0 0 auto;
+}
+.ml-label-centred .elementor-heading-title{ justify-content: center; }
+.ml-label-red .elementor-heading-title{ color: var(--e-global-color-secondary); }
+.ml-label-red .elementor-heading-title:before{ background: var(--e-global-color-mljapanred); }
+
+
+/* --- Intro paragraph under a section heading -----------------------------
+   ml-lead                                                                  */
+.ml-lead{ font-size: 18px; line-height: 1.7; color: var(--e-global-color-text); }
+
+
+/* --- Small note next to a button -----------------------------------------
+   ml-note                                                                  */
+.ml-note{ font-size: 14.5px; color: var(--e-global-color-mlmuted); }
+
+
+/* --- White card ----------------------------------------------------------
+   ml-card
+   The four service boxes, the quotes and the blog posts all use this so
+   they stay consistent. Rows keep equal height on their own.              */
+.ml-card{
+  background: #fff;
+  border: 1px solid var(--ml-hairline);
+  border-radius: var(--ml-radius);
+  box-shadow: var(--ml-shadow-soft);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.ml-card:hover{
+  transform: translateY(-4px);
+  box-shadow: var(--ml-shadow-lift);
+  border-color: #DBEFCE;
+}
+
+
+/* --- Service box ---------------------------------------------------------
+   ml-service   put it on the Icon Box widget
+   The link at the bottom of each box sits on a common line across the row. */
+.ml-service.elementor-widget-icon-box .elementor-icon-box-wrapper{
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  text-align: left;
+  height: 100%;
+}
+.ml-service .elementor-icon-box-icon{
+  flex: 0 0 auto;
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
+  background: var(--e-global-color-mlmint);
+  display: grid;
+  place-items: center;
+  margin-bottom: 0 !important;
+}
+.ml-service .elementor-icon-box-icon .elementor-icon{ color: var(--e-global-color-mlgreendark); font-size: 26px; }
+.ml-service .elementor-icon-box-content{ display: flex; flex-direction: column; flex: 1; }
+.ml-service .elementor-icon-box-title{ margin-bottom: 8px; }
+.ml-service .elementor-icon-box-description{ margin-bottom: 16px; }
+
+
+/* --- Text link with an arrow ---------------------------------------------
+   ml-arrow-link   put it on a Button widget set to the Link style          */
+.ml-arrow-link .elementor-button{
+  padding: 0;
+  background: none;
+  color: var(--e-global-color-mlgreendark);
+  font-weight: 600;
+  font-size: 15px;
+}
+.ml-arrow-link .elementor-button:hover{ background: none; color: var(--e-global-color-primary); }
+.ml-arrow-link .elementor-button-icon{ transition: transform .18s ease; }
+.ml-arrow-link .elementor-button:hover .elementor-button-icon{ transform: translateX(4px); }
+.ml-arrow-link{ margin-top: auto; }
+
+
+/* --- Client logo row -----------------------------------------------------
+   ml-logo-row   on the container holding the logos
+   Logos sit grey and come up to full colour when hovered.                 */
+.ml-logo-row img{
+  max-height: 46px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: .62;
+  transition: filter .2s ease, opacity .2s ease;
+}
+.ml-logo-row img:hover{ filter: none; opacity: 1; }
+.ml-logo-row .elementor-widget-image{ display: flex; align-items: center; }
+
+
+/* --- Hairline above and below a section ----------------------------------
+   ml-rule-top  ml-rule-bottom
+   The line is the width of the content, not the whole screen.             */
+.ml-rule-top, .ml-rule-bottom{ position: relative; }
+.ml-rule-top:before, .ml-rule-bottom:after{
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(100%, var(--ml-content-width, 1160px));
+  height: 1px;
+  background: var(--ml-hairline);
+}
+.ml-rule-top:before{ top: 0; }
+.ml-rule-bottom:after{ bottom: 0; }
+
+
+/* --- Tick list -----------------------------------------------------------
+   ml-ticks   on an Icon List widget                                        */
+.ml-ticks .elementor-icon-list-icon{
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--e-global-color-mlmint);
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+}
+.ml-ticks .elementor-icon-list-icon i,
+.ml-ticks .elementor-icon-list-icon svg{ color: var(--e-global-color-mlgreendark); fill: var(--e-global-color-mlgreendark); font-size: 12px; width: 12px; height: 12px; }
+.ml-ticks.ml-ticks-on-blue .elementor-icon-list-icon{ background: #fff; }
+
+
+/* --- Quote card ----------------------------------------------------------
+   ml-quote
+   The person's name always sits on the bottom line of the card, so the
+   four cards line up whatever the length of the quote.                    */
+.ml-quote{ display: flex; flex-direction: column; height: 100%; }
+.ml-quote .ml-quote-who{ margin-top: auto; padding-top: 18px; border-top: 1px solid var(--ml-hairline); }
+.ml-quote .ml-quote-text{
+  font-family: var(--e-global-typography-primary-font-family), Georgia, serif;
+  font-size: 16.5px;
+  line-height: 1.5;
+  color: var(--e-global-color-secondary);
+}
+.ml-quote-avatar img{ width: 48px; height: 48px; border-radius: 50%; object-fit: contain; background: #fff; border: 1px solid var(--ml-hairline); padding: 4px; }
+
+
+/* --- Small card floating over the hero photo -----------------------------
+   ml-float                                                                 */
+.ml-float{
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: var(--ml-shadow-lift);
+  padding: 16px 18px;
+}
+.ml-float .ml-float-quote{
+  font-family: var(--e-global-typography-primary-font-family), Georgia, serif;
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--e-global-color-secondary);
+}
+.ml-years{
+  font-family: var(--e-global-typography-primary-font-family), Georgia, serif;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1;
+  background-image: linear-gradient(120deg, var(--e-global-color-mlgreendark) 5%, var(--e-global-color-accent) 95%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+/* --- Photo corners -------------------------------------------------------
+   ml-photo        rounded photo with a soft shadow
+   ml-photo-fill   photo stretches to match the text column beside it      */
+.ml-photo img{ border-radius: var(--ml-radius-lg); box-shadow: var(--ml-shadow-lift); display: block; }
+.ml-photo-fill{ align-self: stretch; }
+.ml-photo-fill img{ width: 100%; height: 100%; object-fit: cover; }
+
+
+/* --- Frequently asked questions ------------------------------------------
+   ml-faq   on each accordion widget
+   Every closed row is the same height, so the two columns stay level.     */
+.ml-faq .e-n-accordion-item{
+  background: #fff;
+  border: 1px solid var(--ml-hairline);
+  border-radius: 16px;
+  margin-bottom: 14px;
+}
+.ml-faq .e-n-accordion-item-title{
+  min-height: 80px;
+  padding: 20px 24px;
+  font-family: var(--e-global-typography-primary-font-family), Georgia, serif;
+  font-size: 18.5px;
+  font-weight: 500;
+  color: var(--e-global-color-secondary);
+}
+.ml-faq .e-n-accordion-item[open]{ box-shadow: var(--ml-shadow-soft); border-color: #DBEFCE; }
+
+
+/* --- Blog posts ----------------------------------------------------------
+   ml-posts   on the Posts widget                                          */
+.ml-posts .elementor-post{
+  background: #fff;
+  border: 1px solid var(--ml-hairline);
+  border-radius: var(--ml-radius);
+  overflow: hidden;
+  transition: transform .2s ease, box-shadow .2s ease;
+  display: flex;
+  flex-direction: column;
+}
+.ml-posts .elementor-post:hover{ transform: translateY(-4px); box-shadow: var(--ml-shadow-lift); }
+.ml-posts .elementor-post__text{ padding: 22px 24px 26px; display: flex; flex-direction: column; flex: 1; }
+.ml-posts .elementor-post__excerpt{ flex: 1; }
+.ml-posts .elementor-post__read-more{ margin-top: 6px; font-weight: 600; color: var(--e-global-color-mlgreendark); }
+.ml-posts .elementor-post__meta-data{ color: var(--e-global-color-mlgreendark); font-size: 11.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+/* the load more control is quiet text, not a button */
+.ml-posts .e-load-more-spinner, .ml-posts .elementor-button-load-more{
+  background: none !important;
+  color: var(--e-global-color-mlmuted) !important;
+  font-weight: 500;
+  font-size: 14.5px;
+  padding: 0;
+  box-shadow: none;
+}
+.ml-posts .elementor-button-load-more:hover{ color: var(--e-global-color-mlgreendark) !important; }
+
+
+/* --- Contact details list ------------------------------------------------
+   ml-contact-list   on an Icon List widget                                 */
+.ml-contact-list .elementor-icon-list-item{ border-top: 1px solid var(--ml-hairline-strong); padding: 18px 0; align-items: flex-start; }
+.ml-contact-list .elementor-icon-list-icon{
+  width: 38px; height: 38px; border-radius: 12px;
+  background: #fff; border: 1px solid var(--ml-hairline-strong);
+  display: grid; place-items: center; flex: 0 0 auto; margin-right: 14px;
+}
+.ml-contact-list .elementor-icon-list-icon i{ color: var(--e-global-color-mlgreendark); font-size: 16px; }
+.ml-contact-list .elementor-icon-list-text{ color: var(--e-global-color-secondary); font-size: 15.5px; line-height: 1.6; }
+
+
+/* --- Map -----------------------------------------------------------------
+   ml-map   the map grows to fill whatever height is left in its column so
+            it finishes level with the form beside it                      */
+.ml-map{ flex: 1 1 auto; min-height: 220px; border-radius: var(--ml-radius); overflow: hidden; border: 1px solid var(--ml-hairline-strong); box-shadow: var(--ml-shadow-soft); }
+.ml-map iframe, .ml-map .elementor-custom-embed{ height: 100% !important; min-height: 220px; }
+
+
+/* --- Contact form --------------------------------------------------------
+   ml-form   on the container holding the Forminator form                   */
+.ml-form{ background: #fff; border: 1px solid var(--ml-hairline); border-radius: var(--ml-radius-lg); box-shadow: var(--ml-shadow-lift); padding: 38px; }
+.ml-form .forminator-label{ font-size: 13.5px; font-weight: 600; color: var(--e-global-color-secondary); margin-bottom: 8px; }
+.ml-form .forminator-required{ color: var(--e-global-color-primary); }
+.ml-form .forminator-input,
+.ml-form .forminator-textarea{
+  font-family: var(--e-global-typography-text-font-family), sans-serif;
+  font-size: 15.5px;
+  color: var(--e-global-color-secondary);
+  background: #fff;
+  border: 1.5px solid var(--ml-hairline-strong);
+  border-radius: 12px;
+  padding: 12px 14px;
+  transition: border-color .18s ease, box-shadow .18s ease;
+}
+.ml-form .forminator-input:focus,
+.ml-form .forminator-textarea:focus{
+  outline: none;
+  border-color: var(--e-global-color-primary);
+  box-shadow: 0 0 0 4px rgba(84,180,53,.13);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--e-global-color-primary) 13%, transparent);
+}
+.ml-form .forminator-button-submit{
+  width: 100%;
+  background: var(--e-global-color-primary);
+  border-radius: 11px;
+  font-family: var(--e-global-typography-accent-font-family), sans-serif;
+  font-weight: 600;
+  padding: 13px 21px;
+}
+.ml-form .forminator-button-submit:hover{ background: var(--e-global-color-mlgreendark); }
+.ml-form .forminator-error-message{ color: var(--e-global-color-mljapanred); }
+.ml-form .forminator-has_error .forminator-input,
+.ml-form .forminator-has_error .forminator-textarea{
+  border-color: var(--e-global-color-mljapanred);
+  box-shadow: 0 0 0 4px rgba(188,0,45,.10);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--e-global-color-mljapanred) 10%, transparent);
+}
+
+
+/* --- Japanese page -------------------------------------------------------
+   ml-jp   sits on the outermost section of the Japanese homepage.
+   The Japanese page runs a little tighter and squarer than the English one,
+   and it uses neither the green highlighter nor the fading heading.       */
+.ml-jp{ --ml-radius: 14px; --ml-radius-lg: 18px; }
+.ml-jp .ml-highlight{ background: none; padding: 0; }
+.ml-jp .ml-gradient-heading .elementor-heading-title{
+  background: none;
+  -webkit-text-fill-color: initial;
+  color: var(--e-global-color-secondary);
+}
+.ml-jp .elementor-button{ border-radius: 8px; }
+.ml-jp .ml-card{ box-shadow: 0 1px 2px rgba(34,50,74,.05); }
+
+/* Japanese services sit in a plain four box grid with hairlines between */
+.ml-jp-services{ border-top: 1px solid var(--ml-hairline-strong); border-left: 1px solid var(--ml-hairline-strong); }
+.ml-jp-service{ border-right: 1px solid var(--ml-hairline-strong); border-bottom: 1px solid var(--ml-hairline-strong); }
+.ml-keywords{ font-size: 13.5px; line-height: 1.95; color: var(--e-global-color-mlmuted); }
+.ml-side-note{ font-size: 13px; line-height: 1.75; color: var(--e-global-color-mlmuted); padding-left: 13px; border-left: 2px solid var(--ml-hairline-strong); }
+
+
+/* --- Japanese and English together --------------------------------------
+   Japanese text falls back to Noto once the Latin faces run out.          */
+:lang(ja) body, .ml-jp{ font-family: var(--e-global-typography-text-font-family), "Noto Sans JP", sans-serif; }
+.ml-jp h1, .ml-jp h2, .ml-jp h3, .ml-jp h4{ font-family: var(--e-global-typography-primary-font-family), "Noto Serif JP", Georgia, serif; }
+
+
+/* --- Phones and tablets --------------------------------------------------
+   Anything set to two or four across drops to one column on a phone.      */
+@media (max-width: 767px){
+  .ml-form{ padding: 26px; }
+  .ml-logo-row img{ max-height: 34px; }
+  .ml-faq .e-n-accordion-item-title{ min-height: 0; font-size: 16.5px; }
+}
