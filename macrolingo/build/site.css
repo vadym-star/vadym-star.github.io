@@ -685,8 +685,27 @@ body footer .widget, body footer .widget_text{
   font-size: 14.5px;
   line-height: 1.7;
 }
-body footer.site-footer a{ color: var(--e-global-color-text); transition: color .16s ease; }
-body footer.site-footer a:hover{ color: var(--e-global-color-mlgreendark); }
+/* the theme sets its own footer link colour for the dark band it used to
+   have. On the light band it has to be the ordinary body colour, and the
+   theme's rule is strong enough that this has to be marked important. */
+body .site-footer a,
+body .site-footer .widget a,
+body .site-footer .widget_nav_menu li a,
+body .site-footer .ast-builder-layout-element a{
+  color: var(--e-global-color-text) !important;
+  transition: color .16s ease;
+}
+body .site-footer a:hover,
+body .site-footer .widget a:hover,
+body .site-footer .widget_nav_menu li a:hover,
+body .site-footer .ast-builder-layout-element a:hover{
+  color: var(--e-global-color-mlgreendark) !important;
+}
+body .site-footer, body .site-footer p, body .site-footer li,
+body .site-footer .widget{ color: var(--e-global-color-text) !important; }
+body .site-footer .widget-title,
+body .site-footer .widget h2,
+body .site-footer .widget h3{ color: var(--e-global-color-mlmuted) !important; }
 footer .widget-title,
 footer .widget h2,
 footer .widget h3{
