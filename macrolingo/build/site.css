@@ -323,16 +323,23 @@
 .ml-posts .elementor-post__excerpt{ flex: 1; }
 .ml-posts .elementor-post__read-more{ margin-top: 6px; font-weight: 600; color: var(--e-global-color-mlgreendark); }
 .ml-posts .elementor-post__meta-data{ color: var(--e-global-color-mlgreendark); font-size: 11.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
-/* the load more control is quiet text, not a button */
-.ml-posts .e-load-more-spinner, .ml-posts .elementor-button-load-more{
-  background: none !important;
-  color: var(--e-global-color-mlmuted) !important;
+/* the show more control is quiet text, not a button */
+.ml-posts .elementor-button-wrapper{ margin-top: 32px; text-align: center; }
+.ml-posts .elementor-button-wrapper .elementor-button{
+  background-color: transparent;
+  color: var(--e-global-color-mlmuted);
+  font-family: var(--e-global-typography-accent-font-family), sans-serif;
   font-weight: 500;
   font-size: 14.5px;
   padding: 0;
   box-shadow: none;
+  border: 0;
+  transition: color .18s ease;
 }
-.ml-posts .elementor-button-load-more:hover{ color: var(--e-global-color-mlgreendark) !important; }
+.ml-posts .elementor-button-wrapper .elementor-button:hover{
+  background-color: transparent;
+  color: var(--e-global-color-mlgreendark);
+}
 
 
 /* --- Contact details list ------------------------------------------------
@@ -655,27 +662,31 @@ html[lang^="ja"] .elementor-location-header .wpml-ls-item a.elementor-item:befor
    to sit with the rest of the page: a light band, quiet headings, links that
    turn green when hovered.
    ========================================================================== */
-.site-primary-footer-wrap{
+footer.site-footer .site-primary-footer-wrap,
+body .site-primary-footer-wrap{
   background-color: #E4EBDD;
   border-top: 1px solid #D3DDC8;
   padding: 62px 0 26px;
 }
-.site-below-footer-wrap{
+footer.site-footer .site-below-footer-wrap,
+body .site-below-footer-wrap{
   background-color: #E4EBDD;
   border-top: 1px solid #D3DDC8;
   padding: 18px 0 26px;
 }
+footer.site-footer, body footer.site-footer{ background-color: #E4EBDD; }
 footer .site-primary-footer-inner-wrap{
   grid-template-columns: 1.6fr 1fr 1fr 1fr;
   gap: 40px;
 }
-footer, footer p, footer li, footer .widget, footer .widget_text{
+body footer.site-footer, body footer p, body footer li,
+body footer .widget, body footer .widget_text{
   color: var(--e-global-color-text);
   font-size: 14.5px;
   line-height: 1.7;
 }
-footer a{ color: var(--e-global-color-text); transition: color .16s ease; }
-footer a:hover{ color: var(--e-global-color-mlgreendark); }
+body footer.site-footer a{ color: var(--e-global-color-text); transition: color .16s ease; }
+body footer.site-footer a:hover{ color: var(--e-global-color-mlgreendark); }
 footer .widget-title,
 footer .widget h2,
 footer .widget h3{
