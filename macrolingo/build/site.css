@@ -437,6 +437,13 @@
 @media (min-height: 680px){
   .ml-hero{ min-height: calc(100vh - 80px); min-height: calc(100svh - 80px); }
 }
+/* two soft glows behind the hero, green on the left, blue on the right */
+.ml-hero{
+  background-image:
+    radial-gradient(44% 56% at 8% -6%, rgba(84,180,53,.09), transparent 60%),
+    radial-gradient(48% 62% at 94% -8%, rgba(47,111,214,.11), transparent 62%);
+  background-repeat: no-repeat;
+}
 .ml-hero-intro{ font-size: 19px; line-height: 1.6; max-width: 50ch; }
 .ml-hero-photo{ position: relative; }
 
@@ -508,15 +515,6 @@
    is passing underneath. This pins the whole header bar instead, which
    gives the links a white strip to sit on across the full width.
    If the header is rebuilt later this block can go.                       */
-.elementor-location-header > .e-con.e-parent{
-  position: sticky;
-  top: 0;
-  z-index: 99;
-  background-color: #fff;
-  box-shadow: 0 1px 0 var(--ml-hairline);
-}
-.admin-bar .elementor-location-header > .e-con.e-parent{ top: 32px; }
-.elementor-location-header .elementor-widget-nav-menu{ position: static !important; }
 .elementor-location-header .elementor-sticky--effects,
 .elementor-location-header .elementor-sticky--active{
   background-color: #fff;
