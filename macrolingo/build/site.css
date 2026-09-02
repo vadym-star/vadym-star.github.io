@@ -184,6 +184,25 @@
 .ml-service-card > .e-con-inner{ padding: 0; width: 100%; height: 100%; display: flex; flex-direction: column; }
 
 
+/* --- Headings ------------------------------------------------------------
+   Headings break their lines evenly rather than leaving one word stranded,
+   which is what keeps the wording sitting the way the design shows it.     */
+.elementor-widget-heading .elementor-heading-title{
+  text-wrap: balance;
+  letter-spacing: -.01em;
+}
+
+/* --- The headline at the top of the page ---------------------------------
+   ml-hero-title                                                            */
+.ml-hero-title.elementor-widget-heading .elementor-heading-title{
+  font-size: clamp(38px, 5vw, 60px);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -.02em;
+  margin-top: 2px;
+}
+
+
 /* --- Section headings ----------------------------------------------------
    The sizes the design uses, kept here so all the headings stay in step.
    Change them in Site Settings > Global Fonts to move everything at once.  */
