@@ -888,27 +888,11 @@ footer .ast-builder-social-element:hover{ color: var(--e-global-color-mlgreendar
 
 
 /* --- Blocks lifting into place ------------------------------------------
-   ml-reveal, with ml-reveal-1 to ml-reveal-3 to stagger the ones that
-   follow. The movement is driven by the small snippet under
-   Elementor > Custom Code called "Blocks lift into place on scroll".
+   ml-reveal marks a block that should lift into view as it comes up the
+   screen. The movement itself is done by the small snippet under
+   Elementor > Custom Code called "Blocks lift into place on scroll", which
+   both hides and shows the block. Nothing is hidden here, so if that
+   snippet is ever switched off the page simply shows everything.
 
-   Nothing is hidden unless that snippet is running: it puts js-reveal on
-   the page first, and only then does the rule below take effect. A block is
-   watched once and marked shown the moment it appears, so it can never be
-   left half faded, which is what happens with a purely scroll linked
-   animation on the last section of a page.
-
-   Take the class off a block in Elementor under Advanced > CSS Classes to
-   stop it moving.                                                        */
-html.js-reveal .ml-reveal{
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1);
-}
-html.js-reveal .ml-reveal.is-shown{ opacity: 1; transform: none; }
-html.js-reveal .ml-reveal-1{ transition-delay: .07s; }
-html.js-reveal .ml-reveal-2{ transition-delay: .14s; }
-html.js-reveal .ml-reveal-3{ transition-delay: .21s; }
-@media (prefers-reduced-motion: reduce){
-  html.js-reveal .ml-reveal{ opacity: 1; transform: none; transition: none; }
-}
+   To stop a block moving, take the class off it in Elementor under
+   Advanced > CSS Classes.                                                */
