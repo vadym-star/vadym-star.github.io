@@ -501,9 +501,20 @@
 
 
 /* --- Header ---------------------------------------------------------------
-   The header follows you down the page, so once it lifts off the top it
-   needs its own white background. Without this the menu sits straight on
-   top of whatever section is passing underneath.                          */
+   In the header template the menu on its own is pinned to the top of the
+   screen, so on a long page the links end up sitting over whatever section
+   is passing underneath. This pins the whole header bar instead, which
+   gives the links a white strip to sit on across the full width.
+   If the header is rebuilt later this block can go.                       */
+.elementor-location-header > .e-con.e-parent{
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  background-color: #fff;
+  box-shadow: 0 1px 0 var(--ml-hairline);
+}
+.admin-bar .elementor-location-header > .e-con.e-parent{ top: 32px; }
+.elementor-location-header .elementor-widget-nav-menu{ position: static !important; }
 .elementor-location-header .elementor-sticky--effects,
 .elementor-location-header .elementor-sticky--active{
   background-color: #fff;
