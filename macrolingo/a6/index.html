@@ -155,13 +155,14 @@
 
   /* services — compact cards with their own CTA (EN) */
   .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:48px}
-  .card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:32px;box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s,border-color .2s;display:flex;gap:20px;align-items:flex-start}
+  .card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:32px;box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s,border-color .2s;display:flex;gap:20px;align-items:stretch}
+  .card>div{display:flex;flex-direction:column;flex:1}
   .card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--green-tint-2)}
   .card .ic{flex:0 0 auto;width:56px;height:56px;border-radius:18px;background:var(--surface-2);display:grid;place-items:center;color:var(--green-dark)}
   .card .ic svg{width:27px;height:27px}
   .card h3{font-family:var(--serif);font-size:22px;font-weight:600;color:var(--ink);margin-bottom:8px}
   .card p{font-size:15px;color:var(--body);line-height:1.6}
-  .card .tlink{margin-top:14px}
+  .card .tlink{margin-top:auto;padding-top:16px;align-self:flex-start}
   .sec-cta{margin-top:40px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;align-items:center}
   .sec-cta .note{font-size:14.5px;color:var(--body-2)}
 
@@ -184,7 +185,7 @@
       radial-gradient(54% 74% at 90% 84%, rgba(47,111,214,.17), transparent 64%),
       radial-gradient(40% 60% at 52% 50%, rgba(255,255,255,.55), transparent 70%)}
   .ngoband .wrap{position:relative;z-index:1}
-  .ngo-in{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  .ngo-in{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:stretch}
   .ngo-in .micro{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--green-dark);margin-top:8px}
   .ngo-in h2{font-size:clamp(28px,3.3vw,42px);font-weight:500;margin-top:12px}
   .ngo-in>div>p{margin-top:16px;color:var(--body);font-size:17px;max-width:46ch}
@@ -193,7 +194,7 @@
   .ngo-checks .tk{width:24px;height:24px;border-radius:50%;background:#fff;display:grid;place-items:center;color:var(--green-dark);flex:0 0 auto;box-shadow:var(--shadow-sm)}
   .ngo-checks .tk svg{width:13px;height:13px}
   .ngo-in .cta{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap}
-  .ngo-in .ph{aspect-ratio:4/3;border-radius:var(--r-lg);background:linear-gradient(150deg,#ffffff,#eaf2ea);box-shadow:var(--shadow)}
+  .ngo-in .ph{min-height:340px;border-radius:var(--r-lg);background:linear-gradient(150deg,#ffffff,#eaf2ea);box-shadow:var(--shadow)}
 
   /* testimonials */
   .quotes{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:40px}
@@ -207,16 +208,14 @@
   .quote .who .meta span{font-size:13px;color:var(--body-2)}
 
   /* founder / experts */
-  .experts{display:grid;grid-template-columns:.9fr 1.1fr;gap:54px;align-items:center}
-  .experts .ph{aspect-ratio:1/1;border-radius:var(--r-lg);box-shadow:var(--shadow)}
+  .experts{display:grid;grid-template-columns:.9fr 1.1fr;gap:54px;align-items:stretch}
+  .experts .ph{min-height:360px;border-radius:var(--r-lg);box-shadow:var(--shadow)}
   .experts .elist{margin:22px 0 0;padding:0}
   .experts .elist li{list-style:none;display:flex;gap:13px;align-items:flex-start;padding:12px 0;font-size:16.5px;color:var(--ink)}
   .experts .elist .tk{flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:var(--surface-2);display:grid;place-items:center;color:var(--green-dark);margin-top:2px}
   .experts .elist .tk svg{width:14px;height:14px}
   .experts .bio{margin-top:22px;font-size:16.5px;color:var(--body);line-height:1.85}
   /* compact founder block — the whole section fits one screen */
-  .experts.top{align-items:start}
-  .experts.top .ph{aspect-ratio:1/1}
   .experts.top h2{font-size:clamp(24px,2.7vw,32px);line-height:1.3;margin-top:12px}
   .experts.top .bio{margin-top:16px;font-size:15.5px;line-height:1.8}
   .elist.two{columns:2;column-gap:34px;margin-top:18px}
@@ -225,19 +224,18 @@
   .elist.two .tk svg{width:12px;height:12px}
 
   /* topics — vertical list beside a photo */
-  .topics{display:grid;grid-template-columns:.82fr 1.18fr;gap:56px;align-items:start;margin-top:46px}
-  .topics .ph{aspect-ratio:4/5;border-radius:var(--r-lg);box-shadow:var(--shadow)}
+  .topics{display:grid;grid-template-columns:.82fr 1.18fr;gap:56px;align-items:stretch;margin-top:46px}
+  .topics .ph{min-height:420px;border-radius:var(--r-lg);box-shadow:var(--shadow)}
   .tlist2{list-style:none;margin:0;padding:0;columns:2;column-gap:44px}
   .tlist2 li{break-inside:avoid;display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line-2);font-size:16.5px;color:var(--ink)}
   .tlist2 li .d{width:7px;height:7px;border-radius:50%;background:var(--green);flex:0 0 auto}
   .topics .foot{margin-top:26px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
 
   /* FAQ */
-  .faq{max-width:1000px;margin:44px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
-  .faq-col{display:flex;flex-direction:column;gap:14px}
+  .faq{max-width:1040px;margin:44px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:14px 22px;align-items:start}
   .fitem{border:1px solid var(--line);border-radius:16px;background:#fff;transition:box-shadow .25s,border-color .25s}
   .fitem.open{box-shadow:var(--shadow-sm);border-color:var(--green-tint-2)}
-  .fq{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 24px;font-family:var(--serif);font-size:18.5px;font-weight:500;color:var(--ink);user-select:none}
+  .fq{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:80px;padding:20px 24px;font-family:var(--serif);font-size:18.5px;font-weight:500;color:var(--ink);user-select:none}
   .fq .pl{flex:0 0 auto;width:24px;height:24px;position:relative;transition:transform .3s}
   .fq .pl:before,.fq .pl:after{content:"";position:absolute;background:var(--green);border-radius:2px}
   .fq .pl:before{left:11px;top:3px;width:2px;height:18px}
@@ -269,7 +267,9 @@
   .morelink:hover svg{transform:translateY(2px)}
 
   /* contact form */
-  .contact-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:56px;align-items:start;margin-top:44px}
+  .contact-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:56px;align-items:stretch;margin-top:44px}
+  .cinfo{display:flex;flex-direction:column}
+  .cinfo>.eyebrow{align-self:flex-start}
   .cinfo h2{font-size:clamp(28px,3.3vw,42px);font-weight:500;margin-top:14px}
   .cinfo>p{margin-top:16px;font-size:17px;color:var(--body);max-width:38ch}
   .crow{display:flex;gap:14px;align-items:flex-start;padding:18px 0;border-top:1px solid var(--line-2)}
@@ -278,8 +278,8 @@
   .crow .ic svg{width:17px;height:17px}
   .crow b{display:block;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--body-2);margin-bottom:4px}
   .crow span{font-size:15.5px;color:var(--ink);line-height:1.6}
-  .cmap{margin-top:24px;border-radius:var(--r);overflow:hidden;border:1px solid var(--line-2);box-shadow:var(--shadow-sm);line-height:0;background:#fff}
-  .cmap iframe{display:block;width:100%;height:250px;border:0}
+  .cmap{position:relative;flex:1 1 auto;min-height:220px;margin-top:24px;border-radius:var(--r);overflow:hidden;border:1px solid var(--line-2);box-shadow:var(--shadow-sm);background:#fff}
+  .cmap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
   .form-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:38px;box-shadow:var(--shadow)}
   .frow{display:grid;grid-template-columns:1fr 1fr;gap:18px}
   .field{margin-bottom:18px}
@@ -330,6 +330,8 @@
     .svc2-cell{padding:30px 26px}
     .elist.two{columns:1}
     .ngo-in{grid-template-columns:1fr;gap:34px}
+    .ngo-in .ph,.experts .ph,.topics .ph{min-height:280px}
+    .cmap{flex:0 0 auto;height:240px}
     .quotes{grid-template-columns:1fr}
     .faq{grid-template-columns:1fr}
     .experts{grid-template-columns:1fr;gap:34px}
@@ -390,7 +392,6 @@
           <div class="ph"><span class="tagph">Photo</span><span class="cap">MacroLingo&rsquo;s team of expert editors, writers, and translators in Osaka, Japan</span></div>
           <div class="float rev"><div><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>&ldquo;Real value to customers, the right words for the right context.&rdquo;</p></div></div>
           <div class="float stat grad"><b>15+</b><span>years</span></div>
-        </div>
       </div>
     </div>
   </section>
@@ -545,20 +546,16 @@
         <h2>Frequently asked questions</h2>
       </div>
       <div class="faq reveal">
-        <div class="faq-col">
-        <div class="fitem open"><div class="fq">What kind of writing do you do?<span class="pl"></span></div><div class="fa"><div class="fa-in"><p>We write case studies, website copy, articles, thought leadership, sales and marketing materials, corporate communications, landing pages, and research-based public content. We also edit research, reports, policy briefs, donor impact studies, high-level integrated works like the CCPI climate performance index, and other existing organizational documents.</p></div></div></div>
+        <div class="fitem"><div class="fq">What kind of writing do you do?<span class="pl"></span></div><div class="fa"><div class="fa-in"><p>We write case studies, website copy, articles, thought leadership, sales and marketing materials, corporate communications, landing pages, and research-based public content. We also edit research, reports, policy briefs, donor impact studies, high-level integrated works like the CCPI climate performance index, and other existing organizational documents.</p></div></div></div>
         <div class="fitem"><div class="fq">Do you do non-English copywriting?<span class="pl"></span></div><div class="fa"><div class="fa-in"><p>Typically, no. But we have a network of talented translators in Asia, and we love to help. Ask us.</p></div></div></div>
         <div class="fitem"><div class="fq">Do you do free trials?<span class="pl"></span></div><div class="fa"><div class="fa-in"><p>If a freebie is what it takes to win you over, we&rsquo;ll consider it. Please contact us.</p></div></div></div>
         <div class="fitem"><div class="fq">How does payment work?<span class="pl"></span></div><div class="fa"><div class="fa-in"><p>We can accept direct bank transfer (globally from anywhere or domestically in Japan), PayPal, and credit card payment. For established agencies, organizations, and verifiable individuals, we ask for payment upon completion. For some first-time clients, we may ask for a deposit before starting.</p></div></div></div>
         <div class="fitem"><div class="fq">Aren&rsquo;t you a translation company?<span class="pl"></span></div><div class="fa"><div class="fa-in"><p>Yes, translation is central in our services for Japanese clients. This is because, even if they are requesting services such as copywriting and branding, the source materials and guidance are in Japanese. It&rsquo;s also because we are right here in Osaka, Japan. We do not put translation at the top of our English services page, as it is not a commonly requested service for non-Japanese clients.</p></div></div></div>
-        </div>
-        <div class="faq-col">
         <div class="fitem"><div class="fq">Do you do web design?<span class="pl"></span></div><div class="fa"><div class="fa-in"><p>We do homepage reform and localization. We generally do not create new sites from scratch. Contact us and tell us specifically what you&rsquo;re looking for.</p></div></div></div>
         <div class="fitem"><div class="fq">Are you a freelancer?<span class="pl"></span></div><div class="fa"><div class="fa-in"><p>MacroLingo LLC (formerly Scize Group LLC) is a registered company in Japan. Freelancers are individuals working on an informal basis, often as a &ldquo;side hustle.&rdquo; They can be completely inexperienced or quite competent. MacroLingo gives you the security and professionalism of a proper company.</p></div></div></div>
         <div class="fitem"><div class="fq">What are your qualifications?<span class="pl"></span></div><div class="fa"><div class="fa-in"><p>MacroLingo is owned and operated by a US-born expat, Dr. Adam Goulston. In addition to a doctorate in psychology, Adam holds multiple master&rsquo;s degrees, board-certification as a life sciences editor, and over two decades of corporate, NGO, and academic experience. Others working with MacroLingo have verified academic and professional credentials.</p></div></div></div>
         <div class="fitem"><div class="fq">How do NGOs fit into your work?<span class="pl"></span></div><div class="fa"><div class="fa-in"><p>MacroLingo works with companies that benefit our planet. As NGOs, research organizations, and civil society organizations champion vital causes like climate change &amp; adaptation, refugees, and renewable energy, we offer a specific lineup of services for them. The main focus is on case studies, but not limited to those. This work is based on our work with top NGOs in Europe, Japan, and other locations + our academic research experience.</p></div></div></div>
         <div class="fitem"><div class="fq">Aren&rsquo;t you in Japan?<span class="pl"></span></div><div class="fa"><div class="fa-in"><p>We sure are. MacroLingo LLC is MacroLingo合同会社, a registered company in Japan, with the head office in Osaka.</p></div></div></div>
-        </div>
       </div>
     </div>
   </section>
@@ -611,6 +608,9 @@
           <div class="crow"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg></span><div><b>Office</b><span>6F-313 Osaka Center Building,<br>Kyutaro-machi, Chuo-ku, Osaka-shi, Japan</span></div></div>
           <div class="crow"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.4"/><path d="m3.6 6.6 8.4 6 8.4-6"/></svg></span><div><b>Email</b><span>contact@macrolingo.com</span></div></div>
           <div class="crow"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.2 2"/></svg></span><div><b>Response time</b><span>Within one business day (JST)</span></div></div>
+          <div class="cmap">
+            <iframe title="MacroLingo office in Osaka, Japan" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=6F-313%20Osaka%20Center%20Building%2C%20Kyutaro-machi%2C%20Chuo-ku%2C%20Osaka-shi%2C%20Japan&amp;t=m&amp;z=16&amp;output=embed&amp;iwloc=near"></iframe>
+          </div>
         </div>
         <form class="form-card mockform reveal">
           <div class="frow">
