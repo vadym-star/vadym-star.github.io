@@ -606,12 +606,29 @@
 .elementor-location-header .elementor-nav-menu--main a.elementor-item-active:after{
   transform: scaleX(1);
 }
-/* the language link sits quieter than the rest of the menu */
+/* the language switch reads as "EN | 日本語": the language you are on, then
+   the one you can go to. The flag is dropped, the wording carries it. */
+.elementor-location-header .elementor-nav-menu--main .elementor-nav-menu{ flex-wrap: nowrap; }
+.elementor-location-header .wpml-ls-flag{ display: none; }
+.elementor-location-header .wpml-ls-item{ margin-left: 10px; }
 .elementor-location-header .wpml-ls-item a.elementor-item{
+  display: inline-flex;
+  align-items: center;
   font-size: 13.5px;
+  font-weight: 600;
   color: var(--e-global-color-mlmuted);
+  white-space: nowrap;
 }
 .elementor-location-header .wpml-ls-item a.elementor-item:after{ display: none; }
+.elementor-location-header .wpml-ls-item a.elementor-item:before{
+  color: var(--e-global-color-secondary);
+  border-right: 1px solid var(--ml-hairline-strong);
+  padding-right: 8px;
+  margin-right: 8px;
+}
+html[lang^="en"] .elementor-location-header .wpml-ls-item a.elementor-item:before{ content: "EN"; }
+html[lang^="ja"] .elementor-location-header .wpml-ls-item a.elementor-item:before{ content: "日本語"; }
+.elementor-location-header .wpml-ls-item a.elementor-item:hover{ color: var(--e-global-color-mlgreendark); }
 
 .elementor-location-header .elementor-widget-button .elementor-button{
   background-color: var(--e-global-color-primary);
