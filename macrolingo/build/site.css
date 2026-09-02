@@ -108,12 +108,19 @@
 
 /* --- Intro paragraph under a section heading -----------------------------
    ml-lead                                                                  */
-.ml-lead{ font-size: 18px; line-height: 1.7; color: var(--e-global-color-text); max-width: 56ch; margin-left: auto; margin-right: auto; }
+.ml-lead.elementor-widget{
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--e-global-color-text);
+  max-width: 56ch;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 
 /* --- Small note next to a button -----------------------------------------
    ml-note                                                                  */
-.ml-note{ font-size: 14.5px; color: var(--e-global-color-mlmuted); }
+.ml-note.elementor-widget{ font-size: 14.5px; color: var(--e-global-color-mlmuted); }
 
 
 /* --- White card ----------------------------------------------------------
@@ -180,17 +187,18 @@
 /* --- Section headings ----------------------------------------------------
    The sizes the design uses, kept here so all the headings stay in step.
    Change them in Site Settings > Global Fonts to move everything at once.  */
-.ml-section-head h2.elementor-heading-title{
+.ml-section-head{ max-width: 60ch; margin-left: auto; margin-right: auto; }
+.ml-section-head .elementor-widget-heading .elementor-heading-title{
   font-size: clamp(30px, 3.6vw, 46px);
   font-weight: 500;
   line-height: 1.14;
 }
-.ml-heading-mid h2.elementor-heading-title{
+.ml-heading-mid.elementor-widget-heading .elementor-heading-title{
   font-size: clamp(28px, 3.3vw, 42px);
   font-weight: 500;
   line-height: 1.14;
 }
-.ml-heading-small h2.elementor-heading-title{
+.ml-heading-small.elementor-widget-heading .elementor-heading-title{
   font-size: clamp(24px, 2.7vw, 32px);
   font-weight: 500;
   line-height: 1.3;
@@ -385,8 +393,17 @@
   color: var(--e-global-color-primary);
   transition: transform .3s ease;
 }
+.ml-faq.elementor-widget-n-accordion{
+  --n-accordion-icon-color: var(--e-global-color-primary);
+  --n-accordion-icon-color-hover: var(--e-global-color-mlgreendark);
+  --n-accordion-icon-color-active: var(--e-global-color-mlgreendark);
+}
+.ml-faq.elementor-widget-n-accordion .e-n-accordion-item-title-icon span,
 .ml-faq.elementor-widget-n-accordion .e-n-accordion-item-title-icon svg{
-  width: 15px; height: 15px; fill: var(--e-global-color-primary);
+  width: 15px;
+  height: 15px;
+  fill: var(--e-global-color-primary);
+  color: var(--e-global-color-primary);
 }
 .ml-faq.elementor-widget-n-accordion details[open] .e-n-accordion-item-title-icon{ transform: rotate(180deg); }
 .ml-faq.elementor-widget-n-accordion .e-n-accordion-item > .e-con,
@@ -497,14 +514,16 @@
    ml-crow-label    the small grey word above the value
    ml-crow-value    the address, the email, the reply time                  */
 .ml-crow{ border-top: 1px solid var(--ml-hairline-strong); }
-.ml-crow > .e-con-inner{
+.e-con.ml-crow > .e-con-inner{
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   gap: 14px;
   padding: 18px 0;
+  width: 100%;
 }
-.ml-crow-icon{ flex: 0 0 auto; }
+.e-con.ml-crow > .e-con-inner > .ml-crow-icon{ flex: 0 0 auto; width: auto; }
+.e-con.ml-crow > .e-con-inner > .e-con{ flex: 1 1 auto; width: auto; }
 .ml-crow-icon .elementor-icon{
   width: 38px;
   height: 38px;
@@ -824,22 +843,25 @@
   border-bottom-color: var(--ml-hairline);
   box-shadow: 0 1px 0 rgba(34,50,74,.02);
 }
-.ml-logo{ flex: 0 0 auto; }
+.ml-header > .e-con-inner > .ml-logo{ flex: 0 0 auto; width: auto; }
 .ml-logo img{ height: 34px; width: auto; }
-.ml-nav{ flex: 1 1 auto; min-width: 0; }
-.ml-header-right{ flex: 0 0 auto; }
+.ml-header > .e-con-inner > .ml-nav{ flex: 1 1 auto; min-width: 0; width: auto; }
+.ml-header > .e-con-inner > .ml-header-right{ flex: 0 0 auto; width: auto; }
 .ml-header-right > .e-con-inner{
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 16px;
   padding: 0;
+  width: auto;
 }
 
+/* the space between the links comes from the menu widget's own item padding,
+   so it can be changed in Elementor rather than here */
 .ml-nav .elementor-nav-menu--main .elementor-nav-menu{
   justify-content: center;
   flex-wrap: nowrap;
-  gap: 18px;
+  gap: 0;
 }
 .ml-nav .elementor-nav-menu--main a.elementor-item{
   font-family: var(--e-global-typography-accent-font-family), sans-serif;
