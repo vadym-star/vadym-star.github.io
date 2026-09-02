@@ -727,3 +727,108 @@ footer .ast-builder-social-element:hover{ color: var(--e-global-color-mlgreendar
 @media (prefers-reduced-motion: reduce){
   *, *:before, *:after{ animation-duration: .001ms !important; transition-duration: .001ms !important; }
 }
+
+
+/* ==========================================================================
+   Client names, quote initials, placeholder photos
+   ========================================================================== */
+
+/* the strip of client names, set in the heading face and kept quiet */
+.ml-client-name .elementor-heading-title{
+  font-family: var(--e-global-typography-primary-font-family), Georgia, serif;
+  font-size: 33px;
+  font-weight: 600;
+  letter-spacing: -.01em;
+  color: #9AA5B4;
+  transition: color .18s ease;
+  white-space: nowrap;
+}
+.ml-client-name:hover .elementor-heading-title{ color: var(--e-global-color-secondary); }
+
+/* the person's initial in a small coloured circle on a quote */
+.ml-quote-avatar{
+  width: 48px;
+  min-width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  overflow: hidden;
+}
+.ml-quote-avatar > .e-con-inner{
+  display: grid;
+  place-items: center;
+  height: 100%;
+  padding: 0;
+}
+.ml-avatar-letter .elementor-heading-title{
+  font-family: var(--e-global-typography-primary-font-family), Georgia, serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1;
+  color: #fff;
+}
+
+/* the hero picture is a square, the way the design has it */
+.ml-photo-square img{
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  width: 100%;
+}
+
+
+/* ==========================================================================
+   Small screens
+   The menu becomes a burger. The panel it opens is styled to match the rest
+   of the site rather than left as the theme default.
+   ========================================================================== */
+.elementor-location-header .elementor-menu-toggle{
+  background: transparent;
+  color: var(--e-global-color-secondary);
+  border-radius: 10px;
+  padding: 8px;
+  transition: background-color .18s ease, color .18s ease;
+}
+.elementor-location-header .elementor-menu-toggle:hover,
+.elementor-location-header .elementor-menu-toggle.elementor-active{
+  background: var(--e-global-color-mlmint);
+  color: var(--e-global-color-mlgreendark);
+}
+.elementor-location-header .elementor-nav-menu--dropdown{
+  background-color: #fff;
+  border-top: 1px solid var(--ml-hairline);
+  box-shadow: 0 18px 40px rgba(34,50,74,.10);
+  border-radius: 0 0 var(--ml-radius) var(--ml-radius);
+  overflow: hidden;
+}
+.elementor-location-header .elementor-nav-menu--dropdown a.elementor-item{
+  font-family: var(--e-global-typography-accent-font-family), sans-serif;
+  font-size: 15.5px;
+  font-weight: 500;
+  color: var(--e-global-color-secondary);
+  padding: 15px 24px;
+  border-bottom: 1px solid var(--ml-hairline);
+  transition: background-color .16s ease, color .16s ease;
+}
+.elementor-location-header .elementor-nav-menu--dropdown a.elementor-item:after{ display: none; }
+.elementor-location-header .elementor-nav-menu--dropdown a.elementor-item:hover,
+.elementor-location-header .elementor-nav-menu--dropdown a.elementor-item.elementor-item-active{
+  background-color: var(--e-global-color-mlgreentint);
+  color: var(--e-global-color-mlgreendark);
+}
+
+@media (max-width: 1180px){
+  /* the menu needs the room before the layout gets tight */
+  .elementor-location-header .elementor-nav-menu--main .elementor-nav-menu{ gap: 12px; }
+  .elementor-location-header .elementor-nav-menu--main a.elementor-item{ font-size: 13.5px; }
+}
+@media (max-width: 1024px){
+  .ml-client-name .elementor-heading-title{ font-size: 26px; }
+  .elementor-location-header .e-con.e-parent > .e-con-inner{ min-height: 68px; }
+}
+@media (max-width: 767px){
+  .ml-client-name .elementor-heading-title{ font-size: 21px; }
+  .elementor-location-header .elementor-widget-theme-site-logo img{ height: 28px; }
+  .elementor-location-header .elementor-widget-button .elementor-button{ padding: 8px 14px; font-size: 12.5px; }
+}
