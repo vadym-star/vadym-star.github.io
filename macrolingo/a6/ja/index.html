@@ -166,19 +166,17 @@
   .sec-cta{margin-top:40px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;align-items:center}
   .sec-cta .note{font-size:14.5px;color:var(--body-2)}
 
-  /* services — long-form blocks (JA) */
-  .bigsvc{margin-top:44px}
-  .bsrow{display:grid;grid-template-columns:.42fr .58fr;gap:48px;padding:44px 0;border-top:1px solid var(--line-2)}
-  .bsrow:first-child{border-top:none;padding-top:10px}
-  .bs-l .ic{width:58px;height:58px;border-radius:18px;background:var(--surface-2);display:grid;place-items:center;color:var(--green-dark);margin-bottom:20px}
-  .bs-l .ic svg{width:28px;height:28px}
-  .bs-l h3{font-family:var(--serif);font-size:27px;font-weight:600;color:var(--ink);line-height:1.4}
-  .bs-l .tagline{margin-top:12px;font-size:16px;color:var(--green-dark);font-weight:600;line-height:1.7}
-  .bs-r p{font-size:16px;color:var(--body);line-height:1.95}
-  .bs-tags{display:flex;flex-wrap:wrap;gap:9px;margin:22px 0 0;padding:0;list-style:none}
-  .bs-tags li{background:#fff;border:1px solid var(--line-2);border-radius:999px;padding:7px 15px;font-size:13.5px;color:var(--ink)}
-  .bs-note{margin-top:18px;font-size:13.5px;color:var(--body-2);line-height:1.7;padding-left:14px;border-left:2px solid var(--line-2)}
-  .bs-r .tlink{margin-top:22px}
+  /* services — strict 2x2 hairline grid (Japanese site) */
+  .svc2{margin-top:46px;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line-2);border-left:1px solid var(--line-2)}
+  .svc2-cell{padding:38px 38px 34px;border-right:1px solid var(--line-2);border-bottom:1px solid var(--line-2);display:flex;flex-direction:column}
+  .svc2-cell .ic{width:50px;height:50px;border-radius:12px;background:var(--surface-2);display:grid;place-items:center;color:var(--green-dark);margin-bottom:20px}
+  .svc2-cell .ic svg{width:25px;height:25px}
+  .svc2-cell h3{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--ink);line-height:1.42}
+  .svc2-cell .tagline{margin-top:10px;font-size:15.5px;font-weight:600;color:var(--green-dark);line-height:1.7}
+  .svc2-cell .desc{margin-top:16px;font-size:15.5px;color:var(--body);line-height:1.95}
+  .svc2-cell .keys{margin-top:16px;font-size:13.5px;color:var(--body-2);line-height:1.95}
+  .svc2-cell .tlink{margin-top:auto;padding-top:24px;font-size:14.5px}
+  .note-rule{margin-top:16px;font-size:13px;color:var(--body-2);line-height:1.75;padding-left:13px;border-left:2px solid var(--line-2)}
 
   /* NGO — full-width gradient band */
   .ngoband{position:relative;overflow:hidden;background:linear-gradient(128deg,var(--surface-2) 0%,#e6f2df 26%,#e8f0f8 62%,var(--blue-tint) 100%)}
@@ -217,10 +215,19 @@
   .experts .elist .tk{flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:var(--surface-2);display:grid;place-items:center;color:var(--green-dark);margin-top:2px}
   .experts .elist .tk svg{width:14px;height:14px}
   .experts .bio{margin-top:22px;font-size:16.5px;color:var(--body);line-height:1.85}
+  /* compact founder block — the whole section fits one screen */
+  .experts.top{align-items:start}
+  .experts.top .ph{aspect-ratio:1/1}
+  .experts.top h2{font-size:clamp(24px,2.7vw,32px);line-height:1.3;margin-top:12px}
+  .experts.top .bio{margin-top:16px;font-size:15.5px;line-height:1.8}
+  .elist.two{columns:2;column-gap:34px;margin-top:18px}
+  .elist.two li{break-inside:avoid;padding:8px 0;font-size:14.5px;line-height:1.6;align-items:flex-start}
+  .elist.two .tk{width:22px;height:22px;margin-top:1px}
+  .elist.two .tk svg{width:12px;height:12px}
 
   /* topics — vertical list beside a photo */
   .topics{display:grid;grid-template-columns:.82fr 1.18fr;gap:56px;align-items:start;margin-top:46px}
-  .topics .ph{aspect-ratio:4/5;border-radius:var(--r-lg);box-shadow:var(--shadow);position:sticky;top:104px}
+  .topics .ph{aspect-ratio:4/5;border-radius:var(--r-lg);box-shadow:var(--shadow)}
   .tlist2{list-style:none;margin:0;padding:0;columns:2;column-gap:44px}
   .tlist2 li{break-inside:avoid;display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line-2);font-size:16.5px;color:var(--ink)}
   .tlist2 li .d{width:7px;height:7px;border-radius:50%;background:var(--green);flex:0 0 auto}
@@ -255,7 +262,12 @@
   .post h3{font-family:var(--serif);font-size:20px;font-weight:600;line-height:1.28;color:var(--ink)}
   .post p{font-size:14.5px;color:var(--body-2);line-height:1.55;flex:1}
   .post .more{margin-top:6px;font-weight:600;font-size:14px;color:var(--green-dark)}
-  .morewrap{margin-top:36px;display:flex;justify-content:center}
+  /* "show more" — quiet text, no button chrome */
+  .morewrap{margin-top:32px;display:flex;justify-content:center}
+  .morelink{display:inline-flex;align-items:center;gap:7px;font-size:14.5px;font-weight:500;color:var(--body-2);transition:color .18s}
+  .morelink svg{width:14px;height:14px;transition:transform .18s}
+  .morelink:hover{color:var(--green-dark)}
+  .morelink:hover svg{transform:translateY(2px)}
 
   /* contact form */
   .contact-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:56px;align-items:start;margin-top:44px}
@@ -267,6 +279,8 @@
   .crow .ic svg{width:17px;height:17px}
   .crow b{display:block;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--body-2);margin-bottom:4px}
   .crow span{font-size:15.5px;color:var(--ink);line-height:1.6}
+  .cmap{margin-top:24px;border-radius:var(--r);overflow:hidden;border:1px solid var(--line-2);box-shadow:var(--shadow-sm);line-height:0;background:#fff}
+  .cmap iframe{display:block;width:100%;height:250px;border:0}
   .form-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:38px;box-shadow:var(--shadow)}
   .frow{display:grid;grid-template-columns:1fr 1fr;gap:18px}
   .field{margin-bottom:18px}
@@ -289,7 +303,8 @@
   .form-card .fine{margin-top:14px;text-align:center;font-size:12.5px;color:var(--body-2)}
 
   /* footer */
-  footer{background:var(--surface);color:var(--body);padding:66px 0 32px;border-top:1px solid var(--line)}
+  /* footer sits a step darker than any band above it */
+  footer{background:#e4ebdd;color:var(--body);padding:66px 0 32px;border-top:1px solid #d3ddc8}
   footer .cols{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px}
   footer .brand .mark{height:38px}
   footer .tag{margin-top:16px;font-size:14.5px;color:var(--body-2);max-width:34ch;line-height:1.6}
@@ -298,7 +313,7 @@
   footer li{margin-bottom:11px;font-size:14.5px}
   footer li a{color:var(--body);transition:color .16s}
   footer li a:hover{color:var(--green-dark)}
-  footer .foot-bottom{margin-top:46px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13.5px;color:var(--body-2)}
+  footer .foot-bottom{margin-top:46px;padding-top:24px;border-top:1px solid #d3ddc8;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13.5px;color:var(--body-2)}
 
   /* reveal */
   .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
@@ -312,7 +327,9 @@
     .hero-grid{grid-template-columns:1fr;gap:44px}
     .hero-photo{max-width:460px}
     .cards{grid-template-columns:1fr}
-    .bsrow{grid-template-columns:1fr;gap:24px;padding:34px 0}
+    .svc2{grid-template-columns:1fr}
+    .svc2-cell{padding:30px 26px}
+    .elist.two{columns:1}
     .ngo-in{grid-template-columns:1fr;gap:34px}
     .quotes{grid-template-columns:1fr}
     .faq{grid-template-columns:1fr}
@@ -331,7 +348,21 @@
   @media(max-width:600px){footer .cols{grid-template-columns:1fr}}
 </style>
 <style>
-  :root{--serif:'Newsreader','Noto Serif JP',Georgia,serif;--sans:'Figtree','Noto Sans JP',system-ui,-apple-system,sans-serif}
+  :root{
+    --serif:'Newsreader','Noto Serif JP',Georgia,serif;
+    --sans:'Figtree','Noto Sans JP',system-ui,-apple-system,sans-serif;
+    --r:14px;--r-lg:18px;
+    --shadow-sm:0 1px 2px rgba(34,50,74,.05);
+    --shadow:0 2px 10px rgba(34,50,74,.07);
+  }
+  .btn{border-radius:8px}
+  .card .ic,.crow .ic{border-radius:12px}
+  .float{border-radius:12px}
+  .float.stat{border-radius:10px}
+  .fitem{border-radius:10px}
+  .drop{border-radius:10px}
+  .field input,.field textarea{border-radius:9px}
+  .quote,.post{border-color:var(--line-2)}
 </style>
 <header id="hdr">
   <div class="wrap">
@@ -397,7 +428,7 @@
     </div>
   </section>
 
-  <!-- SERVICES — long-form blocks (Japanese site only) -->
+  <!-- SERVICES — strict 2x2 grid (Japanese site only) -->
   <section class="sec" id="services">
     <div class="wrap">
       <div class="sechead center reveal">
@@ -405,71 +436,47 @@
         <h2>エキスパートによる英文作成</h2>
         <p class="lead">対象コンテンツの分野に詳しい専門家で構成されたチームが、誰にでも読みやすい英語の文章を作成します。ネイティブスピーカーによる英文作成スキルと学術研究に関する専門知識を組み合わせることで、他にはないユニークで、圧倒的な価値を提供します。</p>
       </div>
-      <div class="bigsvc">
+      <div class="svc2">
 
-        <div class="bsrow reveal">
-          <div class="bs-l">
-            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>
-            <h3>英語コンテンツマーケティング</h3>
-            <p class="tagline">専門的な内容も、価値が伝わる英語に。</p>
-          </div>
-          <div class="bs-r">
-            <p>日本在住の米国人代表を中心に、ウェブサイトや記事、営業資料を企画・制作します。技術や科学の複雑な内容も、その分野に詳しいライターが正確に捉え、製品・サービスや研究の価値が伝わる英語に仕上げます。</p>
-            <ul class="bs-tags">
-              <li>SEO（検索エンジン最適化）</li><li>コピーライティング</li><li>英語ウェブサイト</li><li>英語ブログ</li><li>コンテンツ管理</li><li>英文キャッチコピー</li><li>企業広報</li><li>英語記事・報告書作成</li>
-            </ul>
-            <p class="bs-note">企業・研究機関・非営利団体など、幅広い組織に対応します。</p>
-            <a class="tlink" href="#contact">英語コンテンツ制作を詳しく見る <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          </div>
-        </div>
+        <article class="svc2-cell reveal">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>
+          <h3>英語コンテンツマーケティング</h3>
+          <p class="tagline">専門的な内容も、価値が伝わる英語に。</p>
+          <p class="desc">日本在住の米国人代表を中心に、ウェブサイトや記事、営業資料を企画・制作します。技術や科学の複雑な内容も、その分野に詳しいライターが正確に捉え、製品・サービスや研究の価値が伝わる英語に仕上げます。</p>
+          <p class="keys">SEO（検索エンジン最適化）／コピーライティング／英語ウェブサイト／英語ブログ／コンテンツ管理／英文キャッチコピー／企業広報／英語記事・報告書作成</p>
+          <p class="note-rule">企業・研究機関・非営利団体など、幅広い組織に対応します。</p>
+          <a class="tlink" href="#contact">英語コンテンツ制作を詳しく見る <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </article>
 
-        <div class="bsrow reveal">
-          <div class="bs-l">
-            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>
-            <h3>SEO・AI検索対策（AI-SEO）</h3>
-            <p class="tagline">検索を通じて、海外の見込み客との接点を増やす。</p>
-          </div>
-          <div class="bs-r">
-            <p>海外の見込み客が検索する言葉や求める情報を調べ、英語コンテンツやサイトの構成を整えます。Googleなどの検索エンジンとAI検索の両方に対応し、検索からの流入や成果を確認しながら改善を続けます。</p>
-            <ul class="bs-tags">
-              <li>検索ニーズ・キーワードの調査</li><li>コンテンツの改善・構成の整理</li><li>検索からの流入・成果の確認</li>
-            </ul>
-            <p class="bs-note">検索順位やAI検索での引用・紹介を保証するものではありません。</p>
-            <a class="tlink" href="#contact">SEO・AI検索対策を詳しく見る <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          </div>
-        </div>
+        <article class="svc2-cell reveal">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>
+          <h3>SEO・AI検索対策（AI-SEO）</h3>
+          <p class="tagline">検索を通じて、海外の見込み客との接点を増やす。</p>
+          <p class="desc">海外の見込み客が検索する言葉や求める情報を調べ、英語コンテンツやサイトの構成を整えます。Googleなどの検索エンジンとAI検索の両方に対応し、検索からの流入や成果を確認しながら改善を続けます。</p>
+          <p class="keys">検索ニーズ・キーワードの調査／コンテンツの改善・構成の整理／検索からの流入・成果の確認</p>
+          <p class="note-rule">検索順位やAI検索での引用・紹介を保証するものではありません。</p>
+          <a class="tlink" href="#contact">SEO・AI検索対策を詳しく見る <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </article>
 
-        <div class="bsrow reveal">
-          <div class="bs-l">
-            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
-            <h3>翻訳・ローカライズ</h3>
-            <p class="tagline">原文の意図を、自然な英語で海外の読者に伝える。</p>
-          </div>
-          <div class="bs-r">
-            <p>日本語の資料をもとに、意味の正確さと読みやすさを両立した英語に仕上げます。読者の知識や文化的背景、日英の商習慣の違いを踏まえ、用語や表現、情報を伝える順序を調整します。</p>
-            <ul class="bs-tags">
-              <li>ウェブサイト</li><li>アプリのUX/UI</li><li>SEO向け記事</li><li>プレスリリース</li><li>社内通信</li><li>企業広報</li><li>ブログ</li><li>宣伝・報告</li><li>展覧会資料</li><li>英語キャッチコピー</li>
-            </ul>
-            <p class="bs-note">専門文書から、観光・文化に関する文章まで対応します。</p>
-            <a class="tlink" href="#contact">翻訳・ローカライズを詳しく見る <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          </div>
-        </div>
+        <article class="svc2-cell reveal">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <h3>翻訳・ローカライズ</h3>
+          <p class="tagline">原文の意図を、自然な英語で海外の読者に伝える。</p>
+          <p class="desc">日本語の資料をもとに、意味の正確さと読みやすさを両立した英語に仕上げます。読者の知識や文化的背景、日英の商習慣の違いを踏まえ、用語や表現、情報を伝える順序を調整します。</p>
+          <p class="keys">ウェブサイト／アプリのUX・UI／SEO向け記事／プレスリリース／社内通信／企業広報／ブログ／宣伝・報告／展覧会資料／英語キャッチコピー</p>
+          <p class="note-rule">専門文書から、観光・文化に関する文章まで対応します。</p>
+          <a class="tlink" href="#contact">翻訳・ローカライズを詳しく見る <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </article>
 
-        <div class="bsrow reveal">
-          <div class="bs-l">
-            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 22 2l-9 19-2-8Z"/></svg></span>
-            <h3>海外PR・広報支援</h3>
-            <p class="tagline">ASEANでの認知度を、継続的な発信で高める。</p>
-          </div>
-          <div class="bs-r">
-            <p>ASEANで事業を展開する日本のテクノロジー・B2B企業のPRを支援します。これから進出する企業も対象です。アダムが日本語でのご相談や調整を担当し、PRパートナーのEllerton &amp; Co.が現地メディアへの働きかけや取材対応を行います。</p>
-            <ul class="bs-tags">
-              <li>PR戦略・伝える内容の整理</li><li>現地語での発信・メディア対応</li><li>月額契約による継続支援</li>
-            </ul>
-            <p class="bs-note">英語で十分に意思疎通できるご担当者を、貴社内でご指定ください。インド・欧州でのPRもご相談いただけます。</p>
-            <a class="tlink" href="#contact">海外PR・広報支援を詳しく見る <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          </div>
-        </div>
+        <article class="svc2-cell reveal">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 22 2l-9 19-2-8Z"/></svg></span>
+          <h3>海外PR・広報支援</h3>
+          <p class="tagline">ASEANでの認知度を、継続的な発信で高める。</p>
+          <p class="desc">ASEANで事業を展開する日本のテクノロジー・B2B企業のPRを支援します。これから進出する企業も対象です。アダムが日本語でのご相談や調整を担当し、PRパートナーのEllerton &amp; Co.が現地メディアへの働きかけや取材対応を行います。</p>
+          <p class="keys">PR戦略・伝える内容の整理／現地語での発信・メディア対応／月額契約による継続支援</p>
+          <p class="note-rule">英語で十分に意思疎通できるご担当者を、貴社内でご指定ください。インド・欧州でのPRもご相談いただけます。</p>
+          <a class="tlink" href="#contact">海外PR・広報支援を詳しく見る <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </article>
 
       </div>
       <div class="sec-cta reveal">
@@ -537,25 +544,28 @@
   </section>
 
   <!-- FOUNDER — blue band -->
-  <section class="sec band-blue" id="experts">
-    <div class="wrap experts">
-      <div class="ph reveal"><span class="tagph">写真</span><span class="cap">Adam Goulston博士（PsyD, MBA）、大阪</span></div>
+  <section class="sec tight band-blue" id="experts">
+    <div class="wrap experts top">
       <div class="reveal">
-        <span class="eyebrow">MacroLingo合同会社 創業者</span>
-        <h2 style="font-size:clamp(26px,3.3vw,42px);font-weight:500;margin-top:14px">あなたの商品やアイデアを、専門知識とプロフェッショナルな英語で表現</h2>
-        <p class="bio">日本の感覚や感性を深く理解し、複雑な考えを的確に伝え、確実に成果を上げます。一般的な翻訳者やフリーランス、エージェンシーとは異なり、私たちはすべてのコンテンツに専門家の知見を活用し、クライアントの成功を徹底的にサポートします。</p>
-        <ul class="elist">
-          <li><span class="tk"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> 世界中で共通語として使われる英語を、誰にでも理解しやすく表現すること</li>
-          <li><span class="tk"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> 過度に誇張した表現を避け、本来の意味が伝わり、印象に残るようにすること</li>
-          <li><span class="tk"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> 証拠に基づいた科学と専門家の知見を尊重すること</li>
-          <li><span class="tk"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> 優れたアイデアに基づき、新しい発見を促進する研究をサポートすること</li>
-          <li><span class="tk"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> 地球に利益をもたらすサステナブルなビジネスと研究を推進すること</li>
-        </ul>
+        <div class="ph"><span class="tagph">写真</span><span class="cap">Adam Goulston博士（PsyD, MBA）、大阪</span></div>
         <div class="credit">
           <span class="av">A</span>
           <div><b>Adam Goulston博士（PsyD, MBA）</b><span>MacroLingo合同会社 創業者 &mdash; 大阪</span></div>
         </div>
-        <div style="margin-top:26px"><a class="btn btn-soft" href="#contact">この会社について</a></div>
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">MacroLingo合同会社 創業者</span>
+        <h2>あなたの商品やアイデアを、専門知識とプロフェッショナルな英語で表現</h2>
+        <p class="bio">日本の感覚や感性を深く理解し、複雑な考えを的確に伝え、確実に成果を上げます。一般的な翻訳者やフリーランス、エージェンシーとは異なり、私たちはすべてのコンテンツに専門家の知見を活用します。</p>
+        <p class="micro" style="margin-top:20px;font-size:12.5px;font-weight:700;letter-spacing:.08em;color:var(--blue-dark)">私たちのアプローチ</p>
+        <ul class="elist two">
+          <li><span class="tk"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> 世界共通語の英語を、誰にでも理解しやすく表現すること</li>
+          <li><span class="tk"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> 過度な誇張を避け、本来の意味が伝わり印象に残ること</li>
+          <li><span class="tk"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> 証拠に基づいた科学と専門家の知見を尊重すること</li>
+          <li><span class="tk"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> 新しい発見を促進する研究をサポートすること</li>
+          <li><span class="tk"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> 地球に利益をもたらすサステナブルな事業と研究を推進すること</li>
+        </ul>
+        <div style="margin-top:24px"><a class="btn btn-soft" href="#contact">この会社について</a></div>
       </div>
     </div>
   </section>
@@ -567,7 +577,7 @@
         <span class="eyebrow">オーガニック検索</span>
         <h2 style="font-size:clamp(26px,3.2vw,40px);font-weight:500;margin-top:14px">オーガニック検索に対する科学的アプローチでSEO対策</h2>
         <p class="bio">『オーガニック検索』とは、検索エンジンで表示される検索結果の順位を指し、上位に表示されるほど多くの人に見られることになります。しかし、検索結果で上位にランキングするためには、質の高いデザインやコンテンツ、わかりやすい英語、そして最新のSEO対策が必須です。これらは世界共通であり、適切な対策を施すことで長期に渡って効果を発揮します。</p>
-        <p class="bs-note" style="margin-top:20px">*劇的な効果が保証されるわけではありませんが、すべてのお客様に最善の成果をお届けできるよう、全力でサポートいたします。</p>
+        <p class="note-rule" style="margin-top:20px">*劇的な効果が保証されるわけではありませんが、すべてのお客様に最善の成果をお届けできるよう、全力でサポートいたします。</p>
         <div style="margin-top:26px"><a class="tlink" href="#services">SEO・AI検索対策を詳しく見る <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
       </div>
       <div class="ph reveal" style="aspect-ratio:4/3"><span class="tagph">写真</span><span class="cap">検索データを分析するチーム</span></div>
@@ -669,7 +679,7 @@
           <div class="pad"><span class="cat">アカデミア</span><h3>アカデミックテクノロジー企業が認知度を高め、メディアと資金を引き寄せる方法</h3><p>Written by Dr. Adam Goulston</p><span class="more">続きを読む &rarr;</span></div>
         </a>
       </div>
-      <div class="morewrap reveal"><a class="btn btn-soft" id="morePosts" href="#insights">記事をもっと見る</a></div>
+      <div class="morewrap reveal"><a class="morelink" id="morePosts" href="#insights">記事をもっと見る <svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
     </div>
   </section>
 
@@ -684,6 +694,9 @@
           <div class="crow"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg></span><div><b>所在地</b><span>〒541-0056<br>大阪府大阪市中央区久太郎町4丁目1-3<br>大阪センタービル6F-313</span></div></div>
           <div class="crow"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.4"/><path d="m3.6 6.6 8.4 6 8.4-6"/></svg></span><div><b>メール</b><span>contact@macrolingo.com</span></div></div>
           <div class="crow"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.2 2"/></svg></span><div><b>返信の目安</b><span>1営業日以内（日本時間）</span></div></div>
+          <div class="cmap reveal">
+            <iframe title="MacroLingo 大阪オフィスの地図" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=%E3%80%92541-0056%E5%A4%A7%E9%98%AA%E5%BA%9C%E5%A4%A7%E9%98%AA%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%E4%B9%85%E5%A4%AA%E9%83%8E%E7%94%BA4%E4%B8%81%E7%9B%AE1-3%E5%A4%A7%E9%98%AA%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%93%E3%83%AB6F-313&amp;t=m&amp;z=16&amp;output=embed&amp;iwloc=near"></iframe>
+          </div>
         </div>
         <form class="form-card mockform reveal">
           <div class="frow">

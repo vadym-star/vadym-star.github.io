@@ -165,19 +165,17 @@
   .sec-cta{margin-top:40px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;align-items:center}
   .sec-cta .note{font-size:14.5px;color:var(--body-2)}
 
-  /* services — long-form blocks (JA) */
-  .bigsvc{margin-top:44px}
-  .bsrow{display:grid;grid-template-columns:.42fr .58fr;gap:48px;padding:44px 0;border-top:1px solid var(--line-2)}
-  .bsrow:first-child{border-top:none;padding-top:10px}
-  .bs-l .ic{width:58px;height:58px;border-radius:18px;background:var(--surface-2);display:grid;place-items:center;color:var(--green-dark);margin-bottom:20px}
-  .bs-l .ic svg{width:28px;height:28px}
-  .bs-l h3{font-family:var(--serif);font-size:27px;font-weight:600;color:var(--ink);line-height:1.4}
-  .bs-l .tagline{margin-top:12px;font-size:16px;color:var(--green-dark);font-weight:600;line-height:1.7}
-  .bs-r p{font-size:16px;color:var(--body);line-height:1.95}
-  .bs-tags{display:flex;flex-wrap:wrap;gap:9px;margin:22px 0 0;padding:0;list-style:none}
-  .bs-tags li{background:#fff;border:1px solid var(--line-2);border-radius:999px;padding:7px 15px;font-size:13.5px;color:var(--ink)}
-  .bs-note{margin-top:18px;font-size:13.5px;color:var(--body-2);line-height:1.7;padding-left:14px;border-left:2px solid var(--line-2)}
-  .bs-r .tlink{margin-top:22px}
+  /* services — strict 2x2 hairline grid (Japanese site) */
+  .svc2{margin-top:46px;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line-2);border-left:1px solid var(--line-2)}
+  .svc2-cell{padding:38px 38px 34px;border-right:1px solid var(--line-2);border-bottom:1px solid var(--line-2);display:flex;flex-direction:column}
+  .svc2-cell .ic{width:50px;height:50px;border-radius:12px;background:var(--surface-2);display:grid;place-items:center;color:var(--green-dark);margin-bottom:20px}
+  .svc2-cell .ic svg{width:25px;height:25px}
+  .svc2-cell h3{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--ink);line-height:1.42}
+  .svc2-cell .tagline{margin-top:10px;font-size:15.5px;font-weight:600;color:var(--green-dark);line-height:1.7}
+  .svc2-cell .desc{margin-top:16px;font-size:15.5px;color:var(--body);line-height:1.95}
+  .svc2-cell .keys{margin-top:16px;font-size:13.5px;color:var(--body-2);line-height:1.95}
+  .svc2-cell .tlink{margin-top:auto;padding-top:24px;font-size:14.5px}
+  .note-rule{margin-top:16px;font-size:13px;color:var(--body-2);line-height:1.75;padding-left:13px;border-left:2px solid var(--line-2)}
 
   /* NGO — full-width gradient band */
   .ngoband{position:relative;overflow:hidden;background:linear-gradient(128deg,var(--surface-2) 0%,#e6f2df 26%,#e8f0f8 62%,var(--blue-tint) 100%)}
@@ -216,10 +214,19 @@
   .experts .elist .tk{flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:var(--surface-2);display:grid;place-items:center;color:var(--green-dark);margin-top:2px}
   .experts .elist .tk svg{width:14px;height:14px}
   .experts .bio{margin-top:22px;font-size:16.5px;color:var(--body);line-height:1.85}
+  /* compact founder block — the whole section fits one screen */
+  .experts.top{align-items:start}
+  .experts.top .ph{aspect-ratio:1/1}
+  .experts.top h2{font-size:clamp(24px,2.7vw,32px);line-height:1.3;margin-top:12px}
+  .experts.top .bio{margin-top:16px;font-size:15.5px;line-height:1.8}
+  .elist.two{columns:2;column-gap:34px;margin-top:18px}
+  .elist.two li{break-inside:avoid;padding:8px 0;font-size:14.5px;line-height:1.6;align-items:flex-start}
+  .elist.two .tk{width:22px;height:22px;margin-top:1px}
+  .elist.two .tk svg{width:12px;height:12px}
 
   /* topics — vertical list beside a photo */
   .topics{display:grid;grid-template-columns:.82fr 1.18fr;gap:56px;align-items:start;margin-top:46px}
-  .topics .ph{aspect-ratio:4/5;border-radius:var(--r-lg);box-shadow:var(--shadow);position:sticky;top:104px}
+  .topics .ph{aspect-ratio:4/5;border-radius:var(--r-lg);box-shadow:var(--shadow)}
   .tlist2{list-style:none;margin:0;padding:0;columns:2;column-gap:44px}
   .tlist2 li{break-inside:avoid;display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line-2);font-size:16.5px;color:var(--ink)}
   .tlist2 li .d{width:7px;height:7px;border-radius:50%;background:var(--green);flex:0 0 auto}
@@ -254,7 +261,12 @@
   .post h3{font-family:var(--serif);font-size:20px;font-weight:600;line-height:1.28;color:var(--ink)}
   .post p{font-size:14.5px;color:var(--body-2);line-height:1.55;flex:1}
   .post .more{margin-top:6px;font-weight:600;font-size:14px;color:var(--green-dark)}
-  .morewrap{margin-top:36px;display:flex;justify-content:center}
+  /* "show more" — quiet text, no button chrome */
+  .morewrap{margin-top:32px;display:flex;justify-content:center}
+  .morelink{display:inline-flex;align-items:center;gap:7px;font-size:14.5px;font-weight:500;color:var(--body-2);transition:color .18s}
+  .morelink svg{width:14px;height:14px;transition:transform .18s}
+  .morelink:hover{color:var(--green-dark)}
+  .morelink:hover svg{transform:translateY(2px)}
 
   /* contact form */
   .contact-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:56px;align-items:start;margin-top:44px}
@@ -266,6 +278,8 @@
   .crow .ic svg{width:17px;height:17px}
   .crow b{display:block;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--body-2);margin-bottom:4px}
   .crow span{font-size:15.5px;color:var(--ink);line-height:1.6}
+  .cmap{margin-top:24px;border-radius:var(--r);overflow:hidden;border:1px solid var(--line-2);box-shadow:var(--shadow-sm);line-height:0;background:#fff}
+  .cmap iframe{display:block;width:100%;height:250px;border:0}
   .form-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:38px;box-shadow:var(--shadow)}
   .frow{display:grid;grid-template-columns:1fr 1fr;gap:18px}
   .field{margin-bottom:18px}
@@ -288,7 +302,8 @@
   .form-card .fine{margin-top:14px;text-align:center;font-size:12.5px;color:var(--body-2)}
 
   /* footer */
-  footer{background:var(--surface);color:var(--body);padding:66px 0 32px;border-top:1px solid var(--line)}
+  /* footer sits a step darker than any band above it */
+  footer{background:#e4ebdd;color:var(--body);padding:66px 0 32px;border-top:1px solid #d3ddc8}
   footer .cols{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px}
   footer .brand .mark{height:38px}
   footer .tag{margin-top:16px;font-size:14.5px;color:var(--body-2);max-width:34ch;line-height:1.6}
@@ -297,7 +312,7 @@
   footer li{margin-bottom:11px;font-size:14.5px}
   footer li a{color:var(--body);transition:color .16s}
   footer li a:hover{color:var(--green-dark)}
-  footer .foot-bottom{margin-top:46px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13.5px;color:var(--body-2)}
+  footer .foot-bottom{margin-top:46px;padding-top:24px;border-top:1px solid #d3ddc8;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13.5px;color:var(--body-2)}
 
   /* reveal */
   .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
@@ -311,7 +326,9 @@
     .hero-grid{grid-template-columns:1fr;gap:44px}
     .hero-photo{max-width:460px}
     .cards{grid-template-columns:1fr}
-    .bsrow{grid-template-columns:1fr;gap:24px;padding:34px 0}
+    .svc2{grid-template-columns:1fr}
+    .svc2-cell{padding:30px 26px}
+    .elist.two{columns:1}
     .ngo-in{grid-template-columns:1fr;gap:34px}
     .quotes{grid-template-columns:1fr}
     .faq{grid-template-columns:1fr}
@@ -579,7 +596,7 @@
           <div class="pad"><span class="cat">Academia</span><h3>How Academic Technology Can Raise Its Profile (and attract media and funding)</h3><p>Academic technology companies have built tools used by millions, and almost nobody outside the field can name one.</p><span class="more">Read more &rarr;</span></div>
         </a>
       </div>
-      <div class="morewrap reveal"><a class="btn btn-soft" id="morePosts" href="#insights">Show more posts</a></div>
+      <div class="morewrap reveal"><a class="morelink" id="morePosts" href="#insights">Show more posts <svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
     </div>
   </section>
 
