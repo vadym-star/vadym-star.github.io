@@ -498,3 +498,49 @@
   .ml-hero{ min-height: 0; }
   .ml-float-quote-card, .ml-float-years{ display: none; }
 }
+
+
+/* --- Header ---------------------------------------------------------------
+   The header follows you down the page, so once it lifts off the top it
+   needs its own white background. Without this the menu sits straight on
+   top of whatever section is passing underneath.                          */
+.elementor-location-header .elementor-sticky--effects,
+.elementor-location-header .elementor-sticky--active{
+  background-color: #fff;
+  box-shadow: 0 1px 0 var(--ml-hairline);
+}
+
+/* --- Japanese page: services in four boxes with hairlines between them ---
+   ml-jp-services on the container, ml-jp-service on each box             */
+.ml-jp-services > .e-con-inner{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 !important;
+  border-top: 1px solid var(--ml-hairline-strong);
+  border-left: 1px solid var(--ml-hairline-strong);
+  align-items: stretch;
+}
+.ml-jp-service{
+  border-right: 1px solid var(--ml-hairline-strong);
+  border-bottom: 1px solid var(--ml-hairline-strong);
+}
+.ml-jp-service .ml-arrow-link{ margin-top: auto; padding-top: 22px; }
+
+/* --- Japanese page: the list of subjects beside a photo ------------------
+   ml-subject-list on an Icon List widget                                  */
+.ml-subject-list .elementor-icon-list-items{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 44px;
+}
+.ml-subject-list .elementor-icon-list-item{
+  border-bottom: 1px solid var(--ml-hairline-strong);
+  padding: 12px 0;
+}
+.ml-subject-list .elementor-icon-list-icon i{ font-size: 7px; color: var(--e-global-color-primary); }
+.ml-subject-list .elementor-icon-list-text{ font-size: 16.5px; color: var(--e-global-color-secondary); }
+
+@media (max-width: 1024px){
+  .ml-jp-services > .e-con-inner{ grid-template-columns: 1fr; }
+  .ml-subject-list .elementor-icon-list-items{ grid-template-columns: 1fr; }
+}
