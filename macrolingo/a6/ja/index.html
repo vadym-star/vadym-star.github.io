@@ -368,6 +368,26 @@
   .field input,.field textarea{border-radius:9px}
   .quote,.post{border-color:var(--line-2)}
   .fq{font-size:17px}
+
+  /* ---- hinomaru red (#BC002D), Japanese page only, in two places ----
+     1. the small disc on section labels inside the blue band
+     2. the contact form: required marker and validation state
+     Everywhere else the brand green still leads. */
+  :root{--jp-red:#BC002D;--jp-red-tint:rgba(188,0,45,.10)}
+  .band-blue .eyebrow{color:var(--ink)}
+  .band-blue .eyebrow::before{background:var(--jp-red)}
+  .field label .req{color:var(--jp-red)}
+  .field.err input,.field.err textarea,
+  .field.err input:focus,.field.err textarea:focus{border-color:var(--jp-red);box-shadow:0 0 0 4px var(--jp-red-tint)}
+  .errmsg{display:none;margin-top:8px;font-size:13px;line-height:1.5;color:var(--jp-red);align-items:flex-start;gap:7px}
+  .field.err .errmsg{display:flex}
+  .errmsg svg{margin-top:3px;width:14px;height:14px;flex:0 0 auto}
+  .fieldfoot{display:flex;align-items:flex-start;gap:16px;margin-top:7px}
+  .fieldfoot .errmsg{margin-top:0}
+  .fieldfoot .counter{margin-top:0;margin-left:auto;white-space:nowrap}
+  .consent-field{margin-bottom:24px}
+  .consent-field .consent{margin:4px 0 0}
+  .consent-field.err .consent input{outline:2px solid var(--jp-red);outline-offset:2px;border-radius:3px}
 </style>
 <header id="hdr">
   <div class="wrap">
@@ -692,20 +712,20 @@
         </div>
         <form class="form-card mockform reveal">
           <div class="frow">
-            <div class="field"><label>名前 <span class="req">*</span></label><input type="text" placeholder="山田 太郎"></div>
-            <div class="field"><label>メール <span class="req">*</span></label><input type="email" placeholder="you@company.co.jp"></div>
+            <div class="field"><label>名前 <span class="req">*</span></label><input type="text" placeholder="山田 太郎" data-required><p class="errmsg"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.6" stroke="currentColor" stroke-width="1.6"/><path d="M8 4.6v3.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="8" cy="11.2" r=".95" fill="currentColor"/></svg><span>お名前をご入力ください。</span></p></div>
+            <div class="field"><label>メール <span class="req">*</span></label><input type="email" placeholder="you@company.co.jp" data-required><p class="errmsg"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.6" stroke="currentColor" stroke-width="1.6"/><path d="M8 4.6v3.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="8" cy="11.2" r=".95" fill="currentColor"/></svg><span>メールアドレスをご入力ください。</span></p></div>
           </div>
           <div class="field"><label>会社名・団体名</label><input type="text" placeholder="任意"></div>
           <div class="field">
             <label>メッセージ・詳細 <span class="req">*</span></label>
-            <textarea id="msgField" maxlength="2000" placeholder="ご相談の内容、ご希望の納期などをご記入ください。"></textarea>
-            <div class="counter" id="msgCount">0 / 2000</div>
+            <textarea id="msgField" maxlength="2000" placeholder="ご相談の内容、ご希望の納期などをご記入ください。" data-required></textarea>
+            <div class="fieldfoot"><p class="errmsg"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.6" stroke="currentColor" stroke-width="1.6"/><path d="M8 4.6v3.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="8" cy="11.2" r=".95" fill="currentColor"/></svg><span>ご相談内容をご入力ください。</span></p><div class="counter" id="msgCount">0 / 2000</div></div>
           </div>
           <div class="field">
             <label>参考資料、書類、ファイルなど</label>
             <div class="drop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5"/><path d="M4 15v3.4A2.6 2.6 0 0 0 6.6 21h10.8A2.6 2.6 0 0 0 20 18.4V15"/></svg><b>ドラッグ＆ドロップ、またはファイルを選択</b><span>PDF・Word・Excel・PowerPoint・画像（20MBまで）</span></div>
           </div>
-          <label class="consent"><input type="checkbox"><span><a href="#contact">プライバシーポリシー</a>と<a href="#contact">利用規約</a>に同意します。&nbsp;<span style="color:var(--green-dark)">*</span></span></label>
+          <div class="field consent-field"><label class="consent"><input type="checkbox" data-required><span><a href="#contact">プライバシーポリシー</a>と<a href="#contact">利用規約</a>に同意します。&nbsp;<span style="color:#BC002D">*</span></span></label><p class="errmsg"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.6" stroke="currentColor" stroke-width="1.6"/><path d="M8 4.6v3.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="8" cy="11.2" r=".95" fill="currentColor"/></svg><span>プライバシーポリシーと利用規約への同意が必要です。</span></p></div>
           <button class="btn btn-primary" type="submit">送信</button>
           <p class="fine">メールでのご連絡も承ります：contact@macrolingo.com</p>
         </form>
@@ -774,7 +794,21 @@
     });}
     var msg=document.getElementById('msgField'), cnt=document.getElementById('msgCount');
     if(msg&&cnt){msg.addEventListener('input',function(){cnt.textContent=msg.value.length+' / 2000';});}
-    document.querySelectorAll('form.mockform').forEach(function(f){f.addEventListener('submit',function(e){e.preventDefault();});});
+    document.querySelectorAll('form.mockform').forEach(function(f){
+      var fields=f.querySelectorAll('[data-required]');
+      var empty=function(el){ return el.type==='checkbox' ? !el.checked : !el.value.trim(); };
+      var mark=function(el,on){ var b=el.closest('.field'); if(b) b.classList.toggle('err',on); };
+      f.addEventListener('submit',function(e){
+        e.preventDefault();
+        var first=null;
+        fields.forEach(function(el){ var bad=empty(el); mark(el,bad); if(bad&&!first) first=el; });
+        if(first) first.focus();
+      });
+      fields.forEach(function(el){
+        var clear=function(){ if(!empty(el)) mark(el,false); };
+        el.addEventListener('input',clear); el.addEventListener('change',clear);
+      });
+    });
   })();
 </script>
 </html>

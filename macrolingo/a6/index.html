@@ -693,7 +693,21 @@
     });}
     var msg=document.getElementById('msgField'), cnt=document.getElementById('msgCount');
     if(msg&&cnt){msg.addEventListener('input',function(){cnt.textContent=msg.value.length+' / 2000';});}
-    document.querySelectorAll('form.mockform').forEach(function(f){f.addEventListener('submit',function(e){e.preventDefault();});});
+    document.querySelectorAll('form.mockform').forEach(function(f){
+      var fields=f.querySelectorAll('[data-required]');
+      var empty=function(el){ return el.type==='checkbox' ? !el.checked : !el.value.trim(); };
+      var mark=function(el,on){ var b=el.closest('.field'); if(b) b.classList.toggle('err',on); };
+      f.addEventListener('submit',function(e){
+        e.preventDefault();
+        var first=null;
+        fields.forEach(function(el){ var bad=empty(el); mark(el,bad); if(bad&&!first) first=el; });
+        if(first) first.focus();
+      });
+      fields.forEach(function(el){
+        var clear=function(){ if(!empty(el)) mark(el,false); };
+        el.addEventListener('input',clear); el.addEventListener('change',clear);
+      });
+    });
   })();
 </script>
 </html>
