@@ -735,6 +735,37 @@
 .ml-hero-intro{ font-size: 19px; line-height: 1.6; max-width: 50ch; }
 .ml-hero-photo{ position: relative; }
 
+/* --- Two columns of set proportions --------------------------------------
+   ml-split-hero  ml-split-ngo  ml-split-about  ml-split-seo
+   ml-split-topics  ml-split-contact
+   Put one on the section container. The numbers are the proportions the
+   design uses; change them here and the section changes everywhere.
+   Both columns become one on a tablet.                                     */
+.ml-split-hero > .e-con-inner{ display: grid; grid-template-columns: 1.06fr .94fr; gap: 60px; align-items: center; }
+.ml-split-ngo > .e-con-inner{ display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: stretch; }
+.ml-split-about > .e-con-inner{ display: grid; grid-template-columns: .9fr 1.1fr; gap: 54px; align-items: stretch; }
+.ml-split-seo > .e-con-inner{ display: grid; grid-template-columns: 1.12fr .88fr; gap: 54px; align-items: stretch; }
+.ml-split-topics > .e-con-inner,
+.ml-split-contact > .e-con-inner{ display: grid; grid-template-columns: .82fr 1.18fr; gap: 56px; align-items: stretch; }
+.ml-split-hero > .e-con-inner > *,
+.ml-split-ngo > .e-con-inner > *,
+.ml-split-about > .e-con-inner > *,
+.ml-split-seo > .e-con-inner > *,
+.ml-split-topics > .e-con-inner > *,
+.ml-split-contact > .e-con-inner > *{ width: 100%; max-width: 100%; min-width: 0; }
+@media (max-width: 1024px){
+  .ml-split-hero > .e-con-inner,
+  .ml-split-ngo > .e-con-inner,
+  .ml-split-about > .e-con-inner,
+  .ml-split-seo > .e-con-inner,
+  .ml-split-topics > .e-con-inner,
+  .ml-split-contact > .e-con-inner{ grid-template-columns: 1fr; }
+}
+
+/* the arrow on a text link takes the colour of the words beside it */
+.ml-arrow-link .elementor-button-icon svg,
+.ml-arrow-link .elementor-button-icon i{ fill: currentColor; color: currentColor; }
+
 /* Two boxes across, one on a phone. Used by the services, the quotes and
    the questions. The gap comes from the container's own Gap setting.      */
 .ml-two-up > .e-con-inner,
