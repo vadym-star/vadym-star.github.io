@@ -422,60 +422,69 @@
 
 
 /* --- Blog posts ----------------------------------------------------------
-   ml-posts   on the Posts widget                                          */
-.ml-posts .elementor-post.elementor-grid-item{
-  background: #fff;
-  border: 1px solid var(--ml-hairline);
-  border-radius: var(--ml-radius);
+   ml-posts        on the Loop Grid widget
+   ml-post-card    the card itself, in the loop item template
+   ml-post-image   the picture at the top
+   ml-post-cat     the small green category line
+   ml-post-title   the headline
+   ml-post-excerpt the summary
+   The card is a template of its own (Templates > Theme Builder > Loop Item),
+   so changing it once changes every card.                                  */
+.ml-post-card{
   overflow: hidden;
-  box-shadow: var(--ml-shadow-soft);
-  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  height: 100%;
   display: flex;
   flex-direction: column;
 }
-.ml-posts .elementor-post.elementor-grid-item:hover{
-  transform: translateY(-4px);
-  box-shadow: var(--ml-shadow-lift);
-  border-color: #DBEFCE;
+.ml-post-card > .e-con-inner{ padding: 0; height: 100%; display: flex; flex-direction: column; }
+.ml-post-image img{
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
 }
-.ml-posts .elementor-post__thumbnail__link{ border-radius: 0; overflow: hidden; }
-.ml-posts .elementor-post__thumbnail{ padding-bottom: 62.5%; }
-.ml-posts .elementor-post:hover{ transform: translateY(-4px); box-shadow: var(--ml-shadow-lift); }
-.ml-posts .elementor-post__text{ padding: 22px 24px 26px; display: flex; flex-direction: column; flex: 1; gap: 8px; }
-.ml-posts .elementor-post__excerpt{ flex: 1; }
-.ml-posts .elementor-post__excerpt p{
-  font-size: 14.5px;
-  line-height: 1.55;
-  color: var(--e-global-color-mlmuted);
-  margin: 0;
+.ml-post-body{ flex: 1 1 auto; }
+.ml-post-body > .e-con-inner{ height: 100%; display: flex; flex-direction: column; }
+.ml-post-cat .elementor-post-info__item,
+.ml-post-cat .elementor-icon-list-text{
+  font-family: var(--e-global-typography-accent-font-family), sans-serif;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--e-global-color-mlgreendark);
 }
-.ml-posts .elementor-post__title{ margin: 0; }
-.ml-posts .elementor-post__title a{
+.ml-post-cat .elementor-icon-list-item{ margin: 0; }
+.ml-post-title .elementor-heading-title,
+.ml-post-title .elementor-heading-title a{
   font-family: var(--e-global-typography-primary-font-family), Georgia, serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 1.28;
   color: var(--e-global-color-secondary);
-}
-/* the theme underlines every link in body copy; inside a card it should not */
-.ml-posts a, .ml-posts .elementor-post__title a, .ml-posts .elementor-post__read-more{
   text-decoration: none;
-  box-shadow: none;
 }
-.ml-posts .elementor-post__read-more{ margin-top: 6px; font-weight: 600; font-size: 14px; color: var(--e-global-color-mlgreendark); }
-.ml-posts .elementor-post__meta-data{
-  color: var(--e-global-color-mlgreendark);
-  font-size: 11.5px;
-  font-weight: 600;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  margin: 0;
-  border: 0;
-  padding: 0;
+.ml-post-title .elementor-heading-title a:hover{ color: var(--e-global-color-mlgreendark); }
+.ml-post-excerpt.elementor-widget{
+  flex: 1 1 auto;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--e-global-color-mlmuted);
 }
+.ml-post-card .ml-arrow-link{ margin-top: 6px; }
+.ml-post-card .ml-arrow-link .elementor-button{ font-size: 14px; }
+
+/* the grid itself */
+.ml-posts .elementor-grid,
+.ml-posts .e-loop-item{ height: 100%; }
+.ml-posts a{ text-decoration: none; box-shadow: none; }
+
 /* the show more control is quiet text with a small chevron, not a button */
-.ml-posts .elementor-button-wrapper{ margin-top: 32px; text-align: center; }
-.ml-posts .elementor-button-wrapper .elementor-button{
+.ml-posts .elementor-button-wrapper,
+.ml-posts .e-load-more-anchor + *,
+.ml-posts .elementor-pagination{ margin-top: 32px; text-align: center; }
+.ml-posts .elementor-button-wrapper .elementor-button,
+.ml-posts .elementor-widget-container > .elementor-button{
   background-color: transparent;
   background-image: none;
   color: var(--e-global-color-mlmuted);
