@@ -440,8 +440,9 @@
 
 /* Two boxes across, one on a phone. Used by the services, the quotes and
    the questions. The gap comes from the container's own Gap setting.      */
-.ml-two-up{ display: grid; grid-template-columns: repeat(2, 1fr); align-items: stretch; }
-.ml-two-up > *{ width: 100%; max-width: 100%; }
+.ml-two-up > .e-con-inner,
+.ml-two-up.e-con-full{ display: grid; grid-template-columns: repeat(2, 1fr); align-items: stretch; }
+.ml-two-up > .e-con-inner > *{ width: 100%; max-width: 100%; }
 
 /* the small line above the client logos */
 .ml-strip-label .elementor-heading-title{
@@ -493,7 +494,7 @@
 .ml-quote-role{ font-size: 13px; color: var(--e-global-color-mlmuted); }
 
 @media (max-width: 1024px){
-  .ml-two-up{ grid-template-columns: 1fr; }
+  .ml-two-up > .e-con-inner, .ml-two-up.e-con-full{ grid-template-columns: 1fr; }
   .ml-hero{ min-height: 0; }
   .ml-float-quote-card, .ml-float-years{ display: none; }
 }
