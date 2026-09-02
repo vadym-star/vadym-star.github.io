@@ -887,14 +887,18 @@ footer .ast-builder-social-element:hover{ color: var(--e-global-color-mlgreendar
    browser that does not support it the content simply shows.            */
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
+    /* the range is measured across the whole time the block is on screen,
+       so it finishes whatever the height of the block. Measuring it on the
+       way in only works for blocks shorter than the window, and a tall one
+       would stay faded out. */
     .ml-reveal{
       animation: ml-rise linear both;
       animation-timeline: view();
-      animation-range: entry 0% entry 38%;
+      animation-range: cover 0% cover 10%;
     }
-    .ml-reveal-1{ animation-range: entry 4% entry 42%; }
-    .ml-reveal-2{ animation-range: entry 8% entry 46%; }
-    .ml-reveal-3{ animation-range: entry 12% entry 50%; }
+    .ml-reveal-1{ animation-range: cover 2% cover 13%; }
+    .ml-reveal-2{ animation-range: cover 4% cover 16%; }
+    .ml-reveal-3{ animation-range: cover 6% cover 19%; }
   }
 }
 @keyframes ml-rise{
