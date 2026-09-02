@@ -848,3 +848,26 @@ footer .ast-builder-social-element:hover{ color: var(--e-global-color-mlgreendar
   .elementor-location-header .elementor-widget-theme-site-logo img{ height: 28px; }
   .elementor-location-header .elementor-widget-button .elementor-button{ padding: 8px 14px; font-size: 12.5px; }
 }
+
+
+/* --- Blocks lifting into place ------------------------------------------
+   ml-reveal, with ml-reveal-1 to ml-reveal-3 to stagger the ones that
+   follow. The movement is tied to the scroll position rather than to a
+   script, so a block can never be left stranded at zero opacity. On a
+   browser that does not support it the content simply shows.            */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .ml-reveal{
+      animation: ml-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 38%;
+    }
+    .ml-reveal-1{ animation-range: entry 4% entry 42%; }
+    .ml-reveal-2{ animation-range: entry 8% entry 46%; }
+    .ml-reveal-3{ animation-range: entry 12% entry 50%; }
+  }
+}
+@keyframes ml-rise{
+  from{ opacity: 0; transform: translateY(24px); }
+  to  { opacity: 1; transform: none; }
+}
