@@ -557,3 +557,173 @@
   .ml-jp-services > .e-con-inner{ grid-template-columns: 1fr; }
   .ml-subject-list .elementor-icon-list-items{ grid-template-columns: 1fr; }
 }
+
+
+/* ==========================================================================
+   Header
+   The header is an Elementor template: logo, menu, button. This lays it out
+   the way the design does, with the menu centred and a green line that grows
+   under the link you are on or hovering.
+   ========================================================================== */
+.elementor-location-header .e-con.e-parent > .e-con-inner{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-height: 80px;
+}
+.elementor-location-header .elementor-widget-theme-site-logo{ flex: 0 0 auto; }
+.elementor-location-header .elementor-widget-theme-site-logo img{ height: 34px; width: auto; }
+.elementor-location-header .elementor-widget-nav-menu{ flex: 1 1 auto; }
+.elementor-location-header .elementor-widget-button{ flex: 0 0 auto; }
+
+.elementor-location-header .elementor-nav-menu--main .elementor-nav-menu{
+  justify-content: center;
+  gap: 18px;
+}
+.elementor-location-header .elementor-nav-menu--main a.elementor-item{
+  font-family: var(--e-global-typography-accent-font-family), sans-serif;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--e-global-color-text);
+  padding: 0;
+  position: relative;
+  transition: color .16s ease;
+}
+.elementor-location-header .elementor-nav-menu--main a.elementor-item:after{
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -7px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--e-global-color-primary);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform .18s ease;
+}
+.elementor-location-header .elementor-nav-menu--main a.elementor-item:hover,
+.elementor-location-header .elementor-nav-menu--main a.elementor-item-active{
+  color: var(--e-global-color-secondary);
+}
+.elementor-location-header .elementor-nav-menu--main a.elementor-item:hover:after,
+.elementor-location-header .elementor-nav-menu--main a.elementor-item-active:after{
+  transform: scaleX(1);
+}
+/* the language link sits quieter than the rest of the menu */
+.elementor-location-header .wpml-ls-item a.elementor-item{
+  font-size: 13.5px;
+  color: var(--e-global-color-mlmuted);
+}
+.elementor-location-header .wpml-ls-item a.elementor-item:after{ display: none; }
+
+.elementor-location-header .elementor-widget-button .elementor-button{
+  background-color: var(--e-global-color-primary);
+  border-radius: 11px;
+  padding: 10px 18px;
+  font-family: var(--e-global-typography-accent-font-family), sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #fff;
+  box-shadow: 0 10px 22px rgba(84,180,53,.24);
+  transition: background-color .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+.elementor-location-header .elementor-widget-button .elementor-button:hover{
+  background-color: var(--e-global-color-mlgreendark);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(84,180,53,.28);
+}
+
+
+/* ==========================================================================
+   Footer
+   The footer comes from the theme, not from Elementor, so it is styled here
+   to sit with the rest of the page: a light band, quiet headings, links that
+   turn green when hovered.
+   ========================================================================== */
+.site-primary-footer-wrap{
+  background-color: #E4EBDD;
+  border-top: 1px solid #D3DDC8;
+  padding: 62px 0 26px;
+}
+.site-below-footer-wrap{
+  background-color: #E4EBDD;
+  border-top: 1px solid #D3DDC8;
+  padding: 18px 0 26px;
+}
+footer .site-primary-footer-inner-wrap{
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+footer, footer p, footer li, footer .widget, footer .widget_text{
+  color: var(--e-global-color-text);
+  font-size: 14.5px;
+  line-height: 1.7;
+}
+footer a{ color: var(--e-global-color-text); transition: color .16s ease; }
+footer a:hover{ color: var(--e-global-color-mlgreendark); }
+footer .widget-title,
+footer .widget h2,
+footer .widget h3{
+  font-family: var(--e-global-typography-accent-font-family), sans-serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--e-global-color-mlmuted);
+  margin-bottom: 16px;
+}
+footer .widget_nav_menu li{ margin-bottom: 10px; }
+footer .widget_nav_menu ul{ list-style: none; margin: 0; padding: 0; }
+footer img{ max-height: 38px; width: auto; }
+footer .ast-builder-social-element{ color: var(--e-global-color-mlmuted); }
+footer .ast-builder-social-element:hover{ color: var(--e-global-color-mlgreendark); }
+
+@media (max-width: 921px){
+  footer .site-primary-footer-inner-wrap{ grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px){
+  footer .site-primary-footer-inner-wrap{ grid-template-columns: 1fr; }
+}
+
+
+/* ==========================================================================
+   Lines
+   A soft line finishes the hero and marks the ends of the logo strip. It is
+   the width of the content, not the whole screen, and it fades out at both
+   ends so it never looks like a hard divider.
+   ========================================================================== */
+.ml-hero{ position: relative; }
+.ml-hero:after{
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: min(100%, var(--ml-content-width));
+  height: 1px;
+  background: linear-gradient(90deg,
+      transparent,
+      var(--ml-hairline-strong) 8%,
+      var(--ml-hairline-strong) 92%,
+      transparent);
+}
+
+
+/* ==========================================================================
+   Movement
+   Sections lift into place as they come up the screen, and cards lift a
+   little when hovered. Everything is short and soft; nothing bounces.
+   Each section also has an entrance animation set in Elementor under
+   Advanced > Motion Effects, so it can be turned off there per section.
+   ========================================================================== */
+.ml-card, .ml-quote, .ml-posts .elementor-post, .ml-photo img, .ml-photo-panel{
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.ml-photo img:hover{ transform: translateY(-3px); }
+.elementor-widget-icon-box .elementor-icon-box-icon{ transition: background-color .2s ease; }
+.ml-card:hover .elementor-icon-box-icon{ background: var(--e-global-color-mlgreentint); }
+.ml-float{ transition: transform .3s ease; }
+.ml-hero-photo:hover .ml-float-years{ transform: translateY(-3px); }
+.ml-hero-photo:hover .ml-float-quote-card{ transform: translateY(3px); }
+@media (prefers-reduced-motion: reduce){
+  *, *:before, *:after{ animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}
