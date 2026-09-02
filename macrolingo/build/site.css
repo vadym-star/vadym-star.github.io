@@ -153,7 +153,9 @@
   place-items: center;
   margin-bottom: 0 !important;
 }
-.ml-service .elementor-icon-box-icon .elementor-icon{ color: var(--e-global-color-mlgreendark); font-size: 26px; }
+.ml-service .elementor-icon-box-icon .elementor-icon{ color: var(--e-global-color-mlgreendark); font-size: 26px; line-height: 1; }
+.ml-service .elementor-icon-box-icon svg{ width: 26px; height: 26px; fill: var(--e-global-color-mlgreendark); }
+.ml-service .elementor-icon-box-icon i{ color: var(--e-global-color-mlgreendark); }
 .ml-service .elementor-icon-box-content{ display: flex; flex-direction: column; flex: 1; }
 .ml-service .elementor-icon-box-title{ margin-bottom: 8px; }
 .ml-service .elementor-icon-box-description{ margin-bottom: 16px; }
