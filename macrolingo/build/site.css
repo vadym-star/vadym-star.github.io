@@ -13,8 +13,10 @@
 
 
 /* --- Shared values -------------------------------------------------------
-   Corner radius, shadows and hairline colours, in one place.              */
-:root{
+   Corner radius, shadows and hairline colours, in one place.
+   These sit on body rather than :root because the Global Colors do, and a
+   value here that reads one of them has to be written where it can see it. */
+body{
   --ml-content-width: 1100px;
   --ml-radius: 22px;
   --ml-radius-lg: 30px;
