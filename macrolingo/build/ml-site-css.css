@@ -364,10 +364,11 @@ body .ml-arrow-link .elementor-button.elementor-button{
 }
 .ml-arrow-link .elementor-button:hover{ background: none; color: var(--e-global-color-mlgreendark); }
 .ml-arrow-link .elementor-button-icon > *{ display: none; }
-/* Elementor lays a right-aligned icon out with row-reverse, which would put
-   the arrow first again; the row runs the normal way and the arrow's order
-   puts it after the words                                                 */
-body .ml-arrow-link .elementor-button-content-wrapper.elementor-button-content-wrapper{ flex-direction: row; }
+/* Elementor lays a right-aligned icon out with row-reverse, written per
+   element, which would put the arrow first again. The row runs the normal
+   way (important, to beat that per-element rule) and the arrow's order puts
+   it after the words.                                                     */
+.ml-arrow-link .elementor-button-content-wrapper{ flex-direction: row !important; }
 .ml-arrow-link .elementor-button-icon{
   order: 20;
   width: 16px;
