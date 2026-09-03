@@ -464,7 +464,8 @@ body .ml-arrow-link .elementor-button.elementor-button{
   color: var(--e-global-color-text);
   margin-bottom: 0;
 }
-.ml-service-card .ml-arrow-link{ margin-top: auto; padding-top: 16px; align-self: flex-start; }
+/* the link sits under the words, not under the icon: 56px tile + 20px gap */
+.ml-service-card .ml-arrow-link{ margin-top: auto; padding-top: 16px; align-self: flex-start; margin-left: 76px; max-width: calc(100% - 76px); }
 body .ml-service-card .ml-arrow-link .elementor-button.elementor-button{ font-size: 14px; }
 
 /* Japanese page: the icon sits above the heading, and the line under the
@@ -1090,7 +1091,7 @@ body .ml-posts .elementor-button-wrapper .elementor-button.elementor-button{
   font-family: var(--ml-sans) !important;
   font-size: 14.5px !important;
   font-weight: 600 !important;
-  line-height: 1.2 !important;
+  line-height: normal !important;
   border: 1.6px solid transparent !important;
   padding: 11px 21px !important;
   box-shadow: 0 10px 22px rgba(84,180,53,.24) !important;
@@ -1673,7 +1674,6 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
   .ml-header > .e-con-inner > .ml-header-right{ margin-left: auto; }
   .ml-hero{ min-height: 0; }
   .ml-float-quote-card, .ml-float-years{ display: none; }
-  .ml-header > .e-con-inner{ min-height: 68px; }
 }
 @media (max-width: 920px){
   .e-con.ml-footer-cols > .e-con-inner{ grid-template-columns: 1fr 1fr; gap: 32px; }
