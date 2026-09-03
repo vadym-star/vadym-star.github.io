@@ -260,6 +260,9 @@ body{
 
 /* --- Text link with an arrow ---------------------------------------------
    ml-arrow-link   put it on a Button widget set to the Link style          */
+.ml-arrow-link,
+.ml-arrow-link .elementor-widget-container,
+.ml-arrow-link .elementor-button-wrapper{ text-align: left; }
 .ml-arrow-link .elementor-button{
   padding: 0;
   background: none;
@@ -679,7 +682,11 @@ body{
   color: var(--e-global-color-mlmuted);
   text-wrap: initial;
 }
-.ml-post-card .ml-arrow-link{ margin-top: 6px; align-self: flex-start; }
+.ml-post-card .ml-arrow-link{
+  margin-top: auto;
+  padding-top: 10px;
+  align-self: flex-start;
+}
 .ml-post-card .ml-arrow-link .elementor-button{ font-size: 14px; }
 .ml-posts .e-loop-item{ height: 100%; animation: ml-card-in .45s ease both; }
 @keyframes ml-card-in{ from{ opacity: 0; transform: translateY(10px); } to{ opacity: 1; transform: none; } }
@@ -846,8 +853,9 @@ body{
 .ml-form button.forminator-button-submit:hover{ background: var(--e-global-color-mlgreendark) !important; }
 .ml-form .forminator-ui a{ color: var(--e-global-color-mlgreendark) !important; font-weight: 600; }
 .ml-form .forminator-error-message{ color: var(--e-global-color-mljapanred) !important; }
-.ml-form .forminator-ui + a,
-.ml-form a[href*="forminator"],
+/* Forminator shows anyone signed in an "Edit form" link. It is no business
+   of a visitor's, and it is not in the design.                           */
+.forminator-module-edit-link,
 .ml-form .forminator-edit-module{ display: none !important; }
 .ml-form-note.elementor-widget{
   margin-top: 14px;
