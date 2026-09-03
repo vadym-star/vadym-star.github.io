@@ -367,7 +367,7 @@ body .ml-arrow-link .elementor-button.elementor-button{
 /* Elementor lays a right-aligned icon out with row-reverse, which would put
    the arrow first again; the row runs the normal way and the arrow's order
    puts it after the words                                                 */
-.ml-arrow-link .elementor-button-content-wrapper{ flex-direction: row; }
+body .ml-arrow-link .elementor-button-content-wrapper.elementor-button-content-wrapper{ flex-direction: row; }
 .ml-arrow-link .elementor-button-icon{
   order: 20;
   width: 16px;
