@@ -1,27 +1,103 @@
 /* ==========================================================================
    MacroLingo homepage design rules
 
-   Colours and fonts live in Site Settings (Global Colors / Global Fonts).
-   Everything below reads from them, so changing a swatch there changes the
-   whole page. Nothing here hardcodes a brand colour.
+   Every number below is taken from the approved concept. Colours and fonts
+   live in Site Settings (Global Colors / Global Fonts) and everything here
+   reads from them, so changing a swatch there changes the whole page.
 
    Each block is a class you add or remove on any element in Elementor under
    Advanced > CSS Classes. The class names are listed with each block.
+
+   Nothing changes size when you hover. Only colours answer.
    ========================================================================== */
 
 
 /* --- Shared values -------------------------------------------------------
-   Corner radius, shadows and hairline colour, in one place.               */
+   Corner radius, shadows and hairline colours, in one place.              */
 :root{
   --ml-content-width: 1100px;
   --ml-radius: 22px;
   --ml-radius-lg: 30px;
   --ml-shadow-soft: 0 1px 2px rgba(34,50,74,.04), 0 8px 22px rgba(34,50,74,.06);
   --ml-shadow-lift: 0 6px 16px rgba(34,50,74,.06), 0 26px 56px rgba(34,50,74,.10);
-  --ml-hairline: var(--e-global-color-mlline);
-  --ml-hairline-strong: #DDE6D6;
-  --ml-blue-hairline: #D7E6FB;
-  --ml-grey-hairline: #E4E9EE;
+  --ml-line: var(--e-global-color-mlline);
+  --ml-line-2: #DDE6D6;
+  --ml-blue-line: #D7E6FB;
+  --ml-blue-ink: #2559B4;
+  --ml-green-tint-2: #DBEFCE;
+  --ml-grey-line: #E4E9EE;
+  --ml-star: #F5A623;
+}
+
+
+/* --- Icons ---------------------------------------------------------------
+   The line drawings from the concept. Each one is a file in the project's
+   icons folder, written in here as a mask so it takes the colour of the
+   text around it.
+   ml-i-pen  ml-i-check  ml-i-search  ml-i-send  ml-i-arrow  ml-i-tick
+   ml-i-pin  ml-i-mail  ml-i-clock  ml-i-dot  ml-i-chevron
+   Put the class on an Icon, Icon Box or Icon List widget.                 */
+[class*="ml-i-"] .elementor-icon > *,
+[class*="ml-i-"] .elementor-icon-list-icon > *{ display: none; }
+[class*="ml-i-"] .elementor-icon,
+[class*="ml-i-"] .elementor-icon-list-icon{
+  display: block;
+  background: currentColor;
+}
+.ml-i-arrow .elementor-icon,
+.ml-i-arrow .elementor-icon-list-icon{
+  -webkit-mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 fill=%22none%22><path d=%22M3 8h10M9 4l4 4-4 4%22 stroke=%22#000%22 stroke-width=%221.8%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/></svg>");
+  mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 fill=%22none%22><path d=%22M3 8h10M9 4l4 4-4 4%22 stroke=%22#000%22 stroke-width=%221.8%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/></svg>");
+}
+.ml-i-check .elementor-icon,
+.ml-i-check .elementor-icon-list-icon{
+  -webkit-mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22><path d=%22M20 6 9 17l-5-5%22 stroke=%22#000%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/></svg>");
+  mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22><path d=%22M20 6 9 17l-5-5%22 stroke=%22#000%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/></svg>");
+}
+.ml-i-chevron .elementor-icon,
+.ml-i-chevron .elementor-icon-list-icon{
+  -webkit-mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 fill=%22none%22><path d=%22M4 6l4 4 4-4%22 stroke=%22#000%22 stroke-width=%221.8%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/></svg>");
+  mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 fill=%22none%22><path d=%22M4 6l4 4 4-4%22 stroke=%22#000%22 stroke-width=%221.8%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/></svg>");
+}
+.ml-i-clock .elementor-icon,
+.ml-i-clock .elementor-icon-list-icon{
+  -webkit-mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22><g stroke=%22#000%22 stroke-width=%221.8%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><circle cx=%2212%22 cy=%2212%22 r=%229%22/><path d=%22M12 7v5.2l3.2 2%22/></g></svg>");
+  mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22><g stroke=%22#000%22 stroke-width=%221.8%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><circle cx=%2212%22 cy=%2212%22 r=%229%22/><path d=%22M12 7v5.2l3.2 2%22/></g></svg>");
+}
+.ml-i-dot .elementor-icon,
+.ml-i-dot .elementor-icon-list-icon{
+  -webkit-mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 fill=%22none%22><circle cx=%228%22 cy=%228%22 r=%224%22 fill=%22#000%22/></svg>");
+  mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 fill=%22none%22><circle cx=%228%22 cy=%228%22 r=%224%22 fill=%22#000%22/></svg>");
+}
+.ml-i-mail .elementor-icon,
+.ml-i-mail .elementor-icon-list-icon{
+  -webkit-mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22><g stroke=%22#000%22 stroke-width=%221.8%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><rect x=%223%22 y=%225%22 width=%2218%22 height=%2214%22 rx=%222.4%22/><path d=%22m3.6 6.6 8.4 6 8.4-6%22/></g></svg>");
+  mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22><g stroke=%22#000%22 stroke-width=%221.8%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><rect x=%223%22 y=%225%22 width=%2218%22 height=%2214%22 rx=%222.4%22/><path d=%22m3.6 6.6 8.4 6 8.4-6%22/></g></svg>");
+}
+.ml-i-pen .elementor-icon,
+.ml-i-pen .elementor-icon-list-icon{
+  -webkit-mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22><g stroke=%22#000%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><path d=%22M12 20h9%22/><path d=%22M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z%22/></g></svg>");
+  mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22><g stroke=%22#000%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><path d=%22M12 20h9%22/><path d=%22M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z%22/></g></svg>");
+}
+.ml-i-pin .elementor-icon,
+.ml-i-pin .elementor-icon-list-icon{
+  -webkit-mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22><g stroke=%22#000%22 stroke-width=%221.8%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><path d=%22M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z%22/><circle cx=%2212%22 cy=%2210%22 r=%222.6%22/></g></svg>");
+  mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22><g stroke=%22#000%22 stroke-width=%221.8%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><path d=%22M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z%22/><circle cx=%2212%22 cy=%2210%22 r=%222.6%22/></g></svg>");
+}
+.ml-i-search .elementor-icon,
+.ml-i-search .elementor-icon-list-icon{
+  -webkit-mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22><g stroke=%22#000%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><circle cx=%2211%22 cy=%2211%22 r=%227%22/><path d=%22m21 21-4.3-4.3%22/></g></svg>");
+  mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22><g stroke=%22#000%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><circle cx=%2211%22 cy=%2211%22 r=%227%22/><path d=%22m21 21-4.3-4.3%22/></g></svg>");
+}
+.ml-i-send .elementor-icon,
+.ml-i-send .elementor-icon-list-icon{
+  -webkit-mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22><path d=%22M3 11 22 2l-9 19-2-8Z%22 stroke=%22#000%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/></svg>");
+  mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22><path d=%22M3 11 22 2l-9 19-2-8Z%22 stroke=%22#000%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/></svg>");
+}
+.ml-i-tick .elementor-icon,
+.ml-i-tick .elementor-icon-list-icon{
+  -webkit-mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 fill=%22none%22><path d=%22M3 8.5l3.5 3.5L13 4.5%22 stroke=%22#000%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/></svg>");
+  mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 fill=%22none%22><path d=%22M3 8.5l3.5 3.5L13 4.5%22 stroke=%22#000%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/></svg>");
 }
 
 
@@ -32,13 +108,13 @@
 .ml-band-mint { background-color: var(--e-global-color-mlmint); }
 .ml-band-blue {
   background-color: var(--e-global-color-mlblueband);
-  border-top: 1px solid var(--ml-blue-hairline);
-  border-bottom: 1px solid var(--ml-blue-hairline);
+  border-top: 1px solid var(--ml-blue-line);
+  border-bottom: 1px solid var(--ml-blue-line);
 }
 .ml-band-grey {
   background-color: var(--e-global-color-mlgrey);
-  border-top: 1px solid var(--ml-grey-hairline);
-  border-bottom: 1px solid var(--ml-grey-hairline);
+  border-top: 1px solid var(--ml-grey-line);
+  border-bottom: 1px solid var(--ml-grey-line);
 }
 
 
@@ -48,7 +124,7 @@
    pick out. In the Elementor text editor switch to the Text tab and write:
    <span class="ml-highlight">your words</span>
    To take the highlight off, delete the span. To change its colour, edit
-   Green tint in Site Settings > Global Colors.                            */
+   Brand green in Site Settings > Global Colors.                           */
 .ml-highlight{
   background-image: linear-gradient(120deg, transparent 0 3%, rgba(84,180,53,.30) 3% 97%, transparent 97%);
   background-image: linear-gradient(120deg,
@@ -78,10 +154,19 @@
 }
 
 
+/* --- Headings ------------------------------------------------------------
+   Headings break their lines evenly rather than leaving one word stranded,
+   which is what keeps the wording sitting the way the concept shows it.   */
+.elementor-widget-heading .elementor-heading-title{
+  line-height: 1.14;
+  letter-spacing: -.01em;
+  text-wrap: balance;
+}
+
+
 /* --- Small label above a heading -----------------------------------------
    ml-label            green dot, used everywhere
-   ml-label-centred    same but centred under a centred heading
-   ml-label-red        red dot, Japanese page only, in the blue section     */
+   ml-label-centred    same but centred under a centred heading            */
 .ml-label .elementor-heading-title{
   display: inline-flex;
   align-items: center;
@@ -90,6 +175,7 @@
   font-size: 13px;
   font-weight: 600;
   letter-spacing: .06em;
+  line-height: 1.6;
   text-transform: uppercase;
   color: var(--e-global-color-mlgreendark);
 }
@@ -102,8 +188,6 @@
   flex: 0 0 auto;
 }
 .ml-label-centred .elementor-heading-title{ justify-content: center; }
-.ml-label-red .elementor-heading-title{ color: var(--e-global-color-secondary); }
-.ml-label-red .elementor-heading-title:before{ background: var(--e-global-color-mljapanred); }
 
 
 /* --- Intro paragraph under a section heading -----------------------------
@@ -112,9 +196,8 @@
   font-size: 18px;
   line-height: 1.7;
   color: var(--e-global-color-text);
-  max-width: 56ch;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 60ch;
+  margin: 16px auto 0;
 }
 
 
@@ -123,27 +206,91 @@
 .ml-note.elementor-widget{ font-size: 14.5px; color: var(--e-global-color-mlmuted); }
 
 
+/* --- Section headings ----------------------------------------------------
+   ml-section-head  on the container holding label, heading and intro
+   ml-heading-mid   the NGO and contact headings
+   ml-heading-small the compact founder heading                             */
+.ml-section-head{ max-width: 60ch; margin-left: auto; margin-right: auto; }
+.ml-section-head .elementor-widget-heading h2.elementor-heading-title{
+  font-size: clamp(30px, 3.6vw, 46px);
+  font-weight: 500;
+}
+.ml-heading-mid.elementor-widget-heading .elementor-heading-title{
+  font-size: clamp(28px, 3.3vw, 42px);
+  font-weight: 500;
+}
+.ml-heading-small.elementor-widget-heading .elementor-heading-title{
+  font-size: clamp(24px, 2.7vw, 32px);
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+
+/* --- Buttons -------------------------------------------------------------
+   A solid green button, and a white one with a hairline round it.         */
+.elementor-widget-button .elementor-button{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--e-global-typography-accent-font-family), sans-serif;
+  font-size: 14.5px;
+  font-weight: 600;
+  line-height: 1.4;
+  padding: 11px 21px;
+  border-radius: 11px;
+  border: 1.6px solid transparent;
+  white-space: nowrap;
+  transition: background-color .18s ease, color .18s ease, border-color .18s ease;
+}
+
+
+/* --- Text link with an arrow ---------------------------------------------
+   ml-arrow-link   put it on a Button widget set to the Link style          */
+.ml-arrow-link .elementor-button{
+  padding: 0;
+  background: none;
+  border: 0;
+  color: var(--e-global-color-mlgreendark);
+  font-weight: 600;
+  font-size: 15px;
+}
+.ml-arrow-link .elementor-button:hover{ background: none; color: var(--e-global-color-primary); }
+.ml-arrow-link .elementor-button-icon > *{ display: none; }
+.ml-arrow-link .elementor-button-icon{
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+  background: currentColor;
+  -webkit-mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 fill=%22none%22><path d=%22M3 8h10M9 4l4 4-4 4%22 stroke=%22#000%22 stroke-width=%221.8%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/></svg>");
+  mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 fill=%22none%22><path d=%22M3 8h10M9 4l4 4-4 4%22 stroke=%22#000%22 stroke-width=%221.8%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/></svg>");
+}
+
+
 /* --- White card ----------------------------------------------------------
    ml-card
-   The four service boxes, the quotes and the blog posts all use this so
-   they stay consistent. Rows keep equal height on their own.              */
+   The service boxes, the quotes and the blog posts all use this so they
+   stay consistent.                                                        */
 .ml-card{
   background: #fff;
-  border: 1px solid var(--ml-hairline);
+  border: 1px solid var(--ml-line);
   border-radius: var(--ml-radius);
   box-shadow: var(--ml-shadow-soft);
-  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-}
-.ml-card:hover{
-  transform: translateY(-4px);
-  box-shadow: var(--ml-shadow-lift);
-  border-color: #DBEFCE;
 }
 
 
 /* --- Service box ---------------------------------------------------------
-   ml-service   put it on the Icon Box widget
-   The link at the bottom of each box sits on a common line across the row. */
+   ml-service        on the Icon Box widget
+   ml-service-card   on the container around it
+   ml-service-plain  Japanese page: the icon sits on its own line          */
+.ml-service-card{ padding: 32px; }
+.ml-service-card > .e-con-inner{
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
 .ml-service.elementor-widget-icon-box .elementor-icon-box-wrapper{
   display: flex;
   align-items: flex-start;
@@ -156,166 +303,141 @@
   height: 56px;
   border-radius: 18px;
   background: var(--e-global-color-mlmint);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
   margin: 0;
+  color: var(--e-global-color-mlgreendark);
 }
-.ml-service .elementor-icon-box-icon .elementor-icon{ color: var(--e-global-color-mlgreendark); font-size: 26px; line-height: 1; }
-.ml-service .elementor-icon-box-icon svg{ width: 26px; height: 26px; fill: var(--e-global-color-mlgreendark); }
-.ml-service .elementor-icon-box-icon i{ color: var(--e-global-color-mlgreendark); }
+.ml-service .elementor-icon-box-icon .elementor-icon{ width: 27px; height: 27px; }
 .ml-service .elementor-icon-box-content{ display: flex; flex-direction: column; flex: 1; }
-.ml-service .elementor-icon-box-title{ margin-bottom: 8px; }
-.ml-service .elementor-icon-box-title, .ml-service .elementor-icon-box-title a{
+.ml-service .elementor-icon-box-title,
+.ml-service .elementor-icon-box-title a{
   font-family: var(--e-global-typography-primary-font-family), Georgia, serif;
   font-size: 22px;
   font-weight: 600;
   line-height: 1.25;
   color: var(--e-global-color-secondary);
 }
+.ml-service .elementor-icon-box-title{ margin-bottom: 8px; }
 .ml-service .elementor-icon-box-description{
-  margin-bottom: 16px;
   font-size: 15px;
   line-height: 1.6;
   color: var(--e-global-color-text);
+  margin-bottom: 0;
 }
-/* the box itself keeps the padding, so the four line up whatever is in them */
-.ml-service-card{ padding: 32px; }
-.ml-service-card > .e-con-inner{ padding: 0; width: 100%; height: 100%; display: flex; flex-direction: column; }
+.ml-service-card .ml-arrow-link{ margin-top: auto; padding-top: 16px; align-self: flex-start; }
 
-
-/* --- Headings ------------------------------------------------------------
-   Headings break their lines evenly rather than leaving one word stranded,
-   which is what keeps the wording sitting the way the design shows it.     */
-.elementor-widget-heading .elementor-heading-title{
-  text-wrap: balance;
-  letter-spacing: -.01em;
+/* Japanese page: the icon sits above the heading, and the line under the
+   heading is the green tagline                                            */
+.ml-service-plain.elementor-widget-icon-box .elementor-icon-box-wrapper{
+  display: block;
+  text-align: left;
 }
-
-/* --- The headline at the top of the page ---------------------------------
-   ml-hero-title                                                            */
-.ml-hero-title.elementor-widget-heading .elementor-heading-title{
-  font-size: clamp(38px, 5vw, 60px);
-  font-weight: 500;
-  line-height: 1.05;
-  letter-spacing: -.02em;
-  margin-top: 2px;
+.ml-service-plain.elementor-widget-icon-box .elementor-icon-box-icon{
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  margin-bottom: 20px;
 }
-
-
-/* --- Section headings ----------------------------------------------------
-   The sizes the design uses, kept here so all the headings stay in step.
-   Change them in Site Settings > Global Fonts to move everything at once.  */
-.ml-section-head{ max-width: 60ch; margin-left: auto; margin-right: auto; }
-.ml-section-head .elementor-widget-heading h2.elementor-heading-title{
-  font-size: clamp(30px, 3.6vw, 46px);
-  font-weight: 500;
-  line-height: 1.14;
-}
-.ml-heading-mid.elementor-widget-heading .elementor-heading-title{
-  font-size: clamp(28px, 3.3vw, 42px);
-  font-weight: 500;
-  line-height: 1.14;
-}
-.ml-heading-small.elementor-widget-heading .elementor-heading-title{
-  font-size: clamp(24px, 2.7vw, 32px);
-  font-weight: 500;
-  line-height: 1.3;
-}
-
-
-/* --- Buttons -------------------------------------------------------------
-   The two button shapes the design uses: a solid green one, and a white one
-   with a hairline round it. Both come from the Button widget.              */
-.elementor-widget-button .elementor-button{
-  font-family: var(--e-global-typography-accent-font-family), sans-serif;
-  font-size: 14.5px;
+.ml-service-plain .elementor-icon-box-icon .elementor-icon{ width: 25px; height: 25px; }
+.ml-service-plain .elementor-icon-box-title{ font-size: 24px; line-height: 1.42; margin-bottom: 10px; }
+.ml-service-plain .elementor-icon-box-description{
+  font-size: 15.5px;
   font-weight: 600;
-  line-height: 1.4;
-  border-radius: 11px;
-  padding: 11px 21px;
-  transition: transform .18s ease, background-color .18s ease, box-shadow .18s ease, color .18s ease, border-color .18s ease;
-}
-.elementor-widget-button .elementor-button:hover{ transform: translateY(-2px); }
-.ml-arrow-link .elementor-button,
-.ml-arrow-link .elementor-button:hover{ transform: none; padding: 0; }
-
-
-/* --- Text link with an arrow ---------------------------------------------
-   ml-arrow-link   put it on a Button widget set to the Link style          */
-.ml-arrow-link .elementor-button{
-  padding: 0;
-  background: none;
+  line-height: 1.7;
   color: var(--e-global-color-mlgreendark);
+}
+
+
+/* --- Client name strip ---------------------------------------------------
+   ml-strip-label  the small line above
+   ml-logo-row     the row, ml-client-name each name                       */
+.ml-strip-label .elementor-heading-title{
+  font-family: var(--e-global-typography-accent-font-family), sans-serif;
+  font-size: 12px;
   font-weight: 600;
-  font-size: 15px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--e-global-color-mlmuted);
 }
-.ml-arrow-link .elementor-button:hover{ background: none; color: var(--e-global-color-primary); }
-.ml-arrow-link .elementor-button-icon{ transition: transform .18s ease; }
-.ml-arrow-link .elementor-button:hover .elementor-button-icon{ transform: translateX(4px); }
-.ml-arrow-link{ margin-top: auto; }
-
-
-/* --- Client logo row -----------------------------------------------------
-   ml-logo-row   on the container holding the logos
-   Logos sit grey and come up to full colour when hovered.                 */
-.ml-logo-row img{
-  max-height: 46px;
-  width: auto;
-  object-fit: contain;
-  filter: grayscale(1);
-  opacity: .62;
-  transition: filter .2s ease, opacity .2s ease;
+.ml-client-name .elementor-heading-title{
+  font-family: var(--e-global-typography-primary-font-family), Georgia, serif;
+  font-size: 33px;
+  font-weight: 600;
+  letter-spacing: -.01em;
+  color: #9AA5B4;
+  white-space: nowrap;
+  transition: color .18s ease;
 }
-.ml-logo-row img:hover{ filter: none; opacity: 1; }
-.ml-logo-row .elementor-widget-image{ display: flex; align-items: center; }
+.ml-client-name:hover .elementor-heading-title{ color: var(--e-global-color-secondary); }
 
 
-/* --- Hairline above and below a section ----------------------------------
+/* --- Hairline between two sections of the same colour --------------------
    ml-rule-top  ml-rule-bottom
-   The line is the width of the content, not the whole screen.             */
+   The line is the width of the content, not the whole screen. Put it
+   wherever two sections of the same colour meet.                          */
 .ml-rule-top, .ml-rule-bottom{ position: relative; }
 .ml-rule-top:before, .ml-rule-bottom:after{
   content: "";
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: min(100%, var(--ml-content-width, 1100px));
+  width: min(100%, var(--ml-content-width));
   height: 1px;
-  background: var(--ml-hairline);
+  background: var(--ml-line);
 }
 .ml-rule-top:before{ top: 0; }
 .ml-rule-bottom:after{ bottom: 0; }
 
 
 /* --- Tick list -----------------------------------------------------------
-   ml-ticks   on an Icon List widget                                        */
+   ml-ticks           on an Icon List widget
+   ml-ticks-on-blue   the same list inside the blue band
+   ml-ticks-two       two columns, so a long list still fits one screen    */
+.ml-ticks .elementor-icon-list-item{
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 13px;
+  padding: 0;
+}
 .ml-ticks .elementor-icon-list-icon{
   width: 24px;
   height: 24px;
+  padding: 5px;
   border-radius: 50%;
-  background: var(--e-global-color-mlmint);
-  display: grid;
-  place-items: center;
+  background: #fff;
+  box-shadow: var(--ml-shadow-soft);
+  color: var(--e-global-color-mlgreendark);
   flex: 0 0 auto;
+  margin: 0;
 }
-.ml-ticks .elementor-icon-list-icon i,
-.ml-ticks .elementor-icon-list-icon svg{ color: var(--e-global-color-mlgreendark); fill: var(--e-global-color-mlgreendark); font-size: 12px; width: 12px; height: 12px; }
-.ml-ticks.ml-ticks-on-blue .elementor-icon-list-icon{ background: #fff; }
-/* two columns of ticks, so a long list still fits one screen
-   ml-ticks-two   with ml-ticks on an Icon List widget                      */
-.ml-ticks-two .elementor-icon-list-items{ columns: 2; column-gap: 34px; }
-.ml-ticks-two .elementor-icon-list-item{
-  break-inside: avoid;
-  padding: 8px 0;
-  font-size: 14.5px;
-  line-height: 1.6;
+.ml-ticks .elementor-icon-list-text{
+  font-size: 15.5px;
+  font-weight: 500;
+  color: var(--e-global-color-secondary);
+  padding: 0;
+}
+/* inside the blue band the ticks read blue, like the label above them */
+.ml-ticks-on-blue .elementor-icon-list-item{
   align-items: flex-start;
+  padding: 12px 0;
+  margin-bottom: 0;
+  gap: 13px;
 }
-.ml-ticks-two .elementor-icon-list-icon{ width: 22px; height: 22px; margin-top: 1px; }
-@media (max-width: 767px){
-  .ml-ticks-two .elementor-icon-list-items{ columns: 1; }
+.ml-ticks-on-blue .elementor-icon-list-icon{
+  width: 26px;
+  height: 26px;
+  padding: 6px;
+  background: #fff;
+  color: var(--ml-blue-ink);
+  margin-top: 2px;
+  box-shadow: none;
 }
+.ml-ticks-on-blue .elementor-icon-list-text{ font-size: 16.5px; font-weight: 400; }
+.ml-ticks-two .elementor-icon-list-items{ columns: 2; column-gap: 34px; }
+.ml-ticks-two .elementor-icon-list-item{ break-inside: avoid; padding: 8px 0; align-items: flex-start; }
+.ml-ticks-two .elementor-icon-list-text{ font-size: 14.5px; line-height: 1.6; }
+.ml-ticks-two .elementor-icon-list-icon{ width: 22px; height: 22px; padding: 5px; margin-top: 1px; }
 
 
 /* --- Quote card ----------------------------------------------------------
@@ -324,7 +446,6 @@
    four cards line up whatever the length of the quote.                    */
 .ml-quote{ display: flex; flex-direction: column; padding: 26px; }
 .ml-quote > .e-con-inner{ padding: 0; gap: 12px; height: 100%; width: 100%; }
-.ml-quote .ml-quote-who{ margin-top: auto; padding-top: 18px; border-top: 1px solid var(--ml-hairline); }
 .ml-quote .ml-quote-text{
   font-family: var(--e-global-typography-primary-font-family), Georgia, serif;
   font-size: 16.5px;
@@ -333,38 +454,46 @@
   margin: 0;
 }
 /* the client wording is quoted as it was given, never as a set of links */
-.ml-quote .ml-quote-text a{
-  color: inherit;
-  text-decoration: none;
-  pointer-events: none;
+.ml-quote .ml-quote-text a{ color: inherit; text-decoration: none; pointer-events: none; }
+.ml-quote .ml-quote-who{
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid var(--ml-line);
 }
-/* five small stars above each quote, the size the design uses */
-.ml-quote .elementor-widget-star-rating .elementor-star-rating{
-  font-size: 13px;
-  letter-spacing: 2px;
-  line-height: 1;
+.ml-quote-avatar{ width: 48px; min-width: 48px; flex: 0 0 auto; }
+.ml-quote-avatar img{ width: 48px; height: 48px; border-radius: 50%; object-fit: cover; display: block; }
+.ml-quote-name .elementor-heading-title{
+  font-family: var(--e-global-typography-accent-font-family), sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--e-global-color-secondary);
 }
-.ml-quote .elementor-widget-star-rating .elementor-star-rating__wrapper{ justify-content: flex-start; }
-.ml-quote-avatar{ flex: 0 0 auto; }
-.ml-quote-avatar img{
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
-}
+.ml-quote-role{ font-size: 13px; color: var(--e-global-color-mlmuted); }
+.ml-quote .elementor-star-rating{ font-size: 13px; letter-spacing: 2px; line-height: 1; }
+.ml-quote .elementor-star-rating__wrapper{ justify-content: flex-start; }
 
 
-/* --- Small card floating over the hero photo -----------------------------
-   ml-float                                                                 */
+/* --- Small cards floating over the hero photo ----------------------------
+   ml-float  ml-float-quote-card  ml-float-years                            */
 .ml-float{
+  position: absolute;
+  z-index: 2;
   background: #fff;
   border-radius: 18px;
   box-shadow: var(--ml-shadow-lift);
   padding: 16px 18px;
 }
+.ml-float-quote-card{ width: 250px; left: -26px; bottom: 36px; }
+.ml-float-years{
+  right: -14px;
+  top: 30px;
+  width: auto;
+  text-align: center;
+  padding: 11px 15px;
+  border-radius: 14px;
+}
 .ml-float .ml-float-stars{
-  color: #F5A623;
+  color: var(--ml-star);
   font-size: 13px;
   letter-spacing: 1px;
   line-height: 1;
@@ -379,7 +508,7 @@
 }
 .ml-years{
   font-family: var(--e-global-typography-primary-font-family), Georgia, serif;
-  font-size: 30px;
+  font-size: 22px;
   font-weight: 600;
   line-height: 1;
   background-image: linear-gradient(120deg, var(--e-global-color-mlgreendark) 5%, var(--e-global-color-accent) 95%);
@@ -387,18 +516,15 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.ml-years-label{ font-size: 10.5px; color: var(--e-global-color-mlmuted); letter-spacing: .02em; margin-top: 2px; }
 
 
-/* --- Photo corners -------------------------------------------------------
-   ml-photo        rounded photo with a soft shadow
-   ml-photo-fill   photo stretches to match the text column beside it      */
+/* --- Photos --------------------------------------------------------------
+   ml-photo-square   the hero picture, a square
+   ml-photo-panel    a picture that stretches beside a column of words
+   ml-photo-panel-tall / -taller   the two taller ones                     */
 .ml-photo img{ border-radius: var(--ml-radius-lg); box-shadow: var(--ml-shadow-lift); display: block; }
-
-/* --- Photo panel ---------------------------------------------------------
-   ml-photo-panel
-   An empty container with a background image, so the picture always ends
-   level with the text column next to it however long that text runs.
-   Swap the picture under Style > Background in Elementor.                  */
+.ml-photo-square img{ aspect-ratio: 1 / 1; object-fit: cover; width: 100%; }
 .ml-photo-panel{
   align-self: stretch;
   min-height: 340px;
@@ -407,30 +533,39 @@
   background-size: cover;
   background-position: center;
 }
-/* the founder picture is the taller one, and the subject picture taller still */
 .ml-photo-panel-tall{ min-height: 360px; }
 .ml-photo-panel-taller{ min-height: 420px; }
 
 
 /* --- Frequently asked questions ------------------------------------------
-   ml-faq   on each accordion widget
-   Every question is its own white card with a gap under it, and the plus
-   sign sits on the right hand end of the row. Every closed row is the same
-   height, so the two columns stay level.                                  */
-.ml-faq.elementor-widget-n-accordion .e-n-accordion{ display: block; }
+   ml-faq   on the accordion widget
+   The questions run in two columns, each its own white card, with a thin
+   green cross on the right that turns into a minus when opened.           */
+.ml-faq.elementor-widget-n-accordion .e-n-accordion{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 22px;
+  align-items: start;
+  max-width: 1040px;
+  margin: 0 auto;
+}
 .ml-faq.elementor-widget-n-accordion .e-n-accordion-item{
   background: #fff;
-  border: 1px solid var(--ml-hairline);
+  border: 1px solid var(--ml-line);
   border-radius: 16px;
-  margin-bottom: 14px;
+  margin: 0;
   overflow: hidden;
   transition: box-shadow .25s ease, border-color .25s ease;
 }
+.ml-faq.elementor-widget-n-accordion .e-n-accordion-item[open]{
+  box-shadow: var(--ml-shadow-soft);
+  border-color: var(--ml-green-tint-2);
+}
 .ml-faq.elementor-widget-n-accordion .e-n-accordion-item-title{
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  flex-direction: row;
   gap: 16px;
   min-height: 80px;
   padding: 20px 24px;
@@ -447,34 +582,26 @@
   color: var(--e-global-color-secondary);
   margin: 0;
 }
+/* the cross, drawn as two thin bars the way the concept has it */
 .ml-faq.elementor-widget-n-accordion .e-n-accordion-item-title-icon{
   order: 2;
+  position: relative;
   flex: 0 0 auto;
   width: 24px;
   height: 24px;
-  display: grid;
-  place-items: center;
-  color: var(--e-global-color-primary);
   transition: transform .3s ease;
 }
-.ml-faq.elementor-widget-n-accordion{
-  --n-accordion-icon-color: var(--e-global-color-primary);
-  --n-accordion-icon-color-hover: var(--e-global-color-mlgreendark);
-  --n-accordion-icon-color-active: var(--e-global-color-mlgreendark);
+.ml-faq.elementor-widget-n-accordion .e-n-accordion-item-title-icon > *{ display: none; }
+.ml-faq.elementor-widget-n-accordion .e-n-accordion-item-title-icon:before,
+.ml-faq.elementor-widget-n-accordion .e-n-accordion-item-title-icon:after{
+  content: "";
+  position: absolute;
+  background: var(--e-global-color-primary);
+  border-radius: 2px;
 }
-.ml-faq.elementor-widget-n-accordion .e-n-accordion-item-title-icon span,
-.ml-faq.elementor-widget-n-accordion .e-n-accordion-item-title-icon svg{
-  width: 15px;
-  height: 15px;
-  color: var(--e-global-color-primary);
-}
-/* Elementor paints its own icons a fixed dark grey, so the green has to be
-   marked important here to come through. */
-.ml-faq.elementor-widget-n-accordion .e-n-accordion-item-title-icon svg,
-.ml-faq.elementor-widget-n-accordion .e-n-accordion-item-title-icon svg path{
-  fill: var(--e-global-color-primary) !important;
-}
-.ml-faq.elementor-widget-n-accordion details[open] .e-n-accordion-item-title-icon{ transform: rotate(180deg); }
+.ml-faq.elementor-widget-n-accordion .e-n-accordion-item-title-icon:before{ left: 11px; top: 3px; width: 2px; height: 18px; }
+.ml-faq.elementor-widget-n-accordion .e-n-accordion-item-title-icon:after{ left: 3px; top: 11px; width: 18px; height: 2px; }
+.ml-faq.elementor-widget-n-accordion .e-n-accordion-item[open] .e-n-accordion-item-title-icon{ transform: rotate(45deg); }
 .ml-faq.elementor-widget-n-accordion .e-n-accordion-item > .e-con,
 .ml-faq.elementor-widget-n-accordion .e-n-accordion-item .e-con-inner{ padding: 0; }
 .ml-faq.elementor-widget-n-accordion .e-n-accordion-item p{
@@ -484,36 +611,19 @@
   line-height: 1.75;
   color: var(--e-global-color-text);
 }
-.ml-faq.elementor-widget-n-accordion .e-n-accordion-item[open]{
-  box-shadow: var(--ml-shadow-soft);
-  border-color: #DBEFCE;
-}
 
 
 /* --- Blog posts ----------------------------------------------------------
    ml-posts        on the Loop Grid widget
-   ml-post-card    the card itself, in the loop item template
-   ml-post-image   the picture at the top
-   ml-post-cat     the small green category line
-   ml-post-title   the headline
-   ml-post-excerpt the summary
-   The card is a template of its own (Templates > Theme Builder > Loop Item),
-   so changing it once changes every card.                                  */
-.ml-post-card{
-  overflow: hidden;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
+   ml-post-card    the card, in the loop item template
+   ml-post-image   ml-post-cat   ml-post-title   ml-post-excerpt           */
+.ml-post-card{ overflow: hidden; height: 100%; display: flex; flex-direction: column; }
 .ml-post-card > .e-con-inner{ padding: 0; height: 100%; display: flex; flex-direction: column; }
-.ml-post-image img{
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  display: block;
-}
+.ml-post-image img{ width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; }
 .ml-post-body{ flex: 1 1 auto; }
 .ml-post-body > .e-con-inner{ height: 100%; display: flex; flex-direction: column; }
+.ml-post-cat .elementor-icon-list-icon{ display: none; }
+.ml-post-cat .elementor-icon-list-item{ margin: 0; }
 .ml-post-cat .elementor-post-info__item,
 .ml-post-cat .elementor-icon-list-text{
   font-family: var(--e-global-typography-accent-font-family), sans-serif;
@@ -523,8 +633,6 @@
   text-transform: uppercase;
   color: var(--e-global-color-mlgreendark);
 }
-.ml-post-cat .elementor-icon-list-item{ margin: 0; }
-.ml-post-cat .elementor-icon-list-icon{ display: none; }
 .ml-post-title .elementor-heading-title,
 .ml-post-title .elementor-heading-title a{
   font-family: var(--e-global-typography-primary-font-family), Georgia, serif;
@@ -543,23 +651,16 @@
   line-height: 1.55;
   letter-spacing: 0;
   color: var(--e-global-color-mlmuted);
+  text-wrap: initial;
 }
 .ml-post-card .ml-arrow-link{ margin-top: 6px; align-self: flex-start; }
 .ml-post-card .ml-arrow-link .elementor-button{ font-size: 14px; }
-
-/* the grid itself */
-.ml-posts .elementor-grid,
 .ml-posts .e-loop-item{ height: 100%; }
 .ml-posts a{ text-decoration: none; box-shadow: none; }
-
 /* the show more control is quiet text with a small chevron, not a button */
-.ml-posts .elementor-button-wrapper,
-.ml-posts .e-load-more-anchor + *,
-.ml-posts .elementor-pagination{ margin-top: 32px; text-align: center; }
-.ml-posts .elementor-button-wrapper .elementor-button,
-.ml-posts .elementor-widget-container > .elementor-button{
-  background-color: transparent;
-  background-image: none;
+.ml-posts .elementor-button-wrapper{ margin-top: 32px; text-align: center; }
+.ml-posts .elementor-button-wrapper .elementor-button{
+  background: none;
   color: var(--e-global-color-mlmuted);
   font-family: var(--e-global-typography-accent-font-family), sans-serif;
   font-weight: 500;
@@ -571,41 +672,22 @@
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  transition: color .18s ease;
 }
 .ml-posts .elementor-button-wrapper .elementor-button:after{
-  content: "";
-  width: 14px;
-  height: 14px;
-  flex: 0 0 auto;
-  background: currentColor;
-  transition: transform .18s ease;
-  -webkit-mask: no-repeat center / 14px 14px url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M4 6l4 4 4-4' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-  mask: no-repeat center / 14px 14px url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M4 6l4 4 4-4' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    content: "";
+    width: 14px;
+    height: 14px;
+    flex: 0 0 auto;
+    background: currentColor;
+    -webkit-mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 fill=%22none%22><path d=%22M4 6l4 4 4-4%22 stroke=%22#000%22 stroke-width=%221.8%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/></svg>");
+    mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 fill=%22none%22><path d=%22M4 6l4 4 4-4%22 stroke=%22#000%22 stroke-width=%221.8%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/></svg>");
 }
-.ml-posts .elementor-button-wrapper .elementor-button:hover{
-  background-color: transparent;
-  color: var(--e-global-color-mlgreendark);
-}
-.ml-posts .elementor-button-wrapper .elementor-button:hover:after{ transform: translateY(2px); }
-
-
-/* --- The line under the contact form -------------------------------------
-   ml-form-note                                                             */
-.ml-form-note.elementor-widget{
-  margin-top: 14px;
-  text-align: center;
-  font-size: 12.5px;
-  color: var(--e-global-color-mlmuted);
-}
+.ml-posts .elementor-button-wrapper .elementor-button:hover{ background: none; color: var(--e-global-color-mlgreendark); }
 
 
 /* --- Contact details -----------------------------------------------------
-   ml-crow          one line of contact details: icon, label, value
-   ml-crow-icon     the Icon widget inside it
-   ml-crow-label    the small grey word above the value
-   ml-crow-value    the address, the email, the reply time                  */
-.ml-crow{ border-top: 1px solid var(--ml-hairline-strong); }
+   ml-crow  ml-crow-icon  ml-crow-label  ml-crow-value                      */
+.ml-crow{ border-top: 1px solid var(--ml-line-2); }
 .e-con.ml-crow > .e-con-inner{
   display: flex;
   flex-direction: row;
@@ -616,18 +698,20 @@
 }
 .e-con.ml-crow > .e-con-inner > .ml-crow-icon{ flex: 0 0 auto; width: auto; }
 .e-con.ml-crow > .e-con-inner > .e-con{ flex: 1 1 auto; width: auto; }
-.ml-crow-icon .elementor-icon{
+.ml-crow-icon .elementor-widget-container{
   width: 38px;
   height: 38px;
   border-radius: 12px;
   background: #fff;
-  border: 1px solid var(--ml-hairline-strong);
+  border: 1px solid var(--ml-line-2);
   display: grid;
   place-items: center;
-  color: var(--e-global-color-mlgreendark);
-  font-size: 17px;
 }
-.ml-crow-icon .elementor-icon svg{ width: 17px; height: 17px; fill: var(--e-global-color-mlgreendark); }
+.ml-crow-icon .elementor-icon{
+  width: 17px;
+  height: 17px;
+  color: var(--e-global-color-mlgreendark);
+}
 .ml-crow-label .elementor-heading-title{
   font-family: var(--e-global-typography-accent-font-family), sans-serif;
   font-size: 12.5px;
@@ -642,8 +726,8 @@
 
 
 /* --- Map -----------------------------------------------------------------
-   ml-map   the map grows to fill whatever height is left in its column so
-            it finishes level with the form beside it                      */
+   ml-map   grows to fill whatever height is left in its column, so it
+            finishes level with the form beside it                         */
 .ml-map{
   flex: 1 1 auto;
   align-self: stretch;
@@ -651,7 +735,7 @@
   margin-top: 24px;
   border-radius: var(--ml-radius);
   overflow: hidden;
-  border: 1px solid var(--ml-hairline-strong);
+  border: 1px solid var(--ml-line-2);
   box-shadow: var(--ml-shadow-soft);
   background: #fff;
 }
@@ -661,11 +745,18 @@
 
 
 /* --- Contact form --------------------------------------------------------
-   ml-form   on the container holding the Forminator form                   */
-.ml-form{ background: #fff; border: 1px solid var(--ml-hairline); border-radius: var(--ml-radius-lg); box-shadow: var(--ml-shadow-lift); padding: 38px; }
+   ml-form        on the container holding the Forminator form
+   ml-form-note   the line under it
+   Forminator ships its own colours and rounding per form, so a few of the
+   rules below have to be marked important to come through.                */
+.ml-form{
+  background: #fff;
+  border: 1px solid var(--ml-line);
+  border-radius: var(--ml-radius-lg);
+  box-shadow: var(--ml-shadow-lift);
+  padding: 38px;
+}
 .ml-form > .e-con-inner{ padding: 0; width: 100%; }
-/* Forminator ships its own colours and rounding per form. The rules below
-   are marked important only where that stylesheet would otherwise win.    */
 .ml-form .forminator-ui .forminator-label,
 .ml-form .forminator-label{
   font-family: var(--e-global-typography-accent-font-family), sans-serif !important;
@@ -683,11 +774,10 @@
   font-size: 15.5px !important;
   color: var(--e-global-color-secondary) !important;
   background: #fff !important;
-  border: 1.5px solid var(--ml-hairline-strong) !important;
+  border: 1.5px solid var(--ml-line-2) !important;
   border-radius: 12px !important;
   padding: 12px 14px !important;
   box-shadow: none !important;
-  transition: border-color .18s ease, box-shadow .18s ease;
 }
 .ml-form .forminator-ui .forminator-textarea{ min-height: 138px !important; line-height: 1.65 !important; }
 .ml-form .forminator-ui .forminator-input:focus,
@@ -695,14 +785,12 @@
   outline: none !important;
   border-color: var(--e-global-color-primary) !important;
   box-shadow: 0 0 0 4px rgba(84,180,53,.13) !important;
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--e-global-color-primary) 13%, transparent) !important;
 }
 .ml-form .forminator-ui .forminator-input::placeholder,
 .ml-form .forminator-ui .forminator-textarea::placeholder{ color: #A8B1BD !important; }
-/* the upload panel reads as a dashed drop area, the way the design has it */
 .ml-form .forminator-ui .forminator-uploader,
 .ml-form .forminator-ui .forminator-multi-upload{
-  border: 1.6px dashed var(--ml-hairline-strong) !important;
+  border: 1.6px dashed var(--ml-line-2) !important;
   border-radius: 14px !important;
   background: var(--e-global-color-mlwarm) !important;
 }
@@ -713,7 +801,6 @@
   font-weight: 600 !important;
 }
 .ml-form .forminator-ui .forminator-button-submit,
-.ml-form .forminator-button-submit,
 .ml-form button.forminator-button-submit{
   width: 100% !important;
   justify-content: center;
@@ -726,86 +813,24 @@
   font-size: 14.5px !important;
   font-weight: 600 !important;
   padding: 13px 21px !important;
-  box-shadow: 0 10px 22px rgba(84,180,53,.24);
-  transition: background-color .18s ease, transform .18s ease, box-shadow .18s ease;
 }
 .ml-form .forminator-ui .forminator-button-submit:hover,
-.ml-form button.forminator-button-submit:hover{
-  background: var(--e-global-color-mlgreendark) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 14px 28px rgba(84,180,53,.28);
-}
-.ml-form .forminator-ui .forminator-checkbox input:checked ~ span:first-of-type,
-.ml-form .forminator-ui .forminator-checkbox-box{ accent-color: var(--e-global-color-primary); }
+.ml-form button.forminator-button-submit:hover{ background: var(--e-global-color-mlgreendark) !important; }
 .ml-form .forminator-ui a{ color: var(--e-global-color-mlgreendark) !important; font-weight: 600; }
 .ml-form .forminator-error-message{ color: var(--e-global-color-mljapanred) !important; }
-.ml-form .forminator-has_error .forminator-input,
-.ml-form .forminator-has_error .forminator-textarea{
-  border-color: var(--e-global-color-mljapanred) !important;
-  box-shadow: 0 0 0 4px rgba(188,0,45,.10) !important;
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--e-global-color-mljapanred) 10%, transparent) !important;
+.ml-form-note.elementor-widget{
+  margin-top: 14px;
+  text-align: center;
+  font-size: 12.5px;
+  color: var(--e-global-color-mlmuted);
 }
 
-
-/* --- Japanese page -------------------------------------------------------
-   ml-jp   sits on the outermost section of the Japanese homepage.
-   The Japanese page runs a little tighter and squarer than the English one,
-   and it uses neither the green highlighter nor the fading heading.       */
-.ml-jp{ --ml-radius: 14px; --ml-radius-lg: 18px; }
-.ml-jp .ml-highlight{ background: none; padding: 0; }
-.ml-jp .ml-gradient-heading .elementor-heading-title{
-  background: none;
-  -webkit-text-fill-color: initial;
-  color: var(--e-global-color-secondary);
-}
-.ml-jp .elementor-button{ border-radius: 8px; }
-.ml-jp .ml-card{ box-shadow: 0 1px 2px rgba(34,50,74,.05); }
-
-/* Japanese services sit in a plain four box grid with hairlines between */
-.ml-jp-services{ border-top: 1px solid var(--ml-hairline-strong); border-left: 1px solid var(--ml-hairline-strong); }
-.ml-jp-service{ border-right: 1px solid var(--ml-hairline-strong); border-bottom: 1px solid var(--ml-hairline-strong); }
-.ml-keywords{ font-size: 13.5px; line-height: 1.95; color: var(--e-global-color-mlmuted); }
-.ml-side-note{ font-size: 13px; line-height: 1.75; color: var(--e-global-color-mlmuted); padding-left: 13px; border-left: 2px solid var(--ml-hairline-strong); }
-
-
-/* --- Japanese and English together --------------------------------------
-   Japanese text falls back to Noto once the Latin faces run out.          */
-:lang(ja) body, .ml-jp{ font-family: var(--e-global-typography-text-font-family), "Noto Sans JP", sans-serif; }
-.ml-jp h1, .ml-jp h2, .ml-jp h3, .ml-jp h4{ font-family: var(--e-global-typography-primary-font-family), "Noto Serif JP", Georgia, serif; }
-
-
-/* --- Phones and tablets --------------------------------------------------
-   Anything set to two or four across drops to one column on a phone.      */
-@media (max-width: 767px){
-  .ml-form{ padding: 26px; }
-  .ml-logo-row img{ max-height: 34px; }
-  .ml-faq .e-n-accordion-item-title{ min-height: 0; font-size: 16.5px; }
-}
-
-
-/* --- Page sections -------------------------------------------------------
-   Classes used by the homepage layout.                                     */
-
-/* Hero fills the screen once, so the logo strip never peeks in underneath */
-@media (min-height: 680px){
-  .ml-hero{ min-height: calc(100vh - 80px); min-height: calc(100svh - 80px); }
-}
-/* two soft glows behind the hero, green on the left, blue on the right */
-.ml-hero{
-  background-image:
-    radial-gradient(44% 56% at 8% -6%, rgba(84,180,53,.09), transparent 60%),
-    radial-gradient(48% 62% at 94% -8%, rgba(47,111,214,.11), transparent 62%);
-  background-repeat: no-repeat;
-}
-.ml-hero-intro{ font-size: 19px; line-height: 1.6; max-width: 50ch; }
-.ml-hero-photo{ position: relative; }
 
 /* --- Two columns of set proportions --------------------------------------
    ml-split-hero  ml-split-ngo  ml-split-about  ml-split-seo
    ml-split-topics  ml-split-contact
-   Put one on the section container. The numbers are the proportions the
-   design uses; change them here and the section changes everywhere.
-   Both columns become one on a tablet.                                     */
+   The numbers are the proportions the concept uses. Both columns become one
+   on a tablet.                                                            */
 .ml-split-hero > .e-con-inner{ display: grid; grid-template-columns: 1.06fr .94fr; gap: 60px; align-items: center; }
 .ml-split-ngo > .e-con-inner{ display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: stretch; }
 .ml-split-about > .e-con-inner{ display: grid; grid-template-columns: .9fr 1.1fr; gap: 54px; align-items: stretch; }
@@ -819,53 +844,57 @@
 .ml-split-topics > .e-con-inner > *,
 .ml-split-contact > .e-con-inner > *{ width: 100%; max-width: 100%; min-width: 0; }
 /* a column runs the full width of its share, with nothing tucked in at the
-   sides, so the wording breaks its lines exactly as the design shows       */
+   sides, so the wording breaks its lines exactly as the concept shows     */
 .ml-split-hero > .e-con-inner > .e-con:not(.ml-form),
 .ml-split-ngo > .e-con-inner > .e-con:not(.ml-form),
 .ml-split-about > .e-con-inner > .e-con:not(.ml-form),
 .ml-split-seo > .e-con-inner > .e-con:not(.ml-form),
 .ml-split-topics > .e-con-inner > .e-con:not(.ml-form),
 .ml-split-contact > .e-con-inner > .e-con:not(.ml-form){ padding-left: 0; padding-right: 0; }
-@media (max-width: 1024px){
-  .ml-split-hero > .e-con-inner,
-  .ml-split-ngo > .e-con-inner,
-  .ml-split-about > .e-con-inner,
-  .ml-split-seo > .e-con-inner,
-  .ml-split-topics > .e-con-inner,
-  .ml-split-contact > .e-con-inner{ grid-template-columns: 1fr; }
-}
 
-/* the arrow on a text link takes the colour of the words beside it */
-.ml-arrow-link .elementor-button-icon svg,
-.ml-arrow-link .elementor-button-icon i{ fill: currentColor; color: currentColor; }
-
-/* Two boxes across, one on a phone. Used by the services, the quotes and
-   the questions. The gap comes from the container's own Gap setting.      */
-.ml-two-up > .e-con-inner,
-.ml-two-up.e-con-full{ display: grid; grid-template-columns: repeat(2, 1fr); align-items: stretch; }
+/* Two boxes across, one on a phone. Used by the services and the quotes. */
+.ml-two-up > .e-con-inner{ display: grid; grid-template-columns: repeat(2, 1fr); align-items: stretch; }
 .ml-two-up > .e-con-inner > *{ width: 100%; max-width: 100%; }
 
-/* the small line above the client logos */
-.ml-strip-label .elementor-heading-title{
-  font-family: var(--e-global-typography-accent-font-family), sans-serif;
-  font-size: 12px; font-weight: 600; letter-spacing: .12em;
-  text-transform: uppercase; color: var(--e-global-color-mlmuted);
-}
-/* the small line under a label, used in the NGO block */
-.ml-micro .elementor-heading-title{
-  font-family: var(--e-global-typography-accent-font-family), sans-serif;
-  font-size: 13px; font-weight: 600; letter-spacing: .08em;
-  text-transform: uppercase; color: var(--e-global-color-mlgreendark);
-}
 
-/* the two small cards floating over the hero photo */
-.ml-float{ position: absolute; z-index: 2; }
-.ml-float-quote-card{ width: 250px; left: -26px; bottom: 36px; }
-.ml-float-years{ right: -14px; top: 30px; width: auto; text-align: center; padding: 11px 15px; border-radius: 14px; }
-.ml-years-label{ font-size: 10.5px; color: var(--e-global-color-mlmuted); letter-spacing: .02em; }
+/* --- Hero ----------------------------------------------------------------
+   ml-hero  ml-hero-photo  ml-hero-title  ml-hero-intro
+   The hero fills one screen, so the client names never peek in underneath,
+   and it sits close under the header the way the concept has it.          */
+.ml-hero{
+  position: relative;
+  background-image:
+    radial-gradient(44% 56% at 8% -6%, rgba(84,180,53,.09), transparent 60%),
+    radial-gradient(48% 62% at 94% -8%, rgba(47,111,214,.11), transparent 62%);
+  background-repeat: no-repeat;
+}
+@media (min-height: 680px){
+  .ml-hero{ min-height: calc(100vh - 80px); min-height: calc(100svh - 80px); }
+}
+/* a soft line finishes the hero, the width of the content, fading out */
+.ml-hero:after{
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: min(100%, var(--ml-content-width));
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ml-line-2) 8%, var(--ml-line-2) 92%, transparent);
+}
+.ml-hero-title.elementor-widget-heading .elementor-heading-title{
+  font-size: clamp(38px, 5vw, 60px);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -.02em;
+}
+.ml-hero-intro.elementor-widget{ font-size: 19px; line-height: 1.6; max-width: 50ch; }
+.ml-hero-photo{ position: relative; }
 
-/* the NGO band fades from the brand green across to the accent blue, with
-   two soft glows over the top. Change the two colours in Site Settings.   */
+
+/* --- The NGO band --------------------------------------------------------
+   ml-ngo-band  ml-micro
+   Green fading across to blue with two soft glows over the top.           */
 .ml-ngo-band{
   position: relative;
   overflow: hidden;
@@ -886,126 +915,113 @@
     radial-gradient(40% 60% at 52% 50%, rgba(255,255,255,.55), transparent 70%);
 }
 .ml-ngo-band > *{ position: relative; z-index: 1; }
-
-/* quote card name and role */
-.ml-quote-name .elementor-heading-title{
+.ml-micro .elementor-heading-title{
   font-family: var(--e-global-typography-accent-font-family), sans-serif;
-  font-size: 15px; font-weight: 600; color: var(--e-global-color-secondary);
-}
-.ml-quote-role{ font-size: 13px; color: var(--e-global-color-mlmuted); }
-
-@media (max-width: 1024px){
-  .ml-two-up > .e-con-inner, .ml-two-up.e-con-full{ grid-template-columns: 1fr; }
-  .ml-hero{ min-height: 0; }
-  .ml-float-quote-card, .ml-float-years{ display: none; }
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--e-global-color-mlgreendark);
 }
 
 
-/* --- Header ---------------------------------------------------------------
-   In the header template the menu on its own is pinned to the top of the
-   screen, so on a long page the links end up sitting over whatever section
-   is passing underneath. This pins the whole header bar instead, which
-   gives the links a white strip to sit on across the full width.
-   If the header is rebuilt later this block can go.                       */
-.elementor-location-header .elementor-sticky--effects,
-.elementor-location-header .elementor-sticky--active{
-  background-color: #fff;
-  box-shadow: 0 1px 0 var(--ml-hairline);
-}
+/* --- The blue band -------------------------------------------------------
+   Inside it the label, its dot and the ticks read blue rather than green,
+   exactly as the concept has it. The Japanese page uses the hinomaru red
+   for that one dot instead.                                               */
+.ml-band-blue .ml-label .elementor-heading-title{ color: var(--ml-blue-ink); }
+.ml-band-blue .ml-label .elementor-heading-title:before{ background: var(--e-global-color-accent); }
+.ml-band-blue .ml-micro .elementor-heading-title{ color: var(--ml-blue-ink); }
+.ml-band-blue .ml-ticks .elementor-icon-list-icon{ background: #fff; color: var(--ml-blue-ink); }
+.ml-band-blue .ml-bio.elementor-widget{ font-size: 15.5px; line-height: 1.8; color: var(--e-global-color-text); }
+.ml-jp.ml-band-blue .ml-label .elementor-heading-title{ color: var(--e-global-color-secondary); }
+.ml-jp.ml-band-blue .ml-label .elementor-heading-title:before{ background: var(--e-global-color-mljapanred); }
+
 
 /* --- Japanese page: services in four boxes with hairlines between them ---
-   ml-jp-services on the container, ml-jp-service on each box             */
+   ml-jp-services on the container, ml-jp-service on each box              */
 .ml-jp-services > .e-con-inner{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0 !important;
-  border-top: 1px solid var(--ml-hairline-strong);
-  border-left: 1px solid var(--ml-hairline-strong);
+  gap: 0;
+  border-top: 1px solid var(--ml-line-2);
+  border-left: 1px solid var(--ml-line-2);
   align-items: stretch;
 }
 .ml-jp-service{
-  border-right: 1px solid var(--ml-hairline-strong);
-  border-bottom: 1px solid var(--ml-hairline-strong);
+  border-right: 1px solid var(--ml-line-2);
+  border-bottom: 1px solid var(--ml-line-2);
 }
-.ml-jp-service .ml-arrow-link{ margin-top: auto; padding-top: 22px; }
+.ml-jp-service .ml-arrow-link{ margin-top: auto; padding-top: 24px; align-self: flex-start; }
+.ml-jp-service .ml-arrow-link .elementor-button{ font-size: 14.5px; }
+.ml-keywords{ font-size: 13.5px; line-height: 1.95; color: var(--e-global-color-mlmuted); }
+.ml-side-note{
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--e-global-color-mlmuted);
+  padding-left: 13px;
+  border-left: 2px solid var(--ml-line-2);
+}
 
-/* --- Japanese page: a service box with the icon on its own line ----------
-   ml-service-plain   sits with ml-service on the Icon Box widget
-   The Japanese page stacks the icon above the heading, which is how the
-   original page reads.                                                     */
-.ml-service-plain.elementor-widget-icon-box .elementor-icon-box-wrapper{
-  display: block;
-  text-align: left;
-}
-.ml-service-plain.elementor-widget-icon-box .elementor-icon-box-icon{
-  width: 50px;
-  height: 50px;
-  border-radius: 12px;
-  margin-bottom: 20px;
-}
-.ml-service-plain .elementor-icon-box-icon .elementor-icon{ font-size: 24px; }
-.ml-service-plain .elementor-icon-box-icon svg{ width: 25px; height: 25px; }
-.ml-service-plain .elementor-icon-box-title{
-  font-size: 24px;
-  line-height: 1.42;
-  margin-bottom: 10px;
-}
-/* the green line under the heading */
-.ml-service-plain .elementor-icon-box-description{
-  font-size: 15.5px;
-  font-weight: 600;
-  line-height: 1.7;
-  color: var(--e-global-color-mlgreendark);
-  margin-bottom: 0;
-}
 
 /* --- Japanese page: the list of subjects beside a photo ------------------
    ml-subject-list on an Icon List widget                                  */
-.ml-subject-list .elementor-icon-list-items{
-  display: block;
-  columns: 2;
-  column-gap: 44px;
-}
+.ml-subject-list .elementor-icon-list-items{ display: block; columns: 2; column-gap: 44px; }
 .ml-subject-list .elementor-icon-list-item{
   break-inside: avoid;
-  border-bottom: 1px solid var(--ml-hairline-strong);
+  border-bottom: 1px solid var(--ml-line-2);
   padding: 12px 0;
   align-items: center;
   gap: 12px;
+  margin: 0;
 }
 .ml-subject-list .elementor-icon-list-icon{
   width: 7px;
   height: 7px;
   flex: 0 0 auto;
-  margin-right: 0;
-}
-.ml-subject-list .elementor-icon-list-icon i,
-.ml-subject-list .elementor-icon-list-icon svg{
-  width: 7px;
-  height: 7px;
-  font-size: 7px;
+  margin: 0;
   color: var(--e-global-color-primary);
-  fill: var(--e-global-color-primary);
 }
 .ml-subject-list .elementor-icon-list-text{ font-size: 16.5px; color: var(--e-global-color-secondary); }
 
-@media (max-width: 1024px){
-  .ml-jp-services > .e-con-inner{ grid-template-columns: 1fr; }
-  .ml-subject-list .elementor-icon-list-items{ columns: 1; }
+
+/* --- The Japanese page runs tighter --------------------------------------
+   ml-jp  sits on every section of the Japanese homepage. Smaller corners,
+   flatter shadows, and neither the highlighter nor the fading heading.    */
+.ml-jp{ --ml-radius: 14px; --ml-radius-lg: 18px; }
+.ml-jp .ml-highlight{ background: none; padding: 0; }
+.ml-jp .ml-gradient-heading .elementor-heading-title{
+  background: none;
+  -webkit-text-fill-color: initial;
+  color: var(--e-global-color-secondary);
 }
+.ml-jp .elementor-widget-button .elementor-button{ border-radius: 8px; }
+.ml-jp .ml-card{ box-shadow: 0 1px 2px rgba(34,50,74,.05); border-color: var(--ml-line-2); }
+.ml-jp .ml-float{ border-radius: 12px; }
+.ml-jp .ml-float-years{ border-radius: 10px; }
+.ml-jp .ml-service .elementor-icon-box-icon{ border-radius: 12px; }
+.ml-jp .ml-crow-icon .elementor-widget-container{ border-radius: 12px; }
+.ml-jp .ml-faq.elementor-widget-n-accordion .e-n-accordion-item{ border-radius: 10px; }
+.ml-jp .ml-faq.elementor-widget-n-accordion .e-n-accordion-item-title-text{ font-size: 17px; }
+.ml-jp .ml-form .forminator-ui .forminator-input,
+.ml-jp .ml-form .forminator-ui .forminator-textarea{ border-radius: 9px !important; }
+:lang(ja) body, .ml-jp{ font-family: var(--e-global-typography-text-font-family), "Noto Sans JP", sans-serif; }
+.ml-jp h1, .ml-jp h2, .ml-jp h3, .ml-jp h4{ font-family: var(--e-global-typography-primary-font-family), "Noto Serif JP", Georgia, serif; }
 
 
 /* ==========================================================================
    Header
-   The header is an Elementor template (Templates > Theme Builder > Header):
-   logo, menu, language switch, button. Everything below is the fine detail
-   the widget panels do not cover.
+   Templates > Theme Builder > Header. Logo, menu, language switch, button.
+   The bar carries no line until the page is scrolled, and then it is a
+   single hairline.
    ml-header  ml-logo  ml-nav  ml-header-right  ml-lang  ml-header-cta
    ========================================================================== */
 .ml-header{
   background: rgba(255,255,255,.9);
+  -webkit-backdrop-filter: saturate(1.1) blur(10px);
   backdrop-filter: saturate(1.1) blur(10px);
   border-bottom: 1px solid transparent;
+  box-shadow: none;
   transition: border-color .3s ease, box-shadow .3s ease;
 }
 .ml-header > .e-con-inner{
@@ -1018,7 +1034,7 @@
   padding-bottom: 0;
 }
 .ml-header.elementor-sticky--effects{
-  border-bottom-color: var(--ml-hairline);
+  border-bottom-color: var(--ml-line);
   box-shadow: 0 1px 0 rgba(34,50,74,.02);
 }
 .ml-header > .e-con-inner > .ml-logo{ flex: 0 0 auto; width: auto; }
@@ -1033,9 +1049,7 @@
   padding: 0;
   width: auto;
 }
-
-/* the space between the links comes from the menu widget's own item padding,
-   so it can be changed in Elementor rather than here */
+/* the space between the links comes from the menu widget's own item padding */
 .ml-nav .elementor-nav-menu--main .elementor-nav-menu{
   justify-content: center;
   flex-wrap: nowrap;
@@ -1063,19 +1077,12 @@
   transition: transform .18s ease;
 }
 .ml-nav .elementor-nav-menu--main a.elementor-item:hover,
-.ml-nav .elementor-nav-menu--main a.elementor-item-active{
-  color: var(--e-global-color-secondary);
-}
+.ml-nav .elementor-nav-menu--main a.elementor-item-active{ color: var(--e-global-color-secondary); }
 .ml-nav .elementor-nav-menu--main a.elementor-item:hover:after,
-.ml-nav .elementor-nav-menu--main a.elementor-item-active:after{
-  transform: scaleX(1);
-}
-/* WPML adds the other language to the menu on its own. In this header the
-   switch has its own place on the right, so the menu copy is left out. */
+.ml-nav .elementor-nav-menu--main a.elementor-item-active:after{ transform: scaleX(1); }
+/* WPML adds the other language to the menu on its own. The switch has its
+   own place on the right here, so the menu copy is left out.              */
 .ml-nav .elementor-nav-menu--main li.wpml-ls-item{ display: none; }
-
-/* the language switch reads as "EN | 日本語": the language you are on in
-   full colour, the one you can go to beside it. */
 .ml-lang .ml-lang-inner{
   display: inline-flex;
   align-items: center;
@@ -1086,53 +1093,28 @@
   color: var(--e-global-color-mlmuted);
   white-space: nowrap;
 }
-.ml-lang i{ width: 1px; height: 13px; background: var(--ml-hairline-strong); display: inline-block; }
+.ml-lang i{ width: 1px; height: 13px; background: var(--ml-line-2); display: inline-block; }
 .ml-lang a{ color: var(--e-global-color-mlmuted); text-decoration: none; transition: color .16s ease; }
 .ml-lang a:hover{ color: var(--e-global-color-mlgreendark); }
-/* the language you are already on is the dark one and does nothing */
 html[lang^="en"] .ml-lang .ml-lang-en,
-html[lang^="ja"] .ml-lang .ml-lang-ja{
-  color: var(--e-global-color-secondary);
-  pointer-events: none;
-}
-
-
-/* --- One language at a time ----------------------------------------------
-   ml-only-en   shown on the English pages
-   ml-only-ja   shown on the Japanese pages
-   Used in the footer, where both sets of wording live in the same template. */
-html[lang^="ja"] .ml-only-en{ display: none !important; }
-html[lang^="en"] .ml-only-ja{ display: none !important; }
-
+html[lang^="ja"] .ml-lang .ml-lang-ja{ color: var(--e-global-color-secondary); pointer-events: none; }
 .ml-header-cta .elementor-button{
   background-color: var(--e-global-color-primary);
   border-radius: 11px;
   padding: 9px 17px;
-  font-family: var(--e-global-typography-accent-font-family), sans-serif;
   font-size: 13.5px;
-  font-weight: 600;
   color: #fff;
-  white-space: nowrap;
-  box-shadow: 0 10px 22px rgba(84,180,53,.24);
-  transition: background-color .18s ease, transform .18s ease, box-shadow .18s ease;
 }
-.ml-header-cta .elementor-button:hover{
-  background-color: var(--e-global-color-mlgreendark);
-  transform: translateY(-2px);
-  box-shadow: 0 14px 28px rgba(84,180,53,.28);
-}
+.ml-header-cta .elementor-button:hover{ background-color: var(--e-global-color-mlgreendark); }
 
 
 /* ==========================================================================
    Footer
-   Also an Elementor template: four columns, then one quiet line underneath.
-   ml-footer  ml-footer-cols  ml-footer-col  ml-footer-head  ml-footer-links
+   Templates > Theme Builder > Footer. Four columns, then one quiet line.
+   ml-footer  ml-footer-cols  ml-footer-head  ml-footer-links
    ml-footer-bottom
    ========================================================================== */
-.ml-footer{
-  background-color: #E4EBDD;
-  border-top: 1px solid #D3DDC8;
-}
+.ml-footer{ background-color: #E4EBDD; border-top: 1px solid #D3DDC8; }
 .ml-footer > .e-con-inner{ padding: 66px 0 32px; }
 .ml-footer-cols > .e-con-inner{
   display: grid;
@@ -1178,85 +1160,26 @@ html[lang^="en"] .ml-only-ja{ display: none !important; }
   margin: 0;
 }
 /* WPML drops a second language list at the very end of the page. The header
-   already carries the switch, so this one is left out. */
+   already carries the switch, so this one is left out.                    */
 body > .wpml-ls-statics-footer{ display: none; }
 
-@media (max-width: 921px){
-  .ml-footer-cols > .e-con-inner{ grid-template-columns: 1fr 1fr; gap: 32px; }
-}
-@media (max-width: 600px){
-  .ml-footer-cols > .e-con-inner{ grid-template-columns: 1fr; }
-}
 
-
-/* ==========================================================================
-   Lines
-   A soft line finishes the hero and marks the ends of the logo strip. It is
-   the width of the content, not the whole screen, and it fades out at both
-   ends so it never looks like a hard divider.
-   ========================================================================== */
-.ml-hero{ position: relative; }
-.ml-hero:after{
-  content: "";
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 0;
-  width: min(100%, var(--ml-content-width));
-  height: 1px;
-  background: linear-gradient(90deg,
-      transparent,
-      var(--ml-hairline-strong) 8%,
-      var(--ml-hairline-strong) 92%,
-      transparent);
-}
+/* --- One language at a time ----------------------------------------------
+   ml-only-en   shown on the English pages
+   ml-only-ja   shown on the Japanese pages                                */
+html[lang^="ja"] .ml-only-en{ display: none !important; }
+html[lang^="en"] .ml-only-ja{ display: none !important; }
 
 
 /* ==========================================================================
    Movement
-   Sections lift into place as they come up the screen, and cards lift a
-   little when hovered. Everything is short and soft; nothing bounces.
-   Each section also has an entrance animation set in Elementor under
-   Advanced > Motion Effects, so it can be turned off there per section.
+   Blocks lift into place as they come up the screen. That is the class
+   ml-reveal plus the snippet under Elementor > Custom Code called "Blocks
+   lift into place on scroll". Take the class off a block under Advanced >
+   CSS Classes and that block stops moving. Nothing changes size on hover.
    ========================================================================== */
-.ml-card, .ml-quote, .ml-posts .elementor-post, .ml-photo img, .ml-photo-panel{
-  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-}
-.ml-photo img:hover{ transform: translateY(-3px); }
-.elementor-widget-icon-box .elementor-icon-box-icon{ transition: background-color .2s ease; }
-.ml-card:hover .elementor-icon-box-icon{ background: var(--e-global-color-mlgreentint); }
-.ml-float{ transition: transform .3s ease; }
-.ml-hero-photo:hover .ml-float-years{ transform: translateY(-3px); }
-.ml-hero-photo:hover .ml-float-quote-card{ transform: translateY(3px); }
 @media (prefers-reduced-motion: reduce){
   *, *:before, *:after{ animation-duration: .001ms !important; transition-duration: .001ms !important; }
-}
-
-
-/* ==========================================================================
-   Client names, quote initials, placeholder photos
-   ========================================================================== */
-
-/* the strip of client names, set in the heading face and kept quiet */
-.ml-client-name .elementor-heading-title{
-  font-family: var(--e-global-typography-primary-font-family), Georgia, serif;
-  font-size: 33px;
-  font-weight: 600;
-  letter-spacing: -.01em;
-  color: #9AA5B4;
-  transition: color .18s ease;
-  white-space: nowrap;
-}
-.ml-client-name:hover .elementor-heading-title{ color: var(--e-global-color-secondary); }
-
-/* the small round photo of the person on a quote */
-.ml-quote-avatar{ width: 48px; min-width: 48px; flex: 0 0 auto; }
-
-/* the hero picture is a square, the way the design has it */
-.ml-photo-square img{
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  width: 100%;
 }
 
 
@@ -1265,63 +1188,74 @@ body > .wpml-ls-statics-footer{ display: none; }
    The menu becomes a burger. The panel it opens is styled to match the rest
    of the site rather than left as the theme default.
    ========================================================================== */
-.elementor-location-header .elementor-menu-toggle{
+.ml-nav .elementor-menu-toggle{
   background: transparent;
   color: var(--e-global-color-secondary);
   border-radius: 10px;
   padding: 8px;
   transition: background-color .18s ease, color .18s ease;
 }
-.elementor-location-header .elementor-menu-toggle:hover,
-.elementor-location-header .elementor-menu-toggle.elementor-active{
+.ml-nav .elementor-menu-toggle:hover,
+.ml-nav .elementor-menu-toggle.elementor-active{
   background: var(--e-global-color-mlmint);
   color: var(--e-global-color-mlgreendark);
 }
-.elementor-location-header .elementor-nav-menu--dropdown{
+.ml-nav .elementor-nav-menu--dropdown{
   background-color: #fff;
-  border-top: 1px solid var(--ml-hairline);
+  border-top: 1px solid var(--ml-line);
   box-shadow: 0 18px 40px rgba(34,50,74,.10);
   border-radius: 0 0 var(--ml-radius) var(--ml-radius);
   overflow: hidden;
 }
-.elementor-location-header .elementor-nav-menu--dropdown a.elementor-item{
+.ml-nav .elementor-nav-menu--dropdown a.elementor-item{
   font-family: var(--e-global-typography-accent-font-family), sans-serif;
   font-size: 15.5px;
   font-weight: 500;
   color: var(--e-global-color-secondary);
   padding: 15px 24px;
-  border-bottom: 1px solid var(--ml-hairline);
-  transition: background-color .16s ease, color .16s ease;
+  border-bottom: 1px solid var(--ml-line);
 }
-.elementor-location-header .elementor-nav-menu--dropdown a.elementor-item:after{ display: none; }
-.elementor-location-header .elementor-nav-menu--dropdown a.elementor-item:hover,
-.elementor-location-header .elementor-nav-menu--dropdown a.elementor-item.elementor-item-active{
+.ml-nav .elementor-nav-menu--dropdown a.elementor-item:after{ display: none; }
+.ml-nav .elementor-nav-menu--dropdown a.elementor-item:hover,
+.ml-nav .elementor-nav-menu--dropdown a.elementor-item.elementor-item-active{
   background-color: var(--e-global-color-mlgreentint);
   color: var(--e-global-color-mlgreendark);
 }
 
-@media (max-width: 1180px){
-  /* the menu needs the room before the layout gets tight */
-  .elementor-location-header .elementor-nav-menu--main .elementor-nav-menu{ gap: 12px; }
-  .elementor-location-header .elementor-nav-menu--main a.elementor-item{ font-size: 13.5px; }
+@media (max-width: 1080px){
+  .ml-nav .elementor-nav-menu--main a.elementor-item{ font-size: 13.5px; }
 }
 @media (max-width: 1024px){
+  .ml-hero{ min-height: 0; }
+  .ml-float-quote-card, .ml-float-years{ display: none; }
   .ml-client-name .elementor-heading-title{ font-size: 26px; }
-  .elementor-location-header .e-con.e-parent > .e-con-inner{ min-height: 68px; }
+  .ml-header > .e-con-inner{ min-height: 68px; }
+}
+@media (max-width: 921px){
+  .ml-footer-cols > .e-con-inner{ grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+@media (max-width: 920px){
+  .ml-split-hero > .e-con-inner,
+  .ml-split-ngo > .e-con-inner,
+  .ml-split-about > .e-con-inner,
+  .ml-split-seo > .e-con-inner,
+  .ml-split-topics > .e-con-inner,
+  .ml-split-contact > .e-con-inner{ grid-template-columns: 1fr; gap: 34px; }
+  .ml-two-up > .e-con-inner{ grid-template-columns: 1fr; }
+  .ml-jp-services > .e-con-inner{ grid-template-columns: 1fr; }
+  .ml-faq.elementor-widget-n-accordion .e-n-accordion{ grid-template-columns: 1fr; }
+  .ml-ticks-two .elementor-icon-list-items,
+  .ml-subject-list .elementor-icon-list-items{ columns: 1; }
+  .ml-photo-panel, .ml-photo-panel-tall, .ml-photo-panel-taller{ min-height: 280px; }
+  .ml-map{ flex: 0 0 auto; height: 240px; }
 }
 @media (max-width: 767px){
+  .ml-form{ padding: 28px; }
   .ml-client-name .elementor-heading-title{ font-size: 21px; }
-  .elementor-location-header .elementor-widget-theme-site-logo img{ height: 28px; }
-  .elementor-location-header .elementor-widget-button .elementor-button{ padding: 8px 14px; font-size: 12.5px; }
+  .ml-logo img{ height: 28px; }
+  .ml-faq.elementor-widget-n-accordion .e-n-accordion-item-title{ min-height: 0; }
+  .ml-faq.elementor-widget-n-accordion .e-n-accordion-item-title-text{ font-size: 16.5px; }
 }
-
-
-/* --- Blocks lifting into place ------------------------------------------
-   ml-reveal marks a block that should lift into view as it comes up the
-   screen. The movement itself is done by the small snippet under
-   Elementor > Custom Code called "Blocks lift into place on scroll", which
-   both hides and shows the block. Nothing is hidden here, so if that
-   snippet is ever switched off the page simply shows everything.
-
-   To stop a block moving, take the class off it in Elementor under
-   Advanced > CSS Classes.                                                */
+@media (max-width: 600px){
+  .ml-footer-cols > .e-con-inner{ grid-template-columns: 1fr; }
+}
