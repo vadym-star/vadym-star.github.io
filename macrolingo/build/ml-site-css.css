@@ -465,7 +465,7 @@ body .ml-arrow-link .elementor-button.elementor-button{
   margin-bottom: 0;
 }
 /* the link sits under the words, not under the icon: 56px tile + 20px gap */
-.ml-service-card .ml-arrow-link{ margin-top: auto; padding-top: 16px; align-self: flex-start; margin-left: 76px; max-width: calc(100% - 76px); }
+.e-con.ml-service-card > .e-con-inner > .ml-arrow-link.elementor-widget{ margin-top: auto; padding-top: 16px; align-self: flex-start; margin-left: 76px; width: auto; max-width: calc(100% - 76px); }
 body .ml-service-card .ml-arrow-link .elementor-button.elementor-button{ font-size: 14px; }
 
 /* Japanese page: the icon sits above the heading, and the line under the
