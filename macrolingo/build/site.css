@@ -1275,6 +1275,21 @@ body.admin-bar{ --ml-admin-bar: 32px; }
 /* WPML adds the other language to the menu on its own. The switch has its
    own place on the right here, so the menu copy is left out.              */
 .ml-nav .elementor-nav-menu--main li.wpml-ls-item{ display: none; }
+/* The Japanese labels are longer than the English ones, so the same nine
+   links need a little less air between them to sit on one line beside the
+   language switch. The spacing itself is set on the Menu widget; this is
+   the Japanese adjustment, which is why it is marked important.          */
+html[lang^="ja"] .ml-nav .elementor-nav-menu--main a.elementor-item{
+  padding-left: 6px !important;
+  padding-right: 6px !important;
+}
+@media (max-width: 1330px){
+  html[lang^="ja"] .ml-nav .elementor-nav-menu--main a.elementor-item{
+    font-size: 13.5px;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
+}
 .ml-lang .ml-lang-inner{
   display: inline-flex;
   align-items: center;
