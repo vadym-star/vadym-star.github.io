@@ -818,6 +818,14 @@
 .ml-split-seo > .e-con-inner > *,
 .ml-split-topics > .e-con-inner > *,
 .ml-split-contact > .e-con-inner > *{ width: 100%; max-width: 100%; min-width: 0; }
+/* a column runs the full width of its share, with nothing tucked in at the
+   sides, so the wording breaks its lines exactly as the design shows       */
+.ml-split-hero > .e-con-inner > .e-con:not(.ml-form),
+.ml-split-ngo > .e-con-inner > .e-con:not(.ml-form),
+.ml-split-about > .e-con-inner > .e-con:not(.ml-form),
+.ml-split-seo > .e-con-inner > .e-con:not(.ml-form),
+.ml-split-topics > .e-con-inner > .e-con:not(.ml-form),
+.ml-split-contact > .e-con-inner > .e-con:not(.ml-form){ padding-left: 0; padding-right: 0; }
 @media (max-width: 1024px){
   .ml-split-hero > .e-con-inner,
   .ml-split-ngo > .e-con-inner,
