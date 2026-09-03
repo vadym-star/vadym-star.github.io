@@ -224,6 +224,23 @@
 }
 
 
+/* --- Buttons -------------------------------------------------------------
+   The two button shapes the design uses: a solid green one, and a white one
+   with a hairline round it. Both come from the Button widget.              */
+.elementor-widget-button .elementor-button{
+  font-family: var(--e-global-typography-accent-font-family), sans-serif;
+  font-size: 14.5px;
+  font-weight: 600;
+  line-height: 1.4;
+  border-radius: 11px;
+  padding: 11px 21px;
+  transition: transform .18s ease, background-color .18s ease, box-shadow .18s ease, color .18s ease, border-color .18s ease;
+}
+.elementor-widget-button .elementor-button:hover{ transform: translateY(-2px); }
+.ml-arrow-link .elementor-button,
+.ml-arrow-link .elementor-button:hover{ transform: none; padding: 0; }
+
+
 /* --- Text link with an arrow ---------------------------------------------
    ml-arrow-link   put it on a Button widget set to the Link style          */
 .ml-arrow-link .elementor-button{
@@ -328,7 +345,14 @@
   line-height: 1;
 }
 .ml-quote .elementor-widget-star-rating .elementor-star-rating__wrapper{ justify-content: flex-start; }
-.ml-quote-avatar img{ width: 48px; height: 48px; border-radius: 50%; object-fit: contain; background: #fff; border: 1px solid var(--ml-hairline); padding: 4px; }
+.ml-quote-avatar{ flex: 0 0 auto; }
+.ml-quote-avatar img{
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
 
 
 /* --- Small card floating over the hero photo -----------------------------
@@ -1210,30 +1234,8 @@ body > .wpml-ls-statics-footer{ display: none; }
 }
 .ml-client-name:hover .elementor-heading-title{ color: var(--e-global-color-secondary); }
 
-/* the person's initial in a small coloured circle on a quote */
-.ml-quote-avatar{
-  width: 48px;
-  min-width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  flex: 0 0 auto;
-  overflow: hidden;
-}
-.ml-quote-avatar > .e-con-inner{
-  display: grid;
-  place-items: center;
-  height: 100%;
-  padding: 0;
-}
-.ml-avatar-letter .elementor-heading-title{
-  font-family: var(--e-global-typography-primary-font-family), Georgia, serif;
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 1;
-  color: #fff;
-}
+/* the small round photo of the person on a quote */
+.ml-quote-avatar{ width: 48px; min-width: 48px; flex: 0 0 auto; }
 
 /* the hero picture is a square, the way the design has it */
 .ml-photo-square img{
