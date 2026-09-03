@@ -1800,3 +1800,187 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
   .ml-header .ml-lang{ display: none; }
   .ml-nav .elementor-nav-menu--dropdown li.wpml-ls-item{ display: block; }
 }
+
+/* ==========================================================================
+   Cookie notice
+   The plugin keeps its own Custom CSS behind a paid plan, so the notice is
+   dressed from here instead. Everything below reads from the Global Colors,
+   so it follows the rest of the site.
+   ========================================================================== */
+/* MacroLingo cookie notice
+   ------------------------------------------------------------------
+   The notice is dressed like the rest of the site: the same white card,
+   the same hairline and corners, the same green buttons and the same two
+   faces. Every colour below reads from Site Settings > Global Colors, so
+   changing a swatch there changes this notice too. The plugin writes its
+   own colours straight onto the elements, which is the only reason these
+   lines are marked important.
+   Corners, spacing and type live here; where the notice sits on the
+   screen, and its wording, stay with the plugin's own settings.
+   ------------------------------------------------------------------ */
+
+.cky-consent-container,
+.cky-modal{
+  --ml-serif: var(--e-global-typography-primary-font-family, "Newsreader"), Georgia, serif;
+  --ml-sans: var(--e-global-typography-accent-font-family, "Figtree"), Arial, sans-serif;
+  --ml-ink: var(--e-global-color-secondary, #22324A);
+  --ml-body: var(--e-global-color-text, #4C5769);
+  --ml-muted: var(--e-global-color-mlmuted, #7C8797);
+  --ml-green: var(--e-global-color-primary, #54B435);
+  --ml-green-dark: var(--e-global-color-mlgreendark, #458F2C);
+  --ml-line: var(--e-global-color-mlline, #E9EEE3);
+  --ml-line-2: #DDE6D6;
+  --ml-lift: 0 6px 16px rgba(34,50,74,.06), 0 26px 56px rgba(34,50,74,.10);
+}
+
+/* --- the card ---------------------------------------------------- */
+.cky-consent-container .cky-consent-bar{
+  background: #fff !important;
+  border: 1px solid var(--ml-line) !important;
+  border-radius: 22px !important;
+  box-shadow: var(--ml-lift) !important;
+  padding: 26px !important;
+  font-family: var(--ml-sans);
+}
+.cky-consent-container{ max-width: min(440px, calc(100vw - 32px)); }
+
+/* --- the words --------------------------------------------------- */
+.cky-title{
+  font-family: var(--ml-serif) !important;
+  font-size: 19px !important;
+  font-weight: 600 !important;
+  line-height: 1.25 !important;
+  letter-spacing: -.01em;
+  color: var(--ml-ink) !important;
+  margin: 0 0 10px !important;
+}
+.cky-notice-des,
+.cky-notice-des *,
+.cky-preference-content-wrapper,
+.cky-preference-content-wrapper *,
+.cky-accordion-header-des,
+.cky-accordion-header-des *,
+.cky-gpc-wrapper .cky-gpc-desc{
+  font-family: var(--ml-sans) !important;
+  font-size: 14.5px !important;
+  line-height: 1.6 !important;
+  color: var(--ml-body) !important;
+}
+.cky-notice-des a,
+.cky-preference-content-wrapper a,
+.cky-accordion-header-des a{
+  color: var(--ml-green-dark) !important;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* --- the buttons ------------------------------------------------- */
+.cky-btn{
+  font-family: var(--ml-sans) !important;
+  font-size: 14.5px !important;
+  font-weight: 600 !important;
+  line-height: 1.72 !important;
+  padding: 11px 21px !important;
+  border-radius: 11px !important;
+  border-width: 1.6px !important;
+  border-style: solid !important;
+  white-space: nowrap;
+  transition: transform .18s ease, background-color .18s ease, box-shadow .18s ease,
+              color .18s ease, border-color .18s ease;
+}
+.cky-btn-accept{
+  background: var(--ml-green) !important;
+  border-color: var(--ml-green) !important;
+  color: #fff !important;
+  box-shadow: 0 10px 22px rgba(84,180,53,.24);
+}
+.cky-btn-accept:hover{
+  background: var(--ml-green-dark) !important;
+  border-color: var(--ml-green-dark) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(84,180,53,.28);
+}
+.cky-btn-reject,
+.cky-btn-customize,
+.cky-btn-preferences{
+  background: #fff !important;
+  border-color: var(--ml-line-2) !important;
+  color: var(--ml-ink) !important;
+}
+.cky-btn-reject:hover,
+.cky-btn-customize:hover,
+.cky-btn-preferences:hover{
+  border-color: var(--ml-green) !important;
+  color: var(--ml-green-dark) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 1px 2px rgba(34,50,74,.04), 0 8px 22px rgba(34,50,74,.06);
+}
+.cky-notice-btn-wrapper{ gap: 10px; }
+.cky-banner-btn-close{ opacity: .5; }
+.cky-banner-btn-close:hover{ opacity: 1; }
+
+/* --- the panel behind "Customise" --------------------------------- */
+.cky-preference-center{
+  border-radius: 22px !important;
+  border: 1px solid var(--ml-line) !important;
+  box-shadow: var(--ml-lift) !important;
+  max-width: min(845px, calc(100vw - 32px)) !important;
+  font-family: var(--ml-sans);
+  overflow: hidden;
+}
+.cky-preference-title{
+  font-family: var(--ml-serif) !important;
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  color: var(--ml-ink) !important;
+  letter-spacing: -.01em;
+}
+.cky-preference-header{ border-bottom: 1px solid var(--ml-line); }
+.cky-accordion{ border-bottom: 1px solid var(--ml-line) !important; }
+.cky-accordion:last-child{ border-bottom: 0 !important; }
+.cky-accordion-btn,
+.cky-accordion-header .cky-accordion-btn{
+  font-family: var(--ml-serif) !important;
+  font-size: 16.5px !important;
+  font-weight: 600 !important;
+  color: var(--ml-ink) !important;
+}
+.cky-footer-wrapper{ border-top: 1px solid var(--ml-line); }
+.cky-footer-shadow{ display: none !important; }
+.cky-prefrence-btn-wrapper{ gap: 10px; }
+.cky-overlay{ background: #172135 !important; }
+
+/* the switches take the brand green when they are on */
+.cky-switch input[type="checkbox"]{ accent-color: var(--ml-green); }
+.cky-switch input[type="checkbox"]:checked{
+  background-color: var(--ml-green) !important;
+  border-color: var(--ml-green) !important;
+}
+.cky-always-active{ color: var(--ml-green-dark) !important; font-weight: 600; }
+
+/* the small round button that brings the notice back */
+.cky-btn-revisit-wrapper{
+  background: var(--ml-green) !important;
+  box-shadow: 0 10px 22px rgba(84,180,53,.24) !important;
+}
+
+/* --- the Japanese pages run to tighter corners -------------------- */
+html[lang^="ja"] .cky-consent-bar,
+html[lang^="ja"] .cky-preference-center{ border-radius: 18px !important; }
+html[lang^="ja"] .cky-btn{ border-radius: 8px !important; }
+
+/* --- on a phone --------------------------------------------------- */
+@media (max-width: 600px){
+  .cky-consent-container{
+    left: 10px !important;
+    right: 10px !important;
+    width: auto !important;
+    max-width: calc(100vw - 20px) !important;
+  }
+  .cky-consent-bar{ padding: 20px !important; border-radius: 18px !important; }
+  .cky-preference-center{ border-radius: 18px !important; }
+  .cky-notice-btn-wrapper,
+  .cky-prefrence-btn-wrapper{ flex-direction: column; align-items: stretch; }
+  .cky-btn{ width: 100%; text-align: center; }
+}
