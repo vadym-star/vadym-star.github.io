@@ -40,8 +40,15 @@
 [class*="ml-i-"] .elementor-icon > *,
 [class*="ml-i-"] .elementor-icon-list-icon > *{ display: none; }
 [class*="ml-i-"] .elementor-icon,
-[class*="ml-i-"] .elementor-icon-list-icon{
+[class*="ml-i-"] .elementor-icon-list-icon{ display: block; }
+/* the drawing sits inside the shape, so a tick can still have its own circle
+   round it and a service icon its own tile                                */
+[class*="ml-i-"] .elementor-icon:before,
+[class*="ml-i-"] .elementor-icon-list-icon:before{
+  content: "";
   display: block;
+  width: 100%;
+  height: 100%;
   background: currentColor;
 }
 .ml-i-arrow .elementor-icon,
