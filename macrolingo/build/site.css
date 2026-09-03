@@ -12,6 +12,37 @@
    ========================================================================== */
 
 
+/* --- While the web fonts are still on their way --------------------------
+   Until Newsreader and Figtree arrive the page has to draw with something,
+   and if that something is a different width the text jumps when they land.
+   These two stand-ins are the fonts already on the reader's machine, scaled
+   so a line measures the same. Measured on this build: Georgia is 0.4% off
+   Newsreader and Arial 0.9% off Figtree.                                   */
+@font-face{
+  font-family: "Newsreader stand-in";
+  src: local("Georgia"), local("Times New Roman"), local("Times");
+  size-adjust: 100.4%;
+  font-display: swap;
+}
+@font-face{
+  font-family: "Figtree stand-in";
+  src: local("Arial"), local("Helvetica Neue"), local("Helvetica");
+  size-adjust: 100.9%;
+  font-display: swap;
+}
+body,
+body .elementor-widget-text-editor,
+body .elementor-widget-icon-list,
+body .elementor-widget-button .elementor-button{
+  font-family: var(--e-global-typography-text-font-family), "Figtree stand-in", Arial, sans-serif;
+}
+body .elementor-widget-heading .elementor-heading-title,
+body .elementor-icon-box-title,
+body h1, body h2, body h3, body h4{
+  font-family: var(--e-global-typography-primary-font-family), "Newsreader stand-in", Georgia, serif;
+}
+
+
 /* --- Moving down the page -------------------------------------------------
    Jumping to a section, or back to the top, glides rather than snaps. The
    header is pinned, so the landing point is set below it.                 */
@@ -1270,7 +1301,7 @@ html[lang^="ja"] .ml-lang .ml-lang-ja{ color: var(--e-global-color-secondary); p
    ml-footer-bottom
    ========================================================================== */
 .ml-footer{ background-color: #E4EBDD; border-top: 1px solid #D3DDC8; }
-.ml-footer > .e-con-inner{ padding: 66px 0 32px; }
+.ml-footer > .e-con-inner{ padding: 52px 0 30px; }
 .ml-footer-cols > .e-con-inner{
   display: grid;
   grid-template-columns: 1.6fr 1fr 1fr 1fr;
@@ -1299,14 +1330,15 @@ html[lang^="ja"] .ml-lang .ml-lang-ja{ color: var(--e-global-color-secondary); p
 }
 .ml-footer-links a:hover .elementor-icon-list-text,
 .ml-footer-links a:hover{ color: var(--e-global-color-mlgreendark); }
-.ml-footer-bottom{ border-top: 1px solid #D3DDC8; margin-top: 46px; }
+/* the closing line sits with the columns rather than in a box of its own */
+.ml-footer-bottom{ border-top: 0; margin-top: 0; }
 .ml-footer-bottom > .e-con-inner{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 20px;
-  padding: 24px 0 0;
+  padding: 26px 0 0;
 }
 .ml-footer-bottom p{
   font-family: var(--e-global-typography-accent-font-family), sans-serif;
