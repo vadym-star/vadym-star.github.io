@@ -735,7 +735,14 @@ body{
   align-items: center;
   gap: 7px;
 }
-.ml-posts .elementor-button-wrapper .elementor-button:after{
+/* the chevron rides with the words, so while the posts are being fetched
+   Elementor takes both away and only the green ring is left               */
+.ml-posts .elementor-button-wrapper .elementor-button-text{
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.ml-posts .elementor-button-wrapper .elementor-button-text:after{
     content: "";
     width: 14px;
     height: 14px;
