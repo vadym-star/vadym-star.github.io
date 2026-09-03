@@ -41,10 +41,18 @@ body .elementor-widget-icon-list,
 body .elementor-widget-button .elementor-button{
   font-family: var(--e-global-typography-text-font-family), "Figtree stand-in", Arial, sans-serif !important;
 }
-body .elementor-widget-heading .elementor-heading-title,
-body .elementor-icon-box-title,
-body h1, body h2, body h3, body h4{
+/* Only the real headings. The small capital labels are heading widgets too,
+   but they are set in the body face, so they are left out of this. */
+body .elementor-widget-heading h1.elementor-heading-title,
+body .elementor-widget-heading h2.elementor-heading-title,
+body .elementor-widget-heading h3.elementor-heading-title,
+body .elementor-widget-heading h4.elementor-heading-title,
+body .elementor-icon-box-title{
   font-family: var(--e-global-typography-primary-font-family), "Newsreader stand-in", Georgia, serif !important;
+}
+/* the name under a quote is a heading of its own but reads in the body face */
+body .ml-quote-name h4.elementor-heading-title{
+  font-family: var(--e-global-typography-accent-font-family), "Figtree stand-in", Arial, sans-serif !important;
 }
 
 
@@ -60,6 +68,11 @@ html{ scroll-behavior: smooth; scroll-padding-top: calc(var(--ml-header-h, 81px)
    These sit on body rather than :root because the Global Colors do, and a
    value here that reads one of them has to be written where it can see it. */
 body{
+  /* the two stacks, with the stand-ins in them, so every rule below reads
+     from one place */
+  --ml-serif: var(--e-global-typography-primary-font-family), "Newsreader stand-in", Georgia, serif;
+  --ml-sans: var(--e-global-typography-accent-font-family), "Figtree stand-in", Arial, sans-serif;
+  --ml-body: var(--e-global-typography-text-font-family), "Figtree stand-in", Arial, sans-serif;
   --ml-content-width: 1100px;
   --ml-radius: 22px;
   --ml-radius-lg: 30px;
@@ -227,7 +240,7 @@ body{
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  font-family: var(--e-global-typography-accent-font-family), sans-serif;
+  font-family: var(--ml-sans);
   font-size: 13px;
   font-weight: 600;
   letter-spacing: .06em;
@@ -289,7 +302,7 @@ body{
   align-items: center;
   justify-content: center;
   gap: 8px;
-  font-family: var(--e-global-typography-accent-font-family), sans-serif;
+  font-family: var(--ml-sans);
   font-size: 14.5px;
   font-weight: 600;
   line-height: 1.4;
@@ -392,7 +405,7 @@ body{
 .ml-service .elementor-icon-box-content{ display: flex; flex-direction: column; flex: 1; }
 .ml-service .elementor-icon-box-title,
 .ml-service .elementor-icon-box-title a{
-  font-family: var(--e-global-typography-primary-font-family), Georgia, serif;
+  font-family: var(--ml-serif);
   font-size: 22px;
   font-weight: 600;
   line-height: 1.25;
@@ -433,7 +446,7 @@ body{
    ml-strip-label  the small line above
    ml-logo-row     the row, ml-client-name each name                       */
 .ml-strip-label .elementor-heading-title{
-  font-family: var(--e-global-typography-accent-font-family), sans-serif;
+  font-family: var(--ml-sans);
   font-size: 12px;
   font-weight: 600;
   letter-spacing: .12em;
@@ -441,7 +454,7 @@ body{
   color: var(--e-global-color-mlmuted);
 }
 .ml-client-name .elementor-heading-title{
-  font-family: var(--e-global-typography-primary-font-family), Georgia, serif;
+  font-family: var(--ml-serif);
   font-size: 33px;
   font-weight: 600;
   letter-spacing: -.01em;
@@ -527,7 +540,7 @@ body{
 .e-con.ml-quote{ display: flex; flex-direction: column; padding: 26px; }
 .e-con.ml-quote > .e-con-inner{ padding: 0; gap: 12px; height: 100%; width: 100%; }
 .ml-quote .ml-quote-text{
-  font-family: var(--e-global-typography-primary-font-family), Georgia, serif;
+  font-family: var(--ml-serif);
   font-size: 16.5px;
   line-height: 1.5;
   color: var(--e-global-color-secondary);
@@ -543,7 +556,7 @@ body{
 .ml-quote-avatar{ width: 48px; min-width: 48px; flex: 0 0 auto; }
 .ml-quote-avatar img{ width: 48px; height: 48px; border-radius: 50%; object-fit: cover; display: block; }
 .ml-quote-name .elementor-heading-title{
-  font-family: var(--e-global-typography-accent-font-family), sans-serif;
+  font-family: var(--ml-sans);
   font-size: 15px;
   font-weight: 600;
   color: var(--e-global-color-secondary);
@@ -580,14 +593,14 @@ body{
   margin-bottom: 6px;
 }
 .ml-float .ml-float-quote{
-  font-family: var(--e-global-typography-primary-font-family), Georgia, serif;
+  font-family: var(--ml-serif);
   font-style: italic;
   font-size: 14px;
   line-height: 1.4;
   color: var(--e-global-color-secondary);
 }
 .ml-years{
-  font-family: var(--e-global-typography-primary-font-family), Georgia, serif;
+  font-family: var(--ml-serif);
   font-size: 22px;
   font-weight: 600;
   line-height: 1;
@@ -665,7 +678,7 @@ body{
 }
 .ml-faq.elementor-widget-n-accordion .e-n-accordion-item-title-header{ flex: 1 1 auto; }
 .ml-faq.elementor-widget-n-accordion .e-n-accordion-item-title-text{
-  font-family: var(--e-global-typography-primary-font-family), Georgia, serif;
+  font-family: var(--ml-serif);
   font-size: 18.5px;
   font-weight: 500;
   line-height: 1.35;
@@ -725,7 +738,7 @@ body{
 .ml-post-cat .elementor-icon-list-item{ margin: 0; }
 .ml-post-cat .elementor-post-info__item,
 .ml-post-cat .elementor-icon-list-text{
-  font-family: var(--e-global-typography-accent-font-family), sans-serif;
+  font-family: var(--ml-sans);
   font-size: 11.5px;
   font-weight: 600;
   letter-spacing: .08em;
@@ -734,7 +747,7 @@ body{
 }
 .ml-post-title .elementor-heading-title,
 .ml-post-title .elementor-heading-title a{
-  font-family: var(--e-global-typography-primary-font-family), Georgia, serif;
+  font-family: var(--ml-serif);
   font-size: 20px;
   font-weight: 600;
   line-height: 1.28;
@@ -744,7 +757,7 @@ body{
 .ml-post-title .elementor-heading-title a:hover{ color: var(--e-global-color-mlgreendark); }
 .ml-post-excerpt.elementor-widget{ flex: 1 1 auto; }
 .ml-post-excerpt .elementor-heading-title{
-  font-family: var(--e-global-typography-accent-font-family), sans-serif;
+  font-family: var(--ml-sans);
   font-size: 14.5px;
   font-weight: 400;
   line-height: 1.55;
@@ -777,7 +790,7 @@ body{
 .ml-posts .elementor-button-wrapper .elementor-button{
   background: none;
   color: var(--e-global-color-mlmuted);
-  font-family: var(--e-global-typography-accent-font-family), sans-serif;
+  font-family: var(--ml-sans);
   font-weight: 500;
   font-size: 14.5px;
   padding: 0;
@@ -861,7 +874,7 @@ body{
   color: var(--e-global-color-mlgreendark);
 }
 .ml-crow-label .elementor-heading-title{
-  font-family: var(--e-global-typography-accent-font-family), sans-serif;
+  font-family: var(--ml-sans);
   font-size: 12.5px;
   font-weight: 700;
   letter-spacing: .08em;
@@ -907,7 +920,7 @@ body{
 .ml-form > .e-con-inner{ padding: 0; width: 100%; }
 .ml-form .forminator-ui .forminator-label,
 .ml-form .forminator-label{
-  font-family: var(--e-global-typography-accent-font-family), sans-serif !important;
+  font-family: var(--ml-sans) !important;
   font-size: 13.5px !important;
   font-weight: 600 !important;
   color: var(--e-global-color-secondary) !important;
@@ -918,7 +931,7 @@ body{
 .ml-form .forminator-ui .forminator-textarea,
 .ml-form .forminator-input,
 .ml-form .forminator-textarea{
-  font-family: var(--e-global-typography-text-font-family), sans-serif !important;
+  font-family: var(--ml-body) !important;
   font-size: 15.5px !important;
   color: var(--e-global-color-secondary) !important;
   background: #fff !important;
@@ -957,7 +970,7 @@ body{
   border: 0 !important;
   color: #fff !important;
   border-radius: 11px !important;
-  font-family: var(--e-global-typography-accent-font-family), sans-serif !important;
+  font-family: var(--ml-sans) !important;
   font-size: 14.5px !important;
   font-weight: 600 !important;
   padding: 13px 21px !important;
@@ -1085,7 +1098,7 @@ body.admin-bar{ --ml-admin-bar: 32px; }
 }
 .ml-ngo-band > *{ position: relative; z-index: 1; }
 .ml-micro .elementor-heading-title{
-  font-family: var(--e-global-typography-accent-font-family), sans-serif;
+  font-family: var(--ml-sans);
   font-size: 13px;
   font-weight: 600;
   letter-spacing: .08em;
@@ -1248,7 +1261,7 @@ body.admin-bar{ --ml-admin-bar: 32px; }
   gap: 0;
 }
 .ml-nav .elementor-nav-menu--main a.elementor-item{
-  font-family: var(--e-global-typography-accent-font-family), sans-serif;
+  font-family: var(--ml-sans);
   font-size: 14.5px;
   font-weight: 500;
   color: var(--e-global-color-text);
@@ -1294,7 +1307,7 @@ html[lang^="ja"] .ml-nav .elementor-nav-menu--main a.elementor-item{
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--e-global-typography-accent-font-family), sans-serif;
+  font-family: var(--ml-sans);
   font-size: 13.5px;
   font-weight: 600;
   color: var(--e-global-color-mlmuted);
@@ -1332,7 +1345,7 @@ html[lang^="ja"] .ml-lang .ml-lang-ja{ color: var(--e-global-color-secondary); p
 .ml-footer-mark img{ height: 38px; width: auto; }
 .ml-footer-tag{ margin-top: 16px; font-size: 14.5px; line-height: 1.6; color: var(--e-global-color-mlmuted); max-width: 34ch; }
 .ml-footer-head .elementor-heading-title{
-  font-family: var(--e-global-typography-accent-font-family), sans-serif;
+  font-family: var(--ml-sans);
   font-size: 12.5px;
   font-weight: 700;
   letter-spacing: .1em;
@@ -1343,7 +1356,7 @@ html[lang^="ja"] .ml-lang .ml-lang-ja{ color: var(--e-global-color-secondary); p
 .ml-footer-links .elementor-icon-list-item{ margin-bottom: 11px; }
 .ml-footer-links .elementor-icon-list-text,
 .ml-footer-links a{
-  font-family: var(--e-global-typography-accent-font-family), sans-serif;
+  font-family: var(--ml-sans);
   font-size: 14.5px;
   color: var(--e-global-color-text);
   text-decoration: none;
@@ -1368,7 +1381,7 @@ html[lang^="ja"] .ml-lang .ml-lang-ja{ color: var(--e-global-color-secondary); p
 .e-con.ml-footer-bottom > .e-con-inner{ --container-widget-width: auto; }
 .e-con.ml-footer-bottom > .e-con-inner > .elementor-widget{ width: auto; max-width: 100%; }
 .ml-footer-bottom p{
-  font-family: var(--e-global-typography-accent-font-family), sans-serif;
+  font-family: var(--ml-sans);
   font-size: 13.5px;
   color: var(--e-global-color-mlmuted);
   margin: 0;
@@ -1422,7 +1435,7 @@ html[lang^="en"] .ml-only-ja{ display: none !important; }
   overflow: hidden;
 }
 .ml-nav .elementor-nav-menu--dropdown a.elementor-item{
-  font-family: var(--e-global-typography-accent-font-family), sans-serif;
+  font-family: var(--ml-sans);
   font-size: 15.5px;
   font-weight: 500;
   color: var(--e-global-color-secondary);
