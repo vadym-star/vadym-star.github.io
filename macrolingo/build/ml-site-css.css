@@ -57,6 +57,17 @@ body .ml-quote-name h4.elementor-heading-title{
 }
 
 
+/* Headings the theme draws itself, on the blog and anywhere else outside
+   this design, take the same pair of faces. The Customizer no longer names
+   a font, so nothing is fetched twice.                                    */
+h1, h2, h3, h4, h5, h6{ font-family: var(--ml-serif); }
+.ml-jp h1, .ml-jp h2, .ml-jp h3, .ml-jp h4, .ml-jp h5, .ml-jp h6,
+html[lang^="ja"] h1, html[lang^="ja"] h2, html[lang^="ja"] h3,
+html[lang^="ja"] h4, html[lang^="ja"] h5, html[lang^="ja"] h6{
+  font-family: var(--e-global-typography-primary-font-family), "Newsreader stand-in", "Noto Serif JP", Georgia, serif;
+}
+
+
 /* --- Moving down the page -------------------------------------------------
    Jumping to a section, or back to the top, glides rather than snaps. The
    header is pinned, so the landing point is set below it.                 */
@@ -71,7 +82,12 @@ html{ scroll-behavior: smooth; scroll-padding-top: calc(var(--ml-header-h, 81px)
    Corner radius, shadows and hairline colours, in one place.
    These sit on body rather than :root because the Global Colors do, and a
    value here that reads one of them has to be written where it can see it. */
-body{ font-size: 17px; line-height: 1.72; }
+body{
+  font-size: 17px;
+  line-height: 1.72;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
 body{
   /* the two stacks, with the stand-ins in them, so every rule below reads
      from one place */
@@ -376,14 +392,28 @@ body .ml-arrow-link .elementor-button.elementor-button{
 }
 .ml-arrow-link .elementor-button:hover{ background: none; color: var(--e-global-color-mlgreendark); }
 .ml-arrow-link .elementor-button-icon > *{ display: none; }
+/* the words and the arrow sit on one middle line, 8px apart */
+.ml-arrow-link .elementor-button-content-wrapper{
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  line-height: 1.72;
+}
+.ml-arrow-link .elementor-button-text{ display: inline-block; line-height: 1.72; }
 /* the widget keeps its icon on the left, so Elementor writes no
    row-reverse of its own; the order below is what puts the arrow after the
    words                                                                   */
 .ml-arrow-link .elementor-button-icon{
   order: 20;
+  display: block;
+  align-self: center;
   width: 16px;
   height: 16px;
   flex: 0 0 auto;
+  margin: 0;
+  line-height: 0;
+  font-size: 0;
   background: currentColor;
   transition: transform .18s ease;
   -webkit-mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 fill=%22none%22%3E%3Cpath d=%22M3 8h10M9 4l4 4-4 4%22 stroke=%22%23000%22 stroke-width=%221.8%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E");
@@ -456,6 +486,7 @@ body .ml-arrow-link .elementor-button.elementor-button{
   font-size: 22px;
   font-weight: 600;
   line-height: 1.14;
+  letter-spacing: -.01em;
   color: var(--e-global-color-secondary);
 }
 .ml-service .elementor-icon-box-title{ margin-bottom: 8px; }
@@ -466,14 +497,30 @@ body .ml-arrow-link .elementor-button.elementor-button{
   margin-bottom: 0;
 }
 /* the link sits under the words, not under the icon: 56px tile + 20px gap */
-.e-con.ml-service-card > .e-con-inner > .ml-arrow-link.elementor-widget{ margin-top: auto; padding-top: 16px; align-self: flex-start; margin-left: 76px; width: auto; max-width: calc(100% - 76px); }
+/* 56px tile plus the 20px beside it, so the link begins under the first
+   letter of the heading                                                   */
+.e-con.ml-service-card > .e-con-inner > .ml-arrow-link.elementor-widget{
+  margin-top: auto;
+  padding-top: 16px;
+  margin-left: 76px;
+  align-self: flex-start;
+  width: auto;
+  max-width: calc(100% - 76px);
+}
 body .ml-service-card .ml-arrow-link .elementor-button.elementor-button{ font-size: 14px; }
 
 /* Japanese page: the icon sits above the heading, and the line under the
    heading is the green tagline                                            */
-.ml-service-plain.elementor-widget-icon-box .elementor-icon-box-wrapper{
-  display: block;
+.ml-service-plain.elementor-widget-icon-box .elementor-icon-box-wrapper,
+.ml-service-plain.elementor-widget-icon-box .elementor-icon-box-title,
+.ml-service-plain.elementor-widget-icon-box .elementor-icon-box-description{
   text-align: left;
+}
+.ml-service-plain.elementor-widget-icon-box .elementor-icon-box-wrapper{ display: block; }
+.ml-service-plain.elementor-widget-icon-box .elementor-icon-box-icon{
+  margin-left: 0;
+  margin-right: auto;
+  justify-content: flex-start;
 }
 .ml-service-plain.elementor-widget-icon-box .elementor-icon-box-icon{
   width: 50px;
@@ -619,6 +666,9 @@ body .ml-service-card .ml-arrow-link .elementor-button.elementor-button{ font-si
   font-size: 15px;
   font-weight: 600;
   line-height: 1.72;
+  /* the name is a plain line in the concept, not a heading, so it keeps the
+     normal spacing between its letters                                    */
+  letter-spacing: 0;
   color: var(--e-global-color-secondary);
 }
 /* in the concept this line is an inline span in a 17px block, so its line
@@ -877,6 +927,7 @@ body .ml-posts .elementor-button-wrapper .elementor-button.elementor-button{
   display: inline-flex;
   align-items: center;
   gap: 7px;
+  line-height: 1.72;
 }
 .ml-posts .elementor-button-wrapper .elementor-button-text:after{
     content: "";
@@ -1461,25 +1512,40 @@ html[lang^="ja"] .ml-header-cta .elementor-button{ border-radius: 8px; }
   padding: 0;
   width: auto;
 }
-/* the space between the links comes from the menu widget's own item padding */
+/* Astra puts a margin under every list and list item, and Elementor its own
+   padding on a menu link; both are cleared here so a link is exactly as tall
+   as its own words and centres on the same line as the logo.              */
+.ml-nav ul.elementor-nav-menu,
+.ml-nav .elementor-nav-menu li{ margin: 0; padding: 0; line-height: 1.72; }
+.ml-nav .elementor-nav-menu--main{ display: flex; align-items: center; }
+.ml-nav.elementor-widget{ margin: 0; align-self: center; }
 .ml-nav .elementor-nav-menu--main .elementor-nav-menu{
   justify-content: center;
+  align-items: center;
   flex-wrap: nowrap;
   gap: 18px;
 }
 /* the link is a plain block in the body leading, a 25px box, with the
    underline 7px under it, as in the concept                               */
-.ml-nav .elementor-nav-menu--main a.elementor-item{
-  display: block;
+.ml-nav .elementor-nav-menu--main a.elementor-item,
+.ml-nav .elementor-nav-menu--main a.elementor-item:hover,
+.ml-nav .elementor-nav-menu--main a.elementor-item-active{
+  display: inline-block;
   font-family: var(--ml-sans);
   font-size: 14.5px;
   font-weight: 500;
   line-height: 1.72;
+  letter-spacing: 0;
+  text-transform: none;
   color: var(--e-global-color-text);
   padding: 0;
+  height: auto;
   position: relative;
   white-space: nowrap;
   transition: color .16s ease;
+}
+html[lang^="ja"] .ml-nav .elementor-nav-menu--main a.elementor-item{
+  font-family: var(--e-global-typography-accent-font-family), "Figtree stand-in", "Noto Sans JP", Arial, sans-serif;
 }
 .ml-nav .elementor-nav-menu--main a.elementor-item:after{
   content: "";
