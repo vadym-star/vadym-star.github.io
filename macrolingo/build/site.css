@@ -1323,7 +1323,7 @@ html[lang^="ja"] .ml-lang .ml-lang-ja{ color: var(--e-global-color-secondary); p
    ========================================================================== */
 .ml-footer{ background-color: #E4EBDD; border-top: 1px solid #D3DDC8; }
 .ml-footer > .e-con-inner{ padding: 52px 0 30px; }
-.ml-footer-cols > .e-con-inner{
+.e-con.ml-footer-cols > .e-con-inner{
   display: grid;
   grid-template-columns: 1.6fr 1fr 1fr 1fr;
   gap: 40px;
@@ -1353,10 +1353,11 @@ html[lang^="ja"] .ml-lang .ml-lang-ja{ color: var(--e-global-color-secondary); p
 .ml-footer-links a:hover{ color: var(--e-global-color-mlgreendark); }
 /* the closing line sits with the columns rather than in a box of its own */
 .ml-footer-bottom{ border-top: 0; margin-top: 0; }
-.ml-footer-bottom > .e-con-inner{
+.e-con.ml-footer-bottom > .e-con-inner{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: baseline;
   flex-wrap: wrap;
   gap: 20px;
   padding: 26px 0 0;
@@ -1445,7 +1446,7 @@ html[lang^="en"] .ml-only-ja{ display: none !important; }
   .ml-header > .e-con-inner{ min-height: 68px; }
 }
 @media (max-width: 921px){
-  .ml-footer-cols > .e-con-inner{ grid-template-columns: 1fr 1fr; gap: 32px; }
+  .e-con.ml-footer-cols > .e-con-inner{ grid-template-columns: 1fr 1fr; gap: 32px; }
 }
 @media (max-width: 920px){
   .ml-split-hero > .e-con-inner,
@@ -1470,5 +1471,5 @@ html[lang^="en"] .ml-only-ja{ display: none !important; }
   .ml-faq.elementor-widget-n-accordion .e-n-accordion-item-title-text{ font-size: 16.5px; }
 }
 @media (max-width: 600px){
-  .ml-footer-cols > .e-con-inner{ grid-template-columns: 1fr; }
+  .e-con.ml-footer-cols > .e-con-inner{ grid-template-columns: 1fr; }
 }
