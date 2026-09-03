@@ -918,9 +918,8 @@
    The Japanese page stacks the icon above the heading, which is how the
    original page reads.                                                     */
 .ml-service-plain.elementor-widget-icon-box .elementor-icon-box-wrapper{
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0;
+  display: block;
+  text-align: left;
 }
 .ml-service-plain.elementor-widget-icon-box .elementor-icon-box-icon{
   width: 50px;
