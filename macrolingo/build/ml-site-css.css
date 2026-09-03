@@ -1567,6 +1567,8 @@ html[lang^="ja"] .ml-nav .elementor-nav-menu--main a.elementor-item{
 .ml-nav .elementor-nav-menu--main li.wpml-ls-item,
 .ml-nav .elementor-nav-menu--dropdown li.wpml-ls-item{ display: none; }
 
+/* the switcher centres on the same line as the logo and the button */
+.ml-lang.elementor-widget{ display: flex; align-items: center; }
 .ml-lang .ml-lang-inner{
   display: inline-flex;
   align-items: center;
