@@ -466,8 +466,13 @@
 .ml-faq.elementor-widget-n-accordion .e-n-accordion-item-title-icon svg{
   width: 15px;
   height: 15px;
-  fill: var(--e-global-color-primary);
   color: var(--e-global-color-primary);
+}
+/* Elementor paints its own icons a fixed dark grey, so the green has to be
+   marked important here to come through. */
+.ml-faq.elementor-widget-n-accordion .e-n-accordion-item-title-icon svg,
+.ml-faq.elementor-widget-n-accordion .e-n-accordion-item-title-icon svg path{
+  fill: var(--e-global-color-primary) !important;
 }
 .ml-faq.elementor-widget-n-accordion details[open] .e-n-accordion-item-title-icon{ transform: rotate(180deg); }
 .ml-faq.elementor-widget-n-accordion .e-n-accordion-item > .e-con,
