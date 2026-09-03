@@ -271,6 +271,16 @@ body{
   font-weight: 600;
   font-size: 15px;
 }
+/* a visited or focused link keeps its colour; the theme would otherwise
+   leave it white after it has been clicked                                */
+.ml-arrow-link .elementor-button,
+.ml-arrow-link .elementor-button:link,
+.ml-arrow-link .elementor-button:visited,
+.ml-arrow-link .elementor-button:focus,
+.ml-arrow-link .elementor-button:active{
+  color: var(--e-global-color-mlgreendark);
+  background: none;
+}
 .ml-arrow-link .elementor-button:hover{ background: none; color: var(--e-global-color-primary); }
 .ml-arrow-link .elementor-button-icon > *{ display: none; }
 .ml-arrow-link .elementor-button-icon{
@@ -568,13 +578,23 @@ body{
    ml-faq   on the accordion widget
    The questions run in two columns, each its own white card, with a thin
    green cross on the right that turns into a minus when opened.           */
-.ml-faq.elementor-widget-n-accordion .e-n-accordion{
+/* two columns side by side, each its own list, so opening a question on one
+   side leaves the other side where it is                                  */
+.ml-faq-cols > .e-con-inner{
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 14px 22px;
+  gap: 22px;
   align-items: start;
   max-width: 1040px;
   margin: 0 auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+.ml-faq-cols > .e-con-inner > *{ width: 100%; max-width: 100%; min-width: 0; }
+.ml-faq.elementor-widget-n-accordion .e-n-accordion{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 .ml-faq.elementor-widget-n-accordion .e-n-accordion-item{
   background: #fff;
@@ -725,6 +745,34 @@ body{
     mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 fill=%22none%22%3E%3Cpath d=%22M4 6l4 4 4-4%22 stroke=%22%23000%22 stroke-width=%221.8%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E");
 }
 .ml-posts .elementor-button-wrapper .elementor-button:hover{ background: none; color: var(--e-global-color-mlgreendark); }
+.ml-posts .elementor-button-wrapper .elementor-button,
+.ml-posts .elementor-button-wrapper .elementor-button:visited,
+.ml-posts .elementor-button-wrapper .elementor-button:focus,
+.ml-posts .elementor-button-wrapper .elementor-button:active{ color: var(--e-global-color-mlmuted); }
+/* Fetching more posts takes a moment, so a small green ring turns while it
+   happens. Elementor gives the spinner its size only while it is loading,
+   and the ring is clipped away the rest of the time.                      */
+.ml-posts .e-load-more-spinner{
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  margin-left: 9px;
+}
+.ml-posts .e-load-more-spinner svg{ display: none; }
+.ml-posts .e-load-more-spinner:before{
+  content: "";
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  border: 2px solid rgba(84,180,53,.25);
+  border-top-color: var(--e-global-color-primary);
+  animation: ml-spin .7s linear infinite;
+}
+@keyframes ml-spin{ to{ transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce){
+  .ml-posts .e-load-more-spinner:before{ animation-duration: 2s; }
+}
 
 
 /* --- Contact details -----------------------------------------------------
@@ -1007,6 +1055,7 @@ body.admin-bar{ --ml-admin-bar: 32px; }
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0;
+  padding: 0;
   border-top: 1px solid var(--ml-line-2);
   border-left: 1px solid var(--ml-line-2);
   align-items: stretch;
@@ -1327,7 +1376,7 @@ html[lang^="en"] .ml-only-ja{ display: none !important; }
   .ml-split-contact > .e-con-inner{ grid-template-columns: 1fr; gap: 34px; }
   .ml-two-up > .e-con-inner{ grid-template-columns: 1fr; }
   .ml-jp-services > .e-con-inner{ grid-template-columns: 1fr; }
-  .ml-faq.elementor-widget-n-accordion .e-n-accordion{ grid-template-columns: 1fr; }
+  .ml-faq-cols > .e-con-inner{ grid-template-columns: 1fr; gap: 14px; }
   .ml-ticks-two .elementor-icon-list-items,
   .ml-subject-list .elementor-icon-list-items{ columns: 1; }
   .ml-photo-panel, .ml-photo-panel-tall, .ml-photo-panel-taller{ min-height: 280px; }
