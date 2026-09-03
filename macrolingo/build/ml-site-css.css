@@ -1517,7 +1517,11 @@ html[lang^="ja"] .ml-header-cta .elementor-button{ border-radius: 8px; }
    as its own words and centres on the same line as the logo.              */
 .ml-nav ul.elementor-nav-menu,
 .ml-nav .elementor-nav-menu li{ margin: 0; padding: 0; line-height: 1.72; }
-.ml-nav .elementor-nav-menu--main{ display: flex; align-items: center; }
+/* only on a wide screen: below the breakpoint this list is put away and the
+   burger takes over, so the rule must not bring it back                   */
+@media (min-width: 921px){
+  .ml-nav .elementor-nav-menu--main{ display: flex; align-items: center; }
+}
 .ml-nav.elementor-widget{ margin: 0; align-self: center; }
 .ml-nav .elementor-nav-menu--main .elementor-nav-menu{
   justify-content: center;
