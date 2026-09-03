@@ -541,7 +541,7 @@
   line-height: 1.55;
   color: var(--e-global-color-mlmuted);
 }
-.ml-post-card .ml-arrow-link{ margin-top: 6px; }
+.ml-post-card .ml-arrow-link{ margin-top: 6px; align-self: flex-start; }
 .ml-post-card .ml-arrow-link .elementor-button{ font-size: 14px; }
 
 /* the grid itself */
