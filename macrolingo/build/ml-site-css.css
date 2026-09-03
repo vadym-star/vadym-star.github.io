@@ -1156,6 +1156,10 @@ body.admin-bar{ --ml-admin-bar: 32px; }
   letter-spacing: -.02em;
 }
 .ml-hero-intro.elementor-widget{ font-size: 19px; line-height: 1.6; max-width: 50ch; }
+/* both columns sit in the middle of the hero, as the concept centres its
+   grid; Elementor would otherwise stretch the words column to the full
+   height and leave them at its top                                        */
+.ml-split-hero > .e-con-inner > .e-con{ align-self: center; height: auto; min-height: 0; }
 .ml-hero-photo{ position: relative; align-self: center; height: auto; }
 .e-con.ml-hero-photo > .e-con-inner{ padding: 0; }
 /* the spacing down the left hand column, the concept's own numbers */
