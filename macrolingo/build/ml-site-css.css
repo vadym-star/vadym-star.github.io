@@ -301,7 +301,10 @@ body{
 
 /* --- Buttons -------------------------------------------------------------
    A solid green button, and a white one with a hairline round it.         */
-.elementor-widget-button .elementor-button{
+/* written as body ... .elementor-button.elementor-button because the theme's
+   own Elementor button rule (body .elementor-button.elementor-size-sm) is a
+   notch more specific than a plain class and would otherwise win           */
+body .elementor-widget-button .elementor-button.elementor-button{
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -341,7 +344,7 @@ body{
 .ml-arrow-link,
 .ml-arrow-link .elementor-widget-container,
 .ml-arrow-link .elementor-button-wrapper{ text-align: left; }
-.ml-arrow-link .elementor-button{
+body .ml-arrow-link .elementor-button.elementor-button{
   padding: 0;
   background: none;
   border: 0;
@@ -448,7 +451,7 @@ body{
   margin-bottom: 0;
 }
 .ml-service-card .ml-arrow-link{ margin-top: auto; padding-top: 16px; align-self: flex-start; }
-.ml-service-card .ml-arrow-link .elementor-button{ font-size: 14px; }
+body .ml-service-card .ml-arrow-link .elementor-button.elementor-button{ font-size: 14px; }
 
 /* Japanese page: the icon sits above the heading, and the line under the
    heading is the green tagline                                            */
@@ -770,7 +773,7 @@ body{
    reader, only not drawn.                                                 */
 .ml-post-cat .elementor-post-info__terms-list{ font-size: 0; }
 .ml-post-cat .elementor-post-info__terms-list-item:first-child{ font-size: 11.5px; line-height: 1.72; }
-.ml-post-cat .elementor-post-info__terms-list-item:not(:first-child){ display: none; }
+.ml-post-cat .elementor-post-info__terms-list-item:not(:first-child){ display: none !important; }
 .ml-post-cat .elementor-icon-list-item{ margin: 0; }
 .ml-post-cat .elementor-post-info__item,
 .ml-post-cat .elementor-icon-list-text{
@@ -806,7 +809,7 @@ body{
   padding-top: 6px;
   align-self: flex-start;
 }
-.ml-post-card .ml-arrow-link .elementor-button{ font-size: 14px; }
+body .ml-post-card .ml-arrow-link .elementor-button.elementor-button{ font-size: 14px; }
 /* cards rise into place, one just after another, both on the first draw and
    as more of them are fetched                                             */
 .ml-posts .e-loop-item{
@@ -823,7 +826,7 @@ body{
 .ml-posts a{ text-decoration: none; box-shadow: none; }
 /* the show more control is quiet text with a small chevron, not a button */
 .ml-posts .elementor-button-wrapper{ margin-top: 32px; text-align: center; }
-.ml-posts .elementor-button-wrapper .elementor-button{
+body .ml-posts .elementor-button-wrapper .elementor-button.elementor-button{
   background: none;
   color: var(--e-global-color-mlmuted);
   font-family: var(--ml-sans);
@@ -884,7 +887,7 @@ body{
 
 /* --- Contact details -----------------------------------------------------
    ml-crow  ml-crow-icon  ml-crow-label  ml-crow-value                      */
-.ml-contact-intro.elementor-widget{ max-width: 38ch; }
+.e-con > .e-con-inner > .ml-contact-intro.elementor-widget{ max-width: 38ch; }
 .ml-crow{ border-top: 1px solid var(--ml-line-2); }
 .e-con.ml-crow > .e-con-inner{
   display: flex;
@@ -896,7 +899,7 @@ body{
 }
 .e-con.ml-crow > .e-con-inner > .ml-crow-icon{ flex: 0 0 auto; width: auto; }
 .e-con.ml-crow > .e-con-inner > .e-con{ flex: 1 1 auto; width: auto; }
-.ml-crow-icon .elementor-widget-container{
+.ml-crow-icon .elementor-icon-wrapper{
   width: 38px;
   height: 38px;
   border-radius: 12px;
@@ -992,6 +995,44 @@ body{
   border-radius: 14px !important;
   background: var(--e-global-color-mlwarm) !important;
 }
+/* the drop zone: bold line, then the quiet note Forminator prints under it */
+.ml-form .forminator-ui .forminator-multi-upload{
+  padding: 22px 18px !important;
+  text-align: center;
+  transition: border-color .18s, background-color .18s;
+}
+.ml-form .forminator-ui .forminator-multi-upload:hover,
+.ml-form .forminator-ui .forminator-multi-upload.forminator-dragover{
+  border-color: var(--e-global-color-primary) !important;
+  background: var(--e-global-color-mlgreentint) !important;
+}
+.ml-form .forminator-ui .forminator-multi-upload-message p{
+  font-family: var(--ml-sans) !important;
+  font-size: 14.5px !important;
+  font-weight: 600 !important;
+  color: var(--e-global-color-secondary) !important;
+  margin: 6px 0 0 !important;
+}
+.ml-form .forminator-ui .forminator-icon-upload{ color: var(--e-global-color-mlgreendark) !important; }
+.ml-form .forminator-ui .forminator-description{
+  font-family: var(--ml-sans) !important;
+  font-size: 12px !important;
+  color: var(--e-global-color-mlmuted) !important;
+  margin-top: 7px !important;
+}
+/* the consent line: the words beside the box carry the meaning, so the
+   field's caption over it is left out, as in the concept                */
+.ml-form .forminator-field-consent > .forminator-field > .forminator-label,
+.ml-form .forminator-field-gdprcheckbox > .forminator-field > .forminator-label{ display: none !important; }
+.ml-form .forminator-ui .forminator-checkbox,
+.ml-form .forminator-ui .forminator-consent{
+  font-family: var(--ml-sans) !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  color: var(--e-global-color-text) !important;
+}
+.ml-form .forminator-ui .forminator-consent a,
+.ml-form .forminator-ui .forminator-checkbox a{ text-decoration: underline; text-underline-offset: 3px; }
 .ml-form .forminator-ui .forminator-button-upload,
 .ml-form .forminator-ui .forminator-multi-upload-message a{
   color: var(--e-global-color-mlgreendark) !important;
@@ -1153,7 +1194,7 @@ body.admin-bar{ --ml-admin-bar: 32px; }
    holding them has no gap of its own; each line carries its distance.    */
 .ml-split-ngo .ml-micro.elementor-widget{ margin-top: 8px; }
 .ml-split-ngo .ml-heading-mid.elementor-widget{ margin-top: 12px; }
-.ml-ngo-intro.elementor-widget{ margin-top: 16px; font-size: 17px; max-width: 46ch; }
+.e-con > .e-con-inner > .ml-ngo-intro.elementor-widget{ margin-top: 16px; font-size: 17px; max-width: 46ch; }
 .ml-split-ngo .ml-ticks.elementor-widget{ margin-top: 24px; }
 .ml-cta-row{ margin-top: 30px; }
 
@@ -1200,7 +1241,7 @@ body.admin-bar{ --ml-admin-bar: 32px; }
 }
 .ml-jp-service .elementor-widget-text-editor{ font-size: 15.5px; line-height: 1.95; }
 .ml-jp-service .ml-arrow-link{ margin-top: auto; padding-top: 24px; align-self: flex-start; }
-.ml-jp-service .ml-arrow-link .elementor-button{ font-size: 14.5px; }
+body .ml-jp-service .ml-arrow-link .elementor-button.elementor-button{ font-size: 14.5px; }
 .ml-keywords{ font-size: 13.5px; line-height: 1.95; color: var(--e-global-color-mlmuted); }
 .ml-side-note{
   font-size: 13px;
@@ -1247,7 +1288,7 @@ body.admin-bar{ --ml-admin-bar: 32px; }
 .ml-jp .ml-float{ border-radius: 12px; }
 .ml-jp .ml-float-years{ border-radius: 10px; }
 .ml-jp .ml-service .elementor-icon-box-icon{ border-radius: 12px; }
-.ml-jp .ml-crow-icon .elementor-widget-container{ border-radius: 12px; }
+.ml-jp .ml-crow-icon .elementor-icon-wrapper{ border-radius: 12px; }
 .ml-jp .ml-faq.elementor-widget-n-accordion .e-n-accordion-item{ border-radius: 10px; }
 .ml-jp .ml-faq.elementor-widget-n-accordion .e-n-accordion-item-title-text{ font-size: 17px; }
 .ml-jp .ml-form .forminator-ui .forminator-input,
@@ -1389,7 +1430,7 @@ html[lang^="ja"] .ml-nav .elementor-nav-menu--main a.elementor-item{
 .ml-lang a:hover{ color: var(--e-global-color-mlgreendark); }
 html[lang^="en"] .ml-lang .ml-lang-en,
 html[lang^="ja"] .ml-lang .ml-lang-ja{ color: var(--e-global-color-secondary); pointer-events: none; }
-.ml-header-cta .elementor-button{
+body .ml-header .ml-header-cta .elementor-button.elementor-button{
   background-color: var(--e-global-color-primary);
   border-radius: 11px;
   padding: 9px 17px;
