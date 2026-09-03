@@ -1023,8 +1023,23 @@
 .ml-jp .ml-faq.elementor-widget-n-accordion .e-n-accordion-item-title-text{ font-size: 17px; }
 .ml-jp .ml-form .forminator-ui .forminator-input,
 .ml-jp .ml-form .forminator-ui .forminator-textarea{ border-radius: 9px !important; }
-:lang(ja) body, .ml-jp{ font-family: var(--e-global-typography-text-font-family), "Noto Sans JP", sans-serif; }
-.ml-jp h1, .ml-jp h2, .ml-jp h3, .ml-jp h4{ font-family: var(--e-global-typography-primary-font-family), "Noto Serif JP", Georgia, serif; }
+/* Japanese needs its own faces behind the Latin ones, or the browser picks
+   whatever it has and the headings come out gothic instead of mincho.     */
+:lang(ja) body,
+.ml-jp,
+.ml-jp .elementor-widget-text-editor,
+.ml-jp .elementor-widget-icon-list,
+.ml-jp .elementor-widget-button .elementor-button,
+.ml-jp .elementor-icon-box-description{
+  font-family: var(--e-global-typography-text-font-family), "Noto Sans JP", sans-serif;
+}
+.ml-jp .elementor-widget-heading .elementor-heading-title,
+.ml-jp .elementor-icon-box-title,
+.ml-jp .e-n-accordion-item-title-text,
+.ml-jp .ml-quote-text,
+.ml-jp h1, .ml-jp h2, .ml-jp h3, .ml-jp h4{
+  font-family: var(--e-global-typography-primary-font-family), "Noto Serif JP", Georgia, serif;
+}
 
 
 /* ==========================================================================
