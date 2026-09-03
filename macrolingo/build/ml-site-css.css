@@ -1129,8 +1129,10 @@ body .ml-posts .elementor-button-wrapper .elementor-button.elementor-button{
 .ml-form .forminator-ui .forminator-checkbox a{ text-decoration: underline; text-underline-offset: 3px; }
 .ml-form .forminator-ui .forminator-checkbox{ align-items: flex-start !important; gap: 11px; }
 .ml-form .forminator-ui .forminator-checkbox .forminator-checkbox-box.forminator-checkbox-box{
+  box-sizing: border-box !important;
   width: 17px !important;
   min-width: 17px !important;
+  max-width: 17px !important;
   height: 17px !important;
   margin: 3px 0 0 !important;
   border-radius: 4px !important;
