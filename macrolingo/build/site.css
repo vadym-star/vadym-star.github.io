@@ -632,7 +632,10 @@ body{
 .ml-faq.elementor-widget-n-accordion .e-n-accordion-item-title-icon:after{ left: 3px; top: 11px; width: 18px; height: 2px; }
 .ml-faq.elementor-widget-n-accordion .e-n-accordion-item[open] .e-n-accordion-item-title-icon{ transform: rotate(45deg); }
 .ml-faq.elementor-widget-n-accordion .e-n-accordion-item > .e-con,
-.ml-faq.elementor-widget-n-accordion .e-n-accordion-item .e-con-inner{ padding: 0; }
+.ml-faq.elementor-widget-n-accordion .e-n-accordion-item .e-con-inner{ padding: 0; border: 0; }
+/* Elementor draws a rule between a question and its answer; the concept
+   runs them together                                                     */
+.ml-faq.elementor-widget-n-accordion .e-n-accordion-item-title{ border-bottom: 0 !important; }
 .ml-faq.elementor-widget-n-accordion .e-n-accordion-item p{
   margin: 0;
   padding: 0 24px 24px;
