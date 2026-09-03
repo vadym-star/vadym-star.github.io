@@ -1361,6 +1361,8 @@ html[lang^="ja"] .ml-lang .ml-lang-ja{ color: var(--e-global-color-secondary); p
   gap: 20px;
   padding: 26px 0 0;
 }
+/* the copyright and the strapline share one line, one at each end */
+.ml-footer-bottom > .e-con-inner > *{ width: auto; max-width: 100%; }
 .ml-footer-bottom p{
   font-family: var(--e-global-typography-accent-font-family), sans-serif;
   font-size: 13.5px;
