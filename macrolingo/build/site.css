@@ -12,6 +12,13 @@
    ========================================================================== */
 
 
+/* --- Moving down the page -------------------------------------------------
+   Jumping to a section, or back to the top, glides rather than snaps. The
+   header is pinned, so the landing point is set below it.                 */
+html{ scroll-behavior: smooth; scroll-padding-top: calc(var(--ml-header-h, 81px) + 16px); }
+@media (prefers-reduced-motion: reduce){ html{ scroll-behavior: auto; } }
+
+
 /* --- Shared values -------------------------------------------------------
    Corner radius, shadows and hairline colours, in one place.
    These sit on body rather than :root because the Global Colors do, and a
