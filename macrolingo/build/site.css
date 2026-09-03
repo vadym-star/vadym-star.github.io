@@ -715,8 +715,18 @@ body{
   align-self: flex-start;
 }
 .ml-post-card .ml-arrow-link .elementor-button{ font-size: 14px; }
-.ml-posts .e-loop-item{ height: 100%; animation: ml-card-in .45s ease both; }
-@keyframes ml-card-in{ from{ opacity: 0; transform: translateY(10px); } to{ opacity: 1; transform: none; } }
+/* cards rise into place, one just after another, both on the first draw and
+   as more of them are fetched                                             */
+.ml-posts .e-loop-item{
+  height: 100%;
+  animation: ml-card-in .55s cubic-bezier(.22,.61,.36,1) both;
+}
+.ml-posts .e-loop-item:nth-child(3n+2){ animation-delay: .09s; }
+.ml-posts .e-loop-item:nth-child(3n+3){ animation-delay: .18s; }
+@keyframes ml-card-in{
+  from{ opacity: 0; transform: translateY(18px); }
+  to{ opacity: 1; transform: none; }
+}
 @media (prefers-reduced-motion: reduce){ .ml-posts .e-loop-item{ animation: none; } }
 .ml-posts a{ text-decoration: none; box-shadow: none; }
 /* the show more control is quiet text with a small chevron, not a button */
@@ -757,28 +767,26 @@ body{
 .ml-posts .elementor-button-wrapper .elementor-button:focus,
 .ml-posts .elementor-button-wrapper .elementor-button:active{ color: var(--e-global-color-mlmuted); }
 /* Fetching more posts takes a moment, so a small green ring turns while it
-   happens. Elementor gives the spinner its size only while it is loading,
-   and the ring is clipped away the rest of the time.                      */
+   happens. Elementor shows and hides its own spinner, so the ring is drawn
+   on that: when Elementor puts it away the ring goes with it.             */
 .ml-posts .e-load-more-spinner{
-  overflow: hidden;
   align-items: center;
   justify-content: center;
-  margin-left: 9px;
 }
-.ml-posts .e-load-more-spinner svg{ display: none; }
-.ml-posts .e-load-more-spinner:before{
-  content: "";
+.ml-posts .e-load-more-spinner svg{
   width: 15px;
   height: 15px;
-  flex: 0 0 auto;
+  box-sizing: border-box;
   border-radius: 50%;
   border: 2px solid rgba(84,180,53,.25);
   border-top-color: var(--e-global-color-primary);
+  fill: transparent;
+  color: transparent;
   animation: ml-spin .7s linear infinite;
 }
 @keyframes ml-spin{ to{ transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce){
-  .ml-posts .e-load-more-spinner:before{ animation-duration: 2s; }
+  .ml-posts .e-load-more-spinner svg{ animation-duration: 2s; }
 }
 
 
