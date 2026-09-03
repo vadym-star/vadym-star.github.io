@@ -71,6 +71,7 @@ html{ scroll-behavior: smooth; scroll-padding-top: calc(var(--ml-header-h, 81px)
    Corner radius, shadows and hairline colours, in one place.
    These sit on body rather than :root because the Global Colors do, and a
    value here that reads one of them has to be written where it can see it. */
+body{ font-size: 17px; line-height: 1.72; }
 body{
   /* the two stacks, with the stand-ins in them, so every rule below reads
      from one place */
@@ -228,8 +229,11 @@ body{
    which is what keeps the wording sitting the way the concept shows it.
    The theme puts space under every heading and paragraph; the concept sets
    its own spacing, so the theme's is cleared here.                        */
-.elementor-widget-heading .elementor-heading-title{
-  margin: 0;
+.elementor-widget-heading .elementor-heading-title{ margin: 0; line-height: 1.72; }
+.elementor-widget-heading h1.elementor-heading-title,
+.elementor-widget-heading h2.elementor-heading-title,
+.elementor-widget-heading h3.elementor-heading-title,
+.elementor-widget-heading h4.elementor-heading-title{
   line-height: 1.14;
   letter-spacing: -.01em;
   text-wrap: balance;
@@ -276,7 +280,7 @@ body{
 
 /* --- Small note next to a button -----------------------------------------
    ml-note                                                                  */
-.ml-note.elementor-widget{ font-size: 14.5px; color: var(--e-global-color-mlmuted); }
+.ml-note.elementor-widget{ font-size: 14.5px; line-height: 1.72; color: var(--e-global-color-mlmuted); }
 
 
 /* --- Section headings ----------------------------------------------------
@@ -284,6 +288,7 @@ body{
    ml-heading-mid   the NGO and contact headings
    ml-heading-small the compact founder heading                             */
 .ml-section-head{ max-width: 60ch; margin-left: auto; margin-right: auto; }
+.ml-section-head .elementor-widget-heading + .elementor-widget-heading{ margin-top: 14px; }
 .ml-section-head .elementor-widget-heading h2.elementor-heading-title{
   font-size: clamp(30px, 3.6vw, 46px);
   font-weight: 500;
@@ -312,7 +317,7 @@ body .elementor-widget-button .elementor-button.elementor-button{
   font-family: var(--ml-sans);
   font-size: 14.5px;
   font-weight: 600;
-  line-height: 1.4;
+  line-height: 1.72;
   padding: 11px 21px;
   border-radius: 11px;
   border: 1.6px solid transparent;
@@ -351,6 +356,7 @@ body .ml-arrow-link .elementor-button.elementor-button{
   color: var(--e-global-color-mlgreendark);
   font-weight: 600;
   font-size: 15px;
+  line-height: 1.72;
 }
 /* a visited or focused link keeps its colour; the theme would otherwise
    leave it white after it has been clicked                                */
@@ -364,11 +370,9 @@ body .ml-arrow-link .elementor-button.elementor-button{
 }
 .ml-arrow-link .elementor-button:hover{ background: none; color: var(--e-global-color-mlgreendark); }
 .ml-arrow-link .elementor-button-icon > *{ display: none; }
-/* Elementor lays a right-aligned icon out with row-reverse, written per
-   element, which would put the arrow first again. The row runs the normal
-   way (important, to beat that per-element rule) and the arrow's order puts
-   it after the words.                                                     */
-.ml-arrow-link .elementor-button-content-wrapper{ flex-direction: row !important; }
+/* the widget keeps its icon on the left, so Elementor writes no
+   row-reverse of its own; the order below is what puts the arrow after the
+   words                                                                   */
 .ml-arrow-link .elementor-button-icon{
   order: 20;
   width: 16px;
@@ -445,7 +449,7 @@ body .ml-arrow-link .elementor-button.elementor-button{
   font-family: var(--ml-serif);
   font-size: 22px;
   font-weight: 600;
-  line-height: 1.25;
+  line-height: 1.14;
   color: var(--e-global-color-secondary);
 }
 .ml-service .elementor-icon-box-title{ margin-bottom: 8px; }
@@ -489,12 +493,14 @@ body .ml-service-card .ml-arrow-link .elementor-button.elementor-button{ font-si
   font-weight: 600;
   letter-spacing: .12em;
   text-transform: uppercase;
+  line-height: 1.72;
   color: var(--e-global-color-mlmuted);
 }
 .ml-client-name .elementor-heading-title{
   font-family: var(--ml-serif);
   font-size: 33px;
   font-weight: 600;
+  line-height: 1.72;
   letter-spacing: -.01em;
   color: #9AA5B4;
   white-space: nowrap;
@@ -534,7 +540,7 @@ body .ml-service-card .ml-arrow-link .elementor-button.elementor-button{ font-si
 .ml-ticks .elementor-icon-list-icon{
   width: 24px;
   height: 24px;
-  padding: 5px;
+  padding: 5.5px;
   border-radius: 50%;
   background: #fff;
   box-shadow: var(--ml-shadow-soft);
@@ -545,6 +551,7 @@ body .ml-service-card .ml-arrow-link .elementor-button.elementor-button{ font-si
 .ml-ticks .elementor-icon-list-text{
   font-size: 15.5px;
   font-weight: 500;
+  line-height: 1.72;
   color: var(--e-global-color-secondary);
   padding: 0;
 }
@@ -576,7 +583,8 @@ body .ml-service-card .ml-arrow-link .elementor-button.elementor-button{ font-si
    The person's name always sits on the bottom line of the card, so the
    four cards line up whatever the length of the quote.                    */
 .e-con.ml-quote{ display: flex; flex-direction: column; padding: 26px; }
-.e-con.ml-quote > .e-con-inner{ padding: 0; gap: 12px; height: 100%; width: 100%; }
+.e-con.ml-quote > .e-con-inner{ padding: 0; gap: 0; height: 100%; width: 100%; }
+.ml-quote .elementor-widget-text-editor{ margin-top: 12px; }
 .ml-quote .ml-quote-text{
   font-family: var(--ml-serif);
   font-size: 16.5px;
@@ -597,10 +605,11 @@ body .ml-service-card .ml-arrow-link .elementor-button.elementor-button{ font-si
   font-family: var(--ml-sans);
   font-size: 15px;
   font-weight: 600;
+  line-height: 1.72;
   color: var(--e-global-color-secondary);
 }
-.ml-quote-role{ font-size: 13px; color: var(--e-global-color-mlmuted); }
-.ml-quote .elementor-star-rating{ font-size: 13px; letter-spacing: 2px; line-height: 1; }
+.ml-quote-role{ font-size: 13px; line-height: 1.72; color: var(--e-global-color-mlmuted); }
+.ml-quote .elementor-star-rating{ font-size: 13px; letter-spacing: 2px; line-height: 1.72; }
 .ml-quote .elementor-star-rating__wrapper{ justify-content: flex-start; }
 
 
@@ -614,6 +623,7 @@ body .ml-service-card .ml-arrow-link .elementor-button.elementor-button{ font-si
   box-shadow: var(--ml-shadow-lift);
   padding: 16px 18px;
 }
+.e-con.ml-float > .e-con-inner{ padding: 0; }
 .ml-float-quote-card{ width: 250px; left: -26px; bottom: 36px; }
 .ml-float-years{
   right: -14px;
@@ -627,8 +637,8 @@ body .ml-service-card .ml-arrow-link .elementor-button.elementor-button{ font-si
   color: var(--ml-star);
   font-size: 13px;
   letter-spacing: 1px;
-  line-height: 1;
-  margin-bottom: 6px;
+  line-height: 1.72;
+  margin: 0;
 }
 .ml-float .ml-float-quote{
   font-family: var(--ml-serif);
@@ -647,7 +657,7 @@ body .ml-service-card .ml-arrow-link .elementor-button.elementor-button{ font-si
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.ml-years-label{ font-size: 10.5px; color: var(--e-global-color-mlmuted); letter-spacing: .02em; margin-top: 2px; }
+.ml-years-label{ font-size: 10.5px; line-height: 1.72; color: var(--e-global-color-mlmuted); letter-spacing: .02em; margin-top: 2px; }
 
 
 /* --- Photos --------------------------------------------------------------
@@ -719,7 +729,7 @@ body .ml-service-card .ml-arrow-link .elementor-button.elementor-button{ font-si
   font-family: var(--ml-serif);
   font-size: 18.5px;
   font-weight: 500;
-  line-height: 1.35;
+  line-height: 1.72;
   color: var(--e-global-color-secondary);
   margin: 0;
 }
@@ -892,7 +902,8 @@ body .ml-posts .elementor-button-wrapper .elementor-button.elementor-button{
 
 /* --- Contact details -----------------------------------------------------
    ml-crow  ml-crow-icon  ml-crow-label  ml-crow-value                      */
-.e-con > .e-con-inner > .ml-contact-intro.elementor-widget{ max-width: 38ch; }
+.ml-split-contact .ml-heading-mid.elementor-widget{ margin-top: 14px; }
+.e-con > .e-con-inner > .ml-contact-intro.elementor-widget{ max-width: 38ch; margin-top: 16px; }
 .ml-crow{ border-top: 1px solid var(--ml-line-2); }
 .e-con.ml-crow > .e-con-inner{
   display: flex;
@@ -922,6 +933,7 @@ body .ml-posts .elementor-button-wrapper .elementor-button.elementor-button{
   font-family: var(--ml-sans);
   font-size: 12.5px;
   font-weight: 700;
+  line-height: 1.72;
   letter-spacing: .08em;
   text-transform: uppercase;
   color: var(--e-global-color-mlmuted);
@@ -1001,8 +1013,12 @@ body .ml-posts .elementor-button-wrapper .elementor-button.elementor-button{
   background: var(--e-global-color-mlwarm) !important;
 }
 /* the drop zone: bold line, then the quiet note Forminator prints under it */
+.ml-form .forminator-ui .forminator-row{ margin-bottom: 18px !important; }
+.ml-form .forminator-ui .forminator-row:last-child{ margin-bottom: 0 !important; }
+.ml-form .forminator-ui .forminator-row:has(.forminator-field-consent),
+.ml-form .forminator-ui .forminator-row:has(.forminator-field-gdprcheckbox){ margin: 4px 0 24px !important; }
 .ml-form .forminator-ui .forminator-multi-upload{
-  padding: 22px 18px !important;
+  padding: 24px !important;
   text-align: center;
   transition: border-color .18s, background-color .18s;
 }
@@ -1016,7 +1032,7 @@ body .ml-posts .elementor-button-wrapper .elementor-button.elementor-button{
   font-size: 14.5px !important;
   font-weight: 600 !important;
   color: var(--e-global-color-secondary) !important;
-  margin: 6px 0 0 !important;
+  margin: 9px 0 0 !important;
 }
 .ml-form .forminator-ui .forminator-icon-upload{ color: var(--e-global-color-mlgreendark) !important; }
 .ml-form .forminator-ui .forminator-description{
@@ -1025,6 +1041,7 @@ body .ml-posts .elementor-button-wrapper .elementor-button.elementor-button{
   color: var(--e-global-color-mlmuted) !important;
   margin-top: 7px !important;
 }
+.ml-form .forminator-ui .forminator-field-upload .forminator-description{ font-size: 13px !important; margin-top: 3px !important; }
 /* the consent line: the words beside the box carry the meaning, so the
    field's caption over it is left out, as in the concept                */
 .ml-form .forminator-field-consent > .forminator-field > .forminator-label,
@@ -1056,7 +1073,8 @@ body .ml-posts .elementor-button-wrapper .elementor-button.elementor-button{
   font-family: var(--ml-sans) !important;
   font-size: 14.5px !important;
   font-weight: 600 !important;
-  padding: 13px 21px !important;
+  line-height: 1.72 !important;
+  padding: 11px 21px !important;
   box-shadow: 0 10px 22px rgba(84,180,53,.24) !important;
   transition: transform .18s ease, background-color .18s ease, box-shadow .18s ease !important;
 }
@@ -1131,8 +1149,8 @@ body .ml-posts .elementor-button-wrapper .elementor-button.elementor-button{
 body.admin-bar{ --ml-admin-bar: 32px; }
 @media (min-height: 680px){
   .ml-hero{
-    min-height: calc(100vh - var(--ml-header-h) - var(--ml-admin-bar));
-    min-height: calc(100svh - var(--ml-header-h) - var(--ml-admin-bar));
+    min-height: calc(100vh - 80px - var(--ml-admin-bar));
+    min-height: calc(100svh - 80px - var(--ml-admin-bar));
   }
 }
 @media (max-width: 782px){
@@ -1195,6 +1213,7 @@ body.admin-bar{ --ml-admin-bar: 32px; }
   font-family: var(--ml-sans);
   font-size: 13px;
   font-weight: 600;
+  line-height: 1.72;
   letter-spacing: .08em;
   text-transform: uppercase;
   color: var(--e-global-color-mlgreendark);
@@ -1379,12 +1398,16 @@ body .ml-jp-service .ml-arrow-link .elementor-button.elementor-button{ font-size
 .ml-nav .elementor-nav-menu--main .elementor-nav-menu{
   justify-content: center;
   flex-wrap: nowrap;
-  gap: 0;
+  gap: 18px;
 }
+/* the link is an inline box the height of its own text, so the underline
+   sits 7px under the word, as in the concept                              */
 .ml-nav .elementor-nav-menu--main a.elementor-item{
+  display: inline-block;
   font-family: var(--ml-sans);
   font-size: 14.5px;
   font-weight: 500;
+  line-height: 1.2;
   color: var(--e-global-color-text);
   padding: 0;
   position: relative;
@@ -1408,29 +1431,25 @@ body .ml-jp-service .ml-arrow-link .elementor-button.elementor-button{ font-size
 .ml-nav .elementor-nav-menu--main a.elementor-item-active:after{ transform: scaleX(1); }
 /* WPML adds the other language to the menu on its own. The switch has its
    own place on the right here, so the menu copy is left out.              */
-.ml-nav .elementor-nav-menu--main li.wpml-ls-item{ display: none; }
+.ml-nav .elementor-nav-menu--main li.wpml-ls-item,
+.ml-nav .elementor-nav-menu--dropdown li.wpml-ls-item{ display: none; }
 /* The Japanese labels are longer than the English ones, so the same nine
    links need a little less air between them to sit on one line beside the
    language switch. The spacing itself is set on the Menu widget; this is
    the Japanese adjustment, which is why it is marked important.          */
-html[lang^="ja"] .ml-nav .elementor-nav-menu--main a.elementor-item{
-  padding-left: 6px !important;
-  padding-right: 6px !important;
-}
+html[lang^="ja"] .ml-nav .elementor-nav-menu--main .elementor-nav-menu{ gap: 12px; }
 @media (max-width: 1330px){
-  html[lang^="ja"] .ml-nav .elementor-nav-menu--main a.elementor-item{
-    font-size: 13.5px;
-    padding-left: 5px !important;
-    padding-right: 5px !important;
-  }
+  html[lang^="ja"] .ml-nav .elementor-nav-menu--main a.elementor-item{ font-size: 13.5px; }
+  html[lang^="ja"] .ml-nav .elementor-nav-menu--main .elementor-nav-menu{ gap: 10px; }
 }
 .ml-lang .ml-lang-inner{
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
   font-family: var(--ml-sans);
   font-size: 13.5px;
   font-weight: 600;
+  line-height: 1.72;
   color: var(--e-global-color-mlmuted);
   white-space: nowrap;
 }
@@ -1444,6 +1463,7 @@ body .ml-header .ml-header-cta .elementor-button.elementor-button{
   border-radius: 11px;
   padding: 9px 17px;
   font-size: 13.5px;
+  line-height: 1.72;
   color: #fff;
 }
 .ml-header-cta .elementor-button:hover{ background-color: var(--e-global-color-mlgreendark); }
@@ -1456,7 +1476,7 @@ body .ml-header .ml-header-cta .elementor-button.elementor-button{
    ml-footer-bottom
    ========================================================================== */
 .ml-footer{ background-color: #E4EBDD; border-top: 1px solid #D3DDC8; }
-.ml-footer > .e-con-inner{ padding: 52px 0 30px; }
+.ml-footer > .e-con-inner{ padding: 66px 0 32px; }
 .e-con.ml-footer-cols > .e-con-inner{
   display: grid;
   grid-template-columns: 1.6fr 1fr 1fr 1fr;
@@ -1479,6 +1499,7 @@ body .ml-header .ml-header-cta .elementor-button.elementor-button{
 .ml-footer-links a{
   font-family: var(--ml-sans);
   font-size: 14.5px;
+  line-height: 1.72;
   color: var(--e-global-color-text);
   text-decoration: none;
   transition: color .16s ease;
@@ -1586,11 +1607,11 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 @media (max-width: 1080px){
   .ml-nav .elementor-nav-menu--main a.elementor-item{ font-size: 13.5px; }
+  .ml-nav .elementor-nav-menu--main .elementor-nav-menu{ gap: 13px; }
 }
 @media (max-width: 920px){
   .ml-hero{ min-height: 0; }
   .ml-float-quote-card, .ml-float-years{ display: none; }
-  .ml-client-name .elementor-heading-title{ font-size: 26px; }
   .ml-header > .e-con-inner{ min-height: 68px; }
 }
 @media (max-width: 920px){
@@ -1613,7 +1634,6 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 }
 @media (max-width: 767px){
   .ml-form{ padding: 28px; }
-  .ml-client-name .elementor-heading-title{ font-size: 21px; }
   .ml-logo img{ height: 28px; }
   .ml-faq.elementor-widget-n-accordion .e-n-accordion-item-title{ min-height: 0; }
   .ml-faq.elementor-widget-n-accordion .e-n-accordion-item-title-text{ font-size: 16.5px; }
