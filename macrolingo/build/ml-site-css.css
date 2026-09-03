@@ -520,7 +520,6 @@ body .ml-service-card .ml-arrow-link .elementor-button.elementor-button{ font-si
 .ml-service-plain.elementor-widget-icon-box .elementor-icon-box-icon{
   margin-left: 0;
   margin-right: auto;
-  justify-content: flex-start;
 }
 .ml-service-plain.elementor-widget-icon-box .elementor-icon-box-icon{
   width: 50px;
@@ -1086,7 +1085,10 @@ body .ml-posts .elementor-button-wrapper .elementor-button.elementor-button{
 .ml-form .forminator-ui .forminator-row{ margin-bottom: 18px !important; }
 .ml-form .forminator-ui .forminator-row:last-child{ margin-bottom: 0 !important; }
 .ml-form .forminator-ui .forminator-row:has(.forminator-field-consent),
-.ml-form .forminator-ui .forminator-row:has(.forminator-field-gdprcheckbox){ margin: 4px 0 24px !important; }
+.ml-form .forminator-ui .forminator-row:has(.forminator-field-gdprcheckbox){
+  margin-top: 4px !important;
+  margin-bottom: 24px !important;
+}
 .ml-form .forminator-ui .forminator-multi-upload{
   padding: 24px !important;
   text-align: center;
@@ -1125,6 +1127,24 @@ body .ml-posts .elementor-button-wrapper .elementor-button.elementor-button{
 }
 .ml-form .forminator-ui .forminator-consent a,
 .ml-form .forminator-ui .forminator-checkbox a{ text-decoration: underline; text-underline-offset: 3px; }
+.ml-form .forminator-ui .forminator-checkbox{ align-items: flex-start !important; gap: 11px; }
+.ml-form .forminator-ui .forminator-checkbox .forminator-checkbox-box{
+  width: 17px !important;
+  height: 17px !important;
+  margin: 3px 0 0 !important;
+  border-radius: 4px !important;
+  border: 1.5px solid var(--ml-line-2) !important;
+  background: #fff !important;
+  flex: 0 0 auto;
+}
+.ml-form .forminator-ui .forminator-checkbox input:checked + .forminator-checkbox-box{
+  background: var(--e-global-color-primary) !important;
+  border-color: var(--e-global-color-primary) !important;
+}
+.ml-jp .ml-form .forminator-ui .forminator-checkbox input:checked + .forminator-checkbox-box{
+  background: var(--e-global-color-mljapanred) !important;
+  border-color: var(--e-global-color-mljapanred) !important;
+}
 .ml-form .forminator-ui .forminator-button-upload,
 .ml-form .forminator-ui .forminator-multi-upload-message a{
   color: var(--e-global-color-mlgreendark) !important;
@@ -1521,6 +1541,9 @@ html[lang^="ja"] .ml-header-cta .elementor-button{ border-radius: 8px; }
    burger takes over, so the rule must not bring it back                   */
 @media (min-width: 921px){
   .ml-nav .elementor-nav-menu--main{ display: flex; align-items: center; }
+  /* the list fills the space left between the logo and the switch, and its
+     own centring then leaves the same air on either side                  */
+  .ml-nav .elementor-nav-menu--main .elementor-nav-menu{ flex: 1 1 0; }
 }
 .ml-nav.elementor-widget{ margin: 0; align-self: center; }
 .ml-nav .elementor-nav-menu--main .elementor-nav-menu{
