@@ -349,6 +349,7 @@ body .elementor-widget-button .elementor-button.elementor-button{
 .ml-arrow-link,
 .ml-arrow-link .elementor-widget-container,
 .ml-arrow-link .elementor-button-wrapper{ text-align: left; }
+.ml-arrow-link .elementor-button-wrapper{ display: flex; }
 body .ml-arrow-link .elementor-button.elementor-button{
   padding: 0;
   background: none;
@@ -497,6 +498,7 @@ body .ml-service-card .ml-arrow-link .elementor-button.elementor-button{ font-si
   color: var(--e-global-color-mlmuted);
 }
 .ml-client-name .elementor-heading-title{
+  display: block;
   font-family: var(--ml-serif);
   font-size: 33px;
   font-weight: 600;
@@ -599,9 +601,12 @@ body .ml-service-card .ml-arrow-link .elementor-button.elementor-button{ font-si
   padding-top: 18px;
   border-top: 1px solid var(--ml-line);
 }
+.e-con.ml-quote-who > .e-con-inner{ padding: 0; }
+.e-con.ml-quote-who .e-con > .e-con-inner{ padding: 0; }
 .ml-quote-avatar{ width: 48px; min-width: 48px; flex: 0 0 auto; }
 .ml-quote-avatar img{ width: 48px; height: 48px; border-radius: 50%; object-fit: cover; display: block; }
-.ml-quote-name .elementor-heading-title{
+.ml-quote-name .elementor-heading-title,
+.ml-quote-name h4.elementor-heading-title{
   font-family: var(--ml-sans);
   font-size: 15px;
   font-weight: 600;
@@ -800,6 +805,7 @@ body .ml-service-card .ml-arrow-link .elementor-button.elementor-button{ font-si
   color: var(--e-global-color-mlgreendark);
 }
 .ml-post-title .elementor-heading-title,
+.ml-post-title h3.elementor-heading-title,
 .ml-post-title .elementor-heading-title a{
   font-family: var(--ml-serif);
   font-size: 20px;
@@ -995,6 +1001,7 @@ body .ml-posts .elementor-button-wrapper .elementor-button.elementor-button{
   border: 1.5px solid var(--ml-line-2) !important;
   border-radius: 12px !important;
   padding: 12px 14px !important;
+  line-height: normal !important;
   box-shadow: none !important;
 }
 .ml-form .forminator-ui .forminator-textarea{ min-height: 138px !important; line-height: 1.65 !important; }
@@ -1073,7 +1080,7 @@ body .ml-posts .elementor-button-wrapper .elementor-button.elementor-button{
   font-family: var(--ml-sans) !important;
   font-size: 14.5px !important;
   font-weight: 600 !important;
-  line-height: 1.72 !important;
+  line-height: normal !important;
   padding: 11px 21px !important;
   box-shadow: 0 10px 22px rgba(84,180,53,.24) !important;
   transition: transform .18s ease, background-color .18s ease, box-shadow .18s ease !important;
@@ -1447,14 +1454,14 @@ html[lang^="ja"] .ml-header-cta .elementor-button{ border-radius: 8px; }
   flex-wrap: nowrap;
   gap: 18px;
 }
-/* the link is an inline box the height of its own text, so the underline
-   sits 7px under the word, as in the concept                              */
+/* the link is a plain block in the body leading, a 25px box, with the
+   underline 7px under it, as in the concept                               */
 .ml-nav .elementor-nav-menu--main a.elementor-item{
-  display: inline-block;
+  display: block;
   font-family: var(--ml-sans);
   font-size: 14.5px;
   font-weight: 500;
-  line-height: 1.2;
+  line-height: 1.72;
   color: var(--e-global-color-text);
   padding: 0;
   position: relative;
@@ -1649,6 +1656,9 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
   .ml-nav .elementor-nav-menu--main .elementor-nav-menu{ gap: 13px; }
 }
 @media (max-width: 920px){
+  .ml-header > .e-con-inner{ flex-wrap: nowrap; gap: 10px; }
+  .ml-header > .e-con-inner > .ml-nav{ flex: 0 0 auto; order: 3; }
+  .ml-header > .e-con-inner > .ml-header-right{ margin-left: auto; }
   .ml-hero{ min-height: 0; }
   .ml-float-quote-card, .ml-float-years{ display: none; }
   .ml-header > .e-con-inner{ min-height: 68px; }
@@ -1679,4 +1689,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 }
 @media (max-width: 600px){
   .e-con.ml-footer-cols > .e-con-inner{ grid-template-columns: 1fr; }
+  /* no room for the switch beside the button; WPML's own language line
+     in the menu takes over                                                */
+  .ml-header .ml-lang{ display: none; }
+  .ml-nav .elementor-nav-menu--dropdown li.wpml-ls-item{ display: block; }
 }
