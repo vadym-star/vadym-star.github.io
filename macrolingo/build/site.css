@@ -207,7 +207,7 @@
    The sizes the design uses, kept here so all the headings stay in step.
    Change them in Site Settings > Global Fonts to move everything at once.  */
 .ml-section-head{ max-width: 60ch; margin-left: auto; margin-right: auto; }
-.ml-section-head .elementor-widget-heading .elementor-heading-title{
+.ml-section-head .elementor-widget-heading h2.elementor-heading-title{
   font-size: clamp(30px, 3.6vw, 46px);
   font-weight: 500;
   line-height: 1.14;
@@ -324,6 +324,13 @@
   border-radius: 18px;
   box-shadow: var(--ml-shadow-lift);
   padding: 16px 18px;
+}
+.ml-float .ml-float-stars{
+  color: #F5A623;
+  font-size: 13px;
+  letter-spacing: 1px;
+  line-height: 1;
+  margin-bottom: 6px;
 }
 .ml-float .ml-float-quote{
   font-family: var(--e-global-typography-primary-font-family), Georgia, serif;
@@ -536,6 +543,16 @@
 .ml-posts .elementor-button-wrapper .elementor-button:hover:after{ transform: translateY(2px); }
 
 
+/* --- The line under the contact form -------------------------------------
+   ml-form-note                                                             */
+.ml-form-note.elementor-widget{
+  margin-top: 14px;
+  text-align: center;
+  font-size: 12.5px;
+  color: var(--e-global-color-mlmuted);
+}
+
+
 /* --- Contact details -----------------------------------------------------
    ml-crow          one line of contact details: icon, label, value
    ml-crow-icon     the Icon widget inside it
@@ -651,7 +668,8 @@
 .ml-form .forminator-ui .forminator-button-submit,
 .ml-form .forminator-button-submit,
 .ml-form button.forminator-button-submit{
-  width: 100%;
+  width: 100% !important;
+  justify-content: center;
   background: var(--e-global-color-primary) !important;
   background-image: none !important;
   border: 0 !important;
