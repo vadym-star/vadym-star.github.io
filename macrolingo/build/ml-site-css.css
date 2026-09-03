@@ -355,6 +355,7 @@ body .elementor-widget-button .elementor-button.elementor-button{
    descender space is left under it                                        */
 body .ml-arrow-link .elementor-button.elementor-button{
   vertical-align: top;
+  white-space: normal;
   padding: 0;
   background: none;
   border: 0;
