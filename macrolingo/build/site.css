@@ -30,16 +30,21 @@
   size-adjust: 100.9%;
   font-display: swap;
 }
+/* Elementor writes the font on each element with a plain "sans-serif" behind
+   it, which is what makes a heading swap from a sans face to a serif one as
+   the page loads. These two lines are marked important so the stand-in is
+   what the page draws with in the meantime. Nothing else here uses !important
+   for type. */
 body,
 body .elementor-widget-text-editor,
 body .elementor-widget-icon-list,
 body .elementor-widget-button .elementor-button{
-  font-family: var(--e-global-typography-text-font-family), "Figtree stand-in", Arial, sans-serif;
+  font-family: var(--e-global-typography-text-font-family), "Figtree stand-in", Arial, sans-serif !important;
 }
 body .elementor-widget-heading .elementor-heading-title,
 body .elementor-icon-box-title,
 body h1, body h2, body h3, body h4{
-  font-family: var(--e-global-typography-primary-font-family), "Newsreader stand-in", Georgia, serif;
+  font-family: var(--e-global-typography-primary-font-family), "Newsreader stand-in", Georgia, serif !important;
 }
 
 
@@ -1172,21 +1177,22 @@ body.admin-bar{ --ml-admin-bar: 32px; }
 .ml-jp .ml-form .forminator-ui .forminator-input,
 .ml-jp .ml-form .forminator-ui .forminator-textarea{ border-radius: 9px !important; }
 /* Japanese needs its own faces behind the Latin ones, or the browser picks
-   whatever it has and the headings come out gothic instead of mincho.     */
+   whatever it has and the headings come out gothic instead of mincho. The
+   stand-ins sit in these stacks too, for the same reason as above.        */
 :lang(ja) body,
 .ml-jp,
 .ml-jp .elementor-widget-text-editor,
 .ml-jp .elementor-widget-icon-list,
 .ml-jp .elementor-widget-button .elementor-button,
 .ml-jp .elementor-icon-box-description{
-  font-family: var(--e-global-typography-text-font-family), "Noto Sans JP", sans-serif;
+  font-family: var(--e-global-typography-text-font-family), "Figtree stand-in", "Noto Sans JP", Arial, sans-serif !important;
 }
 .ml-jp .elementor-widget-heading .elementor-heading-title,
 .ml-jp .elementor-icon-box-title,
 .ml-jp .e-n-accordion-item-title-text,
 .ml-jp .ml-quote-text,
 .ml-jp h1, .ml-jp h2, .ml-jp h3, .ml-jp h4{
-  font-family: var(--e-global-typography-primary-font-family), "Noto Serif JP", Georgia, serif;
+  font-family: var(--e-global-typography-primary-font-family), "Newsreader stand-in", "Noto Serif JP", Georgia, serif !important;
 }
 
 
