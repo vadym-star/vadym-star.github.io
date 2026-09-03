@@ -161,14 +161,18 @@
 }
 
 
-/* --- Headings ------------------------------------------------------------
+/* --- Headings and paragraphs ---------------------------------------------
    Headings break their lines evenly rather than leaving one word stranded,
-   which is what keeps the wording sitting the way the concept shows it.   */
+   which is what keeps the wording sitting the way the concept shows it.
+   The theme puts space under every heading and paragraph; the concept sets
+   its own spacing, so the theme's is cleared here.                        */
 .elementor-widget-heading .elementor-heading-title{
+  margin: 0;
   line-height: 1.14;
   letter-spacing: -.01em;
   text-wrap: balance;
 }
+.elementor-widget-text-editor p:last-child{ margin-bottom: 0; }
 
 
 /* --- Small label above a heading -----------------------------------------
@@ -182,7 +186,7 @@
   font-size: 13px;
   font-weight: 600;
   letter-spacing: .06em;
-  line-height: 1.6;
+  line-height: 1.72;
   text-transform: uppercase;
   color: var(--e-global-color-mlgreendark);
 }
@@ -900,6 +904,10 @@
 }
 .ml-hero-intro.elementor-widget{ font-size: 19px; line-height: 1.6; max-width: 50ch; }
 .ml-hero-photo{ position: relative; }
+/* the spacing down the left hand column, the concept's own numbers */
+.ml-hero-title.elementor-widget{ margin-top: 22px; }
+.ml-hero-intro.elementor-widget{ margin-top: 22px; }
+.ml-hero-cta{ margin-top: 30px; }
 
 
 /* --- The NGO band --------------------------------------------------------
