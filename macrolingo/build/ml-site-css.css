@@ -1128,8 +1128,9 @@ body .ml-posts .elementor-button-wrapper .elementor-button.elementor-button{
 .ml-form .forminator-ui .forminator-consent a,
 .ml-form .forminator-ui .forminator-checkbox a{ text-decoration: underline; text-underline-offset: 3px; }
 .ml-form .forminator-ui .forminator-checkbox{ align-items: flex-start !important; gap: 11px; }
-.ml-form .forminator-ui .forminator-checkbox .forminator-checkbox-box{
+.ml-form .forminator-ui .forminator-checkbox .forminator-checkbox-box.forminator-checkbox-box{
   width: 17px !important;
+  min-width: 17px !important;
   height: 17px !important;
   margin: 3px 0 0 !important;
   border-radius: 4px !important;
@@ -1544,6 +1545,11 @@ html[lang^="ja"] .ml-header-cta .elementor-button{ border-radius: 8px; }
   /* the list fills the space left between the logo and the switch, and its
      own centring then leaves the same air on either side                  */
   .ml-nav .elementor-nav-menu--main .elementor-nav-menu{ flex: 1 1 0; }
+  /* the theme adds a clearing line at the end of every list; in a row that
+     counts as one more item and leaves an extra gap on the right, which is
+     what pushed the links towards the logo                                */
+  .ml-nav .elementor-nav-menu--main .elementor-nav-menu:before,
+  .ml-nav .elementor-nav-menu--main .elementor-nav-menu:after{ display: none; }
 }
 .ml-nav.elementor-widget{ margin: 0; align-self: center; }
 .ml-nav .elementor-nav-menu--main .elementor-nav-menu{
