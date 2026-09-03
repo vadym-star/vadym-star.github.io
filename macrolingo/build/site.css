@@ -306,8 +306,8 @@ body{
    ml-service        on the Icon Box widget
    ml-service-card   on the container around it
    ml-service-plain  Japanese page: the icon sits on its own line          */
-.ml-service-card{ padding: 32px; }
-.ml-service-card > .e-con-inner{
+.e-con.ml-service-card{ padding: 32px; }
+.e-con.ml-service-card > .e-con-inner{
   padding: 0;
   width: 100%;
   height: 100%;
@@ -471,8 +471,8 @@ body{
    ml-quote
    The person's name always sits on the bottom line of the card, so the
    four cards line up whatever the length of the quote.                    */
-.ml-quote{ display: flex; flex-direction: column; padding: 26px; }
-.ml-quote > .e-con-inner{ padding: 0; gap: 12px; height: 100%; width: 100%; }
+.e-con.ml-quote{ display: flex; flex-direction: column; padding: 26px; }
+.e-con.ml-quote > .e-con-inner{ padding: 0; gap: 12px; height: 100%; width: 100%; }
 .ml-quote .ml-quote-text{
   font-family: var(--e-global-typography-primary-font-family), Georgia, serif;
   font-size: 16.5px;
@@ -646,11 +646,15 @@ body{
    ml-posts        on the Loop Grid widget
    ml-post-card    the card, in the loop item template
    ml-post-image   ml-post-cat   ml-post-title   ml-post-excerpt           */
-.ml-post-card{ overflow: hidden; height: 100%; display: flex; flex-direction: column; }
-.ml-post-card > .e-con-inner{ padding: 0; height: 100%; display: flex; flex-direction: column; }
+/* The card is a column: picture, then words. The words stretch to fill what
+   is left, so the link at the foot sits on one line across all three cards.
+   These are written as .e-con.<class> because Elementor's own container
+   rules would otherwise cancel them.                                      */
+.e-con.ml-post-card{ overflow: hidden; height: 100%; display: flex; flex-direction: column; }
+.e-con.ml-post-card > .e-con-inner{ padding: 0; height: 100%; display: flex; flex-direction: column; }
 .ml-post-image img{ width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; }
-.ml-post-body{ flex: 1 1 auto; }
-.ml-post-body > .e-con-inner{ height: 100%; display: flex; flex-direction: column; }
+.e-con.ml-post-body{ flex: 1 1 auto; align-self: stretch; }
+.e-con.ml-post-body > .e-con-inner{ height: 100%; display: flex; flex-direction: column; }
 .ml-post-cat .elementor-icon-list-icon{ display: none; }
 .ml-post-cat .elementor-icon-list-item{ margin: 0; }
 .ml-post-cat .elementor-post-info__item,
