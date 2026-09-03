@@ -1087,7 +1087,8 @@ body .ml-posts .elementor-button-wrapper .elementor-button.elementor-button{
   font-family: var(--ml-sans) !important;
   font-size: 14.5px !important;
   font-weight: 600 !important;
-  line-height: normal !important;
+  line-height: 1.2 !important;
+  border: 1.6px solid transparent !important;
   padding: 11px 21px !important;
   box-shadow: 0 10px 22px rgba(84,180,53,.24) !important;
   transition: transform .18s ease, background-color .18s ease, box-shadow .18s ease !important;
@@ -1259,7 +1260,7 @@ body.admin-bar{ --ml-admin-bar: 32px; }
 .ml-split-about .ml-heading-small.elementor-widget{ margin-top: 12px; }
 .ml-split-about .ml-ticks.elementor-widget{ margin-top: 22px; }
 .ml-split-about .ml-bio.elementor-widget{ margin-top: 22px; font-size: 16.5px; line-height: 1.85; color: var(--e-global-color-text); }
-.ml-jp .ml-split-about .ml-bio.elementor-widget{ margin-top: 16px; font-size: 15.5px; line-height: 1.8; }
+.ml-jp.ml-split-about .ml-bio.elementor-widget{ margin-top: 16px; font-size: 15.5px; line-height: 1.8; }
 .ml-split-about .ml-micro.elementor-widget{ margin-top: 20px; }
 .ml-split-about .ml-micro .elementor-heading-title{ font-size: 12.5px; font-weight: 700; color: var(--ml-blue-ink); }
 .ml-jp.ml-band-blue .ml-label .elementor-heading-title{ color: var(--e-global-color-secondary); }
@@ -1352,7 +1353,7 @@ html[lang^="ja"] .ml-header-cta .elementor-button{ border-radius: 8px; }
 .ml-jp .ml-ngo-intro p{ margin-bottom: 0; }
 .ml-jp .ml-ngo-intro p + p{ margin-top: 14px; }
 /* founder band: the list sits 18px under the small line */
-.ml-jp .ml-split-about .ml-ticks-two.elementor-widget{ margin-top: 18px; }
+.ml-jp.ml-split-about .ml-ticks-two.elementor-widget{ margin-top: 18px; }
 /* organic search: the concept's own distances
    ml-heading-seo  ml-bio-wide                                              */
 .ml-heading-seo.elementor-widget-heading .elementor-heading-title{
