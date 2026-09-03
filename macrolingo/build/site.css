@@ -598,7 +598,9 @@
   height: 24px;
   transition: transform .3s ease;
 }
-.ml-faq.elementor-widget-n-accordion .e-n-accordion-item-title-icon > *{ display: none; }
+/* Elementor keeps its own plus and minus in there; the cross below
+   replaces them, so they are marked out of the way                     */
+.ml-faq.elementor-widget-n-accordion .e-n-accordion-item-title-icon > *{ display: none !important; }
 .ml-faq.elementor-widget-n-accordion .e-n-accordion-item-title-icon:before,
 .ml-faq.elementor-widget-n-accordion .e-n-accordion-item-title-icon:after{
   content: "";
