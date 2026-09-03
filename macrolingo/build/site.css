@@ -1200,12 +1200,20 @@ body.admin-bar{ --ml-admin-bar: 32px; }
 .ml-jp .elementor-icon-box-description{
   font-family: var(--e-global-typography-text-font-family), "Figtree stand-in", "Noto Sans JP", Arial, sans-serif !important;
 }
-.ml-jp .elementor-widget-heading .elementor-heading-title,
+/* the same split as on the English page: real headings take the serif, the
+   small capital labels stay in the body face                              */
+.ml-jp .elementor-widget-heading h1.elementor-heading-title,
+.ml-jp .elementor-widget-heading h2.elementor-heading-title,
+.ml-jp .elementor-widget-heading h3.elementor-heading-title,
+.ml-jp .elementor-widget-heading h4.elementor-heading-title,
 .ml-jp .elementor-icon-box-title,
 .ml-jp .e-n-accordion-item-title-text,
 .ml-jp .ml-quote-text,
 .ml-jp h1, .ml-jp h2, .ml-jp h3, .ml-jp h4{
   font-family: var(--e-global-typography-primary-font-family), "Newsreader stand-in", "Noto Serif JP", Georgia, serif !important;
+}
+.ml-jp .ml-quote-name h4.elementor-heading-title{
+  font-family: var(--e-global-typography-accent-font-family), "Figtree stand-in", "Noto Sans JP", Arial, sans-serif !important;
 }
 
 
