@@ -285,6 +285,20 @@
 .ml-ticks .elementor-icon-list-icon i,
 .ml-ticks .elementor-icon-list-icon svg{ color: var(--e-global-color-mlgreendark); fill: var(--e-global-color-mlgreendark); font-size: 12px; width: 12px; height: 12px; }
 .ml-ticks.ml-ticks-on-blue .elementor-icon-list-icon{ background: #fff; }
+/* two columns of ticks, so a long list still fits one screen
+   ml-ticks-two   with ml-ticks on an Icon List widget                      */
+.ml-ticks-two .elementor-icon-list-items{ columns: 2; column-gap: 34px; }
+.ml-ticks-two .elementor-icon-list-item{
+  break-inside: avoid;
+  padding: 8px 0;
+  font-size: 14.5px;
+  line-height: 1.6;
+  align-items: flex-start;
+}
+.ml-ticks-two .elementor-icon-list-icon{ width: 22px; height: 22px; margin-top: 1px; }
+@media (max-width: 767px){
+  .ml-ticks-two .elementor-icon-list-items{ columns: 1; }
+}
 
 
 /* --- Quote card ----------------------------------------------------------
@@ -481,6 +495,7 @@
   color: var(--e-global-color-mlgreendark);
 }
 .ml-post-cat .elementor-icon-list-item{ margin: 0; }
+.ml-post-cat .elementor-icon-list-icon{ display: none; }
 .ml-post-title .elementor-heading-title,
 .ml-post-title .elementor-heading-title a{
   font-family: var(--e-global-typography-primary-font-family), Georgia, serif;
@@ -874,23 +889,70 @@
 }
 .ml-jp-service .ml-arrow-link{ margin-top: auto; padding-top: 22px; }
 
+/* --- Japanese page: a service box with the icon on its own line ----------
+   ml-service-plain   sits with ml-service on the Icon Box widget
+   The Japanese page stacks the icon above the heading, which is how the
+   original page reads.                                                     */
+.ml-service-plain.elementor-widget-icon-box .elementor-icon-box-wrapper{
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+.ml-service-plain.elementor-widget-icon-box .elementor-icon-box-icon{
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+.ml-service-plain .elementor-icon-box-icon .elementor-icon{ font-size: 24px; }
+.ml-service-plain .elementor-icon-box-icon svg{ width: 25px; height: 25px; }
+.ml-service-plain .elementor-icon-box-title{
+  font-size: 24px;
+  line-height: 1.42;
+  margin-bottom: 10px;
+}
+/* the green line under the heading */
+.ml-service-plain .elementor-icon-box-description{
+  font-size: 15.5px;
+  font-weight: 600;
+  line-height: 1.7;
+  color: var(--e-global-color-mlgreendark);
+  margin-bottom: 0;
+}
+
 /* --- Japanese page: the list of subjects beside a photo ------------------
    ml-subject-list on an Icon List widget                                  */
 .ml-subject-list .elementor-icon-list-items{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: block;
+  columns: 2;
   column-gap: 44px;
 }
 .ml-subject-list .elementor-icon-list-item{
+  break-inside: avoid;
   border-bottom: 1px solid var(--ml-hairline-strong);
   padding: 12px 0;
+  align-items: center;
+  gap: 12px;
 }
-.ml-subject-list .elementor-icon-list-icon i{ font-size: 7px; color: var(--e-global-color-primary); }
+.ml-subject-list .elementor-icon-list-icon{
+  width: 7px;
+  height: 7px;
+  flex: 0 0 auto;
+  margin-right: 0;
+}
+.ml-subject-list .elementor-icon-list-icon i,
+.ml-subject-list .elementor-icon-list-icon svg{
+  width: 7px;
+  height: 7px;
+  font-size: 7px;
+  color: var(--e-global-color-primary);
+  fill: var(--e-global-color-primary);
+}
 .ml-subject-list .elementor-icon-list-text{ font-size: 16.5px; color: var(--e-global-color-secondary); }
 
 @media (max-width: 1024px){
   .ml-jp-services > .e-con-inner{ grid-template-columns: 1fr; }
-  .ml-subject-list .elementor-icon-list-items{ grid-template-columns: 1fr; }
+  .ml-subject-list .elementor-icon-list-items{ columns: 1; }
 }
 
 
