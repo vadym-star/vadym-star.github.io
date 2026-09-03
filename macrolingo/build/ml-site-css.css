@@ -271,7 +271,7 @@ body{
    ml-lead                                                                  */
 .ml-lead.elementor-widget{
   font-size: 18px;
-  line-height: 1.7;
+  line-height: 1.72;
   color: var(--e-global-color-text);
   max-width: 60ch;
   margin: 16px auto 0;
