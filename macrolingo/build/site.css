@@ -970,6 +970,7 @@
   border-right: 1px solid var(--ml-line-2);
   border-bottom: 1px solid var(--ml-line-2);
 }
+.ml-jp-service .elementor-widget-text-editor{ font-size: 15.5px; line-height: 1.95; }
 .ml-jp-service .ml-arrow-link{ margin-top: auto; padding-top: 24px; align-self: flex-start; }
 .ml-jp-service .ml-arrow-link .elementor-button{ font-size: 14.5px; }
 .ml-keywords{ font-size: 13.5px; line-height: 1.95; color: var(--e-global-color-mlmuted); }
