@@ -1919,11 +1919,10 @@ body .ml-header .ml-header-cta .elementor-button.elementor-button{
 body > .wpml-ls-statics-footer{ display: none; }
 
 
-/* --- One language at a time ----------------------------------------------
-   ml-only-en   shown on the English pages
-   ml-only-ja   shown on the Japanese pages                                */
-html[lang^="ja"] .ml-only-en{ display: none !important; }
-html[lang^="en"] .ml-only-ja{ display: none !important; }
+/* The header, footer and blog card used to carry both languages at once,
+   with the two rules that lived here hiding whichever did not belong. Each
+   language now has its own template through WPML and holds only its own
+   words, so there is nothing left to hide.                                */
 
 
 /* ==========================================================================
