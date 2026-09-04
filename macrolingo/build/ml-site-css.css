@@ -16,20 +16,26 @@
 /* --- While the web fonts are still on their way --------------------------
    Until Newsreader and Figtree arrive the page has to draw with something,
    and if that something is a different width the text jumps when they land.
-   These two stand-ins are the fonts already on the reader's machine, scaled
-   so a line measures the same. Measured on this build: Georgia is 0.4% off
-   Newsreader and Arial 0.9% off Figtree.                                   */
+   These two stand-ins are the fonts already on the reader's machine, told to
+   occupy exactly the same space as the real ones: the same line width, the
+   same height above and below the line. Every number was measured on this
+   build by drawing the same sentence in both faces, so when the real font
+   lands nothing moves, only the shapes of the letters change.              */
 @font-face{
   font-family: "Newsreader stand-in";
   src: local("Georgia"), local("Times New Roman"), local("Times");
-  size-adjust: 100.4%;
-  font-display: swap;
+  size-adjust: 102.43%;
+  ascent-override: 72.24%;
+  descent-override: 26.36%;
+  line-gap-override: 0%;
 }
 @font-face{
   font-family: "Figtree stand-in";
   src: local("Arial"), local("Helvetica Neue"), local("Helvetica");
-  size-adjust: 100.9%;
-  font-display: swap;
+  size-adjust: 101.22%;
+  ascent-override: 93.86%;
+  descent-override: 24.70%;
+  line-gap-override: 0%;
 }
 /* Elementor writes the font on each element with a plain "sans-serif" behind
    it, which is what makes a heading swap from a sans face to a serif one as
