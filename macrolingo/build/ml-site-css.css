@@ -628,7 +628,7 @@ body .ml-service-card .ml-arrow-link .elementor-button.elementor-button{ font-si
    row down together on a narrower screen.
    They read grey until you point at one, the way the names they replaced
    went from grey to ink.                                                   */
-.ml-logo-row{ --ml-logo-scale: 1; }
+.ml-logo-row{ --ml-logo-scale: 1.15; }
 .ml-logo-row .ml-client-logo img{
   display: block;
   width: auto;
@@ -643,8 +643,13 @@ body .ml-service-card .ml-arrow-link .elementor-button.elementor-button{ font-si
 .ml-logo-morgenrot img   { height: calc(26px * var(--ml-logo-scale)); }
 .ml-logo-asahi-kasei img { height: calc(34px * var(--ml-logo-scale)); }
 .ml-logo-xcura img       { height: calc(32px * var(--ml-logo-scale)); }
-@media (max-width: 1024px){ .ml-logo-row{ --ml-logo-scale: .86; } }
-@media (max-width: 767px){ .ml-logo-row{ --ml-logo-scale: .74; } }
+/* below a desktop the six no longer reach across, so they gather in the
+   middle again rather than leaving gaps between them                       */
+@media (max-width: 1024px){
+  .ml-logo-row{ --ml-logo-scale: .95; }
+  .ml-logo-row > .e-con-inner{ justify-content: center; }
+}
+@media (max-width: 767px){ .ml-logo-row{ --ml-logo-scale: .78; } }
 
 
 /* --- Hairline between two sections of the same colour --------------------
@@ -1384,6 +1389,7 @@ html[lang^="en"] .ml-hero-title.elementor-widget-heading .elementor-heading-titl
 .ml-ngo-band{
   position: relative;
   overflow: hidden;
+  overflow: clip;
   background-image: linear-gradient(128deg,
       var(--e-global-color-mlmint) 0%,
       #E6F2DF 26%,
@@ -1590,6 +1596,24 @@ html[lang^="ja"] .ml-header-cta .elementor-button{ border-radius: 8px; }
   margin-bottom: 0;
   color: var(--e-global-color-secondary);
 }
+/* The wording in this block runs long on the Japanese page, so the picture
+   holds a square and travels down beside it rather than being stretched into
+   a ribbon. It comes to rest below the header.                             */
+.ml-jp.ml-split-ngo > .e-con-inner{ align-items: start; }
+.ml-jp.ml-split-ngo .ml-photo-panel{
+  align-self: start;
+  position: sticky;
+  top: calc(var(--ml-header-h, 81px) + var(--ml-admin-bar, 0px) + 28px);
+  aspect-ratio: 1 / 1;
+  min-height: 0;
+}
+@media (max-width: 1024px){
+  .ml-jp.ml-split-ngo .ml-photo-panel{
+    position: static;
+    aspect-ratio: 16 / 10;
+  }
+}
+
 /* the approach list sits back beside the expert wording. Its lines run to
    two, so each tick sits level with the first line rather than the middle. */
 .ml-jp.ml-split-ngo .ml-micro.elementor-widget{ margin-top: 26px; }
