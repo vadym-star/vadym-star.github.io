@@ -621,18 +621,30 @@ body .ml-service-card .ml-arrow-link .elementor-button.elementor-button{ font-si
   line-height: 1.72;
   color: var(--e-global-color-mlmuted);
 }
-.ml-client-name .elementor-heading-title{
+/* Each logo is drawn at a height of its own. One height for all would let a
+   wordmark eight times wider than it is tall tower over a square mark, so the
+   six were sized until they read as the same weight on the page. Change a
+   number here and that logo alone changes. The scale below takes the whole
+   row down together on a narrower screen.
+   They read grey until you point at one, the way the names they replaced
+   went from grey to ink.                                                   */
+.ml-logo-row{ --ml-logo-scale: 1; }
+.ml-logo-row .ml-client-logo img{
   display: block;
-  font-family: var(--ml-serif);
-  font-size: 33px;
-  font-weight: 600;
-  line-height: 1.72;
-  letter-spacing: -.01em;
-  color: #9AA5B4;
-  white-space: nowrap;
-  transition: color .18s ease;
+  width: auto;
+  filter: grayscale(1);
+  opacity: .62;
+  transition: filter .2s ease, opacity .2s ease;
 }
-.ml-client-name:hover .elementor-heading-title{ color: var(--e-global-color-secondary); }
+.ml-logo-row .ml-client-logo:hover img{ filter: none; opacity: 1; }
+.ml-logo-sansan img      { height: calc(34px * var(--ml-logo-scale)); }
+.ml-logo-idg img         { height: calc(30px * var(--ml-logo-scale)); }
+.ml-logo-ap-plat img     { height: calc(44px * var(--ml-logo-scale)); }
+.ml-logo-morgenrot img   { height: calc(26px * var(--ml-logo-scale)); }
+.ml-logo-asahi-kasei img { height: calc(34px * var(--ml-logo-scale)); }
+.ml-logo-xcura img       { height: calc(32px * var(--ml-logo-scale)); }
+@media (max-width: 1024px){ .ml-logo-row{ --ml-logo-scale: .86; } }
+@media (max-width: 767px){ .ml-logo-row{ --ml-logo-scale: .74; } }
 
 
 /* --- Hairline between two sections of the same colour --------------------
@@ -730,7 +742,16 @@ body .ml-service-card .ml-arrow-link .elementor-button.elementor-button{ font-si
 .e-con.ml-quote-who > .e-con-inner{ padding: 0; }
 .e-con.ml-quote-who .e-con > .e-con-inner{ padding: 0; }
 .ml-quote-avatar{ width: 48px; min-width: 48px; flex: 0 0 auto; }
-.ml-quote-avatar img{ width: 48px; height: 48px; border-radius: 50%; object-fit: cover; display: block; }
+.ml-quote-avatar img{
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  /* most of these marks sit on white, so a hairline keeps the circle
+     readable against the white card behind it                             */
+  border: 1px solid var(--ml-line);
+}
 .ml-quote-name .elementor-heading-title,
 .ml-quote-name h4.elementor-heading-title{
   font-family: var(--ml-sans);
@@ -892,11 +913,15 @@ body .ml-service-card .ml-arrow-link .elementor-button.elementor-button{ font-si
 .ml-faq.elementor-widget-n-accordion .e-n-accordion-item-title{ border-bottom: 0 !important; }
 .ml-faq.elementor-widget-n-accordion .e-n-accordion-item p{
   margin: 0;
-  padding: 0 24px 24px;
+  padding: 0 24px;
   font-size: 15.5px;
   line-height: 1.75;
   color: var(--e-global-color-text);
 }
+/* an answer can run to several paragraphs, so they space themselves and only
+   the last one holds the card open at the bottom                          */
+.ml-faq.elementor-widget-n-accordion .e-n-accordion-item p + p{ margin-top: 15px; }
+.ml-faq.elementor-widget-n-accordion .e-n-accordion-item p:last-child{ padding-bottom: 24px; }
 
 
 /* --- Blog posts ----------------------------------------------------------
@@ -1504,6 +1529,7 @@ html[lang^="ja"] .ml-header-cta .elementor-button{ border-radius: 8px; }
 /* the NGO intro is two paragraphs on this page */
 .ml-jp .ml-ngo-intro p{ margin-bottom: 0; }
 .ml-jp .ml-ngo-intro p + p{ margin-top: 14px; }
+.ml-jp.ml-split-ngo .ml-cta-row .ml-arrow-link .elementor-button{ padding-left: 0; padding-right: 0; }
 /* founder band: the list sits 18px under the small line */
 .ml-jp.ml-split-about .ml-ticks-two.elementor-widget{ margin-top: 18px; }
 /* organic search: the concept's own distances
