@@ -664,7 +664,10 @@ body .ml-service-card .ml-arrow-link .elementor-button.elementor-button{ font-si
   transform: translateX(-50%);
   width: min(100%, var(--ml-content-width));
   height: 1px;
-  background: var(--ml-line);
+  /* the same fade as the line that finishes the hero, so the one above a
+     section and the one below it are the same line                        */
+  background: linear-gradient(90deg, transparent, var(--ml-line-2) 8%,
+                              var(--ml-line-2) 92%, transparent);
 }
 .ml-rule-top:before{ top: 0; }
 .ml-rule-bottom:after{ bottom: 0; }
@@ -1564,9 +1567,10 @@ html[lang^="ja"] .ml-header-cta .elementor-button{ border-radius: 8px; }
    sets the line height of every real heading names the tag as well, and a
    rule that leaves the tag out loses to it.                                */
 .ml-strip-title.elementor-widget-heading h3.elementor-heading-title{
-  font-size: clamp(19px, 1.7vw, 23px);
-  font-weight: 600;
-  line-height: 1.4;
+  /* the same size as the heading of the section below it */
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 500;
+  line-height: 1.3;
   letter-spacing: 0;
 }
 .ml-section-head .ml-heading-solo.elementor-widget-heading h2.elementor-heading-title{
