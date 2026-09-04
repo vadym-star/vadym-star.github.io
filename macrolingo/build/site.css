@@ -1739,22 +1739,61 @@ html[lang^="ja"] .ml-nav .elementor-nav-menu--main a.elementor-item{
 
 /* the switcher centres on the same line as the logo and the button */
 .ml-lang.elementor-widget{ display: flex; align-items: center; }
-.ml-lang .ml-lang-inner{
+.ml-lang .elementor-shortcode{ display: flex; align-items: center; }
+.ml-lang .wpml-ls{ padding: 0; border: 0; background: none; }
+.ml-lang .wpml-ls > ul{
   display: inline-flex;
   align-items: center;
   gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ml-lang .wpml-ls .wpml-ls-item{
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* the hairline between the two, drawn by the second one */
+.ml-lang .wpml-ls .wpml-ls-item + .wpml-ls-item:before{
+  content: "";
+  width: 1px;
+  height: 13px;
+  margin-right: 7px;
+  background: var(--ml-line-2);
+  flex: 0 0 auto;
+}
+.ml-lang .wpml-ls a,
+.ml-lang .wpml-ls a:link,
+.ml-lang .wpml-ls a:visited{
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
   font-family: var(--ml-sans);
   font-size: 13.5px;
   font-weight: 600;
   line-height: 1.72;
-  color: var(--e-global-color-mlmuted);
   white-space: nowrap;
+  color: var(--e-global-color-mlmuted);
+  text-decoration: none;
+  transition: color .16s ease;
 }
-.ml-lang i{ width: 1px; height: 13px; background: var(--ml-line-2); display: inline-block; }
-.ml-lang a{ color: var(--e-global-color-mlmuted); text-decoration: none; transition: color .16s ease; }
-.ml-lang a:hover{ color: var(--e-global-color-mlgreendark); }
-html[lang^="en"] .ml-lang .ml-lang-en,
-html[lang^="ja"] .ml-lang .ml-lang-ja{ color: var(--e-global-color-secondary); pointer-events: none; }
+.ml-lang .wpml-ls a:hover,
+.ml-lang .wpml-ls a:focus{
+  color: var(--e-global-color-mlgreendark);
+  background: none;
+}
+/* the language you are already reading is not a link to anywhere */
+.ml-lang .wpml-ls .wpml-ls-current-language > a,
+.ml-lang .wpml-ls .wpml-ls-current-language > a:hover{
+  color: var(--e-global-color-secondary);
+  pointer-events: none;
+}
+.ml-lang .wpml-ls-flag{ display: none; }
 body .ml-header .ml-header-cta .elementor-button.elementor-button{
   background-color: var(--e-global-color-primary);
   border-radius: 11px;
