@@ -1570,9 +1570,18 @@ html[lang^="ja"] .ml-header-cta .elementor-button{ border-radius: 8px; }
   margin-bottom: 0;
   color: var(--e-global-color-mlmuted);
 }
-/* the approach list sits back beside the expert wording */
+/* the approach list sits back beside the expert wording. Its lines run to
+   two, so each tick sits level with the first line rather than the middle. */
 .ml-jp.ml-split-ngo .ml-micro.elementor-widget{ margin-top: 26px; }
 .ml-jp.ml-split-ngo .ml-ticks.elementor-widget{ margin-top: 14px; }
+.ml-jp.ml-split-ngo .ml-ticks .elementor-icon-list-item{ align-items: flex-start; }
+.ml-jp.ml-split-ngo .ml-ticks .elementor-icon-list-icon{ margin-top: 3px; }
+/* Japanese has no spaces, so a browser left to itself will break a heading
+   in the middle of a word. This asks it to break where the phrase does.
+   Browsers that do not know the value carry on as before.                  */
+.ml-jp .elementor-heading-title,
+.ml-jp .elementor-icon-box-title,
+html[lang^="ja"] .elementor-heading-title{ word-break: auto-phrase; }
 @media (max-width: 1024px){
   .ml-features{ margin-top: 34px; }
 }
