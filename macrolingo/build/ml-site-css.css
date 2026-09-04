@@ -755,6 +755,7 @@ body .ml-service-card .ml-arrow-link .elementor-button.elementor-button{ font-si
   position: absolute;
   z-index: 2;
   background: #fff;
+  border: 1.5px solid #D4DFC8;
   border-radius: 18px;
   box-shadow: var(--ml-shadow-lift);
   padding: 16px 18px;
@@ -768,13 +769,6 @@ body .ml-service-card .ml-arrow-link .elementor-button.elementor-button{ font-si
   text-align: center;
   padding: 11px 15px;
   border-radius: 14px;
-}
-.ml-float .ml-float-stars{
-  color: var(--ml-star);
-  font-size: 13px;
-  letter-spacing: 1px;
-  line-height: 1.72;
-  margin: 0;
 }
 .ml-float .ml-float-quote{
   font-family: var(--ml-serif);
@@ -1303,6 +1297,7 @@ body .ml-posts .elementor-button-wrapper .elementor-button.elementor-button{
 .ml-hero{
   position: relative;
   justify-content: center;
+  background-color: var(--e-global-color-mlwarm);
   background-image:
     radial-gradient(44% 56% at 8% -6%, rgba(84,180,53,.09), transparent 60%),
     radial-gradient(48% 62% at 94% -8%, rgba(47,111,214,.11), transparent 62%);
@@ -1560,15 +1555,15 @@ html[lang^="ja"] .ml-header-cta .elementor-button{ border-radius: 8px; }
 /* a hairline separates the three from each other the way the live site does,
    with the same air above and below it                                     */
 .ml-features{ border-top: 1px solid var(--ml-grey-line); margin-top: 44px; }
-/* the founder's name and letters, under his picture, where the live site
-   keeps them                                                               */
-.ml-photo-caption.elementor-widget{ margin-top: 14px; }
-.ml-photo-caption p{
+/* the founder's name, in the column beside his picture */
+.ml-signature.elementor-widget{ margin-top: 22px; }
+.ml-signature p{
   font-family: var(--ml-sans);
-  font-size: 13.5px;
+  font-size: 14.5px;
+  font-weight: 700;
   line-height: 1.6;
   margin-bottom: 0;
-  color: var(--e-global-color-mlmuted);
+  color: var(--e-global-color-secondary);
 }
 /* the approach list sits back beside the expert wording. Its lines run to
    two, so each tick sits level with the first line rather than the middle. */
