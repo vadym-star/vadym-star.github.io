@@ -1,0 +1,89 @@
+<script>
+/* Blocks lift into place on scroll.
+   Works with the class ml-reveal (see Site Settings > Custom CSS, "Movement").
+   This marks the page first, and only a marked page hides anything, so if
+   this snippet is ever removed every block simply shows.
+   A block is released when it comes 60px into view, by an observer where
+   the browser has one, and by a plain scroll check as well, so a jump to an
+   anchor or a fast scroll can never leave a section blank. Once a block is
+   in place its classes come off, so nothing lingers on it. */
+(function () {
+  /* Inside the Elementor editor nothing moves and nothing is ever hidden, so
+     a block the editor draws again after this has run cannot be left blank
+     while you work on it. */
+  if (/elementor-preview=/.test(location.search)) { return; }
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) { return; }
+  document.documentElement.classList.add('ml-js');
+
+  function settle(el) {
+    if (el.classList.contains('ml-in')) { return; }
+    el.classList.add('ml-in');
+    setTimeout(function () {
+      el.classList.remove('ml-reveal', 'ml-reveal-1', 'ml-reveal-2', 'ml-reveal-3', 'ml-in');
+    }, 1300);
+  }
+
+  function start() {
+    var blocks = [].slice.call(document.querySelectorAll('.ml-reveal'));
+    if (!blocks.length) { return; }
+
+    function inView(el) {
+      var r = el.getBoundingClientRect();
+      var h = window.innerHeight || document.documentElement.clientHeight;
+      return r.bottom > 0 && r.top < h - 60;
+    }
+    function sweep() {
+      blocks = blocks.filter(function (el) {
+        if (inView(el)) { settle(el); return false; }
+        return true;
+      });
+      if (!blocks.length) {
+        removeEventListener('scroll', sweep);
+        removeEventListener('resize', sweep);
+        clearInterval(tick);
+      }
+    }
+
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting || e.intersectionRatio > 0) { settle(e.target); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+      blocks.forEach(function (el) { io.observe(el); });
+    }
+    addEventListener('scroll', sweep, { passive: true });
+    addEventListener('resize', sweep);
+    var tick = setInterval(sweep, 250);
+    setTimeout(function () { clearInterval(tick); }, 12000);
+    sweep();
+  }
+
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', start); }
+  else { start(); }
+})();
+</script>
+
+<script>
+/* One question at a time in each column.
+   Elementor's own "One" setting closes the question the moment it opens on
+   this build, so the widget stays on "Multiple" and this does the job: when a
+   question opens, the other open one in the same column closes. Each column is
+   its own accordion, so two can be open across the pair, one on each side. */
+(function () {
+  function wire() {
+    document.querySelectorAll('.ml-faq').forEach(function (column) {
+      /* the toggle event does not bubble, so it is caught on the way down */
+      column.addEventListener('toggle', function (e) {
+        var item = e.target;
+        if (!item.open || item.tagName !== 'DETAILS') { return; }
+        column.querySelectorAll('details[open]').forEach(function (other) {
+          if (other !== item) { other.open = false; }
+        });
+      }, true);
+    });
+  }
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', wire); }
+  else { wire(); }
+})();
+</script>
