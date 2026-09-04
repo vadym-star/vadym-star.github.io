@@ -1525,6 +1525,58 @@ html[lang^="ja"] .ml-header-cta .elementor-button{ border-radius: 8px; }
 .ml-split-seo .ml-side-note.elementor-widget{ margin-top: 20px; }
 .ml-split-seo .ml-arrow-link.elementor-widget{ margin-top: 26px; }
 .ml-subject-list .elementor-icon-list-text{ line-height: 1.72; }
+
+/* --- Japanese page: one heading names each block --------------------------
+   macrolingo.com/ja names a block with a single heading rather than the small
+   line above a large one the English page uses, so the heads on this page are
+   one line and every piece of wording stays in the block it belongs to.
+   ml-strip-title      the client strip, which holds no other wording
+   ml-heading-solo     a section head that is one heading on its own
+   ml-heading-feature  the two blocks beside the organic search wording
+   ml-photo-caption    who is in the picture                                 */
+/* The tag and the class both have to be named here, because the rule that
+   sets the line height of every real heading names the tag as well, and a
+   rule that leaves the tag out loses to it.                                */
+.ml-strip-title.elementor-widget-heading h3.elementor-heading-title{
+  font-size: clamp(19px, 1.7vw, 23px);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+.ml-section-head .ml-heading-solo.elementor-widget-heading h2.elementor-heading-title{
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 500;
+  line-height: 1.3;
+}
+.ml-heading-feature.elementor-widget-heading h3.elementor-heading-title{
+  font-size: clamp(21px, 2vw, 26px);
+  font-weight: 500;
+  line-height: 1.38;
+}
+/* the wording now starts at the top of its column, level with the picture */
+.ml-jp .ml-split-seo .ml-heading-seo.elementor-widget:first-child{ margin-top: 0; }
+.ml-feature .ml-bio-wide.elementor-widget{ margin-top: 16px; }
+.ml-feature .ml-side-note.elementor-widget{ margin-top: 16px; }
+/* a hairline separates the three from each other the way the live site does,
+   with the same air above and below it                                     */
+.ml-features{ border-top: 1px solid var(--ml-grey-line); margin-top: 44px; }
+/* the founder's name and letters, under his picture, where the live site
+   keeps them                                                               */
+.ml-photo-caption.elementor-widget{ margin-top: 14px; }
+.ml-photo-caption p{
+  font-family: var(--ml-sans);
+  font-size: 13.5px;
+  line-height: 1.6;
+  margin-bottom: 0;
+  color: var(--e-global-color-mlmuted);
+}
+/* the approach list sits back beside the expert wording */
+.ml-jp.ml-split-ngo .ml-micro.elementor-widget{ margin-top: 26px; }
+.ml-jp.ml-split-ngo .ml-ticks.elementor-widget{ margin-top: 14px; }
+@media (max-width: 1024px){
+  .ml-features{ margin-top: 34px; }
+}
+
 .ml-jp .ml-highlight{ background: none; padding: 0; }
 .ml-jp .ml-gradient-heading .elementor-heading-title{
   background: none;
