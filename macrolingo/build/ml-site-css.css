@@ -1720,6 +1720,17 @@ html.ml-js .ml-reveal{
   transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1);
 }
 html.ml-js .ml-reveal.ml-in{ opacity: 1; transform: none; }
+/* Inside Elementor nothing is ever hidden. The editor draws the page again
+   after this has run, so a block added by the editor would never be released
+   and the section would look empty while you work on it.                   */
+body.elementor-editor-active .ml-reveal,
+body.elementor-editor-preview .ml-reveal,
+html.ml-js body.elementor-editor-active .ml-reveal,
+html.ml-js body.elementor-editor-preview .ml-reveal{
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
 html.ml-js .ml-reveal-1{ transition-delay: .07s; }
 html.ml-js .ml-reveal-2{ transition-delay: .14s; }
 html.ml-js .ml-reveal-3{ transition-delay: .21s; }
