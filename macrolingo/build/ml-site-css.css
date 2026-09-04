@@ -1339,6 +1339,13 @@ body.admin-bar{ --ml-admin-bar: 32px; }
   line-height: 1.05;
   letter-spacing: -.02em;
 }
+/* The English headline is a long line of words, and at the concept's full
+   size it falls onto a fifth line on a wide screen. A shade smaller holds it
+   to four lines the whole way from a tablet up. The Japanese headline keeps
+   the larger size, because its four lines fit at it.                      */
+html[lang^="en"] .ml-hero-title.elementor-widget-heading .elementor-heading-title{
+  font-size: clamp(38px, 4.7vw, 56px);
+}
 .ml-hero-intro.elementor-widget{ font-size: 19px; line-height: 1.6; max-width: 50ch; }
 /* both columns sit in the middle of the hero, as the concept centres its
    grid; Elementor would otherwise stretch the words column to the full
