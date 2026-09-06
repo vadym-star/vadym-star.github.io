@@ -80,15 +80,26 @@
   .sw code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;color:var(--muted)}
 
   /* --------------------------------------------------------- candidates -- */
-  .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:34px 0 0;align-items:start}
+  /* the three cards share their rows, so the samples begin on one line
+     however long the note above each of them runs                        */
+  .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:34px 0 0;align-items:stretch}
   @media(max-width:1000px){.cols{grid-template-columns:1fr;max-width:560px}}
 
   .cand{
     background:var(--paper);border:1px solid var(--line);border-radius:20px;
     overflow:hidden;box-shadow:var(--shadow-soft);
+    display:grid;grid-row:span 2;grid-template-rows:subgrid;
   }
-  .cand > header{padding:22px 24px 20px;border-bottom:1px solid var(--line);min-height:246px}
-  @media(max-width:1000px){.cand > header{min-height:0}}
+  /* a browser that does not know subgrid falls back to a plain height */
+  @supports not (grid-template-rows: subgrid){
+    .cand{display:block}
+    .cand > header{min-height:288px}
+  }
+  @media(max-width:1000px){
+    .cand{display:block}
+    .cand > header{min-height:0}
+  }
+  .cand > header{padding:22px 24px 20px;border-bottom:1px solid var(--line)}
   .cand h3{font-size:22px;display:flex;align-items:center;gap:11px}
   .cand h3 i{width:20px;height:20px;border-radius:6px;background:var(--accent);flex:0 0 auto;box-shadow:inset 0 0 0 1px rgba(34,50,74,.12)}
   .cand .hex{
