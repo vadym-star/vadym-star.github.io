@@ -2302,3 +2302,48 @@ html[lang^="ja"] .cky-btn{ border-radius: 8px !important; }
   .cky-prefrence-btn-wrapper{ flex-direction: column; align-items: stretch; }
   .cky-btn{ width: 100%; text-align: center; }
 }
+
+
+/* ==========================================================================
+   THIRD COLOUR, ON TRIAL
+   --------------------------------------------------------------------------
+   Adam asked for a third colour beside the green and the blue. This block is
+   the whole of it. Change the one value below and everything follows; delete
+   the block and the site is exactly as it was. Nothing above this point
+   knows the colour exists.
+
+   The value is not picked out of the air. It is built to the same weight as
+   the brand green, the same brightness and the same saturation measured the
+   way the eye reads them, with only the hue turned round into the warm side.
+   That is what makes it sit beside the green as a sibling rather than as
+   something borrowed from another palette.
+
+   It is put on the small green things only, and not on the buttons, the
+   links or the headings, so that what is being judged is the colour itself
+   and not a redesign:
+     the eyebrow above each section and its dot
+     the ticks beside a list
+     the years figure over the hero photo
+     the cross that opens a question
+   The blue band keeps its blue; it is put back below.
+   ========================================================================== */
+body{ --ml-accent: #C47300; }
+
+.ml-label .elementor-heading-title{ color: var(--ml-accent); }
+.ml-label .elementor-heading-title:before{ background: var(--ml-accent); }
+.ml-ticks .elementor-icon-list-icon{ color: var(--ml-accent); }
+.ml-years{
+  background-image: linear-gradient(120deg,
+      var(--ml-accent) 5%, var(--e-global-color-mlgreendark) 95%);
+}
+.ml-faq.elementor-widget-n-accordion .e-n-accordion-item-title-icon:before,
+.ml-faq.elementor-widget-n-accordion .e-n-accordion-item-title-icon:after{
+  background: var(--ml-accent);
+}
+
+/* the blue band is the one place that is neither green nor the new colour,
+   and it stays as it was                                                  */
+.ml-band-blue .ml-label .elementor-heading-title{ color: var(--ml-blue-ink); }
+.ml-band-blue .ml-label .elementor-heading-title:before{ background: var(--e-global-color-accent); }
+.ml-band-blue .ml-ticks .elementor-icon-list-icon,
+.ml-ticks-on-blue .elementor-icon-list-icon{ color: var(--ml-blue-ink); }
