@@ -615,7 +615,7 @@ body .ml-service-card .ml-arrow-link .elementor-button.elementor-button{ font-si
    ml-logo-carousel   the marks themselves, further down this file        */
 .ml-strip-label .elementor-heading-title{
   font-family: var(--ml-sans);
-  font-size: 12px;
+  font-size: 13.5px;
   font-weight: 600;
   letter-spacing: .12em;
   text-transform: uppercase;
