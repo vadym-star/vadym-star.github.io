@@ -20,11 +20,12 @@
     --green:#54B435;
     --green-dark:#458F2C;
     --mint:#EAF5E2;
+    --blue:#2F6FD6;
     --blue-ink:#2559B4;
+    --blue-band:#EAF2FE;
     --serif:'Newsreader',Georgia,serif;
     --sans:'Figtree',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
     --shadow-soft:0 1px 2px rgba(34,50,74,.04),0 6px 18px rgba(34,50,74,.05);
-    --shadow-lift:0 2px 6px rgba(34,50,74,.05),0 18px 44px rgba(34,50,74,.08);
   }
   *{box-sizing:border-box}
   body{
@@ -32,15 +33,16 @@
     font-family:var(--sans);font-size:16px;line-height:1.72;
     -webkit-font-smoothing:antialiased;
   }
-  h1,h2,h3{font-family:var(--serif);color:var(--ink);margin:0;line-height:1.14;letter-spacing:-.01em}
+  h1,h3{font-family:var(--serif);color:var(--ink);margin:0;line-height:1.14;letter-spacing:-.01em}
   p{margin:0}
+  ul{margin:0;padding:0;list-style:none}
   .wrap{max-width:1180px;margin:0 auto;padding:0 30px}
 
   .top{padding:60px 0 0}
   .brand{font-family:var(--serif);font-size:20px;font-weight:600;color:var(--ink);letter-spacing:-.01em}
   .brand span{color:var(--green-dark)}
   h1{font-size:clamp(34px,4.4vw,48px);margin:22px 0 0}
-  .lede{font-size:17px;max-width:56ch;margin:14px 0 0}
+  .lede{font-size:17px;max-width:60ch;margin:14px 0 0}
 
   .kicker{
     display:inline-flex;align-items:center;gap:9px;
@@ -54,10 +56,7 @@
   .swatches{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin:18px 0 0}
   @media(max-width:900px){.swatches{grid-template-columns:repeat(3,minmax(0,1fr))}}
   @media(max-width:520px){.swatches{grid-template-columns:1fr 1fr}}
-  .sw{
-    background:var(--paper);border:1px solid var(--line);border-radius:14px;
-    padding:14px;
-  }
+  .sw{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px}
   .sw i{display:block;height:44px;border-radius:9px;box-shadow:inset 0 0 0 1px rgba(34,50,74,.10)}
   .sw b{display:block;font-size:13.5px;font-weight:600;color:var(--ink);margin-top:10px;line-height:1.4}
   .sw code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;color:var(--muted)}
@@ -76,78 +75,72 @@
   .cand h3{font-size:21px;display:flex;align-items:center;gap:11px}
   .cand h3 i{width:20px;height:20px;border-radius:6px;background:var(--accent);flex:0 0 auto;box-shadow:inset 0 0 0 1px rgba(34,50,74,.12)}
   .cand .hex{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:var(--muted);margin-top:7px}
+  .trio{display:flex;gap:7px;margin-top:14px}
+  .trio span{width:34px;height:16px;border-radius:5px;box-shadow:inset 0 0 0 1px rgba(34,50,74,.10)}
 
   .sample{padding:24px 24px 26px}
-  .mark{background:var(--tint-34);border-radius:3px;padding:0 .12em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
-  .tiles{display:flex;gap:12px;margin:18px 0 0}
-  .tile{
-    width:46px;height:46px;border-radius:14px;background:var(--tint-12);
-    display:grid;place-items:center;color:var(--accent);
-  }
-  .tile svg{width:20px;height:20px}
-  .btns{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:20px 0 0}
-  .btn{
-    font-family:var(--sans);font-size:14px;font-weight:600;
-    padding:11px 18px;border-radius:11px;background:var(--accent);color:#fff;
-    display:inline-flex;align-items:center;gap:8px;
-  }
-  .btn.ghost{background:transparent;color:var(--accent);box-shadow:inset 0 0 0 1.5px var(--tint-34)}
-  .link{
-    font-size:14px;font-weight:600;color:var(--accent);
-    display:inline-flex;align-items:center;gap:7px;
-  }
-  .link svg{width:14px;height:14px}
-  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 0}
-  .chip{
-    font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
-    padding:6px 11px;border-radius:100px;background:var(--tint-12);color:var(--accent);
-  }
-  .bar{
-    display:flex;align-items:center;gap:12px;margin:20px 0 0;
-    background:var(--tint-12);border-radius:14px;padding:14px 16px;
-  }
-  .bar b{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--accent);line-height:1}
-  .bar u{flex:1;height:6px;border-radius:100px;background:var(--tint-34);text-decoration:none;position:relative;overflow:hidden}
-  .bar u:after{content:"";position:absolute;inset:0 32% 0 0;background:var(--accent);border-radius:100px}
   .sample .kicker{color:var(--accent)}
   .sample .kicker:before{background:var(--accent)}
   .sample h4{
     font-family:var(--serif);font-size:21px;font-weight:500;color:var(--ink);
-    margin:12px 0 0;line-height:1.2;letter-spacing:-.01em;
+    margin:12px 0 0;line-height:1.25;letter-spacing:-.01em;
   }
-  .ticks{list-style:none;margin:18px 0 0;padding:0}
-  .ticks li{display:flex;align-items:center;gap:12px;margin-bottom:13px;font-size:15px;font-weight:500;color:var(--ink)}
-  .ticks svg{
-    width:24px;height:24px;padding:5.5px;border-radius:50%;background:#fff;
-    box-shadow:var(--shadow-soft);color:var(--accent);flex:0 0 auto;
-  }
-  .years{
-    display:inline-flex;flex-direction:column;align-items:center;
-    background:#fff;border:1.5px solid var(--line-2);border-radius:14px;
-    box-shadow:var(--shadow-lift);padding:11px 15px;margin:20px 0 0;
-  }
-  .years b{
-    font-family:var(--serif);font-size:22px;font-weight:600;line-height:1;
-    background-image:linear-gradient(120deg,var(--accent) 5%,var(--green-dark) 95%);
-    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
-  }
-  .years span{font-size:10.5px;color:var(--muted);margin-top:2px}
+  .mark{background:var(--mint);border-radius:3px;padding:0 .12em;
+        box-decoration-break:clone;-webkit-box-decoration-break:clone}
+
+  .tiles{display:flex;gap:12px;margin:18px 0 0}
+  .tile{width:46px;height:46px;border-radius:14px;background:var(--tint-12);
+        display:grid;place-items:center;color:var(--accent)}
+  .tile svg{width:20px;height:20px}
+
+  .ticks li{display:flex;align-items:center;gap:12px;margin-bottom:13px;
+            font-size:15px;font-weight:500;color:var(--ink)}
+  .ticks li:last-child{margin-bottom:0}
+  .ticks svg{width:24px;height:24px;padding:5.5px;border-radius:50%;background:#fff;
+             box-shadow:var(--shadow-soft);color:var(--accent);flex:0 0 auto}
+  .ticks{margin:18px 0 0}
+
+  .btns{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:20px 0 0}
+  .btn{font-family:var(--sans);font-size:14px;font-weight:600;
+       padding:11px 18px;border-radius:11px;background:var(--green);color:#fff;
+       display:inline-flex;align-items:center;gap:8px}
+  .btn.ghost{background:transparent;color:var(--accent);box-shadow:inset 0 0 0 1.5px var(--tint-34)}
+  .link{font-size:14px;font-weight:600;color:var(--accent);
+        display:inline-flex;align-items:center;gap:7px}
+  .link svg{width:14px;height:14px}
+
+  /* the blue band, exactly as the page has it, with the new colour beside it */
+  .band{background:var(--blue-band);border-radius:16px;padding:18px;margin:22px 0 0}
+  .band .kicker{color:var(--blue-ink)}
+  .band .kicker:before{background:var(--blue)}
+  .band .ticks{margin:14px 0 0}
+  .band .ticks svg{color:var(--blue-ink);box-shadow:none}
+  .band .ticks li{font-size:14.5px;font-weight:400}
+
   .faq{margin:22px 0 0}
-  .faq div{
-    display:flex;align-items:center;justify-content:space-between;gap:16px;
-    background:#fff;border:1px solid var(--line);border-radius:16px;
-    padding:15px 18px;margin-bottom:12px;
-    font-family:var(--serif);font-size:16.5px;font-weight:600;color:var(--ink);line-height:1.4;
-  }
+  .faq div{display:flex;align-items:center;justify-content:space-between;gap:16px;
+           background:#fff;border:1px solid var(--line);border-radius:16px;
+           padding:15px 18px;margin-bottom:12px;
+           font-family:var(--serif);font-size:16.5px;font-weight:600;color:var(--ink);line-height:1.4}
   .cross{position:relative;width:22px;height:22px;flex:0 0 auto}
   .cross:before,.cross:after{content:"";position:absolute;background:var(--accent);border-radius:2px}
   .cross:before{left:10px;top:2px;width:2px;height:18px}
   .cross:after{left:2px;top:10px;width:18px;height:2px}
 
-  footer{
-    margin-top:56px;padding:24px 0 44px;font-size:13.5px;color:var(--muted);
-    border-top:1px solid var(--line);
-  }
+  .bar{display:flex;align-items:center;gap:12px;margin:20px 0 0;
+       background:var(--tint-12);border-radius:14px;padding:14px 16px}
+  .bar b{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--accent);line-height:1}
+  .bar u{flex:1;height:6px;border-radius:100px;background:var(--tint-34);
+         text-decoration:none;position:relative;overflow:hidden}
+  .bar u:after{content:"";position:absolute;inset:0 32% 0 0;background:var(--accent);border-radius:100px}
+
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 0}
+  .chip{font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+        padding:6px 11px;border-radius:100px;background:var(--tint-12);color:var(--accent)}
+  .chip.green{background:var(--mint);color:var(--green-dark)}
+
+  footer{margin-top:56px;padding:24px 0 44px;font-size:13.5px;color:var(--muted);
+         border-top:1px solid var(--line)}
 </style>
 </head>
 <body>
@@ -156,7 +149,7 @@
   <div class="brand">Macro<span>Lingo</span></div>
   <h1>A third colour</h1>
   <p class="lede">
-    Three options, each shown on the places the colour could be used.
+    Three options, each shown next to the green and the blue already in use.
   </p>
 </div>
 
@@ -175,11 +168,15 @@
 <div class="wrap sect">
   <span class="kicker">The options</span>
   <div class="cols">
-
     <article class="cand" style="--accent:#C47300;--tint-12:#F8EEE0;--tint-34:#EBCFA8">
       <header>
         <h3><i></i>Ochre</h3>
         <div class="hex">#C47300</div>
+        <div class="trio">
+          <span style="background:#54B435"></span>
+          <span style="background:#2559B4"></span>
+          <span style="background:var(--accent)"></span>
+        </div>
       </header>
       <div class="sample">
         <span class="kicker">Services</span>
@@ -192,20 +189,25 @@
         <ul class="ticks">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.2 5.2L20 6.8"/></svg>Subject specialists for complex content</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.2 5.2L20 6.8"/></svg>Certified editing for research</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.2 5.2L20 6.8"/></svg>Translators for global markets</li>
         </ul>
-        <div class="faq">
-          <div>What kind of writing do you do?<span class="cross"></span></div>
-          <div>Do you do free trials?<span class="cross"></span></div>
-        </div>
         <div class="btns">
           <span class="btn">Get in touch</span>
           <span class="btn ghost">See our work</span>
           <span class="link">Read more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
         </div>
+        <div class="band">
+          <span class="kicker">About</span>
+          <ul class="ticks">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.2 5.2L20 6.8"/></svg>Experts only, working for you</li>
+          </ul>
+        </div>
+        <div class="faq">
+          <div>What kind of writing do you do?<span class="cross"></span></div>
+          <div>Do you do free trials?<span class="cross"></span></div>
+        </div>
         <div class="bar"><b>15+</b><u></u></div>
         <div class="chips">
-          <span class="chip">Climate</span>
+          <span class="chip green">Climate</span>
           <span class="chip">Case studies</span>
           <span class="chip">AI search</span>
         </div>
@@ -216,6 +218,11 @@
       <header>
         <h3><i></i>Plum</h3>
         <div class="hex">#834791</div>
+        <div class="trio">
+          <span style="background:#54B435"></span>
+          <span style="background:#2559B4"></span>
+          <span style="background:var(--accent)"></span>
+        </div>
       </header>
       <div class="sample">
         <span class="kicker">Services</span>
@@ -228,20 +235,25 @@
         <ul class="ticks">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.2 5.2L20 6.8"/></svg>Subject specialists for complex content</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.2 5.2L20 6.8"/></svg>Certified editing for research</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.2 5.2L20 6.8"/></svg>Translators for global markets</li>
         </ul>
-        <div class="faq">
-          <div>What kind of writing do you do?<span class="cross"></span></div>
-          <div>Do you do free trials?<span class="cross"></span></div>
-        </div>
         <div class="btns">
           <span class="btn">Get in touch</span>
           <span class="btn ghost">See our work</span>
           <span class="link">Read more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
         </div>
+        <div class="band">
+          <span class="kicker">About</span>
+          <ul class="ticks">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.2 5.2L20 6.8"/></svg>Experts only, working for you</li>
+          </ul>
+        </div>
+        <div class="faq">
+          <div>What kind of writing do you do?<span class="cross"></span></div>
+          <div>Do you do free trials?<span class="cross"></span></div>
+        </div>
         <div class="bar"><b>15+</b><u></u></div>
         <div class="chips">
-          <span class="chip">Climate</span>
+          <span class="chip green">Climate</span>
           <span class="chip">Case studies</span>
           <span class="chip">AI search</span>
         </div>
@@ -252,6 +264,11 @@
       <header>
         <h3><i></i>Deep teal</h3>
         <div class="hex">#006768</div>
+        <div class="trio">
+          <span style="background:#54B435"></span>
+          <span style="background:#2559B4"></span>
+          <span style="background:var(--accent)"></span>
+        </div>
       </header>
       <div class="sample">
         <span class="kicker">Services</span>
@@ -264,20 +281,25 @@
         <ul class="ticks">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.2 5.2L20 6.8"/></svg>Subject specialists for complex content</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.2 5.2L20 6.8"/></svg>Certified editing for research</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.2 5.2L20 6.8"/></svg>Translators for global markets</li>
         </ul>
-        <div class="faq">
-          <div>What kind of writing do you do?<span class="cross"></span></div>
-          <div>Do you do free trials?<span class="cross"></span></div>
-        </div>
         <div class="btns">
           <span class="btn">Get in touch</span>
           <span class="btn ghost">See our work</span>
           <span class="link">Read more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
         </div>
+        <div class="band">
+          <span class="kicker">About</span>
+          <ul class="ticks">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.2 5.2L20 6.8"/></svg>Experts only, working for you</li>
+          </ul>
+        </div>
+        <div class="faq">
+          <div>What kind of writing do you do?<span class="cross"></span></div>
+          <div>Do you do free trials?<span class="cross"></span></div>
+        </div>
         <div class="bar"><b>15+</b><u></u></div>
         <div class="chips">
-          <span class="chip">Climate</span>
+          <span class="chip green">Climate</span>
           <span class="chip">Case studies</span>
           <span class="chip">AI search</span>
         </div>
