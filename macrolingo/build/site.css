@@ -609,9 +609,10 @@ body .ml-service-card .ml-arrow-link .elementor-button.elementor-button{ font-si
 }
 
 
-/* --- Client name strip ---------------------------------------------------
-   ml-strip-label  the small line above
-   ml-logo-row     the row, ml-client-name each name                       */
+/* --- Client strip ---------------------------------------------------------
+   ml-strip-label     the small line above it on the English page
+   ml-strip-title     the heading above it on the Japanese page
+   ml-logo-carousel   the marks themselves, further down this file        */
 .ml-strip-label .elementor-heading-title{
   font-family: var(--ml-sans);
   font-size: 12px;
@@ -632,6 +633,12 @@ body .ml-service-card .ml-arrow-link .elementor-button.elementor-button{ font-si
    A mark is held to a height and a wide wordmark to the width of its place,
    which is what keeps a long name and a compact badge reading as the same
    weight without giving each one a number of its own.                     */
+/* A strip that never stops has a mark half in and half out at each end.
+   Cut off square that reads as a mistake, so both edges fade instead.    */
+.ml-logo-carousel .elementor-image-carousel-wrapper{
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
 .ml-logo-carousel .swiper,
 .ml-logo-carousel .swiper-container{ cursor: grab; }
 .ml-logo-carousel .swiper:active,
@@ -2013,6 +2020,24 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
   .ml-photo-panel, .ml-photo-panel-tall, .ml-photo-panel-taller{ min-height: 280px; }
   .ml-map{ flex: 0 0 auto; height: 240px; }
 }
+/* The burger's list is put away by collapsing its height, but it is still
+   laid out as wide as its longest item, and that width was making the bar
+   wider than the screen and pushing the burger itself off the right edge.
+   The widget is held to the burger, and the list hangs under the whole bar
+   the way a menu on a phone should.                                      */
+@media (max-width: 920px){
+  .ml-header .ml-nav.elementor-widget{ flex: 0 0 auto; width: auto; min-width: 0; position: static; }
+  .ml-header .ml-nav .elementor-nav-menu--dropdown{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-top: 1px solid var(--ml-line);
+    box-shadow: 0 14px 26px rgba(34,50,74,.07);
+  }
+}
+
 @media (max-width: 767px){
   .ml-form{ padding: 28px; }
   .ml-logo img{ height: 28px; }
