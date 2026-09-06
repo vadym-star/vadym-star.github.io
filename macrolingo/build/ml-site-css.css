@@ -2127,6 +2127,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
    ========================================================================== */
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -2186,9 +2188,14 @@ html[lang^="en"] .ml-page-hero .ml-hero-title.elementor-widget-heading .elemento
    The mark at the top is Adam's own drawing, a dark figure on a white
    square. Multiplying it onto the mint tile drops the white away and leaves
    the figure, so his artwork sits in the design without being redrawn.     */
-.ml-value-mark .elementor-widget-container{
+.ml-value-mark.elementor-widget{
+  /* Elementor draws an Image widget with no wrapper of its own here, so the
+     tile is the widget itself rather than anything inside it              */
   width: 64px;
+  max-width: 64px;
   height: 64px;
+  flex: 0 0 auto;
+  align-self: flex-start;
   border-radius: 18px;
   background: var(--e-global-color-mlmint);
   display: flex;
@@ -2308,6 +2315,28 @@ html[lang^="en"] .ml-page-hero .ml-hero-title.elementor-widget-heading .elemento
   font-weight: 600;
   line-height: 1.6;
   color: var(--e-global-color-mlmuted);
+}
+
+
+/* --- Three client marks that are not the trimmed WebP --------------------
+   Rijk Zwaan, Germanwatch and Edanz appear only on About and Our Work, so
+   they are still the files already in Adam's library rather than the
+   cleaned WebP made for the homepage six. A square badge has to stand
+   taller than a wordmark to read at the same weight, which is why each is
+   given its own ceiling rather than the strip's one number.
+   Replace the file and this block goes with it.                           */
+.ml-logo-carousel img[src*="RZ-1"]{ max-height: 60px; }
+.ml-logo-carousel img[src*="GW-1"]{ max-height: 50px; }
+.ml-logo-carousel img[src*="Ed-1"]{ max-height: 38px; }
+@media (max-width: 1024px){
+  .ml-logo-carousel img[src*="RZ-1"]{ max-height: 52px; }
+  .ml-logo-carousel img[src*="GW-1"]{ max-height: 44px; }
+  .ml-logo-carousel img[src*="Ed-1"]{ max-height: 33px; }
+}
+@media (max-width: 767px){
+  .ml-logo-carousel img[src*="RZ-1"]{ max-height: 46px; }
+  .ml-logo-carousel img[src*="GW-1"]{ max-height: 39px; }
+  .ml-logo-carousel img[src*="Ed-1"]{ max-height: 29px; }
 }
 
 
