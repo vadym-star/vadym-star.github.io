@@ -1713,7 +1713,7 @@ html[lang^="ja"] .elementor-heading-title{ word-break: auto-phrase; }
    Templates > Theme Builder > Header. Logo, menu, language switch, button.
    The bar carries no line until the page is scrolled, and then it is a
    single hairline.
-   ml-header  ml-logo  ml-nav  ml-header-right  ml-header-cta
+   ml-header  ml-logo  ml-nav  ml-header-right  ml-lang  ml-header-cta
    ========================================================================== */
 .ml-header{
   background: rgba(255,255,255,.9);
@@ -1749,7 +1749,7 @@ html[lang^="ja"] .elementor-heading-title{ word-break: auto-phrase; }
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 16px;
+  gap: 8px;
   padding: 0;
   width: auto;
 }
@@ -1815,48 +1815,57 @@ html[lang^="ja"] .ml-nav .elementor-nav-menu--main a.elementor-item{
 .ml-nav .elementor-nav-menu--main a.elementor-item-active{ color: var(--e-global-color-secondary); }
 .ml-nav .elementor-nav-menu--main a.elementor-item:hover:after,
 .ml-nav .elementor-nav-menu--main a.elementor-item-active:after{ transform: scaleX(1); }
-/* WPML's own switch, in the menu where WPML puts it. It offers the language
-   you are not reading and nothing else, because the page you are on is
-   already in the other one, and it carries that country's flag. Everything
-   about it, the flag included, is set under WPML > Languages, so it can be
-   changed there without touching any of this.                             */
-/* The flag and the two letters together are a small thing to aim at, so the
-   link is given room around them. The padding is the target; the negative
-   margin takes that room back out of the row, so nothing on the bar moves.
-   The word sits close to its flag, as one mark rather than two.
-   It answers to the pointer the way the burger does, with the same tint,
-   rather than with the underline the other links use, because the
-   underline would sit well below a padded box.                            */
-.ml-nav .elementor-nav-menu li.wpml-ls-item{ margin-left: -4px; }
-.ml-nav .elementor-nav-menu--main li.wpml-ls-item a.elementor-item{
+/* --- The language switch --------------------------------------------------
+   ml-lang, in the header beside the button so the two read as one group.
+   It is WPML's own switcher, dropped in with its shortcode; the flag, and
+   the fact that it offers only the language you are not reading, are set
+   under WPML > Languages > Custom language switchers, not here.
+   The padding is what there is to aim at, and it answers to the pointer
+   with the same tint the burger uses.                                     */
+.ml-lang.elementor-widget{ display: flex; align-items: center; margin: 0; }
+.ml-lang .elementor-shortcode{ display: flex; align-items: center; }
+.ml-lang .wpml-ls{ padding: 0; border: 0; background: none; }
+.ml-lang .wpml-ls > ul,
+.ml-lang .wpml-ls .wpml-ls-item{
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ml-lang .wpml-ls a,
+.ml-lang .wpml-ls a:link,
+.ml-lang .wpml-ls a:visited{
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  font-weight: 600;
-  padding: 7px 11px;
+  margin: 0;
+  padding: 8px 11px;
+  border: 0;
   border-radius: 9px;
+  background: none;
+  font-family: var(--ml-sans);
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1.72;
+  white-space: nowrap;
+  color: var(--e-global-color-text);
+  text-decoration: none;
   transition: color .16s ease, background-color .16s ease;
 }
-.ml-nav .elementor-nav-menu--main li.wpml-ls-item a.elementor-item:hover,
-.ml-nav .elementor-nav-menu--main li.wpml-ls-item a.elementor-item:focus-visible{
+.ml-lang .wpml-ls a:hover,
+.ml-lang .wpml-ls a:focus-visible{
   background: var(--e-global-color-mlmint);
   color: var(--e-global-color-mlgreendark);
 }
-.ml-nav .elementor-nav-menu--main li.wpml-ls-item a.elementor-item:after{ display: none; }
-.ml-nav .elementor-nav-menu li.wpml-ls-item img.wpml-ls-flag{
-  display: inline-block;
+/* both flags carry white, so a hairline keeps them off the white bar */
+.ml-lang .wpml-ls-flag{
+  display: block;
   width: 18px;
   height: auto;
   margin: 0;
   border-radius: 2px;
-  /* a hairline, because both flags carry white and would otherwise bleed
-     into the white bar                                                    */
   box-shadow: 0 0 0 1px rgba(34,50,74,.12);
-}
-.ml-nav .elementor-nav-menu--dropdown li.wpml-ls-item a{
-  display: flex;
-  align-items: center;
-  gap: 5px;
 }
 
 body .ml-header .ml-header-cta .elementor-button.elementor-button{
@@ -2074,6 +2083,21 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 }
 @media (max-width: 600px){
   .e-con.ml-footer-cols > .e-con-inner{ grid-template-columns: 1fr; }
+  /* the logo, the switch, the button and the burger will not all fit across
+     a phone with the word in place, so the flag carries the switch on its
+     own and the bar draws in a little                                     */
+  .ml-header{ padding-left: 18px !important; padding-right: 18px !important; }
+  .ml-header > .e-con-inner{ gap: 10px; }
+  .ml-lang .wpml-ls a{ padding: 8px; gap: 0; }
+  .ml-lang .wpml-ls .wpml-ls-native{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
 }
 
 /* ==========================================================================
