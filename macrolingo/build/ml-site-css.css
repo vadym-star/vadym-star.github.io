@@ -2129,6 +2129,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -2315,6 +2317,75 @@ html[lang^="en"] .ml-page-hero .ml-hero-title.elementor-widget-heading .elemento
   font-weight: 600;
   line-height: 1.6;
   color: var(--e-global-color-mlmuted);
+}
+
+
+/* --- A picture that is not square ----------------------------------------
+   ml-photo-wide, beside ml-photo
+   The English About hero photograph is nearly square and the Japanese one
+   is a landscape, so the two need different frames rather than one crop
+   that cuts heads off.                                                     */
+.ml-photo-wide img{
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  width: 100%;
+  border: 1px solid var(--ml-line-2);
+}
+
+
+/* --- The Japanese About page --------------------------------------------
+   ml-bels  ml-owner-card  ml-owner-text  ml-jp-table
+   The editing certificate sits under his photograph at its own size. The
+   badge is drawn on white, so it is multiplied onto the blue band the same
+   way the value marks are onto their tile.                                */
+.ml-bels.elementor-widget{ align-self: flex-start; }
+.ml-bels img{
+  width: 92px;
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+  mix-blend-mode: multiply;
+}
+.ml-owner-text.elementor-widget{ font-size: 16px; line-height: 1.95; }
+.ml-owner-text p{ font-size: inherit; line-height: inherit; margin-bottom: 0; }
+.ml-owner-card .ml-cred.elementor-widget{
+  margin-top: 26px;
+  padding-top: 26px;
+  border-top: 1px solid var(--ml-line);
+}
+
+/* The company details. A table typed into a Text Editor rather than a table
+   widget, because this install has none outside Ultimate Addons and a table
+   in the editor is something the owner can change cell by cell.           */
+.ml-jp-table.elementor-widget{ width: 100%; max-width: 860px; margin-left: auto; margin-right: auto; }
+table.ml-facts{ width: 100%; border-collapse: collapse; }
+table.ml-facts th,
+table.ml-facts td{ border-top: 1px solid var(--ml-line-2); vertical-align: top; }
+table.ml-facts tr:first-child th,
+table.ml-facts tr:first-child td{ border-top: 0; }
+table.ml-facts th{
+  width: 170px;
+  text-align: left;
+  font-family: var(--ml-sans);
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1.72;
+  color: var(--e-global-color-mlmuted);
+  padding: 17px 24px 17px 0;
+  white-space: nowrap;
+}
+table.ml-facts td{
+  font-size: 15.5px;
+  line-height: 1.85;
+  color: var(--e-global-color-secondary);
+  padding: 17px 0;
+}
+@media (max-width: 600px){
+  table.ml-facts th,
+  table.ml-facts td{ display: block; width: auto; white-space: normal; }
+  table.ml-facts th{ padding: 16px 0 0; border-top: 1px solid var(--ml-line-2); }
+  table.ml-facts td{ padding: 4px 0 16px; border-top: 0; }
+  table.ml-facts tr:first-child th{ border-top: 0; }
 }
 
 
