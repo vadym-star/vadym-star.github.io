@@ -786,9 +786,12 @@ body .ml-service-card .ml-arrow-link .elementor-button.elementor-button{ font-si
   border-radius: 50%;
   object-fit: cover;
   display: block;
-  /* most of these marks sit on white, so a hairline keeps the circle
-     readable against the white card behind it                             */
-  border: 1px solid var(--ml-line);
+  /* Most of these marks are drawn on white and sit on a white card, so
+     without a ring of its own the circle has no edge at all. The green
+     hairline used elsewhere was too faint to give it one; this is a soft
+     ink instead, dark enough to read and light enough not to draw the eye
+     away from the mark inside it.                                        */
+  border: 1px solid rgba(34, 50, 74, .24);
 }
 .ml-quote-name .elementor-heading-title,
 .ml-quote-name h4.elementor-heading-title{
