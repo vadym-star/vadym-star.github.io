@@ -2302,3 +2302,58 @@ html[lang^="ja"] .cky-btn{ border-radius: 8px !important; }
   .cky-prefrence-btn-wrapper{ flex-direction: column; align-items: stretch; }
   .cky-btn{ width: 100%; text-align: center; }
 }
+
+
+/* ==========================================================================
+   THIRD COLOUR, ON TRIAL: PLUM
+   --------------------------------------------------------------------------
+   Adam asked for a third colour beside the green and the blue. This block is
+   the whole of it. Change the one value below and everything follows; delete
+   the block and the site is exactly as it was. Nothing above this point
+   knows the colour exists.
+
+   Plum sits almost opposite the green on the colour wheel, 179 degrees round
+   from it, which is as far from both the green and the blue as it is
+   possible to get without landing in the warm colours. It is deliberately
+   dark rather than bright: a bright purple reads cheap, a deep plum reads
+   considered, and the pairing of green and plum is an old one, botanical
+   and academic rather than technical.
+
+   The value carries the same weight against white as the blue already does,
+   6.4 against the blue's 6.6, so it speaks at the same volume as the colour
+   it sits beside. Lighter and heavier versions of the same plum, should it
+   want to be one or the other:
+       #9558A3   lighter, more obviously purple
+       #834791   in use
+       #743981   heavier
+       #652A72   near black, reads as a dark tone rather than a colour
+
+   It is put on the small green things only, and not on the buttons, the
+   links or the headings, so that what is being judged is the colour itself
+   and not a redesign:
+     the eyebrow above each section and its dot
+     the ticks beside a list
+     the years figure over the hero photo
+     the cross that opens a question
+   The blue band keeps its blue; it is put back below.
+   ========================================================================== */
+body{ --ml-accent: #834791; }
+
+.ml-label .elementor-heading-title{ color: var(--ml-accent); }
+.ml-label .elementor-heading-title:before{ background: var(--ml-accent); }
+.ml-ticks .elementor-icon-list-icon{ color: var(--ml-accent); }
+.ml-years{
+  background-image: linear-gradient(120deg,
+      var(--ml-accent) 5%, var(--e-global-color-mlgreendark) 95%);
+}
+.ml-faq.elementor-widget-n-accordion .e-n-accordion-item-title-icon:before,
+.ml-faq.elementor-widget-n-accordion .e-n-accordion-item-title-icon:after{
+  background: var(--ml-accent);
+}
+
+/* the blue band is the one place that is neither green nor the new colour,
+   and it stays as it was                                                  */
+.ml-band-blue .ml-label .elementor-heading-title{ color: var(--ml-blue-ink); }
+.ml-band-blue .ml-label .elementor-heading-title:before{ background: var(--e-global-color-accent); }
+.ml-band-blue .ml-ticks .elementor-icon-list-icon,
+.ml-ticks-on-blue .elementor-icon-list-icon{ color: var(--ml-blue-ink); }
