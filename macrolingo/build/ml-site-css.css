@@ -917,7 +917,12 @@ body .ml-service-card .ml-arrow-link .elementor-button.elementor-button{ font-si
 .ml-faq.elementor-widget-n-accordion .e-n-accordion-item-title-text{
   font-family: var(--ml-serif);
   font-size: 18.5px;
-  font-weight: 500;
+  /* the questions are set bold and the answers left as they were, so a
+     column of cards reads as a list of questions first. 600 is the heaviest
+     cut either serif carries: the Newsreader file covers 400 to 600, and
+     Noto Serif JP is asked for at 500 and 600. Anything above that would be
+     drawn by the browser thickening the letters itself.                   */
+  font-weight: 600;
   line-height: 1.72;
   color: var(--e-global-color-secondary);
   margin: 0;
