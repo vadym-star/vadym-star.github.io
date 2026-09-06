@@ -20,9 +20,7 @@
     --green:#54B435;
     --green-dark:#458F2C;
     --mint:#EAF5E2;
-    --blue:#2F6FD6;
     --blue-ink:#2559B4;
-    --blue-band:#EAF2FE;
     --serif:'Newsreader',Georgia,serif;
     --sans:'Figtree',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
     --shadow-soft:0 1px 2px rgba(34,50,74,.04),0 6px 18px rgba(34,50,74,.05);
@@ -30,103 +28,72 @@
   }
   *{box-sizing:border-box}
   body{
-    margin:0;
-    background:var(--warm);
-    color:var(--body);
-    font-family:var(--sans);
-    font-size:16px;
-    line-height:1.72;
+    margin:0;background:var(--warm);color:var(--body);
+    font-family:var(--sans);font-size:16px;line-height:1.72;
     -webkit-font-smoothing:antialiased;
   }
   h1,h2,h3{font-family:var(--serif);color:var(--ink);margin:0;line-height:1.14;letter-spacing:-.01em}
   p{margin:0}
   .wrap{max-width:1180px;margin:0 auto;padding:0 30px}
 
-  /* ---------------------------------------------------------------- head -- */
-  .top{padding:64px 0 0}
-  .brand{
-    font-family:var(--serif);font-size:20px;font-weight:600;color:var(--ink);
-    letter-spacing:-.01em;
-  }
+  .top{padding:60px 0 0}
+  .brand{font-family:var(--serif);font-size:20px;font-weight:600;color:var(--ink);letter-spacing:-.01em}
   .brand span{color:var(--green-dark)}
-  h1{font-size:clamp(34px,4.4vw,50px);margin:26px 0 0;max-width:16ch}
-  .lede{font-size:18px;line-height:1.65;max-width:62ch;margin:20px 0 0}
-  .note{font-size:15px;color:var(--muted);max-width:62ch;margin:14px 0 0}
+  h1{font-size:clamp(34px,4.4vw,48px);margin:22px 0 0}
+  .lede{font-size:17px;max-width:56ch;margin:14px 0 0}
 
-  .rule{
-    height:1px;margin:54px 0 0;
-    background:linear-gradient(90deg,transparent,var(--line-2) 6%,var(--line-2) 94%,transparent);
-  }
-
-  /* ------------------------------------------------------------ the base -- */
   .kicker{
     display:inline-flex;align-items:center;gap:9px;
     font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
     color:var(--green-dark);
   }
   .kicker:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green);flex:0 0 auto}
-  h2{font-size:clamp(26px,3vw,34px);margin:14px 0 0}
-  .sect{padding:54px 0 0}
-  .sect > p{margin-top:14px;max-width:60ch}
 
-  .swatches{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:26px 0 0;max-width:700px}
-  @media(max-width:640px){.swatches{grid-template-columns:1fr 1fr}}
+  .sect{padding:46px 0 0}
+
+  .swatches{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin:18px 0 0}
+  @media(max-width:900px){.swatches{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  @media(max-width:520px){.swatches{grid-template-columns:1fr 1fr}}
   .sw{
     background:var(--paper);border:1px solid var(--line);border-radius:14px;
-    padding:12px 14px;display:flex;align-items:center;gap:12px;
+    padding:14px;
   }
-  .sw i{width:34px;height:34px;border-radius:9px;flex:0 0 auto;box-shadow:inset 0 0 0 1px rgba(34,50,74,.10)}
-  .sw b{display:block;font-size:14px;font-weight:600;color:var(--ink);line-height:1.4}
-  .sw code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;color:var(--muted)}
+  .sw i{display:block;height:44px;border-radius:9px;box-shadow:inset 0 0 0 1px rgba(34,50,74,.10)}
+  .sw b{display:block;font-size:13.5px;font-weight:600;color:var(--ink);margin-top:10px;line-height:1.4}
+  .sw code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;color:var(--muted)}
 
-  /* --------------------------------------------------------- candidates -- */
-  /* the three cards share their rows, so the samples begin on one line
-     however long the note above each of them runs                        */
-  .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:34px 0 0;align-items:stretch}
-  @media(max-width:1000px){.cols{grid-template-columns:1fr;max-width:560px}}
-
+  /* the three cards share their rows, so the samples begin on one line */
+  .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:18px 0 0;align-items:stretch}
+  @media(max-width:1000px){.cols{grid-template-columns:1fr;max-width:520px}}
   .cand{
     background:var(--paper);border:1px solid var(--line);border-radius:20px;
     overflow:hidden;box-shadow:var(--shadow-soft);
     display:grid;grid-row:span 2;grid-template-rows:subgrid;
   }
-  /* a browser that does not know subgrid falls back to a plain height */
-  @supports not (grid-template-rows: subgrid){
-    .cand{display:block}
-    .cand > header{min-height:288px}
-  }
-  @media(max-width:1000px){
-    .cand{display:block}
-    .cand > header{min-height:0}
-  }
-  .cand > header{padding:22px 24px 20px;border-bottom:1px solid var(--line)}
-  .cand h3{font-size:22px;display:flex;align-items:center;gap:11px}
+  @supports not (grid-template-rows: subgrid){ .cand{display:block} }
+  @media(max-width:1000px){ .cand{display:block} }
+  .cand > header{padding:20px 24px 18px;border-bottom:1px solid var(--line)}
+  .cand h3{font-size:21px;display:flex;align-items:center;gap:11px}
   .cand h3 i{width:20px;height:20px;border-radius:6px;background:var(--accent);flex:0 0 auto;box-shadow:inset 0 0 0 1px rgba(34,50,74,.12)}
-  .cand .hex{
-    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;
-    color:var(--muted);margin-top:8px;letter-spacing:.02em;
-  }
-  .cand .why{font-size:14.5px;line-height:1.6;margin-top:12px}
-  .cand .catch{font-size:14px;line-height:1.6;margin-top:10px;color:var(--muted)}
+  .cand .hex{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:var(--muted);margin-top:7px}
 
-  /* the sample, built from the real pieces of the homepage */
-  .sample{padding:26px 24px 28px}
-  .sample .kicker{color:var(--accent-ink)}
+  .sample{padding:24px 24px 26px}
+  .sample .kicker{color:var(--accent)}
   .sample .kicker:before{background:var(--accent)}
   .sample h4{
-    font-family:var(--serif);font-size:22px;font-weight:500;color:var(--ink);
+    font-family:var(--serif);font-size:21px;font-weight:500;color:var(--ink);
     margin:12px 0 0;line-height:1.2;letter-spacing:-.01em;
   }
-  .ticks{list-style:none;margin:20px 0 0;padding:0}
+  .ticks{list-style:none;margin:18px 0 0;padding:0}
   .ticks li{display:flex;align-items:center;gap:12px;margin-bottom:13px;font-size:15px;font-weight:500;color:var(--ink)}
   .ticks svg{
     width:24px;height:24px;padding:5.5px;border-radius:50%;background:#fff;
-    box-shadow:var(--shadow-soft);color:var(--accent-ink);flex:0 0 auto;
+    box-shadow:var(--shadow-soft);color:var(--accent);flex:0 0 auto;
   }
   .years{
     display:inline-flex;flex-direction:column;align-items:center;
     background:#fff;border:1.5px solid var(--line-2);border-radius:14px;
-    box-shadow:var(--shadow-lift);padding:11px 15px;margin:22px 0 0;
+    box-shadow:var(--shadow-lift);padding:11px 15px;margin:20px 0 0;
   }
   .years b{
     font-family:var(--serif);font-size:22px;font-weight:600;line-height:1;
@@ -134,11 +101,11 @@
     -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
   }
   .years span{font-size:10.5px;color:var(--muted);margin-top:2px}
-  .faq{margin:24px 0 0}
+  .faq{margin:22px 0 0}
   .faq div{
     display:flex;align-items:center;justify-content:space-between;gap:16px;
     background:#fff;border:1px solid var(--line);border-radius:16px;
-    padding:16px 18px;margin-bottom:12px;
+    padding:15px 18px;margin-bottom:12px;
     font-family:var(--serif);font-size:16.5px;font-weight:600;color:var(--ink);line-height:1.4;
   }
   .cross{position:relative;width:22px;height:22px;flex:0 0 auto}
@@ -146,20 +113,8 @@
   .cross:before{left:10px;top:2px;width:2px;height:18px}
   .cross:after{left:2px;top:10px;width:18px;height:2px}
 
-  .onwhat{display:flex;gap:10px;margin:22px 0 0;flex-wrap:wrap}
-  .onwhat span{
-    font-size:12.5px;font-weight:600;padding:7px 12px;border-radius:9px;
-    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
-  }
-  .onwhat .a{background:#fff;color:var(--accent-ink);box-shadow:inset 0 0 0 1px var(--line)}
-  .onwhat .b{background:var(--mint);color:var(--accent-ink)}
-  .onwhat .c{background:var(--accent);color:#fff}
-
-  /* ---------------------------------------------------------------- end -- */
-  .close{padding:56px 0 90px;max-width:64ch}
-  .close p + p{margin-top:14px}
   footer{
-    padding:26px 0 40px;font-size:13.5px;color:var(--muted);
+    margin-top:56px;padding:24px 0 44px;font-size:13.5px;color:var(--muted);
     border-top:1px solid var(--line);
   }
 </style>
@@ -170,66 +125,31 @@
   <div class="brand">Macro<span>Lingo</span></div>
   <h1>A third colour</h1>
   <p class="lede">
-    You asked whether the design could carry a third colour alongside the green
-    and the blue, so that the page stops reading as green throughout. Here are
-    the three that are worth considering, each shown on the parts of the
-    homepage it would actually touch.
-  </p>
-  <p class="note">
-    Nothing here changes the buttons, the links or the headings. The colour is
-    put on the small things only: the label above a section, the ticks beside a
-    list, the years figure over the hero photograph, and the cross that opens a
-    question. That is enough to change how the page reads without turning it
-    into a different design.
+    Three options, each on the parts of the homepage it would touch. Buttons,
+    links and headings stay as they are.
   </p>
 </div>
 
-<div class="wrap"><div class="rule"></div></div>
-
 <div class="wrap sect">
-  <span class="kicker">What is there now</span>
-  <h2>The colours already in use</h2>
-  <p>
-    Green does almost all of the work, which is the thing you noticed. Blue
-    appears once, in the band about the team. Everything else is paper, ink and
-    a line.
-  </p>
+  <span class="kicker">In use now</span>
   <div class="swatches">
-    <div class="sw"><i style="background:#54B435"></i><div><b>Green</b><code>#54B435</code></div></div>
-    <div class="sw"><i style="background:#458F2C"></i><div><b>Green, deeper</b><code>#458F2C</code></div></div>
-    <div class="sw"><i style="background:#2559B4"></i><div><b>Blue</b><code>#2559B4</code></div></div>
-    <div class="sw"><i style="background:#22324A"></i><div><b>Ink</b><code>#22324A</code></div></div>
-    <div class="sw"><i style="background:#EAF5E2"></i><div><b>Mint</b><code>#EAF5E2</code></div></div>
-    <div class="sw"><i style="background:#F6F8F2"></i><div><b>Paper</b><code>#F6F8F2</code></div></div>
+    <div class="sw"><i style="background:#54B435"></i><b>Green</b><code>#54B435</code></div>
+    <div class="sw"><i style="background:#458F2C"></i><b>Green, deeper</b><code>#458F2C</code></div>
+    <div class="sw"><i style="background:#2559B4"></i><b>Blue</b><code>#2559B4</code></div>
+    <div class="sw"><i style="background:#22324A"></i><b>Ink</b><code>#22324A</code></div>
+    <div class="sw"><i style="background:#EAF5E2"></i><b>Mint</b><code>#EAF5E2</code></div>
+    <div class="sw"><i style="background:#F6F8F2"></i><b>Paper</b><code>#F6F8F2</code></div>
   </div>
 </div>
 
 <div class="wrap sect">
-  <span class="kicker">The three</span>
-  <h2>Ochre, plum, deep teal</h2>
-  <p>
-    Each of these is built to the same weight as the green already in use, the
-    same brightness and the same strength of colour as the eye reads them, with
-    only the hue turned. That is what makes one of them sit beside the green as
-    a relation rather than as something borrowed from elsewhere.
-  </p>
-
+  <span class="kicker">The options</span>
   <div class="cols">
 
-    <!-- ------------------------------------------------------------ ochre -->
-    <article class="cand" style="--accent:#C47300;--accent-ink:#C47300">
+    <article class="cand" style="--accent:#C47300">
       <header>
         <h3><i></i>Ochre</h3>
-        <div class="hex">#C47300 &middot; warm, 76&deg; round from the green</div>
-        <p class="why">
-          The warm answer. It sits well against green, ties in with the amber
-          of the stars on the reviews, and reads as paper and ink rather than
-          as a technology brand.
-        </p>
-        <p class="catch">
-          The catch: it is an orange, and you have said the design is better for
-          not being orange.
-        </p>
+        <div class="hex">#C47300</div>
       </header>
       <div class="sample">
         <span class="kicker">Services</span>
@@ -244,27 +164,13 @@
           <div>What kind of writing do you do?<span class="cross"></span></div>
           <div>Do you do free trials?<span class="cross"></span></div>
         </div>
-        <div class="onwhat">
-          <span class="a">on white</span><span class="b">on mint</span><span class="c">as a fill</span>
-        </div>
       </div>
     </article>
 
-    <!-- ------------------------------------------------------------- plum -->
-    <article class="cand" style="--accent:#834791;--accent-ink:#834791">
+    <article class="cand" style="--accent:#834791">
       <header>
         <h3><i></i>Plum</h3>
-        <div class="hex">#834791 &middot; 179&deg; round from the green, almost opposite it</div>
-        <p class="why">
-          The furthest thing from both the green and the blue that is not warm.
-          Green and plum is an old pairing, botanical and academic rather than
-          technical. It is deliberately dark: a bright purple reads cheap, a
-          deep plum reads considered.
-        </p>
-        <p class="catch">
-          The catch: it is the boldest of the three, and it is unmistakably a
-          new colour rather than a shade of what is there.
-        </p>
+        <div class="hex">#834791</div>
       </header>
       <div class="sample">
         <span class="kicker">Services</span>
@@ -278,28 +184,14 @@
         <div class="faq">
           <div>What kind of writing do you do?<span class="cross"></span></div>
           <div>Do you do free trials?<span class="cross"></span></div>
-        </div>
-        <div class="onwhat">
-          <span class="a">on white</span><span class="b">on mint</span><span class="c">as a fill</span>
         </div>
       </div>
     </article>
 
-    <!-- -------------------------------------------------------- deep teal -->
-    <article class="cand" style="--accent:#006768;--accent-ink:#006768">
+    <article class="cand" style="--accent:#006768">
       <header>
         <h3><i></i>Deep teal</h3>
-        <div class="hex">#006768 &middot; 57&deg; from the green, 65&deg; from the blue</div>
-        <p class="why">
-          The instrument colour: laboratory equipment, charts, dials. Of the
-          three it is the one that speaks most directly to science and
-          technology, and it is quiet enough to use anywhere on the page.
-        </p>
-        <p class="catch">
-          The catch: it sits between the green and the blue rather than away
-          from them, so beside the blue band it can read as a third shade of the
-          same family.
-        </p>
+        <div class="hex">#006768</div>
       </header>
       <div class="sample">
         <span class="kicker">Services</span>
@@ -313,9 +205,6 @@
         <div class="faq">
           <div>What kind of writing do you do?<span class="cross"></span></div>
           <div>Do you do free trials?<span class="cross"></span></div>
-        </div>
-        <div class="onwhat">
-          <span class="a">on white</span><span class="b">on mint</span><span class="c">as a fill</span>
         </div>
       </div>
     </article>
@@ -323,24 +212,7 @@
   </div>
 </div>
 
-<div class="wrap"><div class="rule"></div></div>
-
-<div class="wrap"><div class="close">
-  <span class="kicker">Next</span>
-  <h2>How to look at these</h2>
-  <p>
-    Ignore the swatches and look at the label above the sample and the small
-    circles beside the list. Those are the two places the colour is repeated
-    most often on a page, and they are where a wrong choice shows first.
-  </p>
-  <p>
-    Whichever you prefer, it goes on in an afternoon and can come off just as
-    quickly, so there is nothing to lose by trying one on the real pages for a
-    few days before deciding.
-  </p>
-</div></div>
-
-<div class="wrap"><footer>MacroLingo &middot; colour options for the homepage redesign</footer></div>
+<div class="wrap"><footer>MacroLingo &middot; colour options for the homepage</footer></div>
 
 </body>
 </html>
