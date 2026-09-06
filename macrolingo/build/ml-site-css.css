@@ -2305,28 +2305,31 @@ html[lang^="ja"] .cky-btn{ border-radius: 8px !important; }
 
 
 /* ==========================================================================
-   THIRD COLOUR, ON TRIAL: PLUM
+   THIRD COLOUR, ON TRIAL: DEEP TEAL
    --------------------------------------------------------------------------
    Adam asked for a third colour beside the green and the blue. This block is
    the whole of it. Change the one value below and everything follows; delete
    the block and the site is exactly as it was. Nothing above this point
    knows the colour exists.
 
-   Plum sits almost opposite the green on the colour wheel, 179 degrees round
-   from it, which is as far from both the green and the blue as it is
-   possible to get without landing in the warm colours. It is deliberately
-   dark rather than bright: a bright purple reads cheap, a deep plum reads
-   considered, and the pairing of green and plum is an old one, botanical
-   and academic rather than technical.
+   Teal is the instrument-panel colour: laboratory equipment, charts, dials.
+   It is the most on brief for the science and technology feel Adam keeps
+   asking for. Its weakness is honest and worth watching for: teal sits
+   between the green and the blue rather than away from them, 56 degrees
+   from one and 66 from the other, so it may read as a third shade of the
+   same thing rather than as a third colour. That is the whole question this
+   trial is meant to answer.
 
-   The value carries the same weight against white as the blue already does,
-   6.4 against the blue's 6.6, so it speaks at the same volume as the colour
-   it sits beside. Lighter and heavier versions of the same plum, should it
-   want to be one or the other:
-       #9558A3   lighter, more obviously purple
-       #834791   lighter
-       #743981   in use
-       #652A72   near black, reads as a dark tone rather than a colour
+   The value carries roughly the same weight against white as the plum it
+   replaces, 6.7 against 6.4, so the two can be compared fairly. Lighter and
+   heavier versions of the same teal:
+       #008888   lighter, closer to a true cyan
+       #007677   lighter
+       #006768   in use
+       #00585A   near black, reads as a dark tone rather than a colour
+   And the plum this replaced, should it be wanted back:
+       #834791   the lighter plum
+       #743981   the heavier plum
 
    It is put on the small green things only, and not on the buttons, the
    links or the headings, so that what is being judged is the colour itself
@@ -2337,7 +2340,7 @@ html[lang^="ja"] .cky-btn{ border-radius: 8px !important; }
      the cross that opens a question
    The blue band keeps its blue; it is put back below.
    ========================================================================== */
-body{ --ml-accent: #743981; }
+body{ --ml-accent: #006768; }
 
 .ml-label .elementor-heading-title{ color: var(--ml-accent); }
 .ml-label .elementor-heading-title:before{ background: var(--ml-accent); }
