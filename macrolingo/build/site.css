@@ -2324,8 +2324,8 @@ html[lang^="ja"] .cky-btn{ border-radius: 8px !important; }
    it sits beside. Lighter and heavier versions of the same plum, should it
    want to be one or the other:
        #9558A3   lighter, more obviously purple
-       #834791   in use
-       #743981   heavier
+       #834791   lighter
+       #743981   in use
        #652A72   near black, reads as a dark tone rather than a colour
 
    It is put on the small green things only, and not on the buttons, the
@@ -2337,7 +2337,7 @@ html[lang^="ja"] .cky-btn{ border-radius: 8px !important; }
      the cross that opens a question
    The blue band keeps its blue; it is put back below.
    ========================================================================== */
-body{ --ml-accent: #834791; }
+body{ --ml-accent: #743981; }
 
 .ml-label .elementor-heading-title{ color: var(--ml-accent); }
 .ml-label .elementor-heading-title:before{ background: var(--ml-accent); }
