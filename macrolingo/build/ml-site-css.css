@@ -2125,6 +2125,206 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
    dressed from here instead. Everything below reads from the Global Colors,
    so it follows the rest of the site.
    ========================================================================== */
+
+
+/* ==========================================================================
+   INNER PAGES
+   Everything from here down belongs to the pages other than the homepage:
+   About, Our Work and the ones that follow. It reuses the homepage's cards,
+   bands, tick lists and client strip; what is new is only the handful of
+   shapes those pages need and the homepage does not.
+   ========================================================================== */
+
+/* --- The top of an inner page --------------------------------------------
+   ml-page-hero on the section, with ml-split-hero beside it
+   An inner page does not open on a full screen: the reader came for what is
+   on the page, so the first block of content has to be within reach. The
+   same soft glows and the same closing hairline as the homepage hero, at a
+   little under half the height.                                           */
+.ml-page-hero{
+  position: relative;
+  background-image:
+    radial-gradient(44% 62% at 8% -12%, rgba(84,180,53,.08), transparent 62%),
+    radial-gradient(48% 66% at 94% -14%, rgba(47,111,214,.10), transparent 64%);
+  background-repeat: no-repeat;
+}
+.ml-page-hero:after{
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: min(100%, var(--ml-content-width));
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ml-line-2) 8%,
+                              var(--ml-line-2) 92%, transparent);
+}
+/* a shade under the homepage headline: these titles are sentences rather
+   than a single claim, so they need the room more than the size            */
+.ml-page-hero .ml-hero-title.elementor-widget-heading .elementor-heading-title,
+html[lang^="en"] .ml-page-hero .ml-hero-title.elementor-widget-heading .elementor-heading-title{
+  font-size: clamp(34px, 4vw, 48px);
+}
+.ml-page-hero .ml-hero-photo{ align-self: center; }
+.ml-page-hero .ml-hero-title.elementor-widget{ margin-top: 20px; }
+
+
+/* --- Three boxes across --------------------------------------------------
+   ml-three-up on the container that holds them
+   Three on a desktop, two on a tablet, one on a phone.                     */
+.ml-three-up > .e-con-inner{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: stretch;
+}
+.ml-three-up > .e-con-inner > *{ width: 100%; max-width: 100%; min-width: 0; }
+
+
+/* --- A value card --------------------------------------------------------
+   ml-value-card on the card, with ml-card
+   ml-value-mark  ml-value-title  ml-value-text
+   The mark at the top is Adam's own drawing, a dark figure on a white
+   square. Multiplying it onto the mint tile drops the white away and leaves
+   the figure, so his artwork sits in the design without being redrawn.     */
+.ml-value-mark .elementor-widget-container{
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  background: var(--e-global-color-mlmint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ml-value-mark img{
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  border-radius: 0;
+  box-shadow: none;
+}
+.ml-value-title.elementor-widget{ margin-top: 20px; }
+.ml-value-title .elementor-heading-title,
+.ml-value-title h3.elementor-heading-title{
+  font-family: var(--ml-serif);
+  font-size: 23px;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: -.01em;
+}
+.ml-value-text.elementor-widget{
+  margin-top: 9px;
+  font-size: 15.5px;
+  line-height: 1.72;
+  color: var(--e-global-color-mlmuted);
+}
+.ml-value-text p{ font-size: inherit; line-height: inherit; color: inherit; margin-bottom: 0; }
+
+
+/* --- The story band ------------------------------------------------------
+   ml-split-story on the section, beside a band class
+   ml-story-sub  ml-story-text  ml-belief-card  ml-belief-head
+   The words on the left, the list of beliefs on a card at the right, level
+   with them rather than underneath.                                        */
+.ml-split-story > .e-con-inner{
+  display: grid;
+  grid-template-columns: 1.12fr .88fr;
+  gap: 54px;
+  align-items: center;
+}
+.ml-split-story > .e-con-inner > *{ width: 100%; max-width: 100%; min-width: 0; }
+.ml-split-story > .e-con-inner > .e-con{ padding-left: 0; padding-right: 0; }
+.ml-story-sub.elementor-widget{ margin-top: 18px; }
+.ml-story-sub .elementor-heading-title,
+.ml-story-sub h3.elementor-heading-title{
+  font-family: var(--ml-serif);
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--e-global-color-secondary);
+  letter-spacing: -.005em;
+}
+.ml-story-text.elementor-widget{ margin-top: 16px; font-size: 16.5px; line-height: 1.85; }
+.e-con.ml-belief-card{
+  background-color: #fff;
+  border: 1px solid var(--ml-line);
+  border-radius: var(--ml-radius);
+  box-shadow: var(--ml-shadow-soft);
+  align-self: center;
+}
+.e-con.ml-belief-card > .e-con-inner{ padding: 0; }
+.ml-belief-head .elementor-heading-title,
+.ml-belief-head h4.elementor-heading-title{
+  font-family: var(--ml-sans);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.72;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--e-global-color-mlgreendark);
+}
+.ml-belief-card .ml-ticks.elementor-widget{ margin-top: 14px; }
+
+
+/* --- Adam on the blue band -----------------------------------------------
+   ml-split-adam on the section, ml-adam-photo on the picture column
+   ml-cred on his qualifications
+   His photograph is square, so it is shown square rather than cropped into
+   a tall panel the way the homepage does with a landscape one.             */
+.ml-split-adam > .e-con-inner{
+  display: grid;
+  grid-template-columns: .82fr 1.18fr;
+  gap: 54px;
+  align-items: center;
+}
+.ml-split-adam > .e-con-inner > *{ width: 100%; max-width: 100%; min-width: 0; }
+.ml-split-adam > .e-con-inner > .e-con{ padding-left: 0; padding-right: 0; }
+.e-con.ml-adam-photo > .e-con-inner{ padding: 0; }
+.ml-split-adam .ml-bio-wide.elementor-widget{ margin-top: 20px; }
+.ml-split-adam .ml-signature.elementor-widget{ margin-top: 16px; }
+.ml-cred.elementor-widget{ margin-top: 26px; }
+.ml-cred .elementor-icon-list-text a{ color: inherit; text-decoration: none; }
+.ml-cred .elementor-icon-list-text a:hover{ color: var(--ml-blue-ink); }
+.ml-split-adam .elementor-widget-button{ margin-top: 26px; }
+
+
+/* --- One measured column of prose ----------------------------------------
+   ml-prose on a Text Editor
+   A long passage set to a comfortable line, centred in the section. The
+   words stay left aligned; only the column is centred.                     */
+.ml-prose.elementor-widget{
+  max-width: 74ch;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 16.5px;
+  line-height: 1.9;
+}
+.ml-prose p{ font-size: inherit; line-height: inherit; margin-bottom: 0; }
+.ml-japan-sub.elementor-widget{ margin-top: 12px; }
+.ml-japan-sub .elementor-heading-title,
+.ml-japan-sub h4.elementor-heading-title{
+  font-family: var(--ml-sans);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.6;
+  color: var(--e-global-color-mlmuted);
+}
+
+
+/* --- Inner pages on smaller screens -------------------------------------- */
+@media (max-width: 1024px){
+  .ml-three-up > .e-con-inner{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 920px){
+  .ml-split-story > .e-con-inner,
+  .ml-split-adam > .e-con-inner{ grid-template-columns: 1fr; gap: 34px; }
+  .ml-cred .elementor-icon-list-items{ columns: 1; }
+}
+@media (max-width: 767px){
+  .ml-three-up > .e-con-inner{ grid-template-columns: 1fr; }
+}
+
+
 /* MacroLingo cookie notice
    ------------------------------------------------------------------
    The notice is dressed like the rest of the site: the same white card,
