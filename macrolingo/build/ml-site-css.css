@@ -621,35 +621,44 @@ body .ml-service-card .ml-arrow-link .elementor-button.elementor-button{ font-si
   line-height: 1.72;
   color: var(--e-global-color-mlmuted);
 }
-/* Each logo is drawn at a height of its own. One height for all would let a
-   wordmark eight times wider than it is tall tower over a square mark, so the
-   six were sized until they read as the same weight on the page. Change a
-   number here and that logo alone changes. The scale below takes the whole
-   row down together on a narrower screen.
-   They read grey until you point at one, the way the names they replaced
-   went from grey to ink.                                                   */
-.ml-logo-row{ --ml-logo-scale: 1.15; }
-.ml-logo-row .ml-client-logo img{
+/* The client strip is Elementor's Image Carousel, on the class
+   ml-logo-carousel. Adding a client, dropping one, or changing the order is
+   done in the widget's own gallery, with no code involved.
+
+   Every mark is shown exactly as its owner drew it. Most logo guidelines
+   forbid altering a mark, and full colour reads better here anyway, so
+   nothing is dimmed or turned to grey.
+
+   A mark is held to a height and a wide wordmark to the width of its place,
+   which is what keeps a long name and a compact badge reading as the same
+   weight without giving each one a number of its own.                     */
+.ml-logo-carousel .swiper,
+.ml-logo-carousel .swiper-container{ cursor: grab; }
+.ml-logo-carousel .swiper:active,
+.ml-logo-carousel .swiper-container:active{ cursor: grabbing; }
+/* one even speed from end to end, rather than easing in and out at every
+   step, is what makes the travel read as a drift instead of a series of
+   slides                                                                  */
+.ml-logo-carousel .swiper-wrapper{ transition-timing-function: linear !important; }
+.ml-logo-carousel .swiper-slide{ display: flex; align-items: center; justify-content: center; }
+.ml-logo-carousel figure.swiper-slide-inner{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+}
+.ml-logo-carousel .swiper-slide-image{
   display: block;
   width: auto;
-  filter: grayscale(1);
-  opacity: .62;
-  transition: filter .2s ease, opacity .2s ease;
+  height: auto;
+  max-height: 42px;
+  max-width: 100%;
+  object-fit: contain;
+  margin: 0 auto;
 }
-.ml-logo-row .ml-client-logo:hover img{ filter: none; opacity: 1; }
-.ml-logo-sansan img      { height: calc(34px * var(--ml-logo-scale)); }
-.ml-logo-idg img         { height: calc(30px * var(--ml-logo-scale)); }
-.ml-logo-ap-plat img     { height: calc(44px * var(--ml-logo-scale)); }
-.ml-logo-morgenrot img   { height: calc(26px * var(--ml-logo-scale)); }
-.ml-logo-asahi-kasei img { height: calc(34px * var(--ml-logo-scale)); }
-.ml-logo-xcura img       { height: calc(32px * var(--ml-logo-scale)); }
-/* below a desktop the six no longer reach across, so they gather in the
-   middle again rather than leaving gaps between them                       */
-@media (max-width: 1024px){
-  .ml-logo-row{ --ml-logo-scale: .95; }
-  .ml-logo-row > .e-con-inner{ justify-content: center; }
-}
-@media (max-width: 767px){ .ml-logo-row{ --ml-logo-scale: .78; } }
+@media (max-width: 1024px){ .ml-logo-carousel .swiper-slide-image{ max-height: 36px; } }
+@media (max-width: 767px){ .ml-logo-carousel .swiper-slide-image{ max-height: 32px; } }
 
 
 /* --- Hairline between two sections of the same colour --------------------
@@ -1683,7 +1692,7 @@ html[lang^="ja"] .elementor-heading-title{ word-break: auto-phrase; }
    Templates > Theme Builder > Header. Logo, menu, language switch, button.
    The bar carries no line until the page is scrolled, and then it is a
    single hairline.
-   ml-header  ml-logo  ml-nav  ml-header-right  ml-lang  ml-header-cta
+   ml-header  ml-logo  ml-nav  ml-header-right  ml-header-cta
    ========================================================================== */
 .ml-header{
   background: rgba(255,255,255,.9);
@@ -1785,68 +1794,34 @@ html[lang^="ja"] .ml-nav .elementor-nav-menu--main a.elementor-item{
 .ml-nav .elementor-nav-menu--main a.elementor-item-active{ color: var(--e-global-color-secondary); }
 .ml-nav .elementor-nav-menu--main a.elementor-item:hover:after,
 .ml-nav .elementor-nav-menu--main a.elementor-item-active:after{ transform: scaleX(1); }
-/* WPML adds the other language to the menu on its own. The switch has its
-   own place on the right here, so the menu copy is left out.              */
-.ml-nav .elementor-nav-menu--main li.wpml-ls-item,
-.ml-nav .elementor-nav-menu--dropdown li.wpml-ls-item{ display: none; }
-
-/* the switcher centres on the same line as the logo and the button */
-.ml-lang.elementor-widget{ display: flex; align-items: center; }
-.ml-lang .elementor-shortcode{ display: flex; align-items: center; }
-.ml-lang .wpml-ls{ padding: 0; border: 0; background: none; }
-.ml-lang .wpml-ls > ul{
+/* WPML's own switch, in the menu where WPML puts it. It offers the language
+   you are not reading and nothing else, because the page you are on is
+   already in the other one, and it carries that country's flag. Everything
+   about it, the flag included, is set under WPML > Languages, so it can be
+   changed there without touching any of this.                             */
+.ml-nav .elementor-nav-menu li.wpml-ls-item{ margin-left: 2px; }
+.ml-nav .elementor-nav-menu--main li.wpml-ls-item a.elementor-item{
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.ml-lang .wpml-ls .wpml-ls-item{
-  display: inline-flex;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-/* the hairline between the two, drawn by the second one */
-.ml-lang .wpml-ls .wpml-ls-item + .wpml-ls-item:before{
-  content: "";
-  width: 1px;
-  height: 13px;
-  margin-right: 7px;
-  background: var(--ml-line-2);
-  flex: 0 0 auto;
-}
-.ml-lang .wpml-ls a,
-.ml-lang .wpml-ls a:link,
-.ml-lang .wpml-ls a:visited{
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  background: none;
-  font-family: var(--ml-sans);
-  font-size: 13.5px;
+  gap: 8px;
   font-weight: 600;
-  line-height: 1.72;
-  white-space: nowrap;
-  color: var(--e-global-color-mlmuted);
-  text-decoration: none;
-  transition: color .16s ease;
 }
-.ml-lang .wpml-ls a:hover,
-.ml-lang .wpml-ls a:focus{
-  color: var(--e-global-color-mlgreendark);
-  background: none;
+.ml-nav .elementor-nav-menu li.wpml-ls-item img.wpml-ls-flag{
+  display: inline-block;
+  width: 18px;
+  height: auto;
+  margin: 0;
+  border-radius: 2px;
+  /* a hairline, because both flags carry white and would otherwise bleed
+     into the white bar                                                    */
+  box-shadow: 0 0 0 1px rgba(34,50,74,.12);
 }
-/* the language you are already reading is not a link to anywhere */
-.ml-lang .wpml-ls .wpml-ls-current-language > a,
-.ml-lang .wpml-ls .wpml-ls-current-language > a:hover{
-  color: var(--e-global-color-secondary);
-  pointer-events: none;
+.ml-nav .elementor-nav-menu--dropdown li.wpml-ls-item a{
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
-.ml-lang .wpml-ls-flag{ display: none; }
+
 body .ml-header .ml-header-cta .elementor-button.elementor-button{
   background-color: var(--e-global-color-primary);
   border-radius: 11px;
@@ -2044,10 +2019,6 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 }
 @media (max-width: 600px){
   .e-con.ml-footer-cols > .e-con-inner{ grid-template-columns: 1fr; }
-  /* no room for the switch beside the button; WPML's own language line
-     in the menu takes over                                                */
-  .ml-header .ml-lang{ display: none; }
-  .ml-nav .elementor-nav-menu--dropdown li.wpml-ls-item{ display: block; }
 }
 
 /* ==========================================================================

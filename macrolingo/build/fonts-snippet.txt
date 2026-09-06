@@ -1,0 +1,20 @@
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- The three font files the page actually draws with, asked for at the very
+     top of the page so they are on their way before anything is painted.
+     The faces themselves are declared in Site Settings > Custom CSS, which
+     saves a round trip to Google for a stylesheet first. Both families are
+     variable, so one file each covers every weight the design uses. -->
+<link rel="preload" as="font" type="font/woff2" crossorigin
+      href="https://fonts.gstatic.com/s/newsreader/v26/cY9AfjOCX1hbuyalUrK4397yjA.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin
+      href="https://fonts.gstatic.com/s/figtree/v9/_Xms-HUzqDCFdgfMm4S9DQ.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin
+      href="https://fonts.gstatic.com/s/newsreader/v26/cY9CfjOCX1hbuyalUrK439vCjohC.woff2">
+
+<!-- The Japanese faces are not asked for here. They are heavy, about 180KB
+     of stylesheet before a single letter is drawn, and an English reader
+     needs none of it, so the tag is written into the page itself on the
+     Japanese pages only. That is the snippet "Japanese fonts" under
+     Snippets in the dashboard. It used to be a script in this file, which
+     worked, but left nothing to see in the page source. -->
