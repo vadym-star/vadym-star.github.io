@@ -1865,6 +1865,9 @@ html[lang^="ja"] .ml-nav .elementor-nav-menu--main a.elementor-item{
   color: var(--e-global-color-mlgreendark);
 }
 .ml-lang .wpml-ls .wpml-ls-native{ font-size: 13.5px; }
+/* WPML's own stylesheet puts .4em between the flag and the word on top of
+   whatever we ask for; the flag's margin below is the whole distance      */
+.ml-lang .wpml-ls .wpml-ls-flag + span{ margin-left: 0; margin-right: 0; }
 /* both flags carry white, so a hairline keeps them off the white bar */
 .ml-lang .wpml-ls-flag{
   display: block;
