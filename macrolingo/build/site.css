@@ -639,6 +639,20 @@ body .ml-service-card .ml-arrow-link .elementor-button.elementor-button{ font-si
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
           mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
 }
+/* Dragging the strip should move the strip. Without this the pointer picks
+   up the picture under it instead, or paints a blue selection across the
+   row, both of which read as the page coming apart. Events still reach the
+   strip itself, so it can be taken hold of anywhere along it.             */
+.ml-logo-carousel,
+.ml-logo-carousel .swiper-slide{
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.ml-logo-carousel .swiper-slide-image{
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
 .ml-logo-carousel .swiper,
 .ml-logo-carousel .swiper-container{ cursor: grab; }
 .ml-logo-carousel .swiper:active,
@@ -1806,13 +1820,29 @@ html[lang^="ja"] .ml-nav .elementor-nav-menu--main a.elementor-item{
    already in the other one, and it carries that country's flag. Everything
    about it, the flag included, is set under WPML > Languages, so it can be
    changed there without touching any of this.                             */
-.ml-nav .elementor-nav-menu li.wpml-ls-item{ margin-left: 2px; }
+/* The flag and the two letters together are a small thing to aim at, so the
+   link is given room around them. The padding is the target; the negative
+   margin takes that room back out of the row, so nothing on the bar moves.
+   The word sits close to its flag, as one mark rather than two.
+   It answers to the pointer the way the burger does, with the same tint,
+   rather than with the underline the other links use, because the
+   underline would sit well below a padded box.                            */
+.ml-nav .elementor-nav-menu li.wpml-ls-item{ margin-left: -4px; }
 .ml-nav .elementor-nav-menu--main li.wpml-ls-item a.elementor-item{
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 5px;
   font-weight: 600;
+  padding: 7px 11px;
+  border-radius: 9px;
+  transition: color .16s ease, background-color .16s ease;
 }
+.ml-nav .elementor-nav-menu--main li.wpml-ls-item a.elementor-item:hover,
+.ml-nav .elementor-nav-menu--main li.wpml-ls-item a.elementor-item:focus-visible{
+  background: var(--e-global-color-mlmint);
+  color: var(--e-global-color-mlgreendark);
+}
+.ml-nav .elementor-nav-menu--main li.wpml-ls-item a.elementor-item:after{ display: none; }
 .ml-nav .elementor-nav-menu li.wpml-ls-item img.wpml-ls-flag{
   display: inline-block;
   width: 18px;
@@ -1826,7 +1856,7 @@ html[lang^="ja"] .ml-nav .elementor-nav-menu--main a.elementor-item{
 .ml-nav .elementor-nav-menu--dropdown li.wpml-ls-item a{
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 5px;
 }
 
 body .ml-header .ml-header-cta .elementor-button.elementor-button{
