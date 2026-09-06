@@ -1838,7 +1838,13 @@ html[lang^="ja"] .ml-nav .elementor-nav-menu--main a.elementor-item{
 .ml-lang .wpml-ls a:visited{
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  /* WPML leaves whitespace around the flag, and in a flex row a run of
+     whitespace becomes an item of its own with a gap on either side of it.
+     Nothing is spaced with gap here for that reason: the flag carries its
+     own margin, and the link is set to no font size so the whitespace
+     measures nothing. The word gets its size back below.                  */
+  gap: 0;
+  font-size: 0;
   margin: 0;
   padding: 8px 11px;
   border: 0;
@@ -1858,12 +1864,13 @@ html[lang^="ja"] .ml-nav .elementor-nav-menu--main a.elementor-item{
   background: var(--e-global-color-mlmint);
   color: var(--e-global-color-mlgreendark);
 }
+.ml-lang .wpml-ls .wpml-ls-native{ font-size: 13.5px; }
 /* both flags carry white, so a hairline keeps them off the white bar */
 .ml-lang .wpml-ls-flag{
   display: block;
   width: 18px;
   height: auto;
-  margin: 0;
+  margin: 0 6px 0 0;
   border-radius: 2px;
   box-shadow: 0 0 0 1px rgba(34,50,74,.12);
 }
@@ -2088,7 +2095,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
      own and the bar draws in a little                                     */
   .ml-header{ padding-left: 18px !important; padding-right: 18px !important; }
   .ml-header > .e-con-inner{ gap: 10px; }
-  .ml-lang .wpml-ls a{ padding: 8px; gap: 0; }
+  .ml-lang .wpml-ls a{ padding: 8px; }
+  .ml-lang .wpml-ls-flag{ margin: 0; }
   .ml-lang .wpml-ls .wpml-ls-native{
     position: absolute;
     width: 1px;
