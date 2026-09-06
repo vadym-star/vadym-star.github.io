@@ -2131,6 +2131,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -2170,6 +2172,10 @@ html[lang^="en"] .ml-page-hero .ml-hero-title.elementor-widget-heading .elemento
   font-size: clamp(34px, 4vw, 48px);
 }
 .ml-page-hero .ml-hero-photo{ align-self: center; }
+/* ml-hero-short, for a page whose title is a few characters rather than a
+   sentence. The Japanese About page is called 会社概要 and nothing else, so
+   the picture takes the larger share and the row balances.                */
+.ml-page-hero.ml-hero-short > .e-con-inner{ grid-template-columns: .78fr 1.22fr; }
 .ml-page-hero .ml-hero-title.elementor-widget{ margin-top: 20px; }
 
 
@@ -2326,7 +2332,7 @@ html[lang^="en"] .ml-page-hero .ml-hero-title.elementor-widget-heading .elemento
    is a landscape, so the two need different frames rather than one crop
    that cuts heads off.                                                     */
 .ml-photo-wide img{
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
   width: 100%;
   border: 1px solid var(--ml-line-2);
@@ -2358,7 +2364,11 @@ html[lang^="en"] .ml-page-hero .ml-hero-title.elementor-widget-heading .elemento
    widget, because this install has none outside Ultimate Addons and a table
    in the editor is something the owner can change cell by cell.           */
 .ml-jp-table.elementor-widget{ width: 100%; max-width: 860px; margin-left: auto; margin-right: auto; }
-table.ml-facts{ width: 100%; border-collapse: collapse; }
+table.ml-facts{ width: 100%; border-collapse: collapse; border: 0; }
+/* the theme draws a full grid on any table; only the hairline between rows
+   belongs to this design                                                   */
+table.ml-facts th,
+table.ml-facts td{ border-left: 0; border-right: 0; border-bottom: 0; background: none; }
 table.ml-facts th,
 table.ml-facts td{ border-top: 1px solid var(--ml-line-2); vertical-align: top; }
 table.ml-facts tr:first-child th,
