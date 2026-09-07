@@ -2207,6 +2207,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -3190,7 +3192,8 @@ body .ml-inner .ml-prose-wide.elementor-widget p{
 .ml-posts .ml-post-card{ position: relative; cursor: pointer; }
 .ml-post-card > .e-con-inner,
 .ml-post-card .ml-post-title.elementor-widget,
-.ml-post-card .ml-post-title .elementor-heading-title{ position: static; }
+.ml-post-card .ml-post-title .elementor-heading-title,
+.ml-post-card .ml-post-title .elementor-heading-title a{ position: static; }
 .ml-post-card .ml-post-title .elementor-heading-title a:after{
   content: "";
   position: absolute;
