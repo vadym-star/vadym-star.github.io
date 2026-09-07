@@ -2203,6 +2203,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -3154,6 +3156,13 @@ body .ml-inner .ml-prose-wide.elementor-widget p{
    in the same block. This is the colour mixing the third colour was asked
    for.                                                                     */
 .ml-band-blue .ml-ticks-on-blue .elementor-icon-list-icon{ color: var(--ml-plum-ink); }
+
+/* The Japanese homepage forces its own colour on the years figure and on
+   the label inside the blue band. The figure is a count of work done and
+   follows the same rule as the English one; the label is left as the
+   Japanese page has always had it, in ink, because that was a deliberate
+   choice for Japanese and the page has its plum in the blog categories. */
+.ml-jp .ml-years{ color: var(--ml-plum-ink); }
 
 
 /* MacroLingo cookie notice
