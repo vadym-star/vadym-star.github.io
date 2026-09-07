@@ -2169,6 +2169,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -2732,10 +2734,16 @@ table.ml-facts td{
   font-weight: 500;
 }
 
-/* the heading block over a section, and the line under it */
-.ml-inner .ml-section-head{ max-width: 550px; }
+/* The heading block over a section, and the line under it.
+   The concept writes these as 60ch and 56ch. A ch is the width of a nought
+   in whatever face the browser has at that moment, so the concept's own
+   three headings come out at 550, 654 and 654 depending on when each one
+   was laid out. Two of the three are 654 and every heading in the concept
+   sits on two lines at that width, so 654 is the number, said in pixels so
+   it cannot drift.                                                        */
+.ml-inner .ml-section-head{ max-width: 654px; }
 .ml-inner .ml-lead.elementor-widget{
-  max-width: 513px;
+  max-width: 646px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 16px;
