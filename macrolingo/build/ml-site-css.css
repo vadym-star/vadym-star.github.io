@@ -2205,6 +2205,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -3096,12 +3098,20 @@ body .ml-inner .ml-prose-wide.elementor-widget p{
    The blog cards at the foot of the homepage carry the same kind of label
    as a work card, so they are drawn the same way: a small plum pill rather
    than a line of green capitals.                                          */
+.ml-post-cat .elementor-icon-list-item .elementor-post-info__item,
+.ml-post-cat .elementor-icon-list-item .elementor-icon-list-text,
 .ml-post-cat .elementor-post-info__item,
 .ml-post-cat .elementor-icon-list-text{
   display: inline-block;
   background: var(--ml-plum-tint);
   color: var(--ml-plum-ink);
-  padding: 5px 12px;
+  /* Elementor puts padding-left: 5px on an icon list's text with a selector
+     that beats a plain class, which left the words sitting off to one side
+     of the pill. Both sides are named again here so the pill is even.     */
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 12px;
+  padding-right: 12px;
   border-radius: 999px;
   line-height: 1.6;
 }
@@ -3163,6 +3173,30 @@ body .ml-inner .ml-prose-wide.elementor-widget p{
    Japanese page has always had it, in ink, because that was a deliberate
    choice for Japanese and the page has its plum in the blog categories. */
 .ml-jp .ml-years{ color: var(--ml-plum-ink); }
+/* The Japanese homepage founder label was left in ink at first. It is the
+   same element as ABOUT on the English homepage and names the same block,
+   so it takes plum too, and the Japanese page stops being the one page with
+   almost none.                                                            */
+.ml-jp.ml-band-blue .ml-label .elementor-heading-title{ color: var(--ml-plum-ink); }
+.ml-jp.ml-band-blue .ml-label .elementor-heading-title:before{ background: var(--ml-plum); }
+
+
+/* --- The whole blog card is the link -------------------------------------
+   Only the picture led anywhere; the title, the words and the space around
+   them did nothing. The title's own link is stretched over the card, the
+   same way the work cards do it, and every wrapper in between is put back
+   to static first or the stretched box would cover the title alone.      */
+.e-con.ml-post-card,
+.ml-posts .ml-post-card{ position: relative; cursor: pointer; }
+.ml-post-card > .e-con-inner,
+.ml-post-card .ml-post-title.elementor-widget,
+.ml-post-card .ml-post-title .elementor-heading-title{ position: static; }
+.ml-post-card .ml-post-title .elementor-heading-title a:after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
 
 
 /* MacroLingo cookie notice
