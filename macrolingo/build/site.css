@@ -2209,6 +2209,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -3185,16 +3187,18 @@ body .ml-inner .ml-prose-wide.elementor-widget p{
 
 /* --- The whole blog card is the link -------------------------------------
    Only the picture led anywhere; the title, the words and the space around
-   them did nothing. The title's own link is stretched over the card, the
-   same way the work cards do it, and every wrapper in between is put back
-   to static first or the stretched box would cover the title alone.      */
+   them did nothing. The title on these cards is a plain heading with no
+   link in it, so the "Read more" link at the foot is the one that gets
+   stretched over the card, exactly as the work cards do it. Every wrapper
+   between the link and the card is put back to static first, or the
+   stretched box would cover the words "Read more" and nothing else.      */
 .e-con.ml-post-card,
 .ml-posts .ml-post-card{ position: relative; cursor: pointer; }
 .ml-post-card > .e-con-inner,
-.ml-post-card .ml-post-title.elementor-widget,
-.ml-post-card .ml-post-title .elementor-heading-title,
-.ml-post-card .ml-post-title .elementor-heading-title a{ position: static; }
-.ml-post-card .ml-post-title .elementor-heading-title a:after{
+.ml-post-card .ml-arrow-link.elementor-widget,
+.ml-post-card .ml-arrow-link .elementor-button-wrapper,
+.ml-post-card .ml-arrow-link .elementor-button{ position: static; }
+.ml-post-card .ml-arrow-link .elementor-button:after{
   content: "";
   position: absolute;
   inset: 0;
