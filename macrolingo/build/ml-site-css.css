@@ -2211,6 +2211,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -3028,6 +3030,58 @@ body .ml-inner .ml-prose-wide.elementor-widget p{
 .ml-adam-photo .ml-signature.elementor-widget{ margin-top: 20px; }
 .ml-adam-photo .elementor-widget-button{ margin-top: 18px; }
 .ml-adam-photo .elementor-widget-button .elementor-button-wrapper{ text-align: left; }
+
+
+/* ==========================================================================
+   THE FOOTER, WITH THE WHOLE SITE IN IT
+   Adam asked for every page in the footer, not only the top level. That is
+   five columns now instead of four: the mark and the address, then Company,
+   Services, By industry and Academia. The Japanese footer has the same five
+   with its own sixteen pages.
+   ========================================================================== */
+.e-con.ml-footer-cols > .e-con-inner{
+  grid-template-columns: 1.5fr 1fr 1.15fr 1.15fr 1fr;
+  gap: 40px 34px;
+}
+/* a column of six links wants a little less air between them than a column
+   of four did                                                             */
+.ml-footer-links .elementor-icon-list-item{ margin-bottom: 9px; }
+.ml-footer-links .elementor-icon-list-item,
+.ml-footer-links .elementor-icon-list-text,
+.ml-footer-links a{ font-size: 14px; line-height: 1.6; }
+/* the address moves into the mark column, where the words about the company
+   already are                                                             */
+.ml-footer-addr{
+  margin-top: 16px;
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--e-global-color-mlmuted);
+}
+.ml-footer-addr p{ font-size: inherit; line-height: inherit; color: inherit; margin: 0; }
+/* the small print in the closing line: privacy, terms, DMCA, the other
+   language. Separated by a thin rule rather than a comma.                */
+.ml-footer-small p{ display: flex; flex-wrap: wrap; align-items: center; gap: 0; }
+.ml-footer-small a{
+  font-family: var(--ml-sans);
+  font-size: 13.5px;
+  color: var(--e-global-color-mlmuted);
+  text-decoration: none;
+  padding: 0 13px;
+  border-left: 1px solid #C9D5BC;
+  line-height: 1.2;
+}
+.ml-footer-small a:first-child{ border-left: 0; padding-left: 0; }
+.ml-footer-small a:hover{ color: var(--e-global-color-mlgreendark); }
+
+@media (max-width: 1080px){
+  .e-con.ml-footer-cols > .e-con-inner{ grid-template-columns: 1.4fr 1fr 1fr; gap: 36px 30px; }
+}
+@media (max-width: 767px){
+  .e-con.ml-footer-cols > .e-con-inner{ grid-template-columns: 1fr 1fr; gap: 30px 24px; }
+}
+@media (max-width: 480px){
+  .e-con.ml-footer-cols > .e-con-inner{ grid-template-columns: 1fr; }
+}
 
 
 /* ==========================================================================
