@@ -207,6 +207,11 @@ body{
   -webkit-mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 fill=%22none%22%3E%3Cpath d=%22M3 8h10M9 4l4 4-4 4%22 stroke=%22%23000%22 stroke-width=%221.8%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E");
   mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 fill=%22none%22%3E%3Cpath d=%22M3 8h10M9 4l4 4-4 4%22 stroke=%22%23000%22 stroke-width=%221.8%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E");
 }
+.ml-i-cap .elementor-icon:before,
+.ml-i-cap .elementor-icon-list-icon:before{
+  -webkit-mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22%3E%3Cpath d=%22M22 10 12 5 2 10l10 5 10-5Z%22 stroke=%22%23000%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3Cpath d=%22M6 12v5c0 1 3 3 6 3s6-2 6-3v-5%22 stroke=%22%23000%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E");
+  mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22%3E%3Cpath d=%22M22 10 12 5 2 10l10 5 10-5Z%22 stroke=%22%23000%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3Cpath d=%22M6 12v5c0 1 3 3 6 3s6-2 6-3v-5%22 stroke=%22%23000%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E");
+}
 .ml-i-check .elementor-icon:before,
 .ml-i-check .elementor-icon-list-icon:before{
   -webkit-mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22%3E%3Cpath d=%22M20 6 9 17l-5-5%22 stroke=%22%23000%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E");
@@ -226,6 +231,16 @@ body{
 .ml-i-dot .elementor-icon-list-icon:before{
   -webkit-mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 fill=%22none%22%3E%3Ccircle cx=%228%22 cy=%228%22 r=%228%22 fill=%22%23000%22/%3E%3C/svg%3E");
   mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 fill=%22none%22%3E%3Ccircle cx=%228%22 cy=%228%22 r=%228%22 fill=%22%23000%22/%3E%3C/svg%3E");
+}
+.ml-i-globe .elementor-icon:before,
+.ml-i-globe .elementor-icon-list-icon:before{
+  -webkit-mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%2210%22 stroke=%22%23000%22 stroke-width=%221.7%22/%3E%3Cpath d=%22M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20%22 stroke=%22%23000%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3Cpath d=%22M2 12h20%22 stroke=%22%23000%22 stroke-width=%221.7%22 stroke-linecap=%22round%22/%3E%3C/svg%3E");
+  mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%2210%22 stroke=%22%23000%22 stroke-width=%221.7%22/%3E%3Cpath d=%22M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20%22 stroke=%22%23000%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3Cpath d=%22M2 12h20%22 stroke=%22%23000%22 stroke-width=%221.7%22 stroke-linecap=%22round%22/%3E%3C/svg%3E");
+}
+.ml-i-leaf .elementor-icon:before,
+.ml-i-leaf .elementor-icon-list-icon:before{
+  -webkit-mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22%3E%3Cpath d=%22M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z%22 stroke=%22%23000%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3Cpath d=%22M2 21c0-3 1.85-5.36 5.08-6%22 stroke=%22%23000%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E");
+  mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22%3E%3Cpath d=%22M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z%22 stroke=%22%23000%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3Cpath d=%22M2 21c0-3 1.85-5.36 5.08-6%22 stroke=%22%23000%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E");
 }
 .ml-i-mail .elementor-icon:before,
 .ml-i-mail .elementor-icon-list-icon:before{
@@ -2133,20 +2148,25 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
-   About, Our Work and the ones that follow. It reuses the homepage's cards,
-   bands, tick lists and client strip; what is new is only the handful of
-   shapes those pages need and the homepage does not.
+   About, Our Work and the ones that follow.
+
+   The numbers are taken from the A-5 concept, a5prev/about.html and
+   a5prev/our-work.html, rather than from a picture of it. Where the concept
+   already had a twin in the homepage rules above, the homepage rule is used
+   instead of a second copy of the same values.
    ========================================================================== */
 
 /* --- The top of an inner page --------------------------------------------
    ml-page-hero on the section, with ml-split-hero beside it
-   An inner page does not open on a full screen: the reader came for what is
-   on the page, so the first block of content has to be within reach. The
-   same soft glows and the same closing hairline as the homepage hero, at a
-   little under half the height.                                           */
+   The same grid, the same headline size and the same 16px / 84px as the
+   homepage hero, but without the rule that makes it fill the screen: the
+   reader came for what is on the page, so the first block of content has to
+   be within reach.                                                        */
 .ml-page-hero{
   position: relative;
   background-image:
@@ -2165,185 +2185,177 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
   background: linear-gradient(90deg, transparent, var(--ml-line-2) 8%,
                               var(--ml-line-2) 92%, transparent);
 }
-/* a shade under the homepage headline: these titles are sentences rather
-   than a single claim, so they need the room more than the size            */
-.ml-page-hero .ml-hero-title.elementor-widget-heading .elementor-heading-title,
-html[lang^="en"] .ml-page-hero .ml-hero-title.elementor-widget-heading .elementor-heading-title{
-  font-size: clamp(34px, 4vw, 48px);
-}
 .ml-page-hero .ml-hero-photo{ align-self: center; }
-/* ml-hero-short, for a page whose title is a few characters rather than a
-   sentence. The Japanese About page is called 会社概要 and nothing else, so
-   the picture takes the larger share and the row balances.                */
-.ml-page-hero.ml-hero-short > .e-con-inner{ grid-template-columns: .78fr 1.22fr; }
-.ml-page-hero .ml-hero-title.elementor-widget{ margin-top: 20px; }
 
 
 /* --- Three boxes across --------------------------------------------------
    ml-three-up on the container that holds them
-   Three on a desktop, two on a tablet, one on a phone.                     */
+   Three on a desktop, two on a tablet, one on a phone. The 22px gap and the
+   46px above are the concept's.                                           */
 .ml-three-up > .e-con-inner{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
   align-items: stretch;
 }
 .ml-three-up > .e-con-inner > *{ width: 100%; max-width: 100%; min-width: 0; }
 
 
-/* --- A value card --------------------------------------------------------
-   ml-value-card on the card, with ml-card
-   ml-value-mark  ml-value-title  ml-value-text
-   The mark at the top is Adam's own drawing, a dark figure on a white
-   square. Multiplying it onto the mint tile drops the white away and leaves
-   the figure, so his artwork sits in the design without being redrawn.     */
-.ml-value-mark.elementor-widget{
-  /* Elementor draws an Image widget with no wrapper of its own here, so the
-     tile is the widget itself rather than anything inside it              */
-  width: 64px;
-  max-width: 64px;
-  height: 64px;
-  flex: 0 0 auto;
-  align-self: flex-start;
-  border-radius: 18px;
-  background: var(--e-global-color-mlmint);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* --- A value box ---------------------------------------------------------
+   ml-value on the Icon Box, beside ml-service
+   The same 56px mint tile, 22px heading and 15px body as a service box on
+   the homepage. The one difference the concept draws is that the mark sits
+   above the words rather than beside them.                                 */
+.ml-value.elementor-widget-icon-box .elementor-icon-box-wrapper{
+  display: block;
+  text-align: left;
 }
-.ml-value-mark img{
-  width: 38px;
-  height: 38px;
-  object-fit: contain;
-  mix-blend-mode: multiply;
-  border-radius: 0;
-  box-shadow: none;
-}
-.ml-value-title.elementor-widget{ margin-top: 20px; }
-.ml-value-title .elementor-heading-title,
-.ml-value-title h3.elementor-heading-title{
-  font-family: var(--ml-serif);
-  font-size: 23px;
-  font-weight: 500;
-  line-height: 1.35;
-  letter-spacing: -.01em;
-}
-.ml-value-text.elementor-widget{
-  margin-top: 9px;
-  font-size: 15.5px;
-  line-height: 1.72;
-  color: var(--e-global-color-mlmuted);
-}
-.ml-value-text p{ font-size: inherit; line-height: inherit; color: inherit; margin-bottom: 0; }
+.ml-value.elementor-widget-icon-box .elementor-icon-box-icon{ margin-bottom: 18px; }
 
 
-/* --- The story band ------------------------------------------------------
-   ml-split-story on the section, beside a band class
-   ml-story-sub  ml-story-text  ml-belief-card  ml-belief-head
-   The words on the left, the list of beliefs on a card at the right, level
-   with them rather than underneath.                                        */
-.ml-split-story > .e-con-inner{
-  display: grid;
-  grid-template-columns: 1.12fr .88fr;
-  gap: 54px;
-  align-items: center;
-}
-.ml-split-story > .e-con-inner > *{ width: 100%; max-width: 100%; min-width: 0; }
-.ml-split-story > .e-con-inner > .e-con{ padding-left: 0; padding-right: 0; }
-.ml-story-sub.elementor-widget{ margin-top: 18px; }
-.ml-story-sub .elementor-heading-title,
-.ml-story-sub h3.elementor-heading-title{
-  font-family: var(--ml-serif);
-  font-size: 21px;
-  font-weight: 500;
-  line-height: 1.4;
-  color: var(--e-global-color-secondary);
-  letter-spacing: -.005em;
-}
-.ml-story-text.elementor-widget{ margin-top: 16px; font-size: 16.5px; line-height: 1.85; }
-.e-con.ml-belief-card{
-  background-color: #fff;
-  border: 1px solid var(--ml-line);
-  border-radius: var(--ml-radius);
-  box-shadow: var(--ml-shadow-soft);
-  align-self: center;
-}
-.e-con.ml-belief-card > .e-con-inner{ padding: 0; }
-.ml-belief-head .elementor-heading-title,
-.ml-belief-head h4.elementor-heading-title{
-  font-family: var(--ml-sans);
-  font-size: 13px;
-  font-weight: 600;
-  line-height: 1.72;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--e-global-color-mlgreendark);
-}
-.ml-belief-card .ml-ticks.elementor-widget{ margin-top: 14px; }
-
-
-/* --- Adam on the blue band -----------------------------------------------
-   ml-split-adam on the section, ml-adam-photo on the picture column
-   ml-cred on his qualifications
-   His photograph is square, so it is shown square rather than cropped into
-   a tall panel the way the homepage does with a landscape one.             */
-.ml-split-adam > .e-con-inner{
-  display: grid;
-  grid-template-columns: .82fr 1.18fr;
-  gap: 54px;
-  align-items: center;
-}
-.ml-split-adam > .e-con-inner > *{ width: 100%; max-width: 100%; min-width: 0; }
-.ml-split-adam > .e-con-inner > .e-con{ padding-left: 0; padding-right: 0; }
-.e-con.ml-adam-photo > .e-con-inner{ padding: 0; }
-.ml-split-adam .ml-bio-wide.elementor-widget{ margin-top: 20px; }
-.ml-split-adam .ml-signature.elementor-widget{ margin-top: 16px; }
-.ml-cred.elementor-widget{ margin-top: 26px; }
-.ml-cred .elementor-icon-list-text a{ color: inherit; text-decoration: none; }
-.ml-cred .elementor-icon-list-text a:hover{ color: var(--ml-blue-ink); }
-.ml-split-adam .elementor-widget-button{ margin-top: 26px; }
-
-
-/* --- One measured column of prose ----------------------------------------
+/* --- A passage set in the serif, centred ---------------------------------
    ml-prose on a Text Editor
-   A long passage set to a comfortable line, centred in the section. The
-   words stay left aligned; only the column is centred.                     */
+   The concept's own reading passage: the serif at 19 to 22px, centred, held
+   to 72 characters a line. It is what carries the story and the Japan
+   passage, and it is deliberately not the body sans.                       */
 .ml-prose.elementor-widget{
-  max-width: 74ch;
+  max-width: 72ch;
   margin-left: auto;
   margin-right: auto;
-  font-size: 16.5px;
-  line-height: 1.9;
+  font-family: var(--ml-serif);
+  font-weight: 400;
+  font-size: clamp(19px, 2vw, 22px);
+  line-height: 1.55;
+  color: var(--e-global-color-secondary);
+  text-align: center;
 }
-.ml-prose p{ font-size: inherit; line-height: inherit; margin-bottom: 0; }
-.ml-japan-sub.elementor-widget{ margin-top: 12px; }
-.ml-japan-sub .elementor-heading-title,
-.ml-japan-sub h4.elementor-heading-title{
-  font-family: var(--ml-sans);
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1.6;
-  color: var(--e-global-color-mlmuted);
-}
+.ml-prose p{ font-size: inherit; line-height: inherit; color: inherit; margin-bottom: 0; }
+.ml-prose i, .ml-prose em{ font-style: italic; }
 
 
-/* --- A picture that is not square ----------------------------------------
-   ml-photo-wide, beside ml-photo
-   The English About hero photograph is nearly square and the Japanese one
-   is a landscape, so the two need different frames rather than one crop
-   that cuts heads off.                                                     */
-.ml-photo-wide img{
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  width: 100%;
+/* --- Pills ---------------------------------------------------------------
+   ml-pills on an Icon List set to inline, with a dot for its mark
+   Short statements that are a list rather than a paragraph, laid across the
+   middle of a band.                                                        */
+.ml-pills .elementor-icon-list-items{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 11px;
+  justify-content: center;
+}
+.ml-pills .elementor-icon-list-item{
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: #fff;
   border: 1px solid var(--ml-line-2);
+  border-radius: 999px;
+  padding: 11px 19px;
+  margin: 0;
+  box-shadow: var(--ml-shadow-soft);
+}
+.ml-pills .elementor-icon-list-item:after{ display: none; }
+.ml-pills .elementor-icon-list-icon{
+  width: 8px;
+  height: 8px;
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 0;
+  color: var(--e-global-color-primary);
+}
+.ml-pills .elementor-icon-list-text{
+  padding: 0;
+  font-size: 14.5px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--e-global-color-secondary);
 }
 
 
-/* --- The Japanese About page --------------------------------------------
-   ml-bels  ml-owner-card  ml-owner-text  ml-jp-table
-   The editing certificate sits under his photograph at its own size. The
-   badge is drawn on white, so it is multiplied onto the blue band the same
-   way the value marks are onto their tile.                                */
+/* --- The founder block ---------------------------------------------------
+   ml-split-founder on the section, ml-adam-photo on the picture column
+   ml-heading-founder  ml-ticks-founder  ml-bels
+   His photograph is square in the concept, at the larger corner and the
+   deeper shadow.                                                           */
+.ml-split-founder > .e-con-inner{
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 54px;
+  align-items: center;
+}
+.ml-split-founder > .e-con-inner > *{ width: 100%; max-width: 100%; min-width: 0; }
+.ml-split-founder > .e-con-inner > .e-con{ padding-left: 0; padding-right: 0; }
+.e-con.ml-adam-photo > .e-con-inner{ padding: 0; }
+.ml-heading-founder.elementor-widget{ margin-top: 14px; }
+.ml-heading-founder .elementor-heading-title{
+  font-size: clamp(28px, 3.4vw, 42px);
+  font-weight: 500;
+}
+.ml-split-founder .ml-bio-wide.elementor-widget{
+  margin-top: 22px;
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: var(--e-global-color-text);
+}
+.ml-split-founder .ml-bio-wide p + p{ margin-top: 16px; }
+/* the line he signs off with reads as another line of the same passage,
+   not as a caption                                                         */
+.ml-split-founder .ml-signature.elementor-widget{ margin-top: 20px; }
+.ml-split-founder .ml-signature p{
+  font-family: var(--ml-body);
+  font-size: 16.5px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--e-global-color-text);
+}
+/* his qualifications: a mint disc rather than the white one the homepage
+   uses, because these sit on white rather than on a card                   */
+.ml-ticks-founder.elementor-widget{ margin-top: 22px; }
+.ml-ticks-founder .elementor-icon-list-item{
+  align-items: flex-start;
+  gap: 13px;
+  padding: 12px 0;
+  margin-bottom: 0;
+}
+.ml-ticks-founder .elementor-icon-list-icon{
+  width: 26px;
+  height: 26px;
+  padding: 6px;
+  border-radius: 50%;
+  background: var(--e-global-color-mlmint);
+  box-shadow: none;
+  color: var(--e-global-color-mlgreendark);
+  margin-top: 2px;
+  flex: 0 0 auto;
+}
+.ml-ticks-founder .elementor-icon-list-text{
+  font-size: 16.5px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--e-global-color-secondary);
+}
+.ml-ticks-founder .elementor-icon-list-text a{
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.ml-ticks-founder .elementor-icon-list-text a:hover{ color: var(--e-global-color-mlgreendark); }
+.ml-split-founder .elementor-widget-button{ margin-top: 26px; }
+
+/* the one line he leads with on the Japanese page: the serif, at reading
+   size, left where the rest of his column is                               */
+.ml-founder-line.elementor-widget{
+  margin-top: 18px;
+  font-family: var(--ml-serif);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--e-global-color-secondary);
+}
+.ml-founder-line p{ font-size: inherit; line-height: inherit; color: inherit; margin-bottom: 0; }
+
+/* the editing certificate, under his photograph. It is drawn on white, so
+   it is multiplied onto whatever is behind it.                             */
 .ml-bels.elementor-widget{ align-self: flex-start; }
 .ml-bels img{
   width: 92px;
@@ -2352,50 +2364,68 @@ html[lang^="en"] .ml-page-hero .ml-hero-title.elementor-widget-heading .elemento
   box-shadow: none;
   mix-blend-mode: multiply;
 }
-.ml-owner-text.elementor-widget{ font-size: 16px; line-height: 1.95; }
-.ml-owner-text p{ font-size: inherit; line-height: inherit; margin-bottom: 0; }
-.ml-owner-card .ml-cred.elementor-widget{
-  margin-top: 26px;
-  padding-top: 26px;
-  border-top: 1px solid var(--ml-line);
+
+
+/* --- A picture that is not square ----------------------------------------
+   ml-photo-wide, beside ml-photo                                           */
+.ml-photo-wide img{
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  width: 100%;
+  border: 1px solid var(--ml-line-2);
 }
 
-/* The company details. A table typed into a Text Editor rather than a table
-   widget, because this install has none outside Ultimate Addons and a table
-   in the editor is something the owner can change cell by cell.           */
-.ml-jp-table.elementor-widget{ width: 100%; max-width: 860px; margin-left: auto; margin-right: auto; }
-table.ml-facts{ width: 100%; border-collapse: collapse; border: 0; }
-/* the theme draws a full grid on any table; only the hairline between rows
-   belongs to this design                                                   */
+
+/* --- The company details, Japanese About ---------------------------------
+   ml-jp-table on a Text Editor holding the table
+   One white card with a hairline between rows and the label column on the
+   warm ground, as the concept draws it. A table typed into a Text Editor
+   rather than a table widget, because this install has none outside
+   Ultimate Addons and a table in the editor can be changed cell by cell.   */
+.ml-jp-table.elementor-widget{
+  width: 100%;
+  max-width: 820px;
+  margin-left: auto;
+  margin-right: auto;
+}
+table.ml-facts{
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border: 1px solid var(--ml-line-2);
+  border-radius: var(--ml-radius);
+  overflow: hidden;
+}
 table.ml-facts th,
-table.ml-facts td{ border-left: 0; border-right: 0; border-bottom: 0; background: none; }
-table.ml-facts th,
-table.ml-facts td{ border-top: 1px solid var(--ml-line-2); vertical-align: top; }
-table.ml-facts tr:first-child th,
-table.ml-facts tr:first-child td{ border-top: 0; }
-table.ml-facts th{
-  width: 170px;
+table.ml-facts td{
+  border: 0;
+  border-bottom: 1px solid var(--ml-line);
+  vertical-align: top;
+  padding: 18px 22px;
   text-align: left;
-  font-family: var(--ml-sans);
-  font-size: 13.5px;
-  font-weight: 600;
-  line-height: 1.72;
-  color: var(--e-global-color-mlmuted);
-  padding: 17px 24px 17px 0;
+}
+table.ml-facts tr:last-child th,
+table.ml-facts tr:last-child td{ border-bottom: 0; }
+table.ml-facts th{
+  width: 1%;
   white-space: nowrap;
+  background: var(--e-global-color-mlwarm);
+  font-family: var(--ml-body);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.7;
+  color: var(--e-global-color-secondary);
 }
 table.ml-facts td{
   font-size: 15.5px;
-  line-height: 1.85;
-  color: var(--e-global-color-secondary);
-  padding: 17px 0;
+  line-height: 1.8;
+  color: var(--e-global-color-text);
 }
 @media (max-width: 600px){
   table.ml-facts th,
   table.ml-facts td{ display: block; width: auto; white-space: normal; }
-  table.ml-facts th{ padding: 16px 0 0; border-top: 1px solid var(--ml-line-2); }
-  table.ml-facts td{ padding: 4px 0 16px; border-top: 0; }
-  table.ml-facts tr:first-child th{ border-top: 0; }
+  table.ml-facts th{ border-bottom: 0; padding-bottom: 0; background: none; }
+  table.ml-facts td{ padding-top: 6px; }
 }
 
 
@@ -2426,9 +2456,8 @@ table.ml-facts td{
   .ml-three-up > .e-con-inner{ grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 920px){
-  .ml-split-story > .e-con-inner,
-  .ml-split-adam > .e-con-inner{ grid-template-columns: 1fr; gap: 34px; }
-  .ml-cred .elementor-icon-list-items{ columns: 1; }
+  .ml-split-founder > .e-con-inner{ grid-template-columns: 1fr; gap: 34px; }
+  .ml-adam-photo{ max-width: 440px; }
 }
 @media (max-width: 767px){
   .ml-three-up > .e-con-inner{ grid-template-columns: 1fr; }
