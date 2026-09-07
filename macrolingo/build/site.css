@@ -2201,6 +2201,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -3114,10 +3116,14 @@ body .ml-inner .ml-prose-wide.elementor-widget p{
 }
 /* the one link in that list is a credential too, so it reads plum rather
    than the green a link in running text takes elsewhere                   */
+/* said with ml-inner as well, because the rule that makes a link in running
+   text green is written that way and would otherwise win                  */
+.ml-inner .ml-ticks-founder .elementor-icon-list-text a,
+.ml-inner .ml-cred-wide .elementor-icon-list-text a,
 .ml-ticks-founder .elementor-icon-list-text a,
 .ml-cred-wide .elementor-icon-list-text a{ color: var(--ml-plum-ink); }
-.ml-ticks-founder .elementor-icon-list-text a:hover,
-.ml-cred-wide .elementor-icon-list-text a:hover{ color: var(--ml-plum); }
+.ml-inner .ml-ticks-founder .elementor-icon-list-text a:hover,
+.ml-inner .ml-cred-wide .elementor-icon-list-text a:hover{ color: var(--ml-plum); }
 
 
 /* --- A figure that counts work already done ------------------------------
