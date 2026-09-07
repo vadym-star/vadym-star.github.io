@@ -2157,6 +2157,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -2660,6 +2662,20 @@ table.ml-facts td{
 .ml-work-footnote.elementor-widget{ margin-top: 20px; font-size: 13.5px; }
 /* the note that sits between the cards and the pills keeps its distance */
 .ml-three-up + .ml-work-note.elementor-widget{ margin-top: 34px; }
+
+/* links inside a card title and inside a link list are the whole row, so
+   they carry no underline of their own; the row itself is the affordance */
+.ml-case-title a{ color: inherit; text-decoration: none; }
+.ml-case-title a:hover{ color: var(--e-global-color-mlgreendark); }
+.ml-tlist .elementor-icon-list-item > a,
+.ml-tlist .elementor-icon-list-item > a:hover,
+.ml-tlist .elementor-icon-list-text a{ text-decoration: none; box-shadow: none; }
+.ml-pills .elementor-icon-list-text a{
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.ml-pills .elementor-icon-list-text a:hover{ color: var(--e-global-color-mlgreendark); }
 
 
 /* MacroLingo cookie notice
