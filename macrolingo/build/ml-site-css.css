@@ -2171,6 +2171,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -2791,6 +2793,17 @@ body .ml-inner .ml-prose-wide.elementor-widget p{
 
 /* the client strip on these two pages takes the concept's small label */
 .ml-inner .ml-strip-label .elementor-heading-title{ font-size: 12px; letter-spacing: .12em; }
+
+/* On the work page the concept's pills carry no mark, only the words, and
+   the row is held to 900 rather than the full width. ml-pills-plain, beside
+   ml-pills.                                                                */
+.ml-pills-plain .elementor-icon-list-icon{ display: none; }
+.ml-pills-plain .elementor-icon-list-items{
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.ml-inner .ml-pills-plain.elementor-widget{ margin-top: 30px; }
 
 
 /* MacroLingo cookie notice
