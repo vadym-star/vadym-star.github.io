@@ -2163,6 +2163,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -2696,6 +2698,85 @@ table.ml-facts td{
    two lines. Each figure takes only the room its own words need.          */
 .ml-stats > .e-con-inner{ flex-wrap: nowrap !important; }
 .ml-stats > .e-con-inner > .e-con{ width: auto; flex: 0 1 auto; }
+
+
+/* ==========================================================================
+   A-5 EXACTLY, AND ONLY ON THESE PAGES
+   Every rule below is scoped to ml-inner, which the builders put on every
+   section of About and Our Work and on nothing else. The homepage keeps the
+   numbers Adam has already approved twice.
+
+   Each value here was read off the concept's own rendered stylesheet at
+   1440, not off a picture of it:
+     headline          60px / 63       .hero h1
+     section heading   550px column    .sechead{max-width:60ch}
+     intro under it    18px, 513px     .sechead .lead{max-width:56ch}
+     the passage       Newsreader 22 / 34.1, 877px, 32 above   .prose
+     boxes             46 above        .vcards{margin-top:46px}
+     pills             32 above        .pills{margin-top:32px}
+     client strip      24 gap, 12px label
+   ========================================================================== */
+
+/* the headline. The homepage holds English to 56px so its four lines fit;
+   the concept's inner pages run the full 60.                              */
+.ml-page-hero .ml-hero-title.elementor-widget-heading .elementor-heading-title{
+  font-size: clamp(38px, 5vw, 60px);
+  line-height: 1.05;
+  letter-spacing: -.02em;
+  font-weight: 500;
+}
+
+/* the heading block over a section, and the line under it */
+.ml-inner .ml-section-head{ max-width: 550px; }
+.ml-inner .ml-lead.elementor-widget{
+  max-width: 513px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 16px;
+  font-size: 18px;
+}
+
+/* The passage. Two Elementor rules outrank a plain class here: the kit sets
+   the body face on every Text Editor, and the container rule holds every
+   widget to the width of its column. Both are said again, out loud, or the
+   passage comes out in the body sans across the whole page, which is the
+   one thing that stops these pages looking like the concept.              */
+body .ml-inner .ml-prose.elementor-widget,
+body .ml-inner .ml-prose.elementor-widget p{
+  font-family: var(--ml-serif) !important;
+  font-weight: 400;
+  font-size: clamp(19px, 2vw, 22px);
+  line-height: 1.55;
+  color: var(--e-global-color-secondary);
+  text-align: center;
+}
+.ml-inner .ml-prose.elementor-widget{
+  max-width: 877px !important;
+  margin: 32px auto 0 !important;
+}
+/* A longer passage than the concept was drawn with does not get taller and
+   narrower, it gets wider: the column opens to the full content width and
+   the face steps down a little, so the block stays about the same height.
+   ml-prose-wide, beside ml-prose.                                          */
+body .ml-inner .ml-prose-wide.elementor-widget,
+body .ml-inner .ml-prose-wide.elementor-widget p{
+  font-size: clamp(18px, 1.45vw, 20px);
+  line-height: 1.62;
+}
+.ml-inner .ml-prose-wide.elementor-widget{ max-width: 1000px !important; }
+
+/* the spacing the concept sets on the blocks themselves */
+.ml-inner .ml-three-up{ margin-top: 46px; }
+.ml-inner .ml-pills.elementor-widget{ margin-top: 32px; }
+.ml-inner .ml-work-cols{ margin-top: 46px; }
+.ml-inner .ml-work-narrow{ margin-top: 44px; }
+.ml-inner .ml-work-note.elementor-widget{ margin-top: 36px; }
+.ml-inner .ml-three-up + .ml-work-note.elementor-widget{ margin-top: 34px; }
+.ml-inner .ml-work-footnote.elementor-widget{ margin-top: 20px; }
+.ml-inner .ml-jp-table.elementor-widget{ margin-top: 40px; }
+
+/* the client strip on these two pages takes the concept's small label */
+.ml-inner .ml-strip-label .elementor-heading-title{ font-size: 12px; letter-spacing: .12em; }
 
 
 /* MacroLingo cookie notice
