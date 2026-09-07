@@ -2167,6 +2167,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -2723,7 +2725,7 @@ table.ml-facts td{
    the concept's inner pages run the full 60.                              */
 /* the homepage rule is html[lang^="en"] ... , which carries one element
    selector, so a fourth class is needed here to outrank it              */
-.ml-inner .ml-page-hero .ml-hero-title.elementor-widget-heading .elementor-heading-title{
+.ml-inner.ml-page-hero .ml-hero-title.elementor-widget-heading .elementor-heading-title{
   font-size: clamp(38px, 5vw, 60px);
   line-height: 1.05;
   letter-spacing: -.02em;
