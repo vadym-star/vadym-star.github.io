@@ -2185,6 +2185,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -2973,16 +2975,19 @@ body .ml-inner .ml-prose-wide.elementor-widget p{
 /* --- Three statements, three equal columns -------------------------------
    ml-taglist-cols, beside ml-taglist. Centred words of different lengths
    read as a ragged pile; on their own equal columns they line up.        */
-.ml-taglist-cols .elementor-icon-list-items{
+/* said with both classes, because the flex rule above it carries the same
+   weight and would otherwise win on order alone                          */
+.ml-taglist.ml-taglist-cols .elementor-icon-list-items{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 14px 30px;
   justify-content: stretch;
+  align-items: start;
 }
-.ml-taglist-cols .elementor-icon-list-item{ align-items: flex-start; }
-.ml-taglist-cols .elementor-icon-list-icon{ margin-top: 10px; }
+.ml-taglist.ml-taglist-cols .elementor-icon-list-item{ align-items: flex-start; }
+.ml-taglist.ml-taglist-cols .elementor-icon-list-icon{ margin-top: 10px; }
 @media (max-width: 767px){
-  .ml-taglist-cols .elementor-icon-list-items{ grid-template-columns: 1fr; }
+  .ml-taglist.ml-taglist-cols .elementor-icon-list-items{ grid-template-columns: 1fr; }
 }
 
 /* the signature and the button under his photograph, left aligned with it */
