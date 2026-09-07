@@ -2159,6 +2159,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -2676,6 +2678,17 @@ table.ml-facts td{
   text-underline-offset: 3px;
 }
 .ml-pills .elementor-icon-list-text a:hover{ color: var(--e-global-color-mlgreendark); }
+
+/* the theme underlines every link inside a heading with a selector that
+   beats a plain class, so the card title says it plainly                   */
+.ml-case-title.elementor-widget-heading .elementor-heading-title a,
+.ml-case-title .elementor-heading-title a:hover{
+  text-decoration: none !important;
+  box-shadow: none;
+}
+/* the two figures stay side by side on a phone; stacked, the hairline
+   between them reads as a stray mark                                       */
+.ml-stats > .e-con-inner{ flex-wrap: nowrap; }
 
 
 /* MacroLingo cookie notice
