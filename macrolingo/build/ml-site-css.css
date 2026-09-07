@@ -2195,6 +2195,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -3117,6 +3119,36 @@ body .ml-inner .ml-prose-wide.elementor-widget p{
 .ml-tlist .elementor-icon-list-icon{ color: var(--ml-plum); }
 .ml-tlist .elementor-icon-list-item > a:hover .elementor-icon-list-text{
   color: var(--ml-plum-ink);
+}
+
+
+/* --- Inside a plum band, plum is the accent ------------------------------
+   A band is one idea, so the small green things inside it read plum for as
+   long as they are in there: the heading over a column of links, the swash
+   under a few words of the heading, and a link in the running text. Outside
+   the band they are green again, because outside the band they mean action.
+   The blue band on the homepage has always worked this way.               */
+.ml-band-plum .ml-colhead .elementor-heading-title{ color: var(--ml-plum-ink); }
+.ml-band-plum .ml-highlight{
+  background-image: linear-gradient(120deg, transparent 0 3%,
+      rgba(131,71,145,.22) 3% 97%, transparent 97%);
+  background-image: linear-gradient(120deg, transparent 0 3%,
+      color-mix(in srgb, var(--ml-plum) 22%, transparent) 3% 97%,
+      transparent 97%);
+}
+.ml-band-plum .ml-prose a,
+.ml-band-plum .ml-bio-wide a,
+.ml-band-plum .ml-work-note a,
+.ml-band-plum .ml-ticks-founder .elementor-icon-list-text a,
+.ml-band-plum .ml-cred-wide .elementor-icon-list-text a{
+  color: var(--ml-plum-ink);
+}
+.ml-band-plum .ml-prose a:hover,
+.ml-band-plum .ml-bio-wide a:hover,
+.ml-band-plum .ml-work-note a:hover,
+.ml-band-plum .ml-ticks-founder .elementor-icon-list-text a:hover,
+.ml-band-plum .ml-cred-wide .elementor-icon-list-text a:hover{
+  color: var(--ml-plum);
 }
 
 
