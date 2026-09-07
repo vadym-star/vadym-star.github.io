@@ -2197,6 +2197,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -3019,65 +3021,70 @@ body .ml-inner .ml-prose-wide.elementor-widget p{
 /* ==========================================================================
    THE THIRD COLOUR
 
-   Plum, the one Adam picked from the options page. It has a job, and the job
-   is not decoration:
+   Plum, the one Adam picked. It is an **accent only**. It never becomes the
+   ground of a section: no plum bands, no plum panels, no plum behind a
+   heading. It appears the way the tag on a work card appears, as a small
+   note of colour mixed into a page that is otherwise green, blue and ink.
 
-       green does.  blue reaches.  plum proves.
+   Where it appears, it means the same thing every time: **proof**. Not what
+   we will do for you, which is green and belongs to the buttons, but what
+   has already been earned or published. That gives the mark a reason to be
+   there and keeps it off everything else.
 
-   Green keeps every action: buttons, arrow links, the highlighter, the ticks
-   that say what we do, the dot on a section label. Blue keeps the two
-   gradients it already lives in, the heading that fades and the NGO band.
-   Plum is put only where a page stops selling and starts showing evidence:
-   who we are, what we are qualified in, what has already been published.
+   Five places, and only five:
+     1  the category on a piece of work        a pill, plum on plum tint
+     2  the arrow on a link that leaves for something we published
+     3  the disc beside one of his qualifications
+     4  a figure that counts work already done
+     5  the credential ticks in the homepage's blue band, where plum and
+        blue sit together and the mixing is the point
 
-   That is why plum arrives as a whole band on one section a page, the
-   section that carries the proof, and then as a small mark on the four
-   things elsewhere that are also proof: a figure that counts work done, a
-   qualification, the category on a piece of work, and the arrow on a link
-   that leaves for something we published.
-
-   Change the five values below and every plum on the site changes with them.
+   Change the four values below and every plum on the site changes with them.
    ========================================================================== */
 :root{
   --ml-plum:      #834791;   /* the mark itself */
-  --ml-plum-ink:  #743981;   /* words and icons on a light ground */
-  --ml-plum-band: #F4EEF6;   /* the ground of a plum section */
-  --ml-plum-tint: #EFE6F2;   /* a pill or a disc inside one */
-  --ml-plum-line: #E2D3E7;   /* the hairline that closes a plum band */
+  --ml-plum-ink:  #743981;   /* words and icons, for contrast on white */
+  --ml-plum-tint: #EFE6F2;   /* the inside of a pill or a disc, nothing larger */
+  --ml-plum-line: #E2D3E7;   /* a hairline in plum, where one is wanted */
 }
 
 
-/* --- The plum band -------------------------------------------------------
-   ml-band-plum on a section, in the place ml-band-blue or ml-band-warm
-   would otherwise hold. One section a page carries it:
-     homepage   the founder, "Experts only, working for you"
-     About      the founder
-     Our Work   the press releases, articles and white papers
-   Drawn the same way as the blue band, so the two are brothers rather than
-   two different ideas.                                                     */
-.ml-band-plum{
-  background-color: var(--ml-plum-band);
-  border-top: 1px solid var(--ml-plum-line);
-  border-bottom: 1px solid var(--ml-plum-line);
-}
-/* the small line above a heading reads plum inside a plum band */
-.ml-band-plum .ml-label .elementor-heading-title{ color: var(--ml-plum-ink); }
-.ml-band-plum .ml-label .elementor-heading-title:before{ background: var(--ml-plum); }
-/* ml-ticks-on-blue keeps its name on the homepage, where it has been since
-   that band was blue. Inside a plum band it simply reads plum.            */
-.ml-band-plum .ml-ticks-on-blue .elementor-icon-list-icon{ color: var(--ml-plum-ink); }
-.ml-band-plum .ml-btn-soft .elementor-button:hover{
-  border-color: var(--ml-plum);
+/* --- 1. The category on a piece of work ----------------------------------
+   Six cards, six kinds of work. The tag is a label, not an action, so it
+   stops borrowing the green the buttons use. This is the one Vadym pointed
+   at as the right amount of plum; everything else here is drawn to match.  */
+.ml-case-tag .elementor-heading-title{
+  background: var(--ml-plum-tint);
   color: var(--ml-plum-ink);
 }
-/* a white card sitting on the plum band takes the plum hairline */
-.ml-band-plum .ml-card{ border-color: var(--ml-plum-line); }
 
 
-/* --- A figure that counts work done --------------------------------------
+/* --- 2. The arrow on a published link ------------------------------------
+   The press releases, the articles and the white papers all leave the site
+   for something MacroLingo wrote. The mark at the end of each row is the
+   only colour in that list, so it is plum.                                 */
+.ml-tlist .elementor-icon-list-icon{ color: var(--ml-plum); }
+.ml-tlist .elementor-icon-list-item > a:hover .elementor-icon-list-text{
+  color: var(--ml-plum-ink);
+}
+
+
+/* --- 3. A qualification --------------------------------------------------
+   The disc beside each of his degrees and certificates, on both About
+   pages. A tick that says what we do stays green; a tick that says what he
+   holds is plum. The disc is 26px, which is as much ground as plum ever
+   gets.                                                                    */
+.ml-ticks-founder .elementor-icon-list-icon,
+.ml-cred-wide .elementor-icon-list-icon{
+  background: var(--ml-plum-tint);
+  color: var(--ml-plum-ink);
+}
+
+
+/* --- 4. A figure that counts work already done ---------------------------
    The years on the homepage photograph and the two figures under the Our
-   Work headline. They are the shortest proof on the site, so they are plum
-   rather than the green to blue gradient they used to carry.              */
+   Work headline. They used to carry the green to blue gradient, which said
+   nothing; they are the shortest proof on the site, so they are plum.      */
 .ml-years,
 .ml-stat-figure .elementor-heading-title{
   background-image: none;
@@ -3086,70 +3093,12 @@ body .ml-inner .ml-prose-wide.elementor-widget p{
 }
 
 
-/* --- A qualification -----------------------------------------------------
-   The disc beside each of his degrees and certificates, on both About
-   pages. A tick that says what we do stays green; a tick that says what he
-   holds is plum.                                                           */
-.ml-ticks-founder .elementor-icon-list-icon,
-.ml-cred-wide .elementor-icon-list-icon{
-  background: var(--ml-plum-tint);
-  color: var(--ml-plum-ink);
-}
-.ml-band-plum .ml-ticks-founder .elementor-icon-list-icon,
-.ml-band-plum .ml-cred-wide .elementor-icon-list-icon{
-  /* on the plum band the disc has to lift off the ground, so it goes white
-     with the mark still plum                                              */
-  background: #fff;
-}
-
-
-/* --- The category on a piece of work -------------------------------------
-   Six cards, six kinds of work. The tag is a label, not an action, so it
-   stops borrowing the green the buttons use.                              */
-.ml-case-tag .elementor-heading-title{
-  background: var(--ml-plum-tint);
-  color: var(--ml-plum-ink);
-}
-
-
-/* --- The arrow on a published link ---------------------------------------
-   The press releases, the articles and the white papers all leave the site
-   for something MacroLingo wrote. The arrow at the end of each row is plum
-   for the same reason the band under it is.                               */
-.ml-tlist .elementor-icon-list-icon{ color: var(--ml-plum); }
-.ml-tlist .elementor-icon-list-item > a:hover .elementor-icon-list-text{
-  color: var(--ml-plum-ink);
-}
-
-
-/* --- Inside a plum band, plum is the accent ------------------------------
-   A band is one idea, so the small green things inside it read plum for as
-   long as they are in there: the heading over a column of links, the swash
-   under a few words of the heading, and a link in the running text. Outside
-   the band they are green again, because outside the band they mean action.
-   The blue band on the homepage has always worked this way.               */
-.ml-band-plum .ml-colhead .elementor-heading-title{ color: var(--ml-plum-ink); }
-.ml-band-plum .ml-highlight{
-  background-image: linear-gradient(120deg, transparent 0 3%,
-      rgba(131,71,145,.22) 3% 97%, transparent 97%);
-  background-image: linear-gradient(120deg, transparent 0 3%,
-      color-mix(in srgb, var(--ml-plum) 22%, transparent) 3% 97%,
-      transparent 97%);
-}
-.ml-band-plum .ml-prose a,
-.ml-band-plum .ml-bio-wide a,
-.ml-band-plum .ml-work-note a,
-.ml-band-plum .ml-ticks-founder .elementor-icon-list-text a,
-.ml-band-plum .ml-cred-wide .elementor-icon-list-text a{
-  color: var(--ml-plum-ink);
-}
-.ml-band-plum .ml-prose a:hover,
-.ml-band-plum .ml-bio-wide a:hover,
-.ml-band-plum .ml-work-note a:hover,
-.ml-band-plum .ml-ticks-founder .elementor-icon-list-text a:hover,
-.ml-band-plum .ml-cred-wide .elementor-icon-list-text a:hover{
-  color: var(--ml-plum);
-}
+/* --- 5. The credentials in the blue band ---------------------------------
+   The homepage keeps its blue band. The three lines inside it are the only
+   credentials on that page, so their marks go plum and the two colours sit
+   in the same block. This is the colour mixing the third colour was asked
+   for, and it is three 26px discs, nothing more.                           */
+.ml-band-blue .ml-ticks-on-blue .elementor-icon-list-icon{ color: var(--ml-plum-ink); }
 
 
 /* MacroLingo cookie notice
