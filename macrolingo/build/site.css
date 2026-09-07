@@ -207,6 +207,11 @@ body{
   -webkit-mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 fill=%22none%22%3E%3Cpath d=%22M3 8h10M9 4l4 4-4 4%22 stroke=%22%23000%22 stroke-width=%221.8%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E");
   mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 fill=%22none%22%3E%3Cpath d=%22M3 8h10M9 4l4 4-4 4%22 stroke=%22%23000%22 stroke-width=%221.8%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E");
 }
+.ml-i-arw .elementor-icon:before,
+.ml-i-arw .elementor-icon-list-icon:before{
+  -webkit-mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 fill=%22none%22%3E%3Cpath d=%22M5 11 11 5M6 5h5v5%22 stroke=%22%23000%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E");
+  mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 fill=%22none%22%3E%3Cpath d=%22M5 11 11 5M6 5h5v5%22 stroke=%22%23000%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E");
+}
 .ml-i-cap .elementor-icon:before,
 .ml-i-cap .elementor-icon-list-icon:before{
   -webkit-mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22%3E%3Cpath d=%22M22 10 12 5 2 10l10 5 10-5Z%22 stroke=%22%23000%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3Cpath d=%22M6 12v5c0 1 3 3 6 3s6-2 6-3v-5%22 stroke=%22%23000%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E");
@@ -2150,6 +2155,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -2462,6 +2469,197 @@ table.ml-facts td{
 @media (max-width: 767px){
   .ml-three-up > .e-con-inner{ grid-template-columns: 1fr; }
 }
+
+
+/* ==========================================================================
+   OUR WORK
+   The A-5 work page, a5prev/our-work.html.
+   ========================================================================== */
+
+/* --- The hero with the picture on the left -------------------------------
+   ml-hero-rev on the section, beside ml-page-hero and ml-split-hero        */
+.ml-page-hero.ml-hero-rev > .e-con-inner{ grid-template-columns: .92fr 1.08fr; }
+.ml-page-hero.ml-hero-rev .ml-hero-photo{ order: -1; }
+
+/* --- Two figures under the hero ------------------------------------------
+   ml-stats on the row, ml-stat on each one, ml-stat-sep on the hairline
+   The figure takes the green to blue gradient, the same one the homepage
+   uses on a heading, so the two numbers read as one pair.                  */
+.ml-stats{ margin-top: 32px; }
+.ml-stats > .e-con-inner{
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  padding: 0;
+}
+.ml-stat > .e-con-inner{ padding: 0; }
+.ml-stat-figure .elementor-heading-title{
+  font-family: var(--ml-serif);
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1;
+  background-image: linear-gradient(120deg,
+      var(--e-global-color-mlgreendark) 5%,
+      var(--e-global-color-accent) 95%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+.ml-stat-label.elementor-widget{ margin-top: 5px; }
+.ml-stat-label p{
+  font-size: 13px;
+  line-height: 1.3;
+  color: var(--e-global-color-mlmuted);
+  margin-bottom: 0;
+}
+.ml-stat-sep{
+  width: 1px;
+  min-width: 1px;
+  max-width: 1px;
+  height: 40px;
+  background: var(--ml-line-2);
+  flex: 0 0 auto;
+}
+.ml-stat-sep > .e-con-inner{ padding: 0; }
+
+/* --- A piece of work -----------------------------------------------------
+   ml-case on the card, ml-case-tag  ml-case-title  ml-case-note            */
+.e-con.ml-case{
+  background-color: #fff;
+  border: 1px solid var(--ml-line);
+  border-radius: var(--ml-radius);
+  box-shadow: var(--ml-shadow-soft);
+  padding: 28px;
+  transition: transform .2s, box-shadow .2s;
+}
+.e-con.ml-case > .e-con-inner{ padding: 0; height: 100%; }
+.e-con.ml-case:hover{ transform: translateY(-4px); box-shadow: var(--ml-shadow-lift); }
+.ml-case-tag .elementor-heading-title{
+  display: inline-block;
+  font-family: var(--ml-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--e-global-color-mlgreendark);
+  background: var(--e-global-color-mlmint);
+  padding: 5px 12px;
+  border-radius: 999px;
+  line-height: 1.72;
+}
+.ml-case-title.elementor-widget{ margin-top: 16px; }
+.ml-case-title .elementor-heading-title{
+  font-family: var(--ml-serif);
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+.ml-case-note.elementor-widget{ margin-top: 8px; }
+.ml-case-note p{
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--e-global-color-text);
+  margin-bottom: 0;
+}
+
+/* --- A list of links that leave the site ---------------------------------
+   ml-tlist on an Icon List, with ml-i-arw for its mark
+   Hairline between the rows, the mark at the far right, and the row steps
+   a little to the right under the pointer.                                 */
+.ml-colhead .elementor-heading-title{
+  font-family: var(--ml-sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--e-global-color-mlgreendark);
+  line-height: 1.72;
+}
+.ml-tlist.elementor-widget{ margin-top: 6px; }
+.ml-tlist .elementor-icon-list-items{ display: block; }
+.ml-tlist .elementor-icon-list-item{
+  display: block;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--ml-line);
+}
+.ml-tlist .elementor-icon-list-item:first-child{ border-top: 0; }
+.ml-tlist .elementor-icon-list-item > a,
+.ml-tlist .elementor-icon-list-item > span{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 14px;
+  padding: 14px 0;
+  transition: color .16s ease, padding-left .16s ease;
+}
+.ml-tlist .elementor-icon-list-item > a:hover{ padding-left: 5px; }
+.ml-tlist .elementor-icon-list-text{
+  order: 1;
+  padding: 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--e-global-color-secondary);
+}
+.ml-tlist .elementor-icon-list-item > a:hover .elementor-icon-list-text{
+  color: var(--e-global-color-mlgreendark);
+}
+/* the mark sits at the end of the row, not in front of it */
+.ml-tlist .elementor-icon-list-icon{
+  order: 2;
+  width: 15px;
+  height: 15px;
+  padding: 0;
+  margin: 0;
+  flex: 0 0 auto;
+  align-self: center;
+  color: var(--e-global-color-primary);
+  transition: transform .18s ease;
+}
+.ml-tlist .elementor-icon-list-item > a:hover .elementor-icon-list-icon{
+  transform: translate(3px, -3px);
+}
+
+/* --- Two columns of those lists ------------------------------------------
+   ml-work-cols on the container                                            */
+.ml-work-cols > .e-con-inner{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.ml-work-cols > .e-con-inner > *{ width: 100%; max-width: 100%; min-width: 0; }
+.ml-work-cols > .e-con-inner > .e-con{ padding-left: 0; padding-right: 0; }
+/* the white papers, narrower and in the middle */
+.ml-work-narrow{ max-width: 560px; margin-left: auto; margin-right: auto; }
+.ml-work-narrow > .e-con-inner{ padding: 0; }
+.ml-work-narrow .ml-colhead .elementor-heading-title{ text-align: center; }
+/* the closing note under the lists */
+.ml-work-note.elementor-widget{
+  max-width: 66ch;
+  margin: 36px auto 0;
+  text-align: center;
+  font-size: 15px;
+  color: var(--e-global-color-mlmuted);
+}
+.ml-work-note p{ font-size: inherit; color: inherit; margin-bottom: 0; }
+.ml-work-note a{ color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.ml-work-note a:hover{ color: var(--e-global-color-mlgreendark); }
+
+@media (max-width: 920px){
+  .ml-page-hero.ml-hero-rev > .e-con-inner{ grid-template-columns: 1fr; }
+  .ml-page-hero.ml-hero-rev .ml-hero-photo{ order: 0; }
+  .ml-work-cols > .e-con-inner{ grid-template-columns: 1fr; gap: 34px; }
+}
+@media (max-width: 600px){
+  .ml-stats > .e-con-inner{ gap: 18px; }
+}
+
+/* the footnote under the three pieces reads smaller than the note above it */
+.ml-work-footnote.elementor-widget{ margin-top: 20px; font-size: 13.5px; }
+/* the note that sits between the cards and the pills keeps its distance */
+.ml-three-up + .ml-work-note.elementor-widget{ margin-top: 34px; }
 
 
 /* MacroLingo cookie notice
