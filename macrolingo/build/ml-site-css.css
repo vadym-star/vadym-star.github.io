@@ -2175,6 +2175,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -2812,31 +2814,51 @@ body .ml-inner .ml-prose-wide.elementor-widget p{
    ml-taglist on an Icon List set to inline
    The concept draws these as white rounded chips with a hairline and a
    shadow. That shape has become the tell of a generated page, so the words
-   are left to stand on their own, centred, with a small green dot between
-   them. The chip rules above are kept, unused, so the look can be put back
-   by swapping the class in Elementor.                                     */
+   stand on their own: a small green dot in front of each, spaced evenly and
+   centred, wrapping to a second line when they run out of room. The chip
+   rules further up are kept, unused, so the concept's look can be put back
+   by swapping the class in Elementor.
+   A separator between the items was tried first and dropped: when the row
+   wraps, the last item on a line is left with a mark dangling after it.   */
 .ml-taglist .elementor-icon-list-items{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0;
+  gap: 10px 30px;
 }
 .ml-taglist .elementor-icon-list-item{
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
   background: none;
   border: 0;
   box-shadow: none;
   border-radius: 0;
   padding: 0;
   margin: 0;
-  display: inline-flex;
-  align-items: center;
 }
-.ml-taglist .elementor-icon-list-icon{ display: none; }
+/* Elementor's own bar between inline items, off */
+.ml-taglist .elementor-icon-list-items.elementor-inline-items .elementor-icon-list-item:not(:last-child):after,
+.ml-taglist .elementor-icon-list-item:after{ content: none; display: none; }
+/* the mark is a plain dot drawn by the box itself, not the widget's icon */
+.ml-taglist .elementor-icon-list-icon{
+  width: 6px;
+  height: 6px;
+  min-width: 6px;
+  padding: 0;
+  margin: 0;
+  border-radius: 50%;
+  background-color: var(--e-global-color-primary);
+  flex: 0 0 auto;
+}
+.ml-taglist .elementor-icon-list-icon svg,
+.ml-taglist .elementor-icon-list-icon i,
+.ml-taglist .elementor-icon-list-icon:before{ display: none; }
 .ml-taglist .elementor-icon-list-text{
   padding: 0;
   font-size: 15.5px;
   font-weight: 500;
-  line-height: 2;
+  line-height: 1.72;
   color: var(--e-global-color-secondary);
 }
 .ml-taglist .elementor-icon-list-text a{
@@ -2845,25 +2867,7 @@ body .ml-inner .ml-prose-wide.elementor-widget p{
   text-underline-offset: 3px;
 }
 .ml-taglist .elementor-icon-list-text a:hover{ color: var(--e-global-color-mlgreendark); }
-/* Elementor draws a vertical bar between inline items, positioned absolutely
-   at the right edge. It is replaced here by a dot that takes part in the
-   flow, so the spacing is even whatever the words are.                    */
-.ml-taglist .elementor-icon-list-items.elementor-inline-items .elementor-icon-list-item:not(:last-child):after,
-.ml-taglist .elementor-icon-list-item:not(:last-child):after{
-  content: "";
-  display: inline-block;
-  position: static;
-  width: 4px;
-  height: 4px;
-  border: 0;
-  border-radius: 50%;
-  background-color: var(--e-global-color-primary);
-  margin: 0 17px;
-  flex: 0 0 auto;
-  transform: none;
-  right: auto;
-}
-.ml-inner .ml-taglist.elementor-widget{ margin-top: 28px; }
+.ml-inner .ml-taglist.elementor-widget{ margin-top: 30px; }
 
 
 /* MacroLingo cookie notice
