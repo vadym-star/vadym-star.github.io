@@ -2213,6 +2213,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -3076,11 +3078,12 @@ body .ml-inner .ml-prose-wide.elementor-widget p{
 @media (max-width: 1080px){
   .e-con.ml-footer-cols > .e-con-inner{ grid-template-columns: 1.4fr 1fr 1fr; gap: 36px 30px; }
 }
+/* On a phone the list stays two across rather than one, or a footer holding
+   the whole site runs longer than the page above it. The mark, the words
+   and the address take the full width above them.                        */
 @media (max-width: 767px){
-  .e-con.ml-footer-cols > .e-con-inner{ grid-template-columns: 1fr 1fr; gap: 30px 24px; }
-}
-@media (max-width: 480px){
-  .e-con.ml-footer-cols > .e-con-inner{ grid-template-columns: 1fr; }
+  .e-con.ml-footer-cols > .e-con-inner{ grid-template-columns: 1fr 1fr; gap: 30px 22px; }
+  .e-con.ml-footer-cols > .e-con-inner > *:first-child{ grid-column: 1 / -1; }
 }
 
 
