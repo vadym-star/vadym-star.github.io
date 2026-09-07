@@ -2161,6 +2161,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -2689,6 +2691,11 @@ table.ml-facts td{
 /* the two figures stay side by side on a phone; stacked, the hairline
    between them reads as a stray mark                                       */
 .ml-stats > .e-con-inner{ flex-wrap: nowrap; }
+
+/* a container is full width by default, so two of them in a row wrap onto
+   two lines. Each figure takes only the room its own words need.          */
+.ml-stats > .e-con-inner{ flex-wrap: nowrap !important; }
+.ml-stats > .e-con-inner > .e-con{ width: auto; flex: 0 1 auto; }
 
 
 /* MacroLingo cookie notice
