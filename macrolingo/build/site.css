@@ -2181,6 +2181,10 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -2885,6 +2889,106 @@ body .ml-inner .ml-prose-wide.elementor-widget p{
 @media (max-width: 767px){
   .ml-cred-wide .elementor-icon-list-items{ columns: 1; }
 }
+
+
+/* ==========================================================================
+   ROUND FOUR
+   ========================================================================== */
+
+/* --- A link in running text is green, always -----------------------------
+   Underlined and a different colour from the moment it is drawn, not only
+   under the pointer. This covers every block on these two pages that can
+   hold a link inside its words.                                           */
+.ml-inner .ml-prose a,
+.ml-inner .ml-bio-wide a,
+.ml-inner .ml-work-note a,
+.ml-inner .ml-taglist .elementor-icon-list-text a,
+.ml-inner .ml-founder-line a,
+.ml-inner .ml-lead a,
+.ml-inner .ml-hero-intro a,
+.ml-inner .ml-case-note a{
+  color: var(--e-global-color-mlgreendark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+.ml-inner .ml-prose a:hover,
+.ml-inner .ml-bio-wide a:hover,
+.ml-inner .ml-work-note a:hover,
+.ml-inner .ml-taglist .elementor-icon-list-text a:hover,
+.ml-inner .ml-founder-line a:hover,
+.ml-inner .ml-lead a:hover,
+.ml-inner .ml-hero-intro a:hover,
+.ml-inner .ml-case-note a:hover{
+  color: var(--e-global-color-primary);
+  text-decoration-thickness: 2px;
+}
+/* his qualifications carry one link; same treatment */
+.ml-inner .ml-ticks-founder .elementor-icon-list-text a,
+.ml-inner .ml-cred-wide .elementor-icon-list-text a{
+  color: var(--e-global-color-mlgreendark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* --- A link list row does not reflow under the pointer -------------------
+   The row used to gain 5px of left padding on hover, which pushed the
+   longest title onto a second line and made the whole list jump. The step
+   is now a transform, which moves the words without taking any width, and
+   the two columns sit a little closer so each row has more room to begin
+   with.                                                                    */
+.ml-work-cols > .e-con-inner{ gap: 40px; }
+.ml-tlist .elementor-icon-list-item > a{ transition: color .16s ease; }
+.ml-tlist .elementor-icon-list-item > a:hover{ padding-left: 0; }
+.ml-tlist .elementor-icon-list-text{
+  transition: transform .16s ease;
+  transform: translateX(0);
+}
+.ml-tlist .elementor-icon-list-item > a:hover .elementor-icon-list-text{
+  transform: translateX(5px);
+}
+
+/* --- The work cards --------------------------------------------------------
+   A firmer edge, and the whole card is the link rather than the words in
+   it. The stretched area is drawn by the call to action at the foot of the
+   card, so there is one link per card and the keyboard reaches it.        */
+.e-con.ml-case{
+  position: relative;
+  border-color: var(--ml-line-2);
+}
+.e-con.ml-case:hover{
+  border-color: var(--e-global-color-primary);
+  box-shadow: var(--ml-shadow-lift);
+}
+.e-con.ml-case > .e-con-inner{ display: flex; flex-direction: column; }
+.ml-case .ml-case-cta.elementor-widget{ margin-top: auto; padding-top: 18px; }
+.ml-case .ml-case-cta .elementor-button:after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.ml-case .ml-case-cta .elementor-button{ position: static; }
+
+/* --- Three statements, three equal columns -------------------------------
+   ml-taglist-cols, beside ml-taglist. Centred words of different lengths
+   read as a ragged pile; on their own equal columns they line up.        */
+.ml-taglist-cols .elementor-icon-list-items{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px 30px;
+  justify-content: stretch;
+}
+.ml-taglist-cols .elementor-icon-list-item{ align-items: flex-start; }
+.ml-taglist-cols .elementor-icon-list-icon{ margin-top: 10px; }
+@media (max-width: 767px){
+  .ml-taglist-cols .elementor-icon-list-items{ grid-template-columns: 1fr; }
+}
+
+/* the signature and the button under his photograph, left aligned with it */
+.ml-adam-photo .ml-signature.elementor-widget{ margin-top: 20px; }
+.ml-adam-photo .elementor-widget-button{ margin-top: 18px; }
+.ml-adam-photo .elementor-widget-button .elementor-button-wrapper{ text-align: left; }
 
 
 /* MacroLingo cookie notice
