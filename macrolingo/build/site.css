@@ -2187,6 +2187,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -2964,13 +2966,23 @@ body .ml-inner .ml-prose-wide.elementor-widget p{
 }
 .e-con.ml-case > .e-con-inner{ display: flex; flex-direction: column; }
 .ml-case .ml-case-cta.elementor-widget{ margin-top: auto; padding-top: 18px; }
+/* The whole card is the link. The button's own box is stretched over the
+   card, and every wrapper between the two is put back to static first: a
+   positioned wrapper anywhere in between and the stretched box would only
+   cover the button, which is exactly what it did at first. The pointer is
+   set on the card as well, so the hand shows the moment it is over any part
+   of it and not only over the words of the button.                        */
+.e-con.ml-case{ cursor: pointer; }
+.e-con.ml-case > .e-con-inner,
+.ml-case .ml-case-cta.elementor-widget,
+.ml-case .ml-case-cta .elementor-button-wrapper,
+.ml-case .ml-case-cta .elementor-button{ position: static; }
 .ml-case .ml-case-cta .elementor-button:after{
   content: "";
   position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: 2;
 }
-.ml-case .ml-case-cta .elementor-button{ position: static; }
 
 /* --- Three statements, three equal columns -------------------------------
    ml-taglist-cols, beside ml-taglist. Centred words of different lengths
