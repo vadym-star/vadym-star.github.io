@@ -2235,6 +2235,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -3344,6 +3346,49 @@ table.ml-compare thead th.ml-col-us{
   margin-bottom: 0;
 }
 
+/* --- Five service cards, Japanese ----------------------------------------
+   These carry a sentence and a list each, which is a great deal more than
+   the English page's six short cards, so they run two across rather than
+   three: at three the Japanese lines break every few characters. Five in a
+   two-column grid would strand the last one, so an odd last card takes the
+   whole row, the same way the Service menu handles it.                    */
+.ml-svc-grid > .e-con-inner{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  align-items: stretch;
+  padding: 0;
+}
+.ml-svc-grid > .e-con-inner > *{ width: 100%; max-width: 100%; min-width: 0; }
+.ml-svc-grid > .e-con-inner > *:last-child:nth-child(odd){ grid-column: 1 / -1; }
+.ml-inner .ml-svc-grid{ margin-top: 46px; }
+
+/* the list inside one of those cards: the same tick as everywhere else, a
+   size down, because it is a detail of the card and not its argument      */
+.ml-svc-list.elementor-widget{ margin-top: 14px; }
+.ml-svc-list .elementor-icon-list-item{
+  align-items: flex-start;
+  gap: 10px;
+  padding: 5px 0;
+  margin-bottom: 0;
+}
+.ml-svc-list .elementor-icon-list-icon{
+  width: 18px;
+  height: 18px;
+  padding: 4px;
+  border-radius: 50%;
+  background: var(--e-global-color-mlmint);
+  color: var(--e-global-color-mlgreendark);
+  margin-top: 3px;
+  flex: 0 0 auto;
+}
+.ml-svc-list .elementor-icon-list-text{
+  padding: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--e-global-color-text);
+}
+
 /* --- The Service menu ----------------------------------------------------
    The old calculator was a dropdown and a slider: to ask "what would 2,000
    words cost" you had to find the service in a list and then drag a handle
@@ -3543,6 +3588,7 @@ input.ml-qty-input:focus{
   /* one service to a row on a phone, and the question sits above its answer
      rather than trying to share the line with it                          */
   .ml-opts > .e-con-inner{ grid-template-columns: 1fr; }
+  .ml-svc-grid > .e-con-inner{ grid-template-columns: 1fr; }
   .e-con.ml-menu{ padding: 22px 18px; }
   .ml-est{ flex-direction: column; align-items: flex-start; gap: 16px; }
   .ml-est-answer{ width: 100%; justify-content: space-between; }
