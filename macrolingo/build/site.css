@@ -2217,6 +2217,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -3086,6 +3088,222 @@ body .ml-inner .ml-prose-wide.elementor-widget p{
 @media (max-width: 767px){
   .e-con.ml-footer-cols > .e-con-inner{ grid-template-columns: 1fr 1fr; gap: 30px 22px; }
   .e-con.ml-footer-cols > .e-con-inner > *:first-child{ grid-column: 1 / -1; }
+}
+
+
+/* ==========================================================================
+   THE COPYWRITING PAGE
+
+   A service page, the first of its kind here. There was no concept drawing
+   for one, so everything below is the language the other inner pages
+   settled: the same card, the same ticks, the same section head. Only three
+   things are new, because the content asked for them — a card without a
+   category, a comparison table, and five numbered steps.
+   ========================================================================== */
+
+/* --- The six services ----------------------------------------------------
+   The work card without its category tag. A tag here would be teal, and
+   teal is reserved for what has already been done; a service is a promise,
+   not a proof, so it carries no mark at all.                              */
+.e-con.ml-svc{
+  background-color: #fff;
+  border: 1px solid var(--ml-line-2);
+  border-radius: var(--ml-radius);
+  box-shadow: var(--ml-shadow-soft);
+  padding: 28px;
+  transition: transform .2s, box-shadow .2s, border-color .2s;
+}
+.e-con.ml-svc > .e-con-inner{ padding: 0; height: 100%; }
+.e-con.ml-svc:hover{
+  transform: translateY(-4px);
+  border-color: var(--e-global-color-primary);
+  box-shadow: var(--ml-shadow-lift);
+}
+.ml-svc-title .elementor-heading-title{
+  font-family: var(--ml-serif);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+.ml-svc-note.elementor-widget{ margin-top: 10px; }
+.ml-svc-note p{
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--e-global-color-text);
+  margin-bottom: 0;
+}
+
+/* --- A button on its own line, centred -----------------------------------
+   Several sections end on one call to action. The row is a container so an
+   editor can drop a second button beside the first without touching CSS.  */
+.e-con.ml-cta-centred > .e-con-inner{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 0;
+}
+
+/* --- Why choose us -------------------------------------------------------
+   The photograph and the argument share a row, then the two lists sit
+   underneath at half width each. ml-split-founder already draws the row.  */
+.ml-why-photo > .e-con-inner{ padding: 0; }
+.ml-colhead-lg .elementor-heading-title{
+  font-family: var(--ml-serif);
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--e-global-color-secondary);
+}
+.ml-colhead-lg + .ml-ticks.elementor-widget{ margin-top: 14px; }
+
+/* --- The comparison ------------------------------------------------------
+   Three columns against eight rows: this is a table in the plain sense, so
+   it is written as one and reads correctly to a screen reader. Our column
+   is tinted and its marks are green; the other two are drawn in ink, not in
+   red, because a page does not need to shout at its competitors.
+   The wrapper scrolls sideways on a small screen rather than squeezing the
+   words to nothing.                                                        */
+.ml-compare-wrap.elementor-widget{
+  margin-top: 42px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+table.ml-compare{
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
+  background: #fff;
+  border: 1px solid var(--ml-line-2);
+  border-radius: var(--ml-radius);
+  overflow: hidden;
+}
+table.ml-compare th,
+table.ml-compare td{
+  border: 0;
+  border-bottom: 1px solid var(--ml-line);
+  padding: 15px 20px;
+  text-align: center;
+  vertical-align: middle;
+}
+table.ml-compare tbody tr:last-child th,
+table.ml-compare tbody tr:last-child td{ border-bottom: 0; }
+/* the row label */
+table.ml-compare tbody th[scope="row"]{
+  text-align: left;
+  font-family: var(--ml-body);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--e-global-color-secondary);
+}
+/* the head of each column */
+table.ml-compare thead th{
+  font-family: var(--ml-sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  line-height: 1.5;
+  color: var(--e-global-color-text);
+  background: var(--e-global-color-mlwarm);
+}
+table.ml-compare thead td{ background: var(--e-global-color-mlwarm); }
+/* our column, tinted the whole way down and named to the reader as ours */
+table.ml-compare .ml-col-us{ background: var(--e-global-color-mlmint); }
+table.ml-compare thead th.ml-col-us{
+  color: var(--e-global-color-mlgreendark);
+  background: var(--e-global-color-mlmint);
+}
+.ml-mark{
+  display: inline-block;
+  min-width: 26px;
+  font-size: 17px;
+  line-height: 1;
+  font-weight: 700;
+}
+.ml-mark-yes{ color: var(--e-global-color-mlgreendark); }
+.ml-mark-maybe{ color: var(--e-global-color-text); font-weight: 600; }
+.ml-mark-no{ color: var(--ml-line-2); }
+
+/* --- How we work together ------------------------------------------------
+   Five steps, so a three-across grid would leave two stranded on a second
+   row. They run five across on a desktop and fold to two, then one.       */
+.ml-steps > .e-con-inner{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+  align-items: stretch;
+  padding: 0;
+}
+.ml-steps > .e-con-inner > *{ width: 100%; max-width: 100%; min-width: 0; }
+.ml-inner .ml-steps{ margin-top: 46px; }
+.e-con.ml-step{
+  background-color: #fff;
+  border: 1px solid var(--ml-line-2);
+  border-radius: var(--ml-radius);
+  box-shadow: var(--ml-shadow-soft);
+  padding: 24px 22px;
+}
+.e-con.ml-step > .e-con-inner{ padding: 0; height: 100%; }
+/* the numeral: green, because a step is something we do */
+.ml-step-no .elementor-heading-title{
+  font-family: var(--ml-serif);
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--e-global-color-primary);
+}
+.ml-step-label.elementor-widget{ margin-top: 12px; }
+.ml-step-label .elementor-heading-title{
+  font-family: var(--ml-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--e-global-color-mlgreendark);
+  line-height: 1.6;
+}
+.ml-step-title.elementor-widget{ margin-top: 6px; }
+.ml-step-title .elementor-heading-title{
+  font-family: var(--ml-serif);
+  font-size: 17.5px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.ml-step-note.elementor-widget{ margin-top: 8px; }
+.ml-step-note p{
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--e-global-color-text);
+  margin-bottom: 0;
+}
+
+/* --- The estimate --------------------------------------------------------
+   The calculator is a plugin and draws itself. It is given a white panel to
+   sit in so it stops looking like a form that fell onto the page, and its
+   own width is left alone.                                                */
+.ml-calc-wrap > .e-con-inner{ padding: 0; }
+.ml-calc.elementor-widget{
+  background: #fff;
+  border: 1px solid var(--ml-line-2);
+  border-radius: var(--ml-radius);
+  box-shadow: var(--ml-shadow-soft);
+  padding: 26px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+@media (max-width: 1024px){
+  .ml-steps > .e-con-inner{ grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 767px){
+  .ml-steps > .e-con-inner{ grid-template-columns: 1fr; gap: 14px; }
+  .ml-calc.elementor-widget{ padding: 16px; }
+  table.ml-compare th,
+  table.ml-compare td{ padding: 12px 14px; }
 }
 /* ==========================================================================
    THE THIRD COLOUR
