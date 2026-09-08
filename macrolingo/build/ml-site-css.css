@@ -2245,6 +2245,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -3671,6 +3673,33 @@ input.ml-qty-input:focus{
   line-height: 1.4;
   color: var(--e-global-color-mlgreendark);
   margin-bottom: 0;
+}
+
+
+/* --- Three across, with the last row centred -----------------------------
+   ml-three-up is a grid, which is right for six cards and wrong for five:
+   the fifth sits alone against an empty third column and reads as a card
+   that failed to load. Laid out as a wrapping row instead, the last two
+   centre under the first three and the block ends deliberately.           */
+.ml-three-up-centred > .e-con-inner{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 22px;
+  padding: 0;
+}
+.ml-three-up-centred > .e-con-inner > *{
+  width: calc((100% - 44px) / 3);
+  max-width: 100%;
+  min-width: 0;
+}
+.ml-inner .ml-three-up-centred{ margin-top: 46px; }
+@media (max-width: 1024px){
+  .ml-three-up-centred > .e-con-inner > *{ width: calc((100% - 22px) / 2); }
+}
+@media (max-width: 767px){
+  .ml-three-up-centred > .e-con-inner > *{ width: 100%; }
 }
 /* ==========================================================================
    THE THIRD COLOUR
