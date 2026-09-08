@@ -2257,6 +2257,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -3941,6 +3943,53 @@ input.ml-qty-input:focus{
   color: var(--e-global-color-mlgreendark);
   margin-bottom: 0;
 }
+
+
+/* --- A question and its answer, in the open ------------------------------
+   Used where a page has only a handful of questions and every one of them is
+   a reason somebody does not write in. An accordion would hide them.       */
+.e-con.ml-ask{
+  background: #fff;
+  border: 1px solid var(--ml-line-2);
+  border-radius: var(--ml-radius);
+  box-shadow: var(--ml-shadow-soft);
+  padding: 26px 26px 28px;
+}
+.e-con.ml-ask > .e-con-inner{ padding: 0; height: 100%; }
+.ml-ask-q .elementor-heading-title{
+  font-family: var(--ml-serif);
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+.ml-ask-a.elementor-widget{ margin-top: 10px; }
+.ml-ask-a p{
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--e-global-color-text);
+  margin-bottom: 0;
+}
+.ml-ask-a a{
+  color: var(--e-global-color-mlgreendark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.ml-ask-a a:hover{ color: var(--e-global-color-primary); }
+
+/* the client's own mark at the top of a case card */
+.ml-case-logo.elementor-widget{ margin-bottom: 16px; }
+.ml-case-logo img{
+  max-width: 150px;
+  max-height: 46px;
+  width: auto;
+  object-fit: contain;
+}
+.ml-case-note a{
+  color: var(--e-global-color-mlgreendark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.ml-case-note p + p{ margin-top: 10px; }
 /* ==========================================================================
    THE THIRD COLOUR
 
