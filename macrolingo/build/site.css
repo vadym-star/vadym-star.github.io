@@ -2225,6 +2225,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -3345,6 +3347,11 @@ table.ml-compare thead th.ml-col-us{
   align-items: stretch;
 }
 .ml-opts > .e-con-inner > *{ width: 100%; max-width: 100%; min-width: 0; }
+/* five services in a two-column grid leaves the last one stranded beside an
+   empty space, which reads as a card that failed to load. When the count is
+   odd the last card takes the whole row instead, so the block always ends
+   on a straight edge — and it keeps working if Adam adds a sixth service. */
+.ml-opts > .e-con-inner > *:last-child:nth-child(odd){ grid-column: 1 / -1; }
 .e-con.ml-opts{ margin-top: 24px; }
 .e-con.ml-opt{
   background: var(--e-global-color-mlwarm);
@@ -3470,6 +3477,13 @@ input.ml-qty-input:focus{
 }
 @media (max-width: 767px){
   .ml-steps > .e-con-inner{ grid-template-columns: 1fr; gap: 14px; }
+  /* one service to a row on a phone, and the question sits above its answer
+     rather than trying to share the line with it                          */
+  .ml-opts > .e-con-inner{ grid-template-columns: 1fr; }
+  .e-con.ml-menu{ padding: 20px !important; }
+  .ml-est{ flex-direction: column; align-items: flex-start; gap: 16px; }
+  .ml-est-answer{ width: 100%; justify-content: space-between; }
+  input.ml-qty-input{ width: 120px; }
   .ml-calc.elementor-widget{ padding: 16px; }
   table.ml-compare th,
   table.ml-compare td{ padding: 12px 14px; }
