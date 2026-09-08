@@ -1,0 +1,110 @@
+<script>
+/* The Service menu on the Copywriting page.
+
+   Pick a service, type an amount, see a rough total. The old plugin asked
+   the same two questions with a dropdown and a slider you had to drag until
+   the number under it happened to say what you meant.
+
+   The arithmetic holds no prices of its own. It reads the rate out of the
+   card's own Heading widget and the unit out of the one beside it, so when
+   Adam opens a card in Elementor and types a new figure, the estimate
+   follows. Nothing here has to be edited when a price changes.
+
+   If this snippet is ever removed, the page still reads correctly: the five
+   services and their prices are on it as ordinary text, and only the live
+   total stops moving. */
+(function () {
+  function init() {
+    var menu = document.querySelector('.ml-menu');
+    if (!menu) { return; }
+
+    var opts = Array.prototype.slice.call(menu.querySelectorAll('.ml-opt'));
+    var qty = menu.querySelector('.ml-qty-input');
+    var out = menu.querySelector('.ml-total-value');
+    var unitOut = menu.querySelector('.ml-qty-unit');
+    if (!opts.length || !qty || !out) { return; }
+
+    /* "$0.30" -> 0.3, "$75" -> 75, "$1,200" -> 1200. Anything unreadable
+       counts as nothing rather than as NaN, so a typo in the panel can
+       never put the word NaN in front of a customer. */
+    function rateOf(card) {
+      var el = card.querySelector('.ml-opt-rate');
+      var m = el ? String(el.textContent).replace(/,/g, '').match(/[\d.]+/) : null;
+      var n = m ? parseFloat(m[0]) : 0;
+      return isFinite(n) ? n : 0;
+    }
+
+    /* "per word" -> "words", so the line under the field reads the way a
+       person would say it. An unrecognised unit is shown as it stands. */
+    function unitOf(card) {
+      var el = card.querySelector('.ml-opt-unit');
+      var t = el ? String(el.textContent).trim().replace(/^per\s+/i, '') : '';
+      if (!t) { return ''; }
+      return /s$/i.test(t) ? t : t + 's';
+    }
+
+    function money(n) {
+      var whole = n >= 100 || n === Math.round(n);
+      return '$' + n.toLocaleString('en-US', {
+        minimumFractionDigits: whole ? 0 : 2,
+        maximumFractionDigits: whole ? 0 : 2
+      });
+    }
+
+    var chosen = opts[0];
+
+    function draw() {
+      /* the minus has to survive the cleaning or "-40" arrives as 40 and a
+         negative quantity quietly turns into a positive estimate */
+      var n = parseFloat(String(qty.value).replace(/[^\d.-]/g, ''));
+      if (!isFinite(n) || n < 0) { n = 0; }
+      out.textContent = money(rateOf(chosen) * n);
+      if (unitOut) { unitOut.textContent = unitOf(chosen); }
+    }
+
+    function choose(card) {
+      chosen = card;
+      opts.forEach(function (c) {
+        var on = c === card;
+        c.classList.toggle('is-on', on);
+        c.setAttribute('aria-checked', on ? 'true' : 'false');
+        c.tabIndex = on ? 0 : -1;
+      });
+      draw();
+    }
+
+    var group = menu.querySelector('.ml-opts');
+    if (group) { group.setAttribute('role', 'radiogroup'); }
+
+    opts.forEach(function (card, i) {
+      card.setAttribute('role', 'radio');
+      card.tabIndex = -1;
+      card.addEventListener('click', function () { choose(card); });
+      card.addEventListener('keydown', function (e) {
+        var k = e.key;
+        if (k === ' ' || k === 'Enter') { e.preventDefault(); choose(card); return; }
+        var step = (k === 'ArrowRight' || k === 'ArrowDown') ? 1
+                 : (k === 'ArrowLeft' || k === 'ArrowUp') ? -1 : 0;
+        if (!step) { return; }
+        e.preventDefault();
+        var next = opts[(i + step + opts.length) % opts.length];
+        choose(next);
+        next.focus();
+      });
+    });
+
+    qty.addEventListener('input', draw);
+    /* a browser that remembers the last value on a back button still has to
+       agree with the total shown beside it */
+    qty.addEventListener('change', draw);
+
+    choose(opts[0]);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>

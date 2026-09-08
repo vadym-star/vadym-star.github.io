@@ -2223,6 +2223,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -3298,25 +3300,170 @@ table.ml-compare thead th.ml-col-us{
   margin-bottom: 0;
 }
 
-/* --- The estimate --------------------------------------------------------
-   The calculator is a plugin and draws itself. It is given a white panel to
-   sit in so it stops looking like a form that fell onto the page, and its
-   own width is left alone.                                                */
-.ml-calc-wrap > .e-con-inner{ padding: 0; }
-.ml-calc.elementor-widget{
+/* --- The Service menu ----------------------------------------------------
+   The old calculator was a dropdown and a slider: to ask "what would 2,000
+   words cost" you had to find the service in a list and then drag a handle
+   until the number under it happened to say 2000. This asks the same two
+   questions the way a person would: pick the thing, type the amount.
+
+   Every price is an ordinary Heading widget and the arithmetic reads the
+   figure off the page, so Adam can open a card in Elementor, type a new
+   rate, and the estimate follows. Nothing here holds a second copy of a
+   number that lives somewhere else.                                        */
+.e-con.ml-menu{
   background: #fff;
   border: 1px solid var(--ml-line-2);
   border-radius: var(--ml-radius);
   box-shadow: var(--ml-shadow-soft);
-  padding: 26px;
+  max-width: 900px;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
 }
-/* Elementor's own `.e-con > .e-con-inner > .elementor-widget{max-width:100%}`
-   outranks a plain class, so the width is said again the way the passages
-   on the other inner pages say it (see ml-prose).                         */
-body .ml-inner .ml-calc.elementor-widget{ max-width: 900px !important; }
+.ml-inner .ml-menu{ margin-top: 40px; }
+.ml-menu > .e-con-inner{ padding: 0; }
+.ml-menu-head .elementor-heading-title{
+  font-family: var(--ml-serif);
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.ml-menu-intro.elementor-widget{ margin-top: 10px; }
+.ml-menu-intro p{
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--e-global-color-text);
+  margin-bottom: 0;
+}
+
+/* the five choices */
+.ml-opts > .e-con-inner{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 0;
+  align-items: stretch;
+}
+.ml-opts > .e-con-inner > *{ width: 100%; max-width: 100%; min-width: 0; }
+.e-con.ml-opts{ margin-top: 24px; }
+.e-con.ml-opt{
+  background: var(--e-global-color-mlwarm);
+  border: 1px solid var(--ml-line);
+  border-radius: 14px;
+  padding: 16px 18px;
+  cursor: pointer;
+  transition: border-color .15s, background-color .15s, box-shadow .15s;
+}
+.e-con.ml-opt > .e-con-inner{ padding: 0; height: 100%; }
+.e-con.ml-opt:hover{ border-color: var(--e-global-color-primary); }
+/* the chosen one: mint ground and a green edge, the same pair the site uses
+   for anything active                                                     */
+.e-con.ml-opt.is-on{
+  background: var(--e-global-color-mlmint);
+  border-color: var(--e-global-color-primary);
+  box-shadow: 0 0 0 1px var(--e-global-color-primary) inset;
+}
+.e-con.ml-opt:focus-visible{
+  outline: 2px solid var(--e-global-color-mlgreendark);
+  outline-offset: 2px;
+}
+.ml-opt-name .elementor-heading-title{
+  font-family: var(--ml-serif);
+  font-size: 16.5px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.e-con.ml-opt-price{ margin-top: 6px; }
+.ml-opt-price > .e-con-inner{ padding: 0; }
+.ml-opt-rate .elementor-heading-title{
+  font-family: var(--ml-serif);
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--e-global-color-mlgreendark);
+}
+.ml-opt-unit .elementor-heading-title{
+  font-family: var(--ml-sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .03em;
+  color: var(--e-global-color-text);
+  line-height: 1.4;
+}
+.ml-opt-note.elementor-widget{ margin-top: 7px; }
+.ml-opt-note p{
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--e-global-color-mlmuted, #7C8797);
+  margin-bottom: 0;
+}
+
+/* the question and the answer */
+.ml-est-wrap.elementor-widget{ margin-top: 26px; }
+.ml-est{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  border-top: 1px solid var(--ml-line);
+  padding-top: 22px;
+}
+.ml-est-ask{ display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.ml-est-label{
+  font-family: var(--ml-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--e-global-color-mlgreendark);
+}
+.ml-est-field{ display: flex; align-items: baseline; gap: 9px; }
+input.ml-qty-input{
+  width: 148px;
+  font-family: var(--ml-body);
+  font-size: 17px;
+  color: var(--e-global-color-secondary);
+  background: #fff;
+  border: 1px solid var(--ml-line-2);
+  border-radius: 10px;
+  padding: 11px 14px;
+  line-height: 1.2;
+  transition: border-color .15s, box-shadow .15s;
+}
+input.ml-qty-input:focus{
+  outline: none;
+  border-color: var(--e-global-color-primary);
+  box-shadow: 0 0 0 3px var(--e-global-color-mlmint);
+}
+.ml-qty-unit{
+  font-family: var(--ml-body);
+  font-size: 15px;
+  color: var(--e-global-color-text);
+}
+.ml-est-answer{ display: flex; align-items: baseline; gap: 12px; }
+.ml-total-label{
+  font-family: var(--ml-sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--e-global-color-text);
+}
+.ml-total-value{
+  font-family: var(--ml-serif);
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--e-global-color-secondary);
+}
+.ml-menu-note.elementor-widget{ margin-top: 16px; }
+.ml-menu-note p{
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--e-global-color-mlmuted, #7C8797);
+  margin-bottom: 0;
+}
 
 @media (max-width: 1024px){
   .ml-steps > .e-con-inner{ grid-template-columns: repeat(3, 1fr); }
