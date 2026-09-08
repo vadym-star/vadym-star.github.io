@@ -2229,6 +2229,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -3171,8 +3173,8 @@ body .ml-inner .ml-prose-wide.elementor-widget p{
 /* At full column width this picture stood 471px tall beside a single short
    paragraph, so most of the right half of the row was empty. Held smaller,
    the two columns are about the same height and the row reads as a pair.  */
-.ml-why-photo .ml-photo{
-  max-width: 380px;
+body .ml-inner .ml-why-photo .ml-photo.elementor-widget{
+  max-width: 380px !important;
   margin-left: auto;
   margin-right: auto;
 }
@@ -3293,7 +3295,7 @@ table.ml-compare thead th.ml-col-us{
 .e-con.ml-step{
   background-color: transparent;
   border: 0;
-  border-top: 2px solid var(--e-global-color-mlmint);
+  border-top: 2px solid rgba(69, 143, 44, .28);
   border-radius: 0;
   box-shadow: none;
   padding: 18px 16px 0 0;
