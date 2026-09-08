@@ -2239,6 +2239,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -3359,7 +3361,9 @@ table.ml-compare thead th.ml-col-us{
    eleven characters at 60px do not fit the half column — so it is set a size
    down. The English page is untouched.                                     */
 .ml-inner.ml-jp.ml-page-hero .ml-hero-title.elementor-widget-heading .elementor-heading-title{
-  font-size: clamp(28px, 3.4vw, 40px);
+  /* the floor is 25 rather than 28 because at 390 the eleven characters of
+     英語コピーライティング・ ran right up to the margin */
+  font-size: clamp(25px, 3.4vw, 40px);
   line-height: 1.35;
 }
 
