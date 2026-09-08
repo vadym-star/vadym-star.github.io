@@ -2237,6 +2237,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -3345,6 +3347,34 @@ table.ml-compare thead th.ml-col-us{
   color: var(--e-global-color-text);
   margin-bottom: 0;
 }
+
+/* --- Japanese line breaking ----------------------------------------------
+   Japanese has no spaces, so a browser may break a line between any two
+   characters: the hero came out as 英語コピーライ / ティング, which splits a
+   word in half. A phrase wrapped in ml-nb cannot break inside itself, so the
+   only break left is the one the copy asks for.                           */
+.ml-nb{ display: inline-block; }
+
+/* The Japanese headline runs longer than the English one at the same size —
+   eleven characters at 60px do not fit the half column — so it is set a size
+   down. The English page is untouched.                                     */
+.ml-inner.ml-jp.ml-page-hero .ml-hero-title.elementor-widget-heading .elementor-heading-title{
+  font-size: clamp(28px, 3.4vw, 40px);
+  line-height: 1.35;
+}
+
+/* A closing line of thirty-three characters beside a form: at the contact
+   heading's usual size it fell into six short lines.                      */
+.ml-head-long{
+  display: inline-block;
+  font-size: clamp(21px, 2.1vw, 26px);
+  line-height: 1.6;
+}
+
+/* A tick beside a line of Japanese that wraps: centred, the mark floated
+   between the two lines. It belongs against the first one.                */
+.ml-jp .ml-ticks .elementor-icon-list-item{ align-items: flex-start; }
+.ml-jp .ml-ticks .elementor-icon-list-icon{ margin-top: 3px; }
 
 /* --- Five service cards, Japanese ----------------------------------------
    These carry a sentence and a list each, which is a great deal more than
