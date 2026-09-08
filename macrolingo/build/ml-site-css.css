@@ -2215,6 +2215,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -3085,19 +3087,21 @@ body .ml-inner .ml-prose-wide.elementor-widget p{
   .e-con.ml-footer-cols > .e-con-inner{ grid-template-columns: 1fr 1fr; gap: 30px 22px; }
   .e-con.ml-footer-cols > .e-con-inner > *:first-child{ grid-column: 1 / -1; }
 }
-
-
 /* ==========================================================================
    THE THIRD COLOUR
 
-   Plum, the one Adam picked. It is an **accent only**. It never becomes the
-   ground of a section: no plum bands, no plum panels, nothing behind a
-   heading. The largest piece of plum ground on the site is a pill the width
-   of two words.
+   Deep teal, #006768, the third card on the palette page Adam reviewed. It
+   replaced plum on his word; the role it plays did not change, so every
+   placement below is the one plum held and only the four values at the top
+   are new. Changing the colour again is those four lines.
+
+   It is an **accent only**. It never becomes the ground of a section: no
+   teal bands, no teal panels, nothing behind a heading. The largest piece
+   of teal ground on the site is a pill the width of two words.
 
    What it means, every time it appears, is **evidence**. Not what we will do
    for you, which is green and belongs to the buttons; what has already been
-   earned, counted or published. So plum lands on the label of a thing that
+   earned, counted or published. So teal lands on the label of a thing that
    is proof, and on the mark beside it:
 
      the category on a piece of work      a pill
@@ -3108,26 +3112,25 @@ body .ml-inner .ml-prose-wide.elementor-widget p{
      the arrow on a link that leaves for something we published
      the credential ticks in the homepage's blue band
 
-   A first pass at this was too quiet to see: the tint was so pale that a
-   scan of the rendered page found one plum element on the homepage and none
-   at all on About. The tint below is strong enough to read, and the two
-   pills and the section labels give every page something plum above the
-   fold.
+   The tint is stronger than the 12% swatch on the palette page, for the
+   reason the plum tint was: at 12% a pale accent reads as white on a screen,
+   and a scan of the rendered pages found almost none of it. This one is
+   17%, the strength that made plum visible at the same sizes.
 
    Four values drive all of it.
    ========================================================================== */
 :root{
-  --ml-plum:      #834791;   /* the mark itself */
-  --ml-plum-ink:  #743981;   /* words and icons, for contrast on white */
-  --ml-plum-tint: #E9DCEE;   /* the inside of a pill or a disc, nothing larger */
-  --ml-plum-line: #DDC9E4;   /* a hairline in plum, where one is wanted */
+  --ml-accent:      #006768;   /* the mark itself, Adam's deep teal */
+  --ml-accent-ink:  #00595A;   /* words and icons, for contrast on white */
+  --ml-accent-tint: #D4E5E5;   /* the inside of a pill or a disc, nothing larger */
+  --ml-accent-line: #B3D1D2;   /* a hairline in teal, where one is wanted */
 }
 
 
 /* --- The label on a section that is evidence -----------------------------
    The small line above a heading is green everywhere on the site, because
    green is what we do. Above a section that shows what we have already
-   done, it is plum, and so is its dot. One or two a page, never more:
+   done, it is teal, and so is its dot. One or two a page, never more:
      homepage   ABOUT, over "Experts only, working for you"
      About      the page's own line, and CHALLENGE US! over the founder
      Our Work   the page's own line, and EUREKALERT! over the press lists  */
@@ -3135,37 +3138,37 @@ body .ml-inner .ml-prose-wide.elementor-widget p{
 .ml-split-founder .ml-label .elementor-heading-title,
 .ml-page-hero .ml-label .elementor-heading-title,
 #press .ml-label .elementor-heading-title{
-  color: var(--ml-plum-ink);
+  color: var(--ml-accent-ink);
 }
 .ml-band-blue .ml-label .elementor-heading-title:before,
 .ml-split-founder .ml-label .elementor-heading-title:before,
 .ml-page-hero .ml-label .elementor-heading-title:before,
 #press .ml-label .elementor-heading-title:before{
-  background: var(--ml-plum);
+  background: var(--ml-accent);
 }
 
 
 /* --- The category on a piece of work -------------------------------------
    Six cards, six kinds of work. The tag is a label, not an action, so it
    stops borrowing the green the buttons use. This is the one Vadym pointed
-   at as the right amount of plum; everything else here is drawn to match.  */
+   at as the right amount of accent; everything else here is drawn to match. */
 .ml-case-tag .elementor-heading-title{
-  background: var(--ml-plum-tint);
-  color: var(--ml-plum-ink);
+  background: var(--ml-accent-tint);
+  color: var(--ml-accent-ink);
 }
 
 
 /* --- The category on a published article ---------------------------------
    The blog cards at the foot of the homepage carry the same kind of label
-   as a work card, so they are drawn the same way: a small plum pill rather
+   as a work card, so they are drawn the same way: a small teal pill rather
    than a line of green capitals.                                          */
 .ml-post-cat .elementor-icon-list-item .elementor-post-info__item,
 .ml-post-cat .elementor-icon-list-item .elementor-icon-list-text,
 .ml-post-cat .elementor-post-info__item,
 .ml-post-cat .elementor-icon-list-text{
   display: inline-block;
-  background: var(--ml-plum-tint);
-  color: var(--ml-plum-ink);
+  background: var(--ml-accent-tint);
+  color: var(--ml-accent-ink);
   /* Elementor puts padding-left: 5px on an icon list's text with a selector
      that beats a plain class, which left the words sitting off to one side
      of the pill. Both sides are named again here so the pill is even.     */
@@ -3181,74 +3184,74 @@ body .ml-inner .ml-prose-wide.elementor-widget p{
 /* --- A qualification -----------------------------------------------------
    The disc beside each of his degrees and certificates, on both About
    pages. A tick that says what we do stays green; a tick that says what he
-   holds is plum, and the disc is dark enough to be seen.                  */
+   holds is teal, and the disc is dark enough to be seen.                  */
 .ml-ticks-founder .elementor-icon-list-icon,
 .ml-cred-wide .elementor-icon-list-icon{
-  background: var(--ml-plum-tint);
-  color: var(--ml-plum-ink);
+  background: var(--ml-accent-tint);
+  color: var(--ml-accent-ink);
 }
-/* the one link in that list is a credential too, so it reads plum rather
+/* the one link in that list is a credential too, so it reads teal rather
    than the green a link in running text takes elsewhere                   */
 /* said with ml-inner as well, because the rule that makes a link in running
    text green is written that way and would otherwise win                  */
 .ml-inner .ml-ticks-founder .elementor-icon-list-text a,
 .ml-inner .ml-cred-wide .elementor-icon-list-text a,
 .ml-ticks-founder .elementor-icon-list-text a,
-.ml-cred-wide .elementor-icon-list-text a{ color: var(--ml-plum-ink); }
+.ml-cred-wide .elementor-icon-list-text a{ color: var(--ml-accent-ink); }
 .ml-inner .ml-ticks-founder .elementor-icon-list-text a:hover,
-.ml-inner .ml-cred-wide .elementor-icon-list-text a:hover{ color: var(--ml-plum); }
+.ml-inner .ml-cred-wide .elementor-icon-list-text a:hover{ color: var(--ml-accent); }
 
 
 /* --- A figure that counts work already done ------------------------------
    The years on the homepage photograph and the two figures under the Our
    Work headline. They used to carry the green to blue gradient, which said
-   nothing; they are the shortest proof on the site, so they are plum.     */
+   nothing; they are the shortest proof on the site, so they are teal.     */
 .ml-years,
 .ml-stat-figure .elementor-heading-title{
   background-image: none;
   -webkit-text-fill-color: initial;
-  color: var(--ml-plum-ink);
+  color: var(--ml-accent-ink);
 }
 
 
 /* --- The arrow on a published link ---------------------------------------
    The press releases, the articles and the white papers all leave the site
    for something MacroLingo wrote. The mark at the end of each row is the
-   only colour in that list, so it is plum.                                */
-.ml-tlist .elementor-icon-list-icon{ color: var(--ml-plum); }
+   only colour in that list, so it is teal.                                */
+.ml-tlist .elementor-icon-list-icon{ color: var(--ml-accent); }
 .ml-tlist .elementor-icon-list-item > a:hover .elementor-icon-list-text{
-  color: var(--ml-plum-ink);
+  color: var(--ml-accent-ink);
 }
 
 
 /* --- The credentials in the blue band ------------------------------------
    The homepage keeps its blue band. The three lines inside it are the only
-   credentials on that page, so their marks go plum and the two colours sit
-   in the same block. This is the colour mixing the third colour was asked
-   for.                                                                     */
-.ml-band-blue .ml-ticks-on-blue .elementor-icon-list-icon{ color: var(--ml-plum-ink); }
+   credentials on that page, so their marks take the accent and the two
+   colours sit in the same block. Teal is nearer blue than plum was, so the
+   marks take the ink value here, dark enough to stay separate from the pale
+   blue behind them.                                                        */
+.ml-band-blue .ml-ticks-on-blue .elementor-icon-list-icon{ color: var(--ml-accent-ink); }
 
 /* The Japanese homepage forces its own colour on the years figure and on
    the label inside the blue band. The figure is a count of work done and
-   follows the same rule as the English one; the label is left as the
-   Japanese page has always had it, in ink, because that was a deliberate
-   choice for Japanese and the page has its plum in the blog categories. */
-.ml-jp .ml-years{ color: var(--ml-plum-ink); }
+   follows the same rule as the English one.                              */
+.ml-jp .ml-years{ color: var(--ml-accent-ink); }
 /* The Japanese homepage founder label was left in ink at first. It is the
    same element as ABOUT on the English homepage and names the same block,
-   so it takes plum too, and the Japanese page stops being the one page with
-   almost none.                                                            */
-.ml-jp.ml-band-blue .ml-label .elementor-heading-title{ color: var(--ml-plum-ink); }
-.ml-jp.ml-band-blue .ml-label .elementor-heading-title:before{ background: var(--ml-plum); }
+   so it takes the accent too, and the Japanese page stops being the one
+   page with almost none.                                                  */
+.ml-jp.ml-band-blue .ml-label .elementor-heading-title{ color: var(--ml-accent-ink); }
+.ml-jp.ml-band-blue .ml-label .elementor-heading-title:before{ background: var(--ml-accent); }
 
 
 /* --- The whole blog card is the link -------------------------------------
-   Only the picture led anywhere; the title, the words and the space around
-   them did nothing. The title on these cards is a plain heading with no
-   link in it, so the "Read more" link at the foot is the one that gets
-   stretched over the card, exactly as the work cards do it. Every wrapper
-   between the link and the card is put back to static first, or the
-   stretched box would cover the words "Read more" and nothing else.      */
+   Not colour, but it arrived with this block and belongs beside the card
+   rules above. Only the picture led anywhere; the title, the words and the
+   space around them did nothing. The title on these cards is a plain
+   heading with no link in it, so the "Read more" link at the foot is the
+   one that gets stretched over the card, exactly as the work cards do it.
+   Every wrapper between the link and the card is put back to static first,
+   or the stretched box would cover the words "Read more" and nothing else. */
 .e-con.ml-post-card,
 .ml-posts .ml-post-card{ position: relative; cursor: pointer; }
 .ml-post-card > .e-con-inner,
