@@ -2233,6 +2233,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -3726,6 +3728,33 @@ input.ml-qty-input:focus{
   inset: 0;
   z-index: 2;
 }
+
+
+/* --- More of it, still only as an accent ---------------------------------
+   The Copywriting page came out with the accent on two elements, both of
+   them section labels, which is too thin for a page this long. These four
+   places are added on the rule the colour already follows — teal marks
+   **evidence**, green marks what we do — so the colour is used more without
+   being promoted. Green still owns every button, every tick and every
+   number that belongs to the process.
+
+   1. The line above the quotations. What a client says is the plainest
+      evidence on any page, and this label was green like an action.
+   2. The line above the client marks, on every page that carries the strip.
+      A list of the companies who hired us is evidence, not a promise. It
+      was grey, which said nothing at all.
+   3. The head of our own column in the comparison. The column is the claim
+      being made; its ticks stay green because each one is a thing we do.
+   4. The five rates in the Service menu. A price is a fact, not an action,
+      and green there put it in the same voice as the buttons.          */
+#quotes .ml-label .elementor-heading-title{ color: var(--ml-accent-ink); }
+#quotes .ml-label .elementor-heading-title:before{ background: var(--ml-accent); }
+
+.ml-strip-label .elementor-heading-title{ color: var(--ml-accent-ink); }
+
+table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
+
+.ml-opt-rate .elementor-heading-title{ color: var(--ml-accent-ink); }
 
 
 /* MacroLingo cookie notice
