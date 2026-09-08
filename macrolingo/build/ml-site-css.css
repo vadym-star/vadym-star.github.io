@@ -2219,6 +2219,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -3136,9 +3138,14 @@ body .ml-inner .ml-prose-wide.elementor-widget p{
 /* --- A button on its own line, centred -----------------------------------
    Several sections end on one call to action. The row is a container so an
    editor can drop a second button beside the first without touching CSS.  */
+/* flex-direction has to be named: an e-con-inner is a column by default, so
+   justify-content on its own centres the button vertically inside a box that
+   is exactly as tall as the button, which looks like nothing happened.     */
 .e-con.ml-cta-centred > .e-con-inner{
   display: flex;
+  flex-direction: row;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   gap: 16px;
   padding: 0;
@@ -3148,6 +3155,11 @@ body .ml-inner .ml-prose-wide.elementor-widget p{
    The photograph and the argument share a row, then the two lists sit
    underneath at half width each. ml-split-founder already draws the row.  */
 .ml-why-photo > .e-con-inner{ padding: 0; }
+/* one paragraph beside a tall photograph: left at the top it hangs in the
+   air with the whole lower half of the row empty, so the two columns are
+   centred against each other instead. Its own class, because the founder
+   rows on About must keep their top alignment.                            */
+.e-con.ml-why-split > .e-con-inner{ align-items: center; }
 .ml-colhead-lg .elementor-heading-title{
   font-family: var(--ml-serif);
   font-size: 21px;
@@ -3224,7 +3236,9 @@ table.ml-compare thead th.ml-col-us{
 }
 .ml-mark-yes{ color: var(--e-global-color-mlgreendark); }
 .ml-mark-maybe{ color: var(--e-global-color-text); font-weight: 600; }
-.ml-mark-no{ color: var(--ml-line-2); }
+/* a cross drawn in the hairline colour was so faint it read as an empty
+   cell, which is a different claim entirely. Muted, but legible.          */
+.ml-mark-no{ color: var(--ml-muted); font-size: 19px; }
 
 /* --- How we work together ------------------------------------------------
    Five steps, so a three-across grid would leave two stranded on a second
