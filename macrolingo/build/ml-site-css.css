@@ -2231,6 +2231,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -3174,10 +3176,16 @@ body .ml-inner .ml-prose-wide.elementor-widget p{
    paragraph, so most of the right half of the row was empty. Held smaller,
    the two columns are about the same height and the row reads as a pair.  */
 body .ml-inner .ml-why-photo .ml-photo.elementor-widget{
-  max-width: 380px !important;
+  max-width: 440px !important;
   margin-left: auto;
   margin-right: auto;
 }
+/* Even columns and a centred picture, so the photograph and the paragraph
+   sit either side of the middle rather than the picture being pushed into
+   a narrower half. The extra top margin is the air under "and business
+   outcomes".                                                               */
+.e-con.ml-why-split > .e-con-inner{ grid-template-columns: 1fr 1fr; gap: 56px; }
+.ml-inner .ml-why-split{ margin-top: 34px; }
 /* one paragraph beside a tall photograph: left at the top it hangs in the
    air with the whole lower half of the row empty, so the two columns are
    centred against each other instead. Its own class, because the founder
@@ -3355,6 +3363,7 @@ table.ml-compare thead th.ml-col-us{
   width: 100%;
 }
 .ml-inner .ml-menu{ margin-top: 40px; }
+.e-con.ml-menu{ padding: 38px 38px 34px; }
 .ml-menu > .e-con-inner{ padding: 0; }
 .ml-menu-head .elementor-heading-title{
   font-family: var(--ml-serif);
@@ -3397,8 +3406,11 @@ table.ml-compare thead th.ml-col-us{
 .e-con.ml-opt:hover{ border-color: var(--e-global-color-primary); }
 /* the chosen one: mint ground and a green edge, the same pair the site uses
    for anything active                                                     */
+/* White rather than mint: the chosen card lifts off the warm ones by being
+   the clean one, and the green edge does the saying. A green ground here
+   read as a highlighter drawn over the words.                              */
 .e-con.ml-opt.is-on{
-  background: var(--e-global-color-mlmint);
+  background: #fff;
   border-color: var(--e-global-color-primary);
   box-shadow: 0 0 0 1px var(--e-global-color-primary) inset;
 }
@@ -3529,7 +3541,7 @@ input.ml-qty-input:focus{
   /* one service to a row on a phone, and the question sits above its answer
      rather than trying to share the line with it                          */
   .ml-opts > .e-con-inner{ grid-template-columns: 1fr; }
-  .e-con.ml-menu{ padding: 20px !important; }
+  .e-con.ml-menu{ padding: 22px 18px; }
   .ml-est{ flex-direction: column; align-items: flex-start; gap: 16px; }
   .ml-est-answer{ width: 100%; justify-content: space-between; }
   input.ml-qty-input{ width: 120px; }
