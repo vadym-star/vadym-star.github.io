@@ -2247,6 +2247,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -3684,7 +3686,9 @@ input.ml-qty-input:focus{
 .ml-three-up-centred > .e-con-inner{
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  /* the container carries Elementor's own flex settings, and its
+     justify-content wins over a plain class, so the row stayed left */
+  justify-content: center !important;
   align-items: stretch;
   gap: 22px;
   padding: 0;
