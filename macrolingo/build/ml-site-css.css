@@ -2227,6 +2227,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -3156,11 +3158,24 @@ body .ml-inner .ml-prose-wide.elementor-widget p{
   gap: 16px;
   padding: 0;
 }
+/* The 44px set on the container in the builder lands on the inner box, and
+   the line above zeroes that padding — so every button on this page sat flat
+   against the block above it, measured at exactly 0px. The air is a margin
+   on the container instead, where nothing can wipe it.                     */
+.e-con.ml-cta-centred{ margin-top: 44px; }
 
 /* --- Why choose us -------------------------------------------------------
    The photograph and the argument share a row, then the two lists sit
    underneath at half width each. ml-split-founder already draws the row.  */
 .ml-why-photo > .e-con-inner{ padding: 0; }
+/* At full column width this picture stood 471px tall beside a single short
+   paragraph, so most of the right half of the row was empty. Held smaller,
+   the two columns are about the same height and the row reads as a pair.  */
+.ml-why-photo .ml-photo{
+  max-width: 380px;
+  margin-left: auto;
+  margin-right: auto;
+}
 /* one paragraph beside a tall photograph: left at the top it hangs in the
    air with the whole lower half of the row empty, so the two columns are
    centred against each other instead. Its own class, because the founder
@@ -3182,6 +3197,13 @@ body .ml-inner .ml-prose-wide.elementor-widget p{
    red, because a page does not need to shout at its competitors.
    The wrapper scrolls sideways on a small screen rather than squeezing the
    words to nothing.                                                        */
+.ml-flags{
+  font-size: .62em;
+  vertical-align: .12em;
+  letter-spacing: .04em;
+  white-space: nowrap;
+}
+
 .ml-compare-wrap.elementor-widget{
   margin-top: 42px;
   overflow-x: auto;
@@ -3255,20 +3277,28 @@ table.ml-compare thead th.ml-col-us{
 .ml-steps > .e-con-inner{
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 18px;
-  align-items: stretch;
+  gap: 18px 26px;
+  align-items: start;
   padding: 0;
 }
 .ml-steps > .e-con-inner > *{ width: 100%; max-width: 100%; min-width: 0; }
 .ml-inner .ml-steps{ margin-top: 46px; }
+/* These were white cards, stretched to a common height. Step four is three
+   times longer than the others, so steps one, three and five ended as tall
+   boxes two thirds empty — and at tablet width the five became three plus
+   two, leaving a hole where the sixth would be. A process is not five
+   products: the boxes are gone, each step is ruled off at the top by the
+   green line the number sits on, and uneven lengths now read as what they
+   are rather than as cards that failed to fill.                            */
 .e-con.ml-step{
-  background-color: #fff;
-  border: 1px solid var(--ml-line-2);
-  border-radius: var(--ml-radius);
-  box-shadow: var(--ml-shadow-soft);
-  padding: 24px 22px;
+  background-color: transparent;
+  border: 0;
+  border-top: 2px solid var(--e-global-color-mlmint);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 18px 16px 0 0;
 }
-.e-con.ml-step > .e-con-inner{ padding: 0; height: 100%; }
+.e-con.ml-step > .e-con-inner{ padding: 0; }
 /* the numeral: green, because a step is something we do */
 .ml-step-no .elementor-heading-title{
   font-family: var(--ml-serif);
@@ -3476,7 +3506,24 @@ input.ml-qty-input:focus{
   .ml-steps > .e-con-inner{ grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 767px){
-  .ml-steps > .e-con-inner{ grid-template-columns: 1fr; gap: 14px; }
+  .ml-steps > .e-con-inner{ grid-template-columns: 1fr; gap: 22px; }
+  /* The comparison is the point of that table, and on a phone the two
+     columns it compares us against sat off the right edge, behind a scroll
+     nobody could see: a visitor met a list of our own ticks and no
+     comparison at all. Held to the screen instead, tighter and smaller, so
+     all three columns are there to be read.                               */
+  table.ml-compare{ min-width: 0; }
+  table.ml-compare th,
+  table.ml-compare td{ padding: 11px 4px; }
+  table.ml-compare tbody th[scope="row"]{
+    font-size: 13px;
+    line-height: 1.35;
+    padding-left: 12px;
+    padding-right: 8px;
+  }
+  table.ml-compare thead th{ font-size: 9.5px; letter-spacing: .02em; padding: 10px 4px; }
+  .ml-mark{ min-width: 0; font-size: 15px; }
+  .ml-mark-no{ font-size: 16px; }
   /* one service to a row on a phone, and the question sits above its answer
      rather than trying to share the line with it                          */
   .ml-opts > .e-con-inner{ grid-template-columns: 1fr; }
