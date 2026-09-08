@@ -2243,6 +2243,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -3638,6 +3640,37 @@ input.ml-qty-input:focus{
   .ml-calc.elementor-widget{ padding: 16px; }
   table.ml-compare th,
   table.ml-compare td{ padding: 12px 14px; }
+}
+
+
+/* --- The proof callout ---------------------------------------------------
+   A test the reader can run in ten seconds, which on the old AI Search page
+   sat three sentences deep in a grey paragraph. Framed, so the eye lands on
+   it. Mint rather than teal ground: teal is the accent and never a ground
+   larger than a pill.                                                      */
+.e-con.ml-proof{
+  background: var(--e-global-color-mlmint);
+  border-radius: var(--ml-radius);
+  border-left: 3px solid var(--e-global-color-primary);
+  padding: 20px 22px;
+  margin-top: 22px;
+}
+.ml-proof > .e-con-inner{ padding: 0; }
+.ml-proof-text p{
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--e-global-color-secondary);
+  margin-bottom: 0;
+}
+.ml-proof-text strong{ font-weight: 600; }
+.ml-proof-line.elementor-widget{ margin-top: 10px; }
+.ml-proof-line p{
+  font-family: var(--ml-serif);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--e-global-color-mlgreendark);
+  margin-bottom: 0;
 }
 /* ==========================================================================
    THE THIRD COLOUR
