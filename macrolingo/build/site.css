@@ -2253,6 +2253,10 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -3832,6 +3836,110 @@ input.ml-qty-input:focus{
 @media (max-width: 767px){
   .ml-figs > .e-con-inner,
   .ml-figs-three > .e-con-inner{ grid-template-columns: 1fr; }
+}
+
+
+/* --- Three or four numbered blocks ---------------------------------------
+   ml-steps runs five across, which is right for a five-step process and
+   wrong for three problems or four stages.                                 */
+.ml-steps-three > .e-con-inner{ grid-template-columns: repeat(3, 1fr); }
+.ml-steps-four > .e-con-inner{ grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 1024px){
+  .ml-steps-three > .e-con-inner,
+  .ml-steps-four > .e-con-inner{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 767px){
+  .ml-steps-three > .e-con-inner,
+  .ml-steps-four > .e-con-inner{ grid-template-columns: 1fr; }
+}
+
+/* a heading inside a framed callout */
+.ml-proof-head .elementor-heading-title{
+  font-family: var(--ml-serif);
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+.ml-proof-head + .ml-proof-text.elementor-widget{ margin-top: 9px; }
+
+/* an award, which is a word rather than a number, in the figure's place */
+.ml-fig-number-sm .elementor-heading-title{
+  font-family: var(--ml-serif);
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--ml-accent-ink, #00595A);
+}
+
+/* --- One market ---------------------------------------------------------- */
+.ml-mkts > .e-con-inner{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+  align-items: stretch;
+  padding: 0;
+}
+.ml-mkts > .e-con-inner > *{ width: 100%; max-width: 100%; min-width: 0; }
+.ml-inner .ml-mkts{ margin-top: 46px; }
+.e-con.ml-mkt{
+  background: #fff;
+  border: 1px solid var(--ml-line-2);
+  border-radius: 14px;
+  padding: 18px 14px;
+  text-align: center;
+}
+.e-con.ml-mkt > .e-con-inner{ padding: 0; }
+.ml-mkt-code .elementor-heading-title{
+  font-family: var(--ml-sans);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  color: var(--ml-accent-ink, #00595A);
+  text-align: center;
+}
+.ml-mkt-name.elementor-widget{ margin-top: 8px; }
+.ml-mkt-name .elementor-heading-title{
+  font-family: var(--ml-serif);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: center;
+}
+.ml-mkt-en.elementor-widget{ margin-top: 3px; }
+.ml-mkt-en p{
+  font-size: 11.5px;
+  line-height: 1.4;
+  color: var(--e-global-color-mlmuted, #7C8797);
+  text-align: center;
+  margin-bottom: 0;
+}
+.ml-team-latin.elementor-widget{ margin-top: 2px; }
+.ml-team-latin .elementor-heading-title{
+  font-family: var(--ml-body);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--e-global-color-mlmuted, #7C8797);
+  line-height: 1.5;
+}
+.ml-hero-note.elementor-widget{ margin-top: 16px; }
+.ml-hero-note p{
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--e-global-color-mlmuted, #7C8797);
+  margin-bottom: 0;
+}
+@media (max-width: 1024px){ .ml-mkts > .e-con-inner{ grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 767px){ .ml-mkts > .e-con-inner{ grid-template-columns: repeat(2, 1fr); } }
+
+/* the one-line promise under a Japanese hero headline */
+.ml-hero-tag.elementor-widget{ margin-top: 14px; }
+.ml-hero-tag p{
+  font-family: var(--ml-serif);
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--e-global-color-mlgreendark);
+  margin-bottom: 0;
 }
 /* ==========================================================================
    THE THIRD COLOUR
