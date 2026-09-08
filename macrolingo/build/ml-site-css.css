@@ -2221,6 +2221,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -3237,8 +3239,11 @@ table.ml-compare thead th.ml-col-us{
 .ml-mark-yes{ color: var(--e-global-color-mlgreendark); }
 .ml-mark-maybe{ color: var(--e-global-color-text); font-weight: 600; }
 /* a cross drawn in the hairline colour was so faint it read as an empty
-   cell, which is a different claim entirely. Muted, but legible.          */
-.ml-mark-no{ color: var(--ml-muted); font-size: 19px; }
+   cell, which is a different claim entirely. Muted, but legible. Not
+   --ml-muted: that variable is declared inside the cookie notice's own
+   block and resolves to nothing out here, which left the cross in full ink
+   and as loud as a tick.                                                  */
+.ml-mark-no{ color: var(--e-global-color-mlmuted, #7C8797); font-size: 19px; }
 
 /* --- How we work together ------------------------------------------------
    Five steps, so a three-across grid would leave two stranded on a second
@@ -3304,11 +3309,14 @@ table.ml-compare thead th.ml-col-us{
   border-radius: var(--ml-radius);
   box-shadow: var(--ml-shadow-soft);
   padding: 26px;
-  max-width: 900px;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
 }
+/* Elementor's own `.e-con > .e-con-inner > .elementor-widget{max-width:100%}`
+   outranks a plain class, so the width is said again the way the passages
+   on the other inner pages say it (see ml-prose).                         */
+body .ml-inner .ml-calc.elementor-widget{ max-width: 900px !important; }
 
 @media (max-width: 1024px){
   .ml-steps > .e-con-inner{ grid-template-columns: repeat(3, 1fr); }
