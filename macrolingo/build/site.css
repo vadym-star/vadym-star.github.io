@@ -2261,6 +2261,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -4214,6 +4216,17 @@ input.ml-qty-input:focus{
   border-left: 3px solid var(--e-global-color-primary);
   box-shadow: 0 1px 2px rgba(22, 36, 28, .04);
 }
+
+
+/* --- The steps must not be stretched to one height -----------------------
+   Elementor writes align-items on the container from the widget panel, and
+   that beats a plain class, so the five cards came back out as equal-height
+   boxes with steps one, three and five two thirds empty -- the same fault
+   the ruled version was built to escape. Named with !important because the
+   generated rule is the one being overruled, and on the card itself as
+   well, since a grid item can stretch on its own account.                 */
+.ml-steps > .e-con-inner{ align-items: start !important; }
+.e-con.ml-step{ align-self: start !important; }
 /* ==========================================================================
    THE THIRD COLOUR
 
