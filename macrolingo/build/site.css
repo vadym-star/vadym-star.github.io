@@ -2275,6 +2275,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -4519,6 +4521,12 @@ input.ml-qty-input:focus{
 .ml-band-flow h6.elementor-heading-title{
   color: var(--ml-accent-ink) !important;
 }
+
+/* the closing line of a callout is green everywhere else; on blue it is teal */
+.ml-band-blue .ml-proof-line p,
+.ml-band-flow .ml-proof-line p,
+.ml-band-blue .ml-proof-line strong,
+.ml-band-flow .ml-proof-line strong{ color: var(--ml-accent-ink); }
 /* ==========================================================================
    THE THIRD COLOUR
 
