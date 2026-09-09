@@ -2277,6 +2277,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -4504,12 +4506,17 @@ input.ml-qty-input:focus{
    loads after the kit, so the kit's rule lost every time. These are the
    only declarations on the site that need !important for that reason: the
    band has to be able to overrule a per-widget colour.                   */
-.ml-band-blue .elementor-widget-button .elementor-button:not(.ml-arrow-link),
-.ml-band-flow .elementor-widget-button .elementor-button:not(.ml-arrow-link),
-.ml-band-blue .elementor-button.elementor-button-link:not([class*="ml-arrow"]),
-.ml-band-flow .elementor-button.elementor-button-link:not([class*="ml-arrow"]){
+/* Only a FILLED button takes the blue ground. The text links are Elementor
+   button widgets too, and ml-arrow-link sits on the widget, not on the
+   anchor inside it -- an earlier version of this rule tested the anchor's
+   own classes, so the arrow links were given a solid blue background under
+   blue text and disappeared. Both selectors are anchored on the widget. */
+.ml-band-blue .elementor-widget-button:not(.ml-arrow-link) .elementor-button,
+.ml-band-flow .elementor-widget-button:not(.ml-arrow-link) .elementor-button{
   background-color: var(--e-global-color-accent) !important;
 }
+.ml-band-blue .elementor-widget-button.ml-arrow-link .elementor-button,
+.ml-band-flow .elementor-widget-button.ml-arrow-link .elementor-button,
 .ml-band-blue .ml-arrow-link .elementor-button,
 .ml-band-flow .ml-arrow-link .elementor-button{
   background-color: transparent !important;
