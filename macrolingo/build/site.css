@@ -2265,6 +2265,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -4321,6 +4323,19 @@ input.ml-qty-input:focus{
     display: block;
   }
 }
+
+
+/* Elementor writes justify-content on the container too, so the two cards
+   on the second row sat against the left edge instead of under the middle
+   of the three above them. And on a phone a 320px basis is wider than the
+   column, so the basis goes full width there.                            */
+.ml-steps > .e-con-inner{ justify-content: center !important; }
+@media (max-width: 767px){
+  .ml-steps > .e-con-inner > .e-con.ml-step{ flex: 1 1 100%; max-width: 100%; }
+}
+/* the last green left in the estimate: the link in its opening paragraph */
+#estimate a{ color: var(--e-global-color-accent); }
+#estimate a:hover{ color: var(--ml-accent-ink); }
 /* ==========================================================================
    THE THIRD COLOUR
 
