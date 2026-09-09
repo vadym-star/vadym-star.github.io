@@ -2267,6 +2267,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -4311,16 +4313,12 @@ input.ml-qty-input:focus{
    -- 594px against 906 on PR & Media -- so it sat at the top of its half
    with 312px of white underneath. Centred in its column instead: it starts
    lower and the space is the same above as below.                        */
-.ml-split-contact .ml-form > .elementor-widget-container{
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.ml-split-contact .ml-form > .e-con-inner{
+  justify-content: center !important;
 }
 @media (max-width: 1024px){
-  .ml-split-contact .ml-form > .elementor-widget-container{
-    height: auto;
-    display: block;
+  .ml-split-contact .ml-form > .e-con-inner{
+    justify-content: flex-start !important;
   }
 }
 
