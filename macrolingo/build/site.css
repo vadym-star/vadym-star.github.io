@@ -2263,6 +2263,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -3296,10 +3298,16 @@ body .ml-inner .ml-why-photo .ml-photo img{
   --ml-grid:      #CBD8C4;
   --ml-grid-head: #A9BEA0;
 }
+/* border-collapse: collapse merges the table's own border into the edge
+   cells, and with overflow:hidden and a radius on top of that the outer
+   frame was clipped away entirely: the grid had inner lines and no box
+   around it. Separate borders with zero spacing keep the same grid and
+   let the frame draw.                                                     */
 table.ml-compare{
   width: 100%;
   min-width: 620px;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   background: #fff;
   border: 1px solid var(--ml-grid-head);
   border-radius: var(--ml-radius);
@@ -4227,6 +4235,92 @@ input.ml-qty-input:focus{
    well, since a grid item can stretch on its own account.                 */
 .ml-steps > .e-con-inner{ align-items: start !important; }
 .e-con.ml-step{ align-self: start !important; }
+
+
+/* --- Round three, from Vadym's review ------------------------------------ */
+
+/* Wider steps. Five across put each card at 196px, which is four or five
+   words a line and hard work to read. Three to a row at ~349px, with the
+   last two centred under them, so the cards are half as wide again and the
+   block still ends on a deliberate edge rather than a hole.               */
+.ml-steps > .e-con-inner{
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: center;
+  grid-template-columns: none;
+  gap: 20px 26px;
+}
+.ml-steps > .e-con-inner > .e-con.ml-step{
+  flex: 0 1 320px;
+  max-width: 349px;
+  width: auto;
+}
+
+/* The gradient band must never melt into the band above it. It used to
+   begin in mint, so where a mint section sat on top the two greens met
+   with no edge at all down the left-hand side. It begins in white now,
+   and carries a hairline top and bottom so the join is stated whatever
+   colour happens to be next to it.                                       */
+.ml-band-flow{
+  background-image: linear-gradient(128deg,
+      #FFFFFF 0%,
+      #EDF4E8 24%,
+      #E8F0F8 62%,
+      var(--e-global-color-mlblueband) 100%);
+  border-top: 1px solid rgba(47, 111, 214, .16);
+  border-bottom: 1px solid rgba(47, 111, 214, .16);
+}
+
+/* The estimate is the one block on the site that is costed rather than
+   sold, so it drops the green altogether: white cards on the pale blue
+   band, blue for anything active, teal for the rates themselves. Scoped by
+   the section id, so it cannot leak into the service cards further up the
+   page that look almost the same.                                        */
+#estimate .e-con.ml-opt{
+  background: #F4F7FB;
+  border-color: #D7E2F0;
+}
+#estimate .e-con.ml-opt:hover{ border-color: var(--e-global-color-accent); }
+#estimate .e-con.ml-opt.is-on{
+  background: #fff;
+  border-color: var(--e-global-color-accent);
+  box-shadow: 0 0 0 1px var(--e-global-color-accent) inset;
+}
+#estimate .e-con.ml-opt:focus-visible{
+  outline-color: var(--e-global-color-accent);
+}
+#estimate .ml-opt-rate .elementor-heading-title{ color: var(--ml-accent-ink); }
+#estimate .ml-est-label{ color: var(--e-global-color-accent); }
+#estimate input.ml-qty-input:focus{
+  border-color: var(--e-global-color-accent);
+  box-shadow: 0 0 0 3px rgba(47, 111, 214, .16);
+}
+#estimate .ml-total-value{ color: var(--ml-accent-ink); }
+/* the highlighter under "estimate" is a green marker everywhere else */
+#estimate .ml-highlight{
+  background-image: linear-gradient(120deg,
+      transparent 0 3%,
+      rgba(47, 111, 214, .20) 3% 97%,
+      transparent 97%);
+}
+#estimate .ml-est{ border-top-color: #D7E2F0; }
+
+/* The contact form is shorter than the details beside it on several pages
+   -- 594px against 906 on PR & Media -- so it sat at the top of its half
+   with 312px of white underneath. Centred in its column instead: it starts
+   lower and the space is the same above as below.                        */
+.ml-split-contact .ml-form > .elementor-widget-container{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media (max-width: 1024px){
+  .ml-split-contact .ml-form > .elementor-widget-container{
+    height: auto;
+    display: block;
+  }
+}
 /* ==========================================================================
    THE THIRD COLOUR
 
