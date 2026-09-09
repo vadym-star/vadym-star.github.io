@@ -2273,6 +2273,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -4493,6 +4495,29 @@ input.ml-qty-input:focus{
 .ml-band-blue .ml-label-centred .elementor-heading-title,
 .ml-band-flow .ml-label-centred .elementor-heading-title{
   color: var(--ml-accent-ink);
+}
+
+
+/* Elementor writes each button's colour into that PAGE's stylesheet, which
+   loads after the kit, so the kit's rule lost every time. These are the
+   only declarations on the site that need !important for that reason: the
+   band has to be able to overrule a per-widget colour.                   */
+.ml-band-blue .elementor-widget-button .elementor-button:not(.ml-arrow-link),
+.ml-band-flow .elementor-widget-button .elementor-button:not(.ml-arrow-link),
+.ml-band-blue .elementor-button.elementor-button-link:not([class*="ml-arrow"]),
+.ml-band-flow .elementor-button.elementor-button-link:not([class*="ml-arrow"]){
+  background-color: var(--e-global-color-accent) !important;
+}
+.ml-band-blue .ml-arrow-link .elementor-button,
+.ml-band-flow .ml-arrow-link .elementor-button{
+  background-color: transparent !important;
+  color: var(--e-global-color-accent) !important;
+}
+/* the small green sub-heads over a blue ground: teal, which is the accent
+   that belongs on blue */
+.ml-band-blue h6.elementor-heading-title,
+.ml-band-flow h6.elementor-heading-title{
+  color: var(--ml-accent-ink) !important;
 }
 /* ==========================================================================
    THE THIRD COLOUR
