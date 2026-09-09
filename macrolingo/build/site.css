@@ -2271,6 +2271,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -4470,6 +4472,27 @@ input.ml-qty-input:focus{
 .ml-logo-carousel .elementor-image-carousel-wrapper{
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
           mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+
+
+/* Two greens survived the first pass, both because the colour sits on an
+   inner element rather than on the one the class is written for: a filled
+   button carries it on .elementor-button, and a section label on the
+   heading inside .ml-label.                                              */
+.ml-band-blue .elementor-widget-button:not(.ml-arrow-link) .elementor-button,
+.ml-band-flow .elementor-widget-button:not(.ml-arrow-link) .elementor-button{
+  background-color: var(--e-global-color-accent);
+  box-shadow: 0 10px 22px rgba(47, 111, 214, .24);
+}
+.ml-band-blue .elementor-widget-button:not(.ml-arrow-link) .elementor-button:hover,
+.ml-band-flow .elementor-widget-button:not(.ml-arrow-link) .elementor-button:hover{
+  background-color: var(--ml-accent-ink);
+}
+.ml-band-blue .ml-label .elementor-heading-title,
+.ml-band-flow .ml-label .elementor-heading-title,
+.ml-band-blue .ml-label-centred .elementor-heading-title,
+.ml-band-flow .ml-label-centred .elementor-heading-title{
+  color: var(--ml-accent-ink);
 }
 /* ==========================================================================
    THE THIRD COLOUR
