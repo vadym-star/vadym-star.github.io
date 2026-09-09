@@ -2269,6 +2269,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -4334,6 +4336,141 @@ input.ml-qty-input:focus{
 /* the last green left in the estimate: the link in its opening paragraph */
 #estimate a{ color: var(--e-global-color-accent); }
 #estimate a:hover{ color: var(--ml-accent-ink); }
+
+
+/* =========================================================================
+   ROUND FOUR — the review Vadym asked for, done section by section
+   ========================================================================= */
+
+/* --- A row of cards must never leave an orphan ---------------------------
+   The rule the client set: four cards are two-by-two or one row, never
+   three and one. Every grid is named by how many it holds, so the count
+   decides the shape instead of the container width deciding it.          */
+
+/* four steps: two and two, not three and a straggler */
+.ml-steps.ml-steps-four > .e-con-inner > .e-con.ml-step{
+  flex: 0 1 calc(50% - 13px);
+  max-width: calc(50% - 13px);
+}
+/* three steps: one row, they fit */
+.ml-steps.ml-steps-three > .e-con-inner > .e-con.ml-step{
+  flex: 0 1 calc(33.333% - 18px);
+  max-width: calc(33.333% - 18px);
+}
+@media (max-width: 767px){
+  .ml-steps.ml-steps-four > .e-con-inner > .e-con.ml-step,
+  .ml-steps.ml-steps-three > .e-con-inner > .e-con.ml-step{
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+/* Three figures were laid out two and one, hard against the left. Three
+   across, which is what a row of three is for.                           */
+.ml-stats > .e-con-inner{
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+}
+@media (max-width: 767px){
+  .ml-stats > .e-con-inner{ grid-template-columns: 1fr; }
+}
+
+/* The fifth card in a two-column grid was stretched across the whole row,
+   so one line of text sat in a card three times too wide and the block
+   looked unfinished. It keeps its half width and centres instead.        */
+.ml-opts > .e-con-inner > *:last-child:nth-child(odd),
+.ml-svc-grid > .e-con-inner > *:last-child:nth-child(odd){
+  grid-column: auto;
+  justify-self: center;
+  width: 100%;
+}
+.ml-opts > .e-con-inner,
+.ml-svc-grid > .e-con-inner{ justify-items: center; }
+.ml-opts > .e-con-inner > *,
+.ml-svc-grid > .e-con-inner > *{ width: 100%; }
+/* an odd last card sits under the middle of the two above it */
+.ml-opts > .e-con-inner > *:last-child:nth-child(odd),
+.ml-svc-grid > .e-con-inner > *:last-child:nth-child(odd){
+  grid-column: 1 / -1;
+  max-width: calc(50% - 6px);
+}
+
+/* Seven cards in a three-column grid left one alone on the left of the
+   last row. Centred, it reads as the end of a set rather than as a gap.  */
+.ml-three-up > .e-con-inner{ justify-items: center; }
+.ml-three-up > .e-con-inner > *:last-child:nth-child(3n + 1){
+  grid-column: 1 / -1;
+  max-width: calc(33.333% - 15px);
+}
+
+/* --- A blue band is a blue section --------------------------------------
+   Vadym's rule: if the ground is blue, everything on it is blue or teal.
+   Green is the doing colour and it belongs on white, warm and mint. This
+   covers the pale blue band and the green-to-blue gradient, where the
+   cards that land over the blue half were carrying green numerals.      */
+.ml-band-blue .ml-step-no .elementor-heading-title,
+.ml-band-flow .ml-step-no .elementor-heading-title{
+  color: var(--e-global-color-accent);
+}
+.ml-band-blue .e-con.ml-step,
+.ml-band-flow .e-con.ml-step{
+  border-top-color: rgba(47, 111, 214, .55);
+}
+.ml-band-blue .ml-step-label .elementor-heading-title,
+.ml-band-flow .ml-step-label .elementor-heading-title,
+.ml-band-blue .ml-label,
+.ml-band-flow .ml-label,
+.ml-band-blue .ml-strip-label .elementor-heading-title,
+.ml-band-flow .ml-strip-label .elementor-heading-title{
+  color: var(--ml-accent-ink);
+}
+.ml-band-blue .ml-label:before,
+.ml-band-flow .ml-label:before{ background-color: var(--e-global-color-accent); }
+.ml-band-blue .ml-highlight,
+.ml-band-flow .ml-highlight{
+  background-image: linear-gradient(120deg,
+      transparent 0 3%, rgba(47, 111, 214, .20) 3% 97%, transparent 97%);
+}
+.ml-band-blue a:not(.elementor-button),
+.ml-band-flow a:not(.elementor-button){ color: var(--e-global-color-accent); }
+.ml-band-blue a:not(.elementor-button):hover,
+.ml-band-flow a:not(.elementor-button):hover{ color: var(--ml-accent-ink); }
+.ml-band-blue .ml-btn-primary .elementor-button,
+.ml-band-flow .ml-btn-primary .elementor-button{
+  background-color: var(--e-global-color-accent);
+  box-shadow: 0 10px 22px rgba(47, 111, 214, .24);
+}
+.ml-band-blue .ml-btn-primary .elementor-button:hover,
+.ml-band-flow .ml-btn-primary .elementor-button:hover{
+  background-color: var(--ml-accent-ink);
+}
+.ml-band-blue .ml-arrow-link .elementor-button,
+.ml-band-flow .ml-arrow-link .elementor-button{ color: var(--e-global-color-accent); }
+.ml-band-blue .ml-ticks .elementor-icon-list-icon,
+.ml-band-flow .ml-ticks .elementor-icon-list-icon,
+.ml-band-blue .ml-ticks .elementor-icon-list-icon i,
+.ml-band-flow .ml-ticks .elementor-icon-list-icon i,
+.ml-band-blue .ml-ticks .elementor-icon-list-icon svg,
+.ml-band-flow .ml-ticks .elementor-icon-list-icon svg{
+  color: var(--e-global-color-accent);
+  fill: var(--e-global-color-accent);
+}
+.ml-band-blue .ml-mark-yes,
+.ml-band-flow .ml-mark-yes{ color: var(--ml-accent-ink); }
+.ml-band-blue .ml-opt-rate .elementor-heading-title,
+.ml-band-flow .ml-opt-rate .elementor-heading-title{ color: var(--ml-accent-ink); }
+
+/* --- The marquee fades at both ends --------------------------------------
+   The mask was written for .elementor-image-carousel-wrapper, which this
+   version of the widget no longer uses on these pages, so the strip was
+   cut off square and the first and last mark were sliced in half.       */
+.ml-logo-carousel .swiper,
+.ml-logo-carousel .swiper-container,
+.ml-logo-carousel .elementor-image-carousel-wrapper{
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
 /* ==========================================================================
    THE THIRD COLOUR
 
