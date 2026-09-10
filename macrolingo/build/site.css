@@ -2299,6 +2299,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -4868,6 +4870,70 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
   .ml-est-send{ width: 100%; }
   .ml-est-slip-rows dt{ min-width: 0; }
 }
+
+
+/* =========================================================================
+   The Japanese Translation page (/ja/translation_localization/)
+   Two components it needs that no other page had: the language pairs, and a
+   body paragraph that is argument rather than an intro line.
+   ========================================================================= */
+
+/* --- The four language pairs ---------------------------------------------
+   Four cards, so one row: the site rule is that four is a row or a two by
+   two and never three with one stranded underneath. They fold to two and
+   then to one, and both of those are even.                               */
+.ml-pairs > .e-con-inner{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  align-items: stretch;
+  padding: 0;
+}
+.ml-pairs > .e-con-inner > *{ width: 100%; max-width: 100%; min-width: 0; }
+.ml-inner .ml-pairs{ margin-top: 42px; }
+.e-con.ml-pair{
+  background: #fff;
+  border: 1px solid var(--ml-line-2);
+  border-radius: 14px;
+  padding: 20px 18px 18px;
+  text-align: center;
+  box-shadow: 0 1px 2px rgba(22, 36, 28, .04);
+}
+.e-con.ml-pair > .e-con-inner{ padding: 0; }
+.ml-pair-name .elementor-heading-title{
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+/* the arrow is the only coloured thing in the card, because it is the only
+   part that carries the meaning */
+.ml-pair-arrow{ color: var(--e-global-color-primary); font-weight: 700; }
+.ml-pair-note.elementor-widget{ margin-top: 7px; }
+.ml-pair-note p{
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--e-global-color-mlmuted, #7C8797);
+  margin-bottom: 0;
+}
+@media (max-width: 1024px){
+  .ml-pairs > .e-con-inner{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 767px){
+  .ml-pairs > .e-con-inner{ grid-template-columns: 1fr; }
+}
+
+/* --- A paragraph that is the argument, not an introduction ---------------
+   ml-lead is centred at 60ch and sits under a heading. These two paragraphs
+   are the case the section makes, so they read at body width and length.  */
+.ml-lead-body.elementor-widget{ margin-top: 22px; }
+.ml-lead-body p{
+  font-size: 17px;
+  line-height: 1.85;
+  color: var(--e-global-color-text);
+  max-width: 78ch;
+  margin: 0 auto;
+}
+.ml-lead-body.elementor-widget + .ml-lead-body.elementor-widget{ margin-top: 16px; }
 /* ==========================================================================
    THE THIRD COLOUR
 
