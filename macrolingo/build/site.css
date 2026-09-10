@@ -2281,6 +2281,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -4667,6 +4669,9 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
 .ml-steps:not(.ml-steps-three):not(.ml-steps-four) .ml-step-no{
   grid-column: 1;
   grid-row: 1 / span 3;
+  /* the numeral belongs against the middle of the card, not stuck to its
+     top edge: it labels the whole step, not the line it starts on */
+  align-self: center !important;
 }
 .ml-steps:not(.ml-steps-three):not(.ml-steps-four) .ml-step-label,
 .ml-steps:not(.ml-steps-three):not(.ml-steps-four) .ml-step-title,
