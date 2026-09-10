@@ -2305,6 +2305,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -4965,7 +4967,15 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
    throws the numbers to opposite edges and strands the hairline a third of
    the way across. This modifier makes the row shrink to its own content and
    centre, which is what a pair of figures under a paragraph wants.       */
+/* A later rule turns every ml-stats row into a three-column grid, for the
+   page that carries three figures across. Two figures and a hairline in
+   three equal columns is what threw these to opposite edges of 1100px, so
+   this modifier puts the row back to flex before centring it.           */
 .ml-stats-centred > .e-con-inner{
+  display: flex !important;
+  grid-template-columns: none !important;
+  flex-wrap: nowrap !important;
+  align-items: center;
   justify-content: center !important;
   gap: 60px;
 }
