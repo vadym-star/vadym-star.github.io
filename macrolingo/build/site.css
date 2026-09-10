@@ -2295,6 +2295,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -4748,9 +4750,8 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
    answered half the note: it fixed the weak contrast and lost the emphasis
    with it. The gradient comes back as the GROUND rather than as the
    letterforms -- the same green-to-blue, at a sixth of its strength, drawn
-   behind solid ink. box-decoration-break: clone gives every line of a
-   wrapped heading its own panel instead of one box behind the block, which
-   is what makes it read as a marker rather than as a table cell.        */
+   behind solid ink, in one rounded panel with the lines balanced inside
+   it.                                                                   */
 .ml-gradient-heading .elementor-heading-title{
   /* inline-block, not inline: as an inline box the heading stopped being a
      block container, text-wrap: balance had nothing to act on, and a long
