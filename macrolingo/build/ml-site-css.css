@@ -2283,6 +2283,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -4740,14 +4742,105 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
 }
 
 
-/* --- A5. The service menu, with the rates gone ---------------------------
-   Remove per-word and per-character pricing entirely, retain the
-   descriptions, increase the text size. The rate and its unit are separate
-   widgets, so they come out of the page file; what is left has to read at
-   a size that suits a card of two lines rather than four.                */
+/* --- A5. The service menu ------------------------------------------------
+   Remove per-word and per-character pricing, retain the descriptions,
+   increase the text size. What is left has to read at a size that suits a
+   card of two lines rather than four.                                    */
 .ml-opt-name .elementor-heading-title{ font-size: 20px; }
 .ml-opt-note p{ font-size: 15.5px; line-height: 1.6; }
 .ml-menu-intro p{ font-size: 16.5px; }
+
+
+/* --- A5, second pass: the estimate keeps working -------------------------
+   Adam asked for the per-word and per-character prices to come off the
+   page, not for the calculator to go. The rate widget therefore stays in
+   every card, still editable in the Elementor panel and still the thing the
+   arithmetic reads, and only the figure is hidden. The unit stays visible,
+   because "per word" is what tells a reader what the box is asking for.  */
+.ml-opt-rate{ display: none !important; }
+.ml-opt-unit .elementor-heading-title{
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--e-global-color-mlgreendark);
+}
+#estimate .ml-opt-unit .elementor-heading-title{ color: var(--ml-accent-ink); }
+.ml-opt-price{ margin-top: 2px; }
+
+/* the button that carries the three figures down to the contact form */
+.ml-est-send{
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  font-family: var(--ml-sans);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+  padding: 14px 22px;
+  border-radius: 10px;
+  color: #fff;
+  background: var(--e-global-color-accent);
+  box-shadow: 0 10px 22px rgba(47, 111, 214, .24);
+  transition: background-color .18s ease, transform .18s ease;
+}
+.ml-est-send:hover{ background: var(--ml-accent-ink); transform: translateY(-1px); }
+.ml-est-send:focus-visible{ outline: 3px solid var(--e-global-color-accent); outline-offset: 3px; }
+.ml-est-said{
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--e-global-color-mlgreendark);
+  flex-basis: 100%;
+}
+
+/* the slip drawn above the contact form, so the three figures can be read
+   without opening the details field they were also written into */
+.ml-est-slip{
+  margin: 0 0 20px;
+  padding: 16px 18px;
+  border: 1px solid var(--ml-line-2);
+  border-left: 3px solid var(--e-global-color-accent);
+  border-radius: 10px;
+  background: var(--e-global-color-mlblueband, #EAF2FE);
+}
+.ml-est-slip-head{
+  display: block;
+  font-family: var(--ml-sans);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--ml-accent-ink);
+  margin-bottom: 10px;
+}
+.ml-est-slip-rows{ margin: 0; display: grid; gap: 6px; }
+.ml-est-slip-rows > div{
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.ml-est-slip-rows dt{
+  font-family: var(--ml-sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--e-global-color-text);
+  min-width: 118px;
+}
+.ml-est-slip-rows dd{
+  margin: 0;
+  font-family: var(--ml-body);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--e-global-color-secondary);
+}
+@media (max-width: 767px){
+  .ml-est-send{ width: 100%; }
+  .ml-est-slip-rows dt{ min-width: 0; }
+}
 /* ==========================================================================
    THE THIRD COLOUR
 
