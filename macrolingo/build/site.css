@@ -2307,6 +2307,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -4977,11 +4979,21 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
   flex-wrap: nowrap !important;
   align-items: center;
   justify-content: center !important;
-  gap: 60px;
+  gap: 48px;
 }
-.ml-stats-centred > .e-con-inner > .e-con{
-  width: auto !important;
-  flex: 0 0 auto !important;
+/* The hairline sits on the middle of the page, which only happens if the
+   two figures are the same width: shrink-to-fit put "90%" and "最大500%"
+   either side of a centred row, and the line landed wherever their
+   different widths left it. Equal fixed columns, so the join is the middle
+   of the row and the row is the middle of the page.                      */
+.ml-stats-centred > .e-con-inner > .e-con.ml-stat{
+  flex: 0 0 300px !important;
+  width: 300px !important;
+  max-width: 300px !important;
+}
+.ml-stats-centred > .e-con-inner > .e-con.ml-stat-sep{
+  flex: 0 0 1px !important;
+  width: 1px !important;
 }
 .ml-stats-centred .ml-stat{ text-align: center; }
 /* "Green does, blue reaches, teal proves." A repeat-business rate and an
