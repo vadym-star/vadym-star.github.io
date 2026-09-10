@@ -2259,6 +2259,28 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -3198,13 +3220,35 @@ body .ml-inner .ml-prose-wide.elementor-widget p{
    The photograph and the argument share a row, then the two lists sit
    underneath at half width each. ml-split-founder already draws the row.  */
 .ml-why-photo > .e-con-inner{ padding: 0; }
-/* At full column width this picture stood 471px tall beside a single short
-   paragraph, so most of the right half of the row was empty. Held smaller,
-   the two columns are about the same height and the row reads as a pair.  */
+/* Round two. Holding the picture to 440px square left it 440 tall beside a
+   210 tall paragraph: the two columns were a pair in width only, and the
+   right half of the row sat half empty. Now the two columns are stretched
+   to one height and the photograph fills its column edge to edge, cropped
+   by object-fit rather than squashed. Its 5/4 ratio is what sets the row
+   height; the words centre themselves inside the same height beside it.  */
 body .ml-inner .ml-why-photo .ml-photo.elementor-widget{
-  max-width: 440px !important;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 100% !important;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  height: 100%;
+}
+body .ml-inner .ml-why-photo .ml-photo .elementor-widget-container,
+body .ml-inner .ml-why-photo .ml-photo figure,
+body .ml-inner .ml-why-photo .ml-photo figure > a{ height: 100%; }
+body .ml-inner .ml-why-photo .ml-photo img{
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  aspect-ratio: 5 / 4;
+  object-fit: cover;
+  object-position: center;
+}
+/* the column itself must be allowed to be as tall as the row */
+.e-con.ml-why-split > .e-con-inner > .ml-why-photo{ height: 100%; }
+.e-con.ml-why-split > .e-con-inner > .ml-why-photo > .e-con-inner{
+  height: 100%;
+  padding: 0;
 }
 /* Even columns and a centred picture, so the photograph and the paragraph
    sit either side of the middle rather than the picture being pushed into
@@ -3216,7 +3260,26 @@ body .ml-inner .ml-why-photo .ml-photo.elementor-widget{
    air with the whole lower half of the row empty, so the two columns are
    centred against each other instead. Its own class, because the founder
    rows on About must keep their top alignment.                            */
-.e-con.ml-why-split > .e-con-inner{ align-items: center; }
+.e-con.ml-why-split > .e-con-inner{ align-items: stretch; }
+/* the paragraph keeps its own middle inside the taller box */
+.e-con.ml-why-split > .e-con-inner > .e-con:not(.ml-why-photo) > .e-con-inner{
+  height: 100%;
+  justify-content: center;
+}
+
+/* One column below the desktop, where a picture beside a paragraph leaves
+   both too narrow to read. The photograph keeps object-fit, so it crops
+   rather than stretches at every width.                                   */
+@media (max-width: 1024px){
+  .e-con.ml-why-split > .e-con-inner{ grid-template-columns: 1fr; gap: 26px; }
+  body .ml-inner .ml-why-photo .ml-photo img{ aspect-ratio: 16 / 9; }
+  .e-con.ml-why-split > .e-con-inner > .e-con:not(.ml-why-photo) > .e-con-inner{
+    justify-content: flex-start;
+  }
+}
+@media (max-width: 767px){
+  body .ml-inner .ml-why-photo .ml-photo img{ aspect-ratio: 4 / 3; }
+}
 .ml-colhead-lg .elementor-heading-title{
   font-family: var(--ml-serif);
   font-size: 21px;
@@ -3245,25 +3308,48 @@ body .ml-inner .ml-why-photo .ml-photo.elementor-widget{
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
+:root{
+  /* the table grid: --ml-line is a whisper meant for edges, not for a grid
+     the reader has to follow across three columns */
+  --ml-grid:      #CBD8C4;
+  --ml-grid-head: #A9BEA0;
+}
+/* border-collapse: collapse merges the table's own border into the edge
+   cells, and with overflow:hidden and a radius on top of that the outer
+   frame was clipped away entirely: the grid had inner lines and no box
+   around it. Separate borders with zero spacing keep the same grid and
+   let the frame draw.                                                     */
 table.ml-compare{
   width: 100%;
   min-width: 620px;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   background: #fff;
-  border: 1px solid var(--ml-line-2);
+  border: 1px solid var(--ml-grid-head);
   border-radius: var(--ml-radius);
   overflow: hidden;
 }
+/* The grid was one hairline in --ml-line between the rows and nothing at
+   all between the columns, which on a white card read as a list rather
+   than a table: at a glance there was no telling which tick belonged to
+   which column. Both directions are drawn now, in a line dark enough to
+   survive a laptop screen at an angle, and the head is ruled off harder
+   than the body so the eye finds the column names first.               */
 table.ml-compare th,
 table.ml-compare td{
   border: 0;
-  border-bottom: 1px solid var(--ml-line);
+  border-bottom: 1px solid var(--ml-grid);
+  border-right: 1px solid var(--ml-grid);
   padding: 15px 20px;
   text-align: center;
   vertical-align: middle;
 }
+table.ml-compare th:last-child,
+table.ml-compare td:last-child{ border-right: 0; }
 table.ml-compare tbody tr:last-child th,
 table.ml-compare tbody tr:last-child td{ border-bottom: 0; }
+table.ml-compare thead th,
+table.ml-compare thead td{ border-bottom: 2px solid var(--ml-grid-head); }
 /* the row label */
 table.ml-compare tbody th[scope="row"]{
   text-align: left;
@@ -3326,13 +3412,19 @@ table.ml-compare thead th.ml-col-us{
    products: the boxes are gone, each step is ruled off at the top by the
    green line the number sits on, and uneven lengths now read as what they
    are rather than as cards that failed to fill.                            */
+/* Round two: the ruled version put 14px grey-green words straight onto the
+   mint ground, and at that size on that tint it was work to read. Each step
+   now sits on a white card, which is the highest contrast the palette has,
+   and the green rule moved to the top edge of the card so the layout the
+   steps had is unchanged. The cards are NOT stretched to a common height --
+   that is what made the first attempt fail -- so a short step stays short. */
 .e-con.ml-step{
-  background-color: transparent;
-  border: 0;
-  border-top: 2px solid rgba(69, 143, 44, .28);
-  border-radius: 0;
-  box-shadow: none;
-  padding: 18px 16px 0 0;
+  background-color: #fff;
+  border: 1px solid var(--ml-line-2);
+  border-top: 3px solid rgba(69, 143, 44, .55);
+  border-radius: 14px;
+  box-shadow: 0 1px 2px rgba(22, 36, 28, .04);
+  padding: 18px 16px 20px 16px;
 }
 .e-con.ml-step > .e-con-inner{ padding: 0; }
 /* the numeral: green, because a step is something we do */
@@ -3356,15 +3448,15 @@ table.ml-compare thead th.ml-col-us{
 .ml-step-title.elementor-widget{ margin-top: 6px; }
 .ml-step-title .elementor-heading-title{
   font-family: var(--ml-serif);
-  font-size: 17.5px;
+  font-size: 18.5px;
   font-weight: 600;
   line-height: 1.3;
 }
 .ml-step-note.elementor-widget{ margin-top: 8px; }
 .ml-step-note p{
-  font-size: 14px;
-  line-height: 1.55;
-  color: var(--e-global-color-text);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--e-global-color-secondary);
   margin-bottom: 0;
 }
 
@@ -3990,6 +4082,667 @@ input.ml-qty-input:focus{
   text-underline-offset: 3px;
 }
 .ml-case-note p + p{ margin-top: 10px; }
+
+
+/* --- The clicks chart ----------------------------------------------------
+   mlc, on an HTML widget
+   This replaces a 431px screenshot of Search Console with the axis values
+   painted out in red and the caption baked into the pixels. The curve is
+   the same one, read back out of that screenshot column by column, so the
+   shape is still the client's; only the drawing is ours. Blue and the
+   green-to-blue line are the homepage's own colours, which the service
+   pages had otherwise dropped.                                            */
+.mlc{
+  background: #fff;
+  border: 1px solid var(--ml-line-2);
+  border-radius: var(--ml-radius);
+  padding: 20px 22px 16px;
+  box-shadow: 0 1px 2px rgba(22, 36, 28, .04);
+}
+.mlc-head{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+.mlc-kicker{
+  margin: 0;
+  font-family: var(--ml-serif);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--e-global-color-secondary);
+}
+.mlc-rise{
+  margin: 0;
+  font-family: var(--ml-sans);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .03em;
+  color: var(--e-global-color-accent);
+}
+.mlc-plot{ position: relative; }
+.mlc-plot svg{ display: block; width: 100%; height: 300px; }
+.mlc-grid{ stroke: #E7ECE4; stroke-width: 1; }
+.mlc-area{ fill: url(#mlcFill); }
+.mlc-line{
+  fill: none;
+  stroke: url(#mlcLine);
+  stroke-width: 2.4;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.mlc-yt, .mlc-xt{
+  font-family: var(--ml-sans);
+  font-size: 11px;
+  fill: var(--e-global-color-mlmuted, #7C8797);
+}
+.mlc-yt{ text-anchor: end; }
+.mlc-dot{
+  fill: #fff;
+  stroke: var(--e-global-color-accent);
+  stroke-width: 2.2;
+  opacity: 0;
+  transition: opacity .12s ease;
+  vector-effect: non-scaling-stroke;
+}
+.mlc-hit{ fill: transparent; cursor: pointer; }
+.mlc-pt.is-on .mlc-dot,
+.mlc-pt:hover .mlc-dot{ opacity: 1; }
+.mlc-tip{
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+  background: var(--e-global-color-secondary);
+  color: #fff;
+  font-family: var(--ml-sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.35;
+  padding: 7px 10px;
+  border-radius: 8px;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(22, 36, 28, .18);
+}
+.mlc-note{
+  margin: 10px 0 0;
+  font-family: var(--ml-sans);
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--e-global-color-mlmuted, #7C8797);
+}
+.mlc-ylab{
+  margin: 4px 0 0;
+  font-family: var(--ml-sans);
+  font-size: 12px;
+  color: var(--e-global-color-mlmuted, #7C8797);
+}
+@media (max-width: 767px){
+  .mlc{ padding: 16px 14px 12px; }
+  .mlc-plot svg{ height: 230px; }
+  .mlc-kicker{ font-size: 16px; }
+}
+
+
+/* --- The green-to-blue band, for the service pages -----------------------
+   ml-band-flow
+   The homepage carries the whole palette: a heading that fades green into
+   blue, a pale blue ground, and one band where green runs across into blue
+   under two soft glows. The service pages had been built out of white,
+   warm and mint only, so they read as a different site by the third page.
+   This is the homepage's own band under a name that is not about NGOs, so
+   a service page can take it once, where the page turns from the problem
+   to what we do about it. Blue still only ever arrives out of the green.  */
+.ml-band-flow{
+  position: relative;
+  overflow: hidden;
+  overflow: clip;
+  background-image: linear-gradient(128deg,
+      var(--e-global-color-mlmint) 0%,
+      #E6F2DF 26%,
+      #E8F0F8 62%,
+      var(--e-global-color-mlblueband) 100%);
+}
+.ml-band-flow:before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(58% 78% at 10% 16%, rgba(84,180,53,.18), transparent 62%),
+    radial-gradient(54% 74% at 90% 84%, rgba(47,111,214,.15), transparent 64%),
+    radial-gradient(40% 60% at 52% 50%, rgba(255,255,255,.50), transparent 70%);
+}
+.ml-band-flow > *{ position: relative; z-index: 1; }
+
+/* the chart sits in the column the photograph used to hold, so it has to
+   be allowed to fill that column the same way */
+.ml-why-chart > .e-con-inner{ height: 100%; padding: 0; }
+.ml-why-chart .elementor-widget-html,
+.ml-why-chart .elementor-widget-html > .elementor-widget-container{ height: 100%; }
+.ml-why-chart .mlc{ height: 100%; display: flex; flex-direction: column; }
+.ml-why-chart .mlc-plot{ flex: 1 1 auto; }
+
+
+/* --- A callout must not share its ground ---------------------------------
+   .ml-proof is mint, which is right on white or on the warm ground and
+   invisible on a mint band: on the Japanese PR page the closing note under
+   the three team cards sat mint-on-mint and read as loose text with a
+   green tick beside it. On any tinted band the callout turns white, which
+   is the one ground none of the bands use.                                */
+.ml-band-mint .e-con.ml-proof,
+.ml-band-flow .e-con.ml-proof,
+.ml-band-blue .e-con.ml-proof{
+  background: #fff;
+  border: 1px solid var(--ml-line-2);
+  border-left: 3px solid var(--e-global-color-primary);
+  box-shadow: 0 1px 2px rgba(22, 36, 28, .04);
+}
+
+
+/* --- The steps must not be stretched to one height -----------------------
+   Elementor writes align-items on the container from the widget panel, and
+   that beats a plain class, so the five cards came back out as equal-height
+   boxes with steps one, three and five two thirds empty -- the same fault
+   the ruled version was built to escape. Named with !important because the
+   generated rule is the one being overruled, and on the card itself as
+   well, since a grid item can stretch on its own account.                 */
+.ml-steps > .e-con-inner{ align-items: start !important; }
+.e-con.ml-step{ align-self: start !important; }
+
+
+/* --- Round three, from Vadym's review ------------------------------------ */
+
+/* Wider steps. Five across put each card at 196px, which is four or five
+   words a line and hard work to read. Three to a row at ~349px, with the
+   last two centred under them, so the cards are half as wide again and the
+   block still ends on a deliberate edge rather than a hole.               */
+.ml-steps > .e-con-inner{
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: center;
+  grid-template-columns: none;
+  gap: 20px 26px;
+}
+.ml-steps > .e-con-inner > .e-con.ml-step{
+  flex: 0 1 320px;
+  max-width: 349px;
+  width: auto;
+}
+
+/* The gradient band must never melt into the band above it. It used to
+   begin in mint, so where a mint section sat on top the two greens met
+   with no edge at all down the left-hand side. It begins in white now,
+   and carries a hairline top and bottom so the join is stated whatever
+   colour happens to be next to it.                                       */
+.ml-band-flow{
+  background-image: linear-gradient(128deg,
+      #FFFFFF 0%,
+      #EDF4E8 24%,
+      #E8F0F8 62%,
+      var(--e-global-color-mlblueband) 100%);
+  border-top: 1px solid rgba(47, 111, 214, .16);
+  border-bottom: 1px solid rgba(47, 111, 214, .16);
+}
+
+/* The estimate is the one block on the site that is costed rather than
+   sold, so it drops the green altogether: white cards on the pale blue
+   band, blue for anything active, teal for the rates themselves. Scoped by
+   the section id, so it cannot leak into the service cards further up the
+   page that look almost the same.                                        */
+#estimate .e-con.ml-opt{
+  background: #F4F7FB;
+  border-color: #D7E2F0;
+}
+#estimate .e-con.ml-opt:hover{ border-color: var(--e-global-color-accent); }
+#estimate .e-con.ml-opt.is-on{
+  background: #fff;
+  border-color: var(--e-global-color-accent);
+  box-shadow: 0 0 0 1px var(--e-global-color-accent) inset;
+}
+#estimate .e-con.ml-opt:focus-visible{
+  outline-color: var(--e-global-color-accent);
+}
+#estimate .ml-opt-rate .elementor-heading-title{ color: var(--ml-accent-ink); }
+#estimate .ml-est-label{ color: var(--e-global-color-accent); }
+#estimate input.ml-qty-input:focus{
+  border-color: var(--e-global-color-accent);
+  box-shadow: 0 0 0 3px rgba(47, 111, 214, .16);
+}
+#estimate .ml-total-value{ color: var(--ml-accent-ink); }
+/* the highlighter under "estimate" is a green marker everywhere else */
+#estimate .ml-highlight{
+  background-image: linear-gradient(120deg,
+      transparent 0 3%,
+      rgba(47, 111, 214, .20) 3% 97%,
+      transparent 97%);
+}
+#estimate .ml-est{ border-top-color: #D7E2F0; }
+
+/* The contact form is shorter than the details beside it on several pages
+   -- 594px against 906 on PR & Media -- so it sat at the top of its half
+   with 312px of white underneath. Centred in its column instead: it starts
+   lower and the space is the same above as below.                        */
+.ml-split-contact .ml-form > .e-con-inner{
+  justify-content: center !important;
+}
+@media (max-width: 1024px){
+  .ml-split-contact .ml-form > .e-con-inner{
+    justify-content: flex-start !important;
+  }
+}
+
+
+/* Elementor writes justify-content on the container too, so the two cards
+   on the second row sat against the left edge instead of under the middle
+   of the three above them. And on a phone a 320px basis is wider than the
+   column, so the basis goes full width there.                            */
+.ml-steps > .e-con-inner{ justify-content: center !important; }
+@media (max-width: 767px){
+  .ml-steps > .e-con-inner > .e-con.ml-step{ flex: 1 1 100%; max-width: 100%; }
+}
+/* the last green left in the estimate: the link in its opening paragraph */
+#estimate a{ color: var(--e-global-color-accent); }
+#estimate a:hover{ color: var(--ml-accent-ink); }
+
+
+/* =========================================================================
+   ROUND FOUR — the review Vadym asked for, done section by section
+   ========================================================================= */
+
+/* --- A row of cards must never leave an orphan ---------------------------
+   The rule the client set: four cards are two-by-two or one row, never
+   three and one. Every grid is named by how many it holds, so the count
+   decides the shape instead of the container width deciding it.          */
+
+/* four steps: two and two, not three and a straggler */
+.ml-steps.ml-steps-four > .e-con-inner > .e-con.ml-step{
+  flex: 0 1 calc(50% - 13px);
+  max-width: calc(50% - 13px);
+}
+/* three steps: one row, they fit */
+.ml-steps.ml-steps-three > .e-con-inner > .e-con.ml-step{
+  flex: 0 1 calc(33.333% - 18px);
+  max-width: calc(33.333% - 18px);
+}
+@media (max-width: 767px){
+  .ml-steps.ml-steps-four > .e-con-inner > .e-con.ml-step,
+  .ml-steps.ml-steps-three > .e-con-inner > .e-con.ml-step{
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+/* Three figures were laid out two and one, hard against the left. Three
+   across, which is what a row of three is for.                           */
+.ml-stats > .e-con-inner{
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+}
+@media (max-width: 767px){
+  .ml-stats > .e-con-inner{ grid-template-columns: 1fr; }
+}
+
+/* The fifth card in a two-column grid was stretched across the whole row,
+   so one line of text sat in a card three times too wide and the block
+   looked unfinished. It keeps its half width and centres instead.        */
+.ml-opts > .e-con-inner > *:last-child:nth-child(odd),
+.ml-svc-grid > .e-con-inner > *:last-child:nth-child(odd){
+  grid-column: auto;
+  justify-self: center;
+  width: 100%;
+}
+.ml-opts > .e-con-inner,
+.ml-svc-grid > .e-con-inner{ justify-items: center; }
+.ml-opts > .e-con-inner > *,
+.ml-svc-grid > .e-con-inner > *{ width: 100%; }
+/* an odd last card sits under the middle of the two above it */
+.ml-opts > .e-con-inner > *:last-child:nth-child(odd),
+.ml-svc-grid > .e-con-inner > *:last-child:nth-child(odd){
+  grid-column: 1 / -1;
+  max-width: calc(50% - 6px);
+}
+
+/* Seven cards in a three-column grid left one alone on the left of the
+   last row. Centred, it reads as the end of a set rather than as a gap.  */
+.ml-three-up > .e-con-inner{ justify-items: center; }
+.ml-three-up > .e-con-inner > *:last-child:nth-child(3n + 1){
+  grid-column: 1 / -1;
+  max-width: calc(33.333% - 15px);
+}
+
+/* --- A blue band is a blue section --------------------------------------
+   Vadym's rule: if the ground is blue, everything on it is blue or teal.
+   Green is the doing colour and it belongs on white, warm and mint. This
+   covers the pale blue band and the green-to-blue gradient, where the
+   cards that land over the blue half were carrying green numerals.      */
+.ml-band-blue .ml-step-no .elementor-heading-title,
+.ml-band-flow .ml-step-no .elementor-heading-title{
+  color: var(--e-global-color-accent);
+}
+.ml-band-blue .e-con.ml-step,
+.ml-band-flow .e-con.ml-step{
+  border-top-color: rgba(47, 111, 214, .55);
+}
+.ml-band-blue .ml-step-label .elementor-heading-title,
+.ml-band-flow .ml-step-label .elementor-heading-title,
+.ml-band-blue .ml-label,
+.ml-band-flow .ml-label,
+.ml-band-blue .ml-strip-label .elementor-heading-title,
+.ml-band-flow .ml-strip-label .elementor-heading-title{
+  color: var(--ml-accent-ink);
+}
+.ml-band-blue .ml-label:before,
+.ml-band-flow .ml-label:before{ background-color: var(--e-global-color-accent); }
+.ml-band-blue .ml-highlight,
+.ml-band-flow .ml-highlight{
+  background-image: linear-gradient(120deg,
+      transparent 0 3%, rgba(47, 111, 214, .20) 3% 97%, transparent 97%);
+}
+.ml-band-blue a:not(.elementor-button),
+.ml-band-flow a:not(.elementor-button){ color: var(--e-global-color-accent); }
+.ml-band-blue a:not(.elementor-button):hover,
+.ml-band-flow a:not(.elementor-button):hover{ color: var(--ml-accent-ink); }
+.ml-band-blue .ml-btn-primary .elementor-button,
+.ml-band-flow .ml-btn-primary .elementor-button{
+  background-color: var(--e-global-color-accent);
+  box-shadow: 0 10px 22px rgba(47, 111, 214, .24);
+}
+.ml-band-blue .ml-btn-primary .elementor-button:hover,
+.ml-band-flow .ml-btn-primary .elementor-button:hover{
+  background-color: var(--ml-accent-ink);
+}
+.ml-band-blue .ml-arrow-link .elementor-button,
+.ml-band-flow .ml-arrow-link .elementor-button{ color: var(--e-global-color-accent); }
+.ml-band-blue .ml-ticks .elementor-icon-list-icon,
+.ml-band-flow .ml-ticks .elementor-icon-list-icon,
+.ml-band-blue .ml-ticks .elementor-icon-list-icon i,
+.ml-band-flow .ml-ticks .elementor-icon-list-icon i,
+.ml-band-blue .ml-ticks .elementor-icon-list-icon svg,
+.ml-band-flow .ml-ticks .elementor-icon-list-icon svg{
+  color: var(--e-global-color-accent);
+  fill: var(--e-global-color-accent);
+}
+.ml-band-blue .ml-mark-yes,
+.ml-band-flow .ml-mark-yes{ color: var(--ml-accent-ink); }
+.ml-band-blue .ml-opt-rate .elementor-heading-title,
+.ml-band-flow .ml-opt-rate .elementor-heading-title{ color: var(--ml-accent-ink); }
+
+/* --- The marquee fades at both ends --------------------------------------
+   The mask was written for .elementor-image-carousel-wrapper, which this
+   version of the widget no longer uses on these pages, so the strip was
+   cut off square and the first and last mark were sliced in half.       */
+.ml-logo-carousel .swiper,
+.ml-logo-carousel .swiper-container,
+.ml-logo-carousel .elementor-image-carousel-wrapper{
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+
+
+/* Two greens survived the first pass, both because the colour sits on an
+   inner element rather than on the one the class is written for: a filled
+   button carries it on .elementor-button, and a section label on the
+   heading inside .ml-label.                                              */
+.ml-band-blue .elementor-widget-button:not(.ml-arrow-link) .elementor-button,
+.ml-band-flow .elementor-widget-button:not(.ml-arrow-link) .elementor-button{
+  background-color: var(--e-global-color-accent);
+  box-shadow: 0 10px 22px rgba(47, 111, 214, .24);
+}
+.ml-band-blue .elementor-widget-button:not(.ml-arrow-link) .elementor-button:hover,
+.ml-band-flow .elementor-widget-button:not(.ml-arrow-link) .elementor-button:hover{
+  background-color: var(--ml-accent-ink);
+}
+.ml-band-blue .ml-label .elementor-heading-title,
+.ml-band-flow .ml-label .elementor-heading-title,
+.ml-band-blue .ml-label-centred .elementor-heading-title,
+.ml-band-flow .ml-label-centred .elementor-heading-title{
+  color: var(--ml-accent-ink);
+}
+
+
+/* Elementor writes each button's colour into that PAGE's stylesheet, which
+   loads after the kit, so the kit's rule lost every time. These are the
+   only declarations on the site that need !important for that reason: the
+   band has to be able to overrule a per-widget colour.                   */
+/* Only a FILLED button takes the blue ground. The text links are Elementor
+   button widgets too, and ml-arrow-link sits on the widget, not on the
+   anchor inside it -- an earlier version of this rule tested the anchor's
+   own classes, so the arrow links were given a solid blue background under
+   blue text and disappeared. Both selectors are anchored on the widget. */
+.ml-band-blue .elementor-widget-button:not(.ml-arrow-link) .elementor-button,
+.ml-band-flow .elementor-widget-button:not(.ml-arrow-link) .elementor-button{
+  background-color: var(--e-global-color-accent) !important;
+}
+.ml-band-blue .elementor-widget-button.ml-arrow-link .elementor-button,
+.ml-band-flow .elementor-widget-button.ml-arrow-link .elementor-button,
+.ml-band-blue .ml-arrow-link .elementor-button,
+.ml-band-flow .ml-arrow-link .elementor-button{
+  background-color: transparent !important;
+  color: var(--e-global-color-accent) !important;
+}
+/* the small green sub-heads over a blue ground: teal, which is the accent
+   that belongs on blue */
+.ml-band-blue h6.elementor-heading-title,
+.ml-band-flow h6.elementor-heading-title{
+  color: var(--ml-accent-ink) !important;
+}
+
+/* the closing line of a callout is green everywhere else; on blue it is teal */
+.ml-band-blue .ml-proof-line p,
+.ml-band-flow .ml-proof-line p,
+.ml-band-blue .ml-proof-line strong,
+.ml-band-flow .ml-proof-line strong{ color: var(--ml-accent-ink); }
+
+
+/* =========================================================================
+   ROUND FIVE - Adam page-by-page review, block A
+   The sitewide items: every one of them is a note he made on more than one
+   page, so each is fixed once here rather than page by page.
+   ========================================================================= */
+
+/* --- A1. The dot-and-label subheads --------------------------------------
+   His note, repeated on all six reviewed pages: increase their size and
+   prominence wherever they carry key information, treat them as primary
+   headings when appropriate. At 13px they read as a caption over the
+   heading. 16px at 700 with a larger dot makes them a heading in their own
+   right; the h2 underneath is still far larger, so the order of the page is
+   unchanged -- only the bottom of the ladder moved up.                    */
+.ml-label .elementor-heading-title,
+.ml-label-centred .elementor-heading-title{
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: .045em;
+  gap: 11px;
+}
+.ml-label .elementor-heading-title:before,
+.ml-label-centred .elementor-heading-title:before{
+  width: 10px;
+  height: 10px;
+}
+/* the same ladder inside a step card */
+.ml-step-label .elementor-heading-title{
+  font-size: 12.5px;
+  letter-spacing: .06em;
+}
+
+
+/* --- A2. The comparison table --------------------------------------------
+   Enlarge the check marks, question marks, Xs and all table text; give the
+   table stronger contrast and colour; reduce the excessive white space.
+   The marks were 17px in a 61px row, which is why the table read as empty,
+   and the grid was a pale green hairline. Text up, marks up half again,
+   grid darkened, and the air round the table cut.                        */
+.ml-compare-wrap.elementor-widget{ margin-top: 28px; }
+:root{
+  --ml-grid:      #BACCB1;
+  --ml-grid-head: #7F9A73;
+}
+table.ml-compare th,
+table.ml-compare td{ padding: 13px 18px; }
+table.ml-compare tbody th[scope="row"]{
+  font-size: 17px;
+  font-weight: 600;
+}
+table.ml-compare thead th{
+  font-size: 13.5px;
+  letter-spacing: .045em;
+  color: var(--e-global-color-secondary);
+}
+.ml-mark{ font-size: 25px; min-width: 32px; }
+.ml-mark-maybe{ font-size: 23px; }
+.ml-mark-no{ font-size: 27px; }
+/* our column is the answer the table is built to give, so it is stated in
+   the brand green rather than implied by a tint */
+table.ml-compare thead th.ml-col-us{
+  background: #E4F2DA;
+  border-bottom: 3px solid var(--e-global-color-primary);
+  padding: 9px 18px;
+}
+table.ml-compare .ml-col-us{ background: #E4F2DA; }
+/* the logo replaces the word, which is what he asked for */
+.ml-compare .ml-logo-cell{
+  display: block;
+  width: 138px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+/* less air between the table and the button under it */
+#difference .ml-cta-centred{ padding-top: 30px !important; }
+
+
+/* --- A3. Five steps as a sequence ----------------------------------------
+   Fix the uneven layout when it wraps into three items above and two below,
+   and make the five steps read as a sequence using arrows, connecting lines
+   or a background path.
+
+   Five equal cards across a row is 196px each, which Vadym had rejected as
+   too narrow to read; three-and-two is what Adam has now rejected as
+   uneven. Both hold at once only if the steps stop being a row: each step
+   is a full-width card, joined to the next by the line the number sits on.
+   Nothing wraps, so nothing can be left over, and the cards are three times
+   wider than either arrangement gave them.
+
+   Scoped away from ml-steps-three and ml-steps-four, which are a row of
+   three and a two-by-two and are not this section.                       */
+.ml-steps:not(.ml-steps-three):not(.ml-steps-four) > .e-con-inner{
+  display: flex !important;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+  gap: 20px;
+}
+.ml-steps:not(.ml-steps-three):not(.ml-steps-four) > .e-con-inner > .e-con.ml-step{
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+  border-top: 1px solid var(--ml-line-2);
+  padding: 20px 26px 22px 22px;
+}
+/* the line that makes it a sequence: it runs out of one number and into
+   the next, through the gap between the cards */
+.ml-steps:not(.ml-steps-three):not(.ml-steps-four)
+  > .e-con-inner > .e-con.ml-step:not(:last-child):after{
+  content: "";
+  position: absolute;
+  left: 45px;
+  top: 100%;
+  width: 2px;
+  height: 20px;
+  background: #C2D3BA;
+}
+/* number to the left in its own column, the words beside it */
+.ml-steps:not(.ml-steps-three):not(.ml-steps-four) .e-con.ml-step > .e-con-inner{
+  display: grid !important;
+  grid-template-columns: 70px minmax(0, 1fr);
+  align-items: start;
+  row-gap: 0;
+  padding: 0;
+}
+.ml-steps:not(.ml-steps-three):not(.ml-steps-four) .ml-step-no{
+  grid-column: 1;
+  grid-row: 1 / span 3;
+}
+.ml-steps:not(.ml-steps-three):not(.ml-steps-four) .ml-step-label,
+.ml-steps:not(.ml-steps-three):not(.ml-steps-four) .ml-step-title,
+.ml-steps:not(.ml-steps-three):not(.ml-steps-four) .ml-step-note{
+  grid-column: 2;
+}
+.ml-steps:not(.ml-steps-three):not(.ml-steps-four) .ml-step-label.elementor-widget{
+  margin-top: 2px;
+}
+.ml-steps:not(.ml-steps-three):not(.ml-steps-four) .ml-step-no .elementor-heading-title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--e-global-color-primary);
+  color: #fff;
+  font-size: 21px;
+  line-height: 1;
+}
+.ml-band-blue .ml-steps:not(.ml-steps-three):not(.ml-steps-four)
+  .ml-step-no .elementor-heading-title{
+  background: var(--e-global-color-accent);
+  color: #fff;
+}
+.ml-band-blue .ml-steps:not(.ml-steps-three):not(.ml-steps-four)
+  > .e-con-inner > .e-con.ml-step:not(:last-child):after{
+  background: #A9C4EC;
+}
+.ml-steps:not(.ml-steps-three):not(.ml-steps-four) .ml-step-title .elementor-heading-title{
+  font-size: 20px;
+}
+.ml-steps:not(.ml-steps-three):not(.ml-steps-four) .ml-step-note p{
+  font-size: 15.5px;
+  max-width: 74ch;
+}
+@media (max-width: 767px){
+  .ml-steps:not(.ml-steps-three):not(.ml-steps-four) .e-con.ml-step > .e-con-inner{
+    grid-template-columns: 56px minmax(0, 1fr);
+  }
+  .ml-steps:not(.ml-steps-three):not(.ml-steps-four) .ml-step-no .elementor-heading-title{
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+  }
+  .ml-steps:not(.ml-steps-three):not(.ml-steps-four)
+    > .e-con-inner > .e-con.ml-step:not(:last-child):after{ left: 40px; }
+}
+
+
+/* --- A4. The gradient section headings -----------------------------------
+   Gradient H2s feel weak; a stronger heading treatment was asked for. Text
+   cut out of a green-to-blue wash loses contrast at exactly the place a
+   heading needs it, and the Japanese pages had already dropped it. Solid
+   ink, a little heavier. The gradient stays where it is decoration rather
+   than a heading -- the statistic figures and the bands.                 */
+.ml-gradient-heading .elementor-heading-title{
+  background-image: none;
+  -webkit-text-fill-color: currentColor;
+  color: var(--e-global-color-secondary);
+  font-weight: 600;
+}
+.ml-band-blue .ml-gradient-heading .elementor-heading-title{
+  color: var(--e-global-color-secondary);
+}
+
+
+/* --- A5. The service menu, with the rates gone ---------------------------
+   Remove per-word and per-character pricing entirely, retain the
+   descriptions, increase the text size. The rate and its unit are separate
+   widgets, so they come out of the page file; what is left has to read at
+   a size that suits a card of two lines rather than four.                */
+.ml-opt-name .elementor-heading-title{ font-size: 20px; }
+.ml-opt-note p{ font-size: 15.5px; line-height: 1.6; }
+.ml-menu-intro p{ font-size: 16.5px; }
 /* ==========================================================================
    THE THIRD COLOUR
 

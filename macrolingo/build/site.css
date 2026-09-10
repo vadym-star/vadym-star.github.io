@@ -2279,6 +2279,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -4534,6 +4536,213 @@ input.ml-qty-input:focus{
 .ml-band-flow .ml-proof-line p,
 .ml-band-blue .ml-proof-line strong,
 .ml-band-flow .ml-proof-line strong{ color: var(--ml-accent-ink); }
+
+
+/* =========================================================================
+   ROUND FIVE - Adam page-by-page review, block A
+   The sitewide items: every one of them is a note he made on more than one
+   page, so each is fixed once here rather than page by page.
+   ========================================================================= */
+
+/* --- A1. The dot-and-label subheads --------------------------------------
+   His note, repeated on all six reviewed pages: increase their size and
+   prominence wherever they carry key information, treat them as primary
+   headings when appropriate. At 13px they read as a caption over the
+   heading. 16px at 700 with a larger dot makes them a heading in their own
+   right; the h2 underneath is still far larger, so the order of the page is
+   unchanged -- only the bottom of the ladder moved up.                    */
+.ml-label .elementor-heading-title,
+.ml-label-centred .elementor-heading-title{
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: .045em;
+  gap: 11px;
+}
+.ml-label .elementor-heading-title:before,
+.ml-label-centred .elementor-heading-title:before{
+  width: 10px;
+  height: 10px;
+}
+/* the same ladder inside a step card */
+.ml-step-label .elementor-heading-title{
+  font-size: 12.5px;
+  letter-spacing: .06em;
+}
+
+
+/* --- A2. The comparison table --------------------------------------------
+   Enlarge the check marks, question marks, Xs and all table text; give the
+   table stronger contrast and colour; reduce the excessive white space.
+   The marks were 17px in a 61px row, which is why the table read as empty,
+   and the grid was a pale green hairline. Text up, marks up half again,
+   grid darkened, and the air round the table cut.                        */
+.ml-compare-wrap.elementor-widget{ margin-top: 28px; }
+:root{
+  --ml-grid:      #BACCB1;
+  --ml-grid-head: #7F9A73;
+}
+table.ml-compare th,
+table.ml-compare td{ padding: 13px 18px; }
+table.ml-compare tbody th[scope="row"]{
+  font-size: 17px;
+  font-weight: 600;
+}
+table.ml-compare thead th{
+  font-size: 13.5px;
+  letter-spacing: .045em;
+  color: var(--e-global-color-secondary);
+}
+.ml-mark{ font-size: 25px; min-width: 32px; }
+.ml-mark-maybe{ font-size: 23px; }
+.ml-mark-no{ font-size: 27px; }
+/* our column is the answer the table is built to give, so it is stated in
+   the brand green rather than implied by a tint */
+table.ml-compare thead th.ml-col-us{
+  background: #E4F2DA;
+  border-bottom: 3px solid var(--e-global-color-primary);
+  padding: 9px 18px;
+}
+table.ml-compare .ml-col-us{ background: #E4F2DA; }
+/* the logo replaces the word, which is what he asked for */
+.ml-compare .ml-logo-cell{
+  display: block;
+  width: 138px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+/* less air between the table and the button under it */
+#difference .ml-cta-centred{ padding-top: 30px !important; }
+
+
+/* --- A3. Five steps as a sequence ----------------------------------------
+   Fix the uneven layout when it wraps into three items above and two below,
+   and make the five steps read as a sequence using arrows, connecting lines
+   or a background path.
+
+   Five equal cards across a row is 196px each, which Vadym had rejected as
+   too narrow to read; three-and-two is what Adam has now rejected as
+   uneven. Both hold at once only if the steps stop being a row: each step
+   is a full-width card, joined to the next by the line the number sits on.
+   Nothing wraps, so nothing can be left over, and the cards are three times
+   wider than either arrangement gave them.
+
+   Scoped away from ml-steps-three and ml-steps-four, which are a row of
+   three and a two-by-two and are not this section.                       */
+.ml-steps:not(.ml-steps-three):not(.ml-steps-four) > .e-con-inner{
+  display: flex !important;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+  gap: 20px;
+}
+.ml-steps:not(.ml-steps-three):not(.ml-steps-four) > .e-con-inner > .e-con.ml-step{
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+  border-top: 1px solid var(--ml-line-2);
+  padding: 20px 26px 22px 22px;
+}
+/* the line that makes it a sequence: it runs out of one number and into
+   the next, through the gap between the cards */
+.ml-steps:not(.ml-steps-three):not(.ml-steps-four)
+  > .e-con-inner > .e-con.ml-step:not(:last-child):after{
+  content: "";
+  position: absolute;
+  left: 45px;
+  top: 100%;
+  width: 2px;
+  height: 20px;
+  background: #C2D3BA;
+}
+/* number to the left in its own column, the words beside it */
+.ml-steps:not(.ml-steps-three):not(.ml-steps-four) .e-con.ml-step > .e-con-inner{
+  display: grid !important;
+  grid-template-columns: 70px minmax(0, 1fr);
+  align-items: start;
+  row-gap: 0;
+  padding: 0;
+}
+.ml-steps:not(.ml-steps-three):not(.ml-steps-four) .ml-step-no{
+  grid-column: 1;
+  grid-row: 1 / span 3;
+}
+.ml-steps:not(.ml-steps-three):not(.ml-steps-four) .ml-step-label,
+.ml-steps:not(.ml-steps-three):not(.ml-steps-four) .ml-step-title,
+.ml-steps:not(.ml-steps-three):not(.ml-steps-four) .ml-step-note{
+  grid-column: 2;
+}
+.ml-steps:not(.ml-steps-three):not(.ml-steps-four) .ml-step-label.elementor-widget{
+  margin-top: 2px;
+}
+.ml-steps:not(.ml-steps-three):not(.ml-steps-four) .ml-step-no .elementor-heading-title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--e-global-color-primary);
+  color: #fff;
+  font-size: 21px;
+  line-height: 1;
+}
+.ml-band-blue .ml-steps:not(.ml-steps-three):not(.ml-steps-four)
+  .ml-step-no .elementor-heading-title{
+  background: var(--e-global-color-accent);
+  color: #fff;
+}
+.ml-band-blue .ml-steps:not(.ml-steps-three):not(.ml-steps-four)
+  > .e-con-inner > .e-con.ml-step:not(:last-child):after{
+  background: #A9C4EC;
+}
+.ml-steps:not(.ml-steps-three):not(.ml-steps-four) .ml-step-title .elementor-heading-title{
+  font-size: 20px;
+}
+.ml-steps:not(.ml-steps-three):not(.ml-steps-four) .ml-step-note p{
+  font-size: 15.5px;
+  max-width: 74ch;
+}
+@media (max-width: 767px){
+  .ml-steps:not(.ml-steps-three):not(.ml-steps-four) .e-con.ml-step > .e-con-inner{
+    grid-template-columns: 56px minmax(0, 1fr);
+  }
+  .ml-steps:not(.ml-steps-three):not(.ml-steps-four) .ml-step-no .elementor-heading-title{
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+  }
+  .ml-steps:not(.ml-steps-three):not(.ml-steps-four)
+    > .e-con-inner > .e-con.ml-step:not(:last-child):after{ left: 40px; }
+}
+
+
+/* --- A4. The gradient section headings -----------------------------------
+   Gradient H2s feel weak; a stronger heading treatment was asked for. Text
+   cut out of a green-to-blue wash loses contrast at exactly the place a
+   heading needs it, and the Japanese pages had already dropped it. Solid
+   ink, a little heavier. The gradient stays where it is decoration rather
+   than a heading -- the statistic figures and the bands.                 */
+.ml-gradient-heading .elementor-heading-title{
+  background-image: none;
+  -webkit-text-fill-color: currentColor;
+  color: var(--e-global-color-secondary);
+  font-weight: 600;
+}
+.ml-band-blue .ml-gradient-heading .elementor-heading-title{
+  color: var(--e-global-color-secondary);
+}
+
+
+/* --- A5. The service menu, with the rates gone ---------------------------
+   Remove per-word and per-character pricing entirely, retain the
+   descriptions, increase the text size. The rate and its unit are separate
+   widgets, so they come out of the page file; what is left has to read at
+   a size that suits a card of two lines rather than four.                */
+.ml-opt-name .elementor-heading-title{ font-size: 20px; }
+.ml-opt-note p{ font-size: 15.5px; line-height: 1.6; }
+.ml-menu-intro p{ font-size: 16.5px; }
 /* ==========================================================================
    THE THIRD COLOUR
 
