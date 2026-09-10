@@ -2293,6 +2293,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -4750,7 +4752,11 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
    wrapped heading its own panel instead of one box behind the block, which
    is what makes it read as a marker rather than as a table cell.        */
 .ml-gradient-heading .elementor-heading-title{
-  display: inline;
+  /* inline-block, not inline: as an inline box the heading stopped being a
+     block container, text-wrap: balance had nothing to act on, and a long
+     heading dropped its last word onto a line of its own with a panel to
+     itself. One panel behind the whole heading, lines balanced inside it. */
+  display: inline-block;
   /* the original rule clipped the gradient to the letterforms. Left in
      place it clips the new ground away too, and the panel never paints. */
   -webkit-background-clip: border-box;
@@ -4758,25 +4764,13 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
   -webkit-text-fill-color: currentColor;
   color: var(--e-global-color-secondary);
   font-weight: 600;
-  line-height: 1.36;
-  padding: .1em .34em;
-  border-radius: 8px;
-  -webkit-box-decoration-break: clone;
-          box-decoration-break: clone;
+  line-height: 1.24;
+  padding: .22em .5em .26em;
+  border-radius: 12px;
+  text-wrap: balance;
   background-image: linear-gradient(102deg,
       rgba(84, 180, 53, .20) 0%,
       rgba(47, 111, 214, .20) 100%);
-}
-/* over a blue band the tint has nothing to sit against, so the ground goes
-   the other way and the panel is the light one */
-/* An inline heading no longer balances its own lines -- text-wrap: balance
-   needs a block box -- so a long heading dropped its last word onto a line
-   of its own and that word got a panel to itself. The balancing moves up to
-   the widget, which is the block box doing the line breaking now.        */
-.ml-gradient-heading .elementor-widget-container{
-  text-wrap: balance;
-  text-wrap: pretty;
-  text-wrap: balance;
 }
 .ml-band-blue .ml-gradient-heading .elementor-heading-title,
 .ml-band-flow .ml-gradient-heading .elementor-heading-title{
