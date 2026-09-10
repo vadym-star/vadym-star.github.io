@@ -2301,6 +2301,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -4934,6 +4936,21 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
   margin: 0 auto;
 }
 .ml-lead-body.elementor-widget + .ml-lead-body.elementor-widget{ margin-top: 16px; }
+
+/* Three service cards, one row. ml-svc-grid is a two-column grid built for
+   the five cards the Japanese Copywriting page carries, and its odd-last
+   rule centres a third card at half width under the two above it - which is
+   the orphan row the site rule forbids. Three across, and the odd-last rule
+   is cancelled because with three there is no orphan to rescue.          */
+.ml-svc-grid-three > .e-con-inner{ grid-template-columns: repeat(3, 1fr); }
+.ml-svc-grid-three > .e-con-inner > *:last-child:nth-child(odd){
+  grid-column: auto;
+  max-width: 100%;
+  justify-self: stretch;
+}
+@media (max-width: 1024px){
+  .ml-svc-grid-three > .e-con-inner{ grid-template-columns: 1fr; }
+}
 /* ==========================================================================
    THE THIRD COLOUR
 
