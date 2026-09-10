@@ -2287,6 +2287,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -4350,8 +4352,11 @@ input.ml-qty-input:focus{
   .ml-steps > .e-con-inner > .e-con.ml-step{ flex: 1 1 100%; max-width: 100%; }
 }
 /* the last green left in the estimate: the link in its opening paragraph */
-#estimate a{ color: var(--e-global-color-accent); }
-#estimate a:hover{ color: var(--ml-accent-ink); }
+/* the link inside the opening paragraph. Written as a bare `a` it also
+   caught the section's own button, which came out blue text on a green
+   ground and unreadable the moment a button was put in this section.   */
+#estimate a:not(.elementor-button){ color: var(--e-global-color-accent); }
+#estimate a:not(.elementor-button):hover{ color: var(--ml-accent-ink); }
 
 
 /* =========================================================================
