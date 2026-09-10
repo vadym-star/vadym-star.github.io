@@ -2309,6 +2309,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -5016,6 +5018,21 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
 @media (max-width: 767px){
   .ml-stats-centred > .e-con-inner{ gap: 26px; }
   .ml-stats-centred .ml-stat-figure .elementor-heading-title{ font-size: 32px; }
+}
+
+/* --- A1, continued: the label over the client marks ----------------------
+   Missed on the first pass. The base rule sets it at 13.5px and a later one
+   drops it to 12px inside ml-inner, which is every section, so it rendered
+   at twelve. It names the kind of client the row is showing - trading
+   houses, small and medium businesses, NGOs, research institutes - which is
+   the point of the strip, not a caption under it. Up to fifteen, heavier,
+   and out of the muted grey into body ink.                               */
+.ml-inner .ml-strip-label .elementor-heading-title,
+.ml-strip-label .elementor-heading-title{
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .09em;
+  color: var(--e-global-color-text);
 }
 /* ==========================================================================
    THE THIRD COLOUR
