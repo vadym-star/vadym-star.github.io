@@ -2313,6 +2313,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -5038,6 +5040,87 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
   font-weight: 700;
   letter-spacing: .08em;
   color: var(--ml-accent-ink);
+}
+
+/* =========================================================================
+   The case-study box (ml-cs), on every service page
+   Adam: "Add a case-study box; content will be supplied. Apply this
+   requirement across all service pages."
+   Words on the left, the screenshot on the right, in one bordered card so
+   it reads as a single object however much text ends up in it.
+   ========================================================================= */
+.ml-cs > .e-con-inner{
+  display: grid;
+  grid-template-columns: 1.02fr .98fr;
+  gap: 44px;
+  align-items: center;
+  padding: 34px 36px;
+}
+.ml-cs{
+  background: #fff;
+  border: 1px solid var(--ml-line-2);
+  border-radius: var(--ml-radius);
+  box-shadow: 0 1px 2px rgba(22, 36, 28, .04);
+}
+.ml-inner .ml-cs{ margin-top: 8px; }
+.ml-cs-words > .e-con-inner,
+.ml-cs-pic > .e-con-inner{ padding: 0; }
+.ml-cs-head.elementor-widget{ margin-top: 10px; }
+.ml-cs-head .elementor-heading-title{
+  font-size: clamp(23px, 2.2vw, 28px);
+  font-weight: 600;
+  line-height: 1.3;
+}
+/* one labelled line: the key is teal because it names a fact rather than
+   an action, and it is set at a size that can be read, not a caption */
+.ml-cs-row{ margin-top: 18px; }
+.ml-cs-key .elementor-heading-title{
+  font-family: var(--ml-sans);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ml-accent-ink);
+  line-height: 1.5;
+}
+.ml-cs-val.elementor-widget{ margin-top: 3px; }
+.ml-cs-val p{
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--e-global-color-text);
+  margin-bottom: 0;
+}
+/* the line that says this is not finished. Deliberately plain and quiet:
+   it is a note to whoever fills the box in, not part of the page. */
+.ml-cs-note.elementor-widget{ margin-top: 22px; }
+.ml-cs-note p{
+  font-size: 13.5px;
+  line-height: 1.6;
+  font-style: italic;
+  color: var(--e-global-color-mlmuted, #7C8797);
+  margin-bottom: 0;
+  padding-top: 14px;
+  border-top: 1px dashed var(--ml-line-2);
+}
+/* the empty frame. A placeholder that fills its half of the card reads as
+   a slot waiting for a screenshot; one at its natural size reads as a
+   broken image. */
+.ml-cs-shot img{
+  width: 100%;
+  height: auto;
+  min-height: 260px;
+  object-fit: cover;
+  border-radius: 14px;
+  background: var(--e-global-color-mlgrey, #F3F5F7);
+  border: 1px dashed var(--ml-line-2);
+}
+@media (max-width: 1024px){
+  .ml-cs > .e-con-inner{
+    grid-template-columns: 1fr;
+    gap: 26px;
+    padding: 26px 24px;
+  }
+  .ml-cs-shot img{ min-height: 200px; }
 }
 /* ==========================================================================
    THE THIRD COLOUR
