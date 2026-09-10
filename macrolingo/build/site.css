@@ -2285,6 +2285,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -4731,14 +4733,35 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
    heading needs it, and the Japanese pages had already dropped it. Solid
    ink, a little heavier. The gradient stays where it is decoration rather
    than a heading -- the statistic figures and the bands.                 */
+/* Round five, second pass. Taking the gradient off and leaving plain ink
+   answered half the note: it fixed the weak contrast and lost the emphasis
+   with it. The gradient comes back as the GROUND rather than as the
+   letterforms -- the same green-to-blue, at a sixth of its strength, drawn
+   behind solid ink. box-decoration-break: clone gives every line of a
+   wrapped heading its own panel instead of one box behind the block, which
+   is what makes it read as a marker rather than as a table cell.        */
 .ml-gradient-heading .elementor-heading-title{
-  background-image: none;
+  display: inline;
   -webkit-text-fill-color: currentColor;
   color: var(--e-global-color-secondary);
   font-weight: 600;
+  line-height: 1.36;
+  padding: .1em .34em;
+  border-radius: 8px;
+  -webkit-box-decoration-break: clone;
+          box-decoration-break: clone;
+  background-image: linear-gradient(102deg,
+      rgba(84, 180, 53, .20) 0%,
+      rgba(47, 111, 214, .20) 100%);
 }
-.ml-band-blue .ml-gradient-heading .elementor-heading-title{
+/* over a blue band the tint has nothing to sit against, so the ground goes
+   the other way and the panel is the light one */
+.ml-band-blue .ml-gradient-heading .elementor-heading-title,
+.ml-band-flow .ml-gradient-heading .elementor-heading-title{
   color: var(--e-global-color-secondary);
+  background-image: linear-gradient(102deg,
+      rgba(255, 255, 255, .82) 0%,
+      rgba(255, 255, 255, .62) 100%);
 }
 
 
