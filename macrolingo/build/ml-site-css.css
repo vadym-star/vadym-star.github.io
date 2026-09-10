@@ -2297,6 +2297,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -4741,44 +4743,29 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
 
 
 /* --- A4. The gradient section headings -----------------------------------
-   Gradient H2s feel weak; a stronger heading treatment was asked for. Text
-   cut out of a green-to-blue wash loses contrast at exactly the place a
-   heading needs it, and the Japanese pages had already dropped it. Solid
-   ink, a little heavier. The gradient stays where it is decoration rather
-   than a heading -- the statistic figures and the bands.                 */
-/* Round five, second pass. Taking the gradient off and leaving plain ink
-   answered half the note: it fixed the weak contrast and lost the emphasis
-   with it. The gradient comes back as the GROUND rather than as the
-   letterforms -- the same green-to-blue, at a sixth of its strength, drawn
-   behind solid ink, in one rounded panel with the lines balanced inside
-   it.                                                                   */
+   "Gradient H2s feel weak; explore a stronger heading treatment."
+
+   Tried twice: the gradient behind the text as a tinted panel, then as one
+   rounded panel with the lines balanced inside it. Vadym rejected both --
+   a ground behind a heading reads as a box, not as emphasis. So the
+   heading is simply set in the same ink as every other h2 on the site,
+   which is what the Japanese pages had been doing all along. The strength
+   now comes from the size and the weight, not from colour.
+
+   -webkit-background-clip must be reset: the original rule clipped the
+   gradient to the letterforms, and left in place it clips a solid colour
+   away too and the heading disappears.                                   */
 .ml-gradient-heading .elementor-heading-title{
-  /* inline-block, not inline: as an inline box the heading stopped being a
-     block container, text-wrap: balance had nothing to act on, and a long
-     heading dropped its last word onto a line of its own with a panel to
-     itself. One panel behind the whole heading, lines balanced inside it. */
-  display: inline-block;
-  /* the original rule clipped the gradient to the letterforms. Left in
-     place it clips the new ground away too, and the panel never paints. */
+  background-image: none;
   -webkit-background-clip: border-box;
           background-clip: border-box;
   -webkit-text-fill-color: currentColor;
   color: var(--e-global-color-secondary);
   font-weight: 600;
-  line-height: 1.24;
-  padding: .22em .5em .26em;
-  border-radius: 12px;
-  text-wrap: balance;
-  background-image: linear-gradient(102deg,
-      rgba(84, 180, 53, .20) 0%,
-      rgba(47, 111, 214, .20) 100%);
 }
 .ml-band-blue .ml-gradient-heading .elementor-heading-title,
 .ml-band-flow .ml-gradient-heading .elementor-heading-title{
   color: var(--e-global-color-secondary);
-  background-image: linear-gradient(102deg,
-      rgba(255, 255, 255, .82) 0%,
-      rgba(255, 255, 255, .62) 100%);
 }
 
 
