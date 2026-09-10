@@ -2289,6 +2289,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -4747,6 +4749,10 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
    is what makes it read as a marker rather than as a table cell.        */
 .ml-gradient-heading .elementor-heading-title{
   display: inline;
+  /* the original rule clipped the gradient to the letterforms. Left in
+     place it clips the new ground away too, and the panel never paints. */
+  -webkit-background-clip: border-box;
+          background-clip: border-box;
   -webkit-text-fill-color: currentColor;
   color: var(--e-global-color-secondary);
   font-weight: 600;
