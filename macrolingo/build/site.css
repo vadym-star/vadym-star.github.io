@@ -2291,6 +2291,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -4767,6 +4769,15 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
 }
 /* over a blue band the tint has nothing to sit against, so the ground goes
    the other way and the panel is the light one */
+/* An inline heading no longer balances its own lines -- text-wrap: balance
+   needs a block box -- so a long heading dropped its last word onto a line
+   of its own and that word got a panel to itself. The balancing moves up to
+   the widget, which is the block box doing the line breaking now.        */
+.ml-gradient-heading .elementor-widget-container{
+  text-wrap: balance;
+  text-wrap: pretty;
+  text-wrap: balance;
+}
 .ml-band-blue .ml-gradient-heading .elementor-heading-title,
 .ml-band-flow .ml-gradient-heading .elementor-heading-title{
   color: var(--e-global-color-secondary);
