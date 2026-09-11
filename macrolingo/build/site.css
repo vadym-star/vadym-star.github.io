@@ -2354,6 +2354,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -5602,8 +5604,16 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
   color: var(--e-global-color-mlmuted);
 }
 
-.ml-article-photo{ max-width: var(--ml-content-width); margin: 26px auto 0; }
-.ml-article-photo img{
+/* The picture sits on the same left edge as the text and runs wider, so the
+   article reads as one column with a picture set into it rather than as two
+   blocks that happen to be near each other. Written in Elementor's own
+   shape, or its `max-width: 100%` on every widget wins. */
+.e-con > .e-con-inner > .elementor-widget.ml-article-photo{
+  width: 100%;
+  max-width: var(--ml-content-width);
+  margin: 26px auto 0 0;
+}
+.elementor-widget.ml-article-photo img{
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
