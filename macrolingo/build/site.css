@@ -2352,6 +2352,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -5428,7 +5430,11 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
 }
 .ml-legal-updated p{ font-size: inherit; color: inherit; margin-bottom: 0; }
 
-.ml-legal.elementor-widget{
+/* Elementor caps every widget in a container with
+   `.e-con.e-con > .e-con-inner > .elementor-widget { max-width: 100% }`,
+   which is four classes and beats a two-class rule. A measure has to be
+   written in the same shape to hold. */
+.e-con > .e-con-inner > .elementor-widget.ml-legal{
   max-width: 820px;
   margin-left: 0;
   margin-right: auto;
@@ -5608,7 +5614,7 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
 /* The body. Like the legal pages this is one widget whose contents are the
    client's own markup, so the rules key off tag names: a heading Adam adds
    to a post next year has to look right without him knowing a class.      */
-.ml-article.elementor-widget{
+.e-con > .e-con-inner > .elementor-widget.ml-article{
   max-width: 780px;
   margin-left: 0;
   margin-right: auto;
