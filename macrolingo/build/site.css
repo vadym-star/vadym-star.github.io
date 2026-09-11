@@ -2368,6 +2368,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -5996,6 +5998,23 @@ body.page-id-18589 .elementor-widget-html .text-\[11px\]{
    pill row gets the floor of the taller case, measured, so every title in
    a row begins on the same line. */
 .ml-post-cat.elementor-widget{ min-height: 48px; }
+/* On the Japanese index the three columns came out 366 / 365 / 396 wide,
+   so the third card's picture was eighteen pixels taller than its
+   neighbours' and its title started lower. `1fr` is `minmax(auto, 1fr)`,
+   and a Japanese line has no spaces to break at, so one long string sets a
+   min-content wider than the track's share and the track grows to fit.
+   `minmax(0, 1fr)` lets the text wrap instead. The column count is
+   Elementor's own variable, so the widget's 3 / 2 / 1 setting still rules. */
+.ml-posts .elementor-grid{
+  grid-template-columns: repeat(var(--grid-columns, 3), minmax(0, 1fr)) !important;
+}
+.ml-posts .elementor-grid > *{ min-width: 0; }
+.ml-jp .ml-post-title .elementor-heading-title,
+html[lang^="ja"] .ml-post-title .elementor-heading-title,
+html[lang^="ja"] .ml-post-excerpt .elementor-heading-title{
+  word-break: auto-phrase;
+  overflow-wrap: anywhere;
+}
 /* ==========================================================================
    THE THIRD COLOUR
 
