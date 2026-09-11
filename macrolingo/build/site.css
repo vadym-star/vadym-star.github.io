@@ -2372,6 +2372,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -5619,7 +5621,10 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
 .ml-post-byline.elementor-widget{ margin-top: 18px; }
 .ml-post-byline .elementor-icon-list-icon{ display: none; }
 .ml-post-byline .elementor-icon-list-items{ align-items: baseline; gap: 0; }
-.ml-post-byline .elementor-icon-list-item{ margin: 0; padding: 0; }
+/* Elementor puts 8px of margin on each side of an inline list item, which
+   with the separator's own margin left the dot floating in 37px of space
+   and pushed the line 10px right of the title it sits under. */
+.ml-post-byline .elementor-icon-list-item{ margin: 0 !important; padding: 0; }
 .ml-post-byline .elementor-icon-list-text,
 .ml-post-byline .elementor-post-info__item{
   font-family: var(--ml-sans);
@@ -5637,11 +5642,12 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
 .ml-post-byline .elementor-icon-list-item + .elementor-icon-list-item:before{
   content: "•";
   display: inline-block;
-  margin: 0 10px;
-  font-size: 9px;
+  margin: 0 9px;
+  font-size: 11px;
   line-height: 1;
-  vertical-align: middle;
-  color: var(--ml-accent-line);
+  position: relative;
+  top: -1px;
+  color: var(--e-global-color-mlmuted);
 }
 .ml-post-h1 .elementor-heading-title{
   font-size: clamp(30px, 3.8vw, 44px);
