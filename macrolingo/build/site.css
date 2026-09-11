@@ -2386,6 +2386,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -5613,7 +5615,7 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
 .ml-post-cats .elementor-icon-list-item{ margin: 0 !important; padding: 0; }
 .ml-post-cats .elementor-icon-list-text,
 .ml-post-cats .elementor-post-info__item,
-.ml-post-cats .elementor-post-info__terms-list{
+.ml-post-cats .elementor-post-info__terms-list-item{
   font-family: var(--ml-sans);
   font-size: 12.5px;
   font-weight: 700;
@@ -5621,6 +5623,10 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
   text-transform: uppercase;
   color: var(--ml-accent-ink);
 }
+/* Elementor joins the terms with a comma written as a text node between the
+   spans, which no selector can reach. Collapsing the list to font-size 0 and
+   giving each term its own size is how the commas go and the dots stay. */
+.ml-post-cats .elementor-post-info__terms-list{ font-size: 0; }
 /* one dot between two categories, and one between the last category and
    the date; never a leading or trailing one */
 .ml-post-cats .elementor-post-info__terms-list-item + .elementor-post-info__terms-list-item:before,
@@ -6068,7 +6074,9 @@ html[lang^="ja"] .ml-post-excerpt .elementor-heading-title{
    one is hidden by its repeater id, the same way ml-only-en works for
    ordinary widgets. The separator still draws once: a hidden item renders
    no pseudo-element. */
+html[lang^="ja"] .ml-post-cats .elementor-repeater-item-pidateen,
 html[lang^="ja"] .ml-post-byline .elementor-repeater-item-pidateen{ display: none !important; }
+html[lang^="en"] .ml-post-cats .elementor-repeater-item-pidateja,
 html[lang^="en"] .ml-post-byline .elementor-repeater-item-pidateja{ display: none !important; }
 
 
