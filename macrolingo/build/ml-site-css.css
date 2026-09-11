@@ -2329,6 +2329,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -5317,11 +5319,16 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
    A line that is one line on one card and two on the next moves everything
    under it. Each of these gets a floor in em, so the blocks below start at
    the same offset whatever the words are.                                 */
-.ml-team-role .elementor-heading-title{ min-height: 2.9em; }
+.ml-team-role .elementor-heading-title{ min-height: 3.5em; }
 .ml-plan .ml-svc-note p{ min-height: 2.9em; }
 .ml-pair-note p{ min-height: 2.8em; }
 /* the team name too: identical geometry beats tight spacing, Vadym's call */
 .ml-team-name .elementor-heading-title{ min-height: 2.5em; }
+
+/* Service-card notes run two, three and four lines on the same row, which
+   moved each card's tick list to a different height. Floored at four lines,
+   measured off the Japanese editing page where the spread was widest.    */
+.ml-svc-grid .ml-svc-note p{ min-height: 6em; }
 /* ==========================================================================
    THE THIRD COLOUR
 
