@@ -2366,6 +2366,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -5988,6 +5990,12 @@ body.page-id-18589 .elementor-widget-html .text-\[11px\]{
 .ml-post-cat .elementor-post-info__terms-list-item:nth-child(n + 4){ display: none !important; }
 /* the separator Elementor writes between terms is not wanted between pills */
 .ml-post-cat .elementor-post-info__terms-list-item:after{ content: none !important; }
+/* One card carries one category and its neighbour carries three, so the
+   pill row is one line on one and two on the other, and the two titles
+   start nineteen pixels apart. A row of cards holds the same geometry: the
+   pill row gets the floor of the taller case, measured, so every title in
+   a row begins on the same line. */
+.ml-post-cat.elementor-widget{ min-height: 48px; }
 /* ==========================================================================
    THE THIRD COLOUR
 
