@@ -1013,12 +1013,12 @@ body .ml-service-card .ml-arrow-link .elementor-button.elementor-button{ font-si
 .e-con.ml-post-body{ flex: 1 1 auto; align-self: stretch; }
 .e-con.ml-post-body > .e-con-inner{ height: 100%; display: flex; flex-direction: column; }
 .ml-post-cat .elementor-icon-list-icon{ display: none; }
-/* a post can be filed under several categories; the card names the first
-   one only, as the concept does. The others are still there for a screen
-   reader, only not drawn.                                                 */
+/* A post can be filed under several categories, and this used to draw the
+   first one only - so which of five a reader saw was whichever came first
+   in the list, which is not a decision anybody made. Up to three are drawn
+   now, as pills; the rule that shapes them is further down with the rest
+   of the blog work.                                                       */
 .ml-post-cat .elementor-post-info__terms-list{ font-size: 0; }
-.ml-post-cat .elementor-post-info__terms-list-item:first-child{ font-size: 11.5px; line-height: 1.72; }
-.ml-post-cat .elementor-post-info__terms-list-item:not(:first-child){ display: none !important; }
 .ml-post-cat .elementor-icon-list-item{ margin: 0; }
 .ml-post-cat .elementor-post-info__item,
 .ml-post-cat .elementor-icon-list-text{
