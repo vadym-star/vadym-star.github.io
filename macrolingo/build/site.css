@@ -2392,6 +2392,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -6102,7 +6104,14 @@ html[lang^="en"] .ml-post-byline .elementor-repeater-item-pidateja{ display: non
   margin-left: auto;
   margin-right: auto;
 }
-.ml-inner:has(> .e-con-inner > .ml-posts) > .e-con-inner{
+/* A section marked ml-wide runs wider than the site's 1100px column. It is
+   a class on the section, so it shows in Elementor under Advanced > CSS
+   Classes and can be taken off there to put the section back to the normal
+   width - which is the point: the first version of this was a structural
+   `:has()` selector, and it silently missed the homepage because the
+   homepage builders keep their own copy of `section()` that does not add
+   `ml-inner`. A class says what it does and cannot miss. */
+.ml-wide > .e-con-inner{
   width: min(100%, 1280px);
   max-width: 1280px;
 }
