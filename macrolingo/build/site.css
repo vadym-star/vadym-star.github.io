@@ -2396,6 +2396,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -3308,6 +3310,21 @@ body .ml-inner .ml-prose-wide.elementor-widget p{
   line-height: 1.6;
   color: var(--e-global-color-text);
   margin-bottom: 0;
+}
+/* A service card may close on a line sending the reader to the page that
+   covers that service properly. These cards sit on the blue band, where
+   green is not allowed, so the link takes the heading colour and proves
+   itself teal on hover instead of the site's ordinary green link.        */
+.ml-inner .ml-svc-note a{
+  color: var(--e-global-color-secondary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+.ml-inner .ml-svc-note a:hover{
+  color: var(--e-global-color-accent);
+  text-decoration-thickness: 2px;
 }
 
 /* --- A button on its own line, centred -----------------------------------
@@ -6175,6 +6192,39 @@ html[lang^="ja"] .ml-posts-archive .elementor-button:after{
    409px in the other. The card is the thing with a width; its wrapper has
    none. */
 .ml-posts .e-loop-item{ padding-left: 0; padding-right: 0; }
+
+/* --- Team cards ----------------------------------------------------------
+   Three people on MacroLingo Academia, and two on JX: a round portrait, a
+   name, what they do, a paragraph, and a link to their profile.
+
+   It is deliberately the quote card's furniture rather than a new one. The
+   difference is where the person block sits: a testimonial is the words
+   first and the person underneath, so `.ml-quote .ml-quote-who` is pushed
+   to the foot with margin-top:auto and given a rule above it. A team card
+   is the person first, so this card is `ml-person` instead of `ml-quote`
+   and that rule never applies - nothing has to be undone.
+
+   The profile link is pushed to the foot instead, so three cards of
+   different bio lengths still line their links up.                        */
+.e-con.ml-person{ height: 100%; }
+.e-con.ml-person > .e-con-inner{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.ml-person-who{ padding-bottom: 16px; }
+.ml-person-role p{
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--e-global-color-text);
+  margin-bottom: 0;
+}
+.ml-person .ml-person-link.elementor-widget{ margin-top: auto; padding-top: 18px; }
+
+/* The three things that come of a JX programme, listed under the sample
+   plan rather than beside it, so the plan reads as the cause and these as
+   the effect.                                                             */
+.ml-outcomes.elementor-widget{ margin-top: 30px; }
 /* ==========================================================================
    THE THIRD COLOUR
 
