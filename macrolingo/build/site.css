@@ -2331,6 +2331,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -5329,6 +5331,43 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
    moved each card's tick list to a different height. Floored at four lines,
    measured off the Japanese editing page where the spread was widest.    */
 .ml-svc-grid .ml-svc-note p{ min-height: 6em; }
+
+/* =========================================================================
+   The six industry pages - one layout, so one block of rules
+   ========================================================================= */
+
+/* The hero here is words only: these pages carry no photograph of their own
+   and inventing one would be worse than leaving the space to the title. */
+.ml-ind-hero > .e-con-inner{ padding-top: 54px; padding-bottom: 54px; }
+.ml-ind-hero-words > .e-con-inner{ padding: 0; max-width: 62rem; }
+.ml-ind-hero .ml-hero-title.elementor-widget .elementor-heading-title{
+  font-size: clamp(30px, 3.6vw, 46px);
+  line-height: 1.18;
+  margin-top: 12px;
+}
+/* the line under the title lists what the page covers; it is a subheading,
+   so it is sized as one rather than as a caption */
+.ml-ind-sub.elementor-widget{ margin-top: 14px; }
+.ml-ind-sub .elementor-heading-title{
+  font-family: var(--ml-sans);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--ml-accent-ink);
+}
+.ml-ind-hero .ml-lead-body.elementor-widget{ margin-top: 18px; }
+.ml-ind-hero .ml-lead-body p{ margin-left: 0; }
+
+/* A case study that is real rather than a placeholder has no picture beside
+   it, so the card is one column and the words run the full width.        */
+.ml-cs-solo > .e-con-inner{
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+.ml-cs-solo .ml-cs-val.elementor-widget + .ml-cs-val.elementor-widget{
+  margin-top: 12px;
+}
+.ml-cs-solo .ml-cs-head.elementor-widget{ margin-top: 8px; }
 /* ==========================================================================
    THE THIRD COLOUR
 
