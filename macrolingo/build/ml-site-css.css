@@ -2321,6 +2321,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -5260,11 +5262,15 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
   min-height: 84px;
   align-items: center;
 }
+/* Two lines, always. Clamping alone was not enough: a one-line role left
+   that card's person block 19px shorter than its neighbours, so the name
+   sat lower. A floor in em rather than px, so it holds at any type size. */
 .ml-quote-role p{
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  min-height: 2.9em;
 }
 /* the card fills its cell so the foot is always the foot of the row */
 .e-con.ml-card.ml-quote{ height: 100%; }
