@@ -2356,6 +2356,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -5736,6 +5738,67 @@ html[lang^="ja"] .ml-article li{ line-height: 1.95; }
   .ml-article p, .ml-article li{ font-size: 16.5px; }
   .ml-article h2{ font-size: 25px; margin-top: 38px; }
   .ml-article h3{ font-size: 20px; margin-top: 30px; }
+}
+
+
+/* --- Two corrections from Vadym, 11 Sep 2026 -----------------------------
+
+   1. Green on a blue band.
+
+   `.ml-svc-list` draws its tick in a mint disc with green ink, and it did so
+   on a blue band too - which breaks the rule that a coloured ground is a
+   themed section. The blue-band block already recolours `.ml-ticks`, but
+   the service lists are a different component and were never covered; it
+   only became visible when the AI-JX and Agency Assist pages put a list
+   inside a blue section for the first time. A probe now sweeps every blue
+   band for the green tokens, so the next component to do this is caught
+   before it ships rather than after.                                      */
+.ml-band-blue .ml-svc-list .elementor-icon-list-icon{
+  background: rgba(47, 111, 214, .13);
+  color: var(--e-global-color-accent);
+}
+.ml-band-blue .ml-svc-list .elementor-icon-list-icon svg,
+.ml-band-blue .ml-svc-list .elementor-icon-list-icon i{
+  color: var(--e-global-color-accent);
+  fill: var(--e-global-color-accent);
+}
+
+/*  2. A card that links somewhere is a link.
+
+   On the industry hub the whole card should be clickable, with the cursor
+   and the hover to say so, not just the small arrow line at its foot. The
+   link is still an ordinary Button widget in the panel - Adam edits its
+   words and its destination the way he would anywhere else - and the rule
+   below simply stretches that one anchor over the card it sits in. Scoped
+   to `ml-svc-linked`, because a card with no link must not get a pointer. */
+.ml-svc-linked .e-con.ml-svc{ position: relative; transition: border-color .16s, box-shadow .16s, transform .16s; }
+.ml-svc-linked .e-con.ml-svc .ml-arrow-link a:after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+}
+.ml-svc-linked .e-con.ml-svc:hover{
+  border-color: var(--e-global-color-primary);
+  box-shadow: 0 10px 28px rgba(34, 50, 74, .08);
+  transform: translateY(-2px);
+  cursor: pointer;
+}
+.ml-svc-linked .e-con.ml-svc:hover .ml-svc-title .elementor-heading-title{
+  color: var(--e-global-color-mlgreendark);
+}
+/* on a blue band the hover is blue, like everything else there */
+.ml-band-blue .ml-svc-linked .e-con.ml-svc:hover{
+  border-color: var(--e-global-color-accent);
+}
+.ml-band-blue .ml-svc-linked .e-con.ml-svc:hover .ml-svc-title .elementor-heading-title{
+  color: var(--e-global-color-accent);
+}
+/* the anchor's own focus ring has to show on the card, not behind it */
+.ml-svc-linked .e-con.ml-svc:focus-within{
+  border-color: var(--e-global-color-primary);
+  box-shadow: 0 0 0 3px rgba(84, 180, 53, .22);
 }
 /* ==========================================================================
    THE THIRD COLOUR
