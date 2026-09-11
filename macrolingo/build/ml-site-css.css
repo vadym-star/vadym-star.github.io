@@ -2315,6 +2315,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -5121,6 +5123,73 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
     padding: 26px 24px;
   }
   .ml-cs-shot img{ min-height: 200px; }
+}
+
+
+/* --- The five steps, second pass -----------------------------------------
+   Vadym: smaller boxes, a more visible line, and the line should end in an
+   arrowhead so it reads as a direction rather than a tick of rule.
+
+   The connector is still one pseudo-element. Rather than adding a second
+   one for the head - Elementor uses ::before on a container for its own
+   background overlay and that is not worth fighting - the single box is
+   cut into an arrow with clip-path: a shaft down the middle and a head at
+   the foot. Shaft is 3px of an 18px box, which is the "more visible"; the
+   colour is darker than the hairline it was.                             */
+.ml-steps:not(.ml-steps-three):not(.ml-steps-four) > .e-con-inner{
+  gap: 28px;
+}
+.ml-steps:not(.ml-steps-three):not(.ml-steps-four) > .e-con-inner > .e-con.ml-step{
+  padding: 15px 22px 17px 18px;
+}
+.ml-steps:not(.ml-steps-three):not(.ml-steps-four)
+  > .e-con-inner > .e-con.ml-step:not(:last-child):after{
+  left: 29px;          /* the circle's centre is 18 + 19 = 37; 37 - 9 = 28 */
+  width: 18px;
+  height: 28px;
+  background: #9DB593;
+  clip-path: polygon(
+      41.5% 0,
+      58.5% 0,
+      58.5% 58%,
+      100% 58%,
+      50% 100%,
+      0 58%,
+      41.5% 58%);
+}
+.ml-band-blue .ml-steps:not(.ml-steps-three):not(.ml-steps-four)
+  > .e-con-inner > .e-con.ml-step:not(:last-child):after{
+  background: #6E9BE0;
+}
+/* the column and the numeral come in with the card */
+.ml-steps:not(.ml-steps-three):not(.ml-steps-four) .e-con.ml-step > .e-con-inner{
+  grid-template-columns: 60px minmax(0, 1fr);
+}
+.ml-steps:not(.ml-steps-three):not(.ml-steps-four) .ml-step-no .elementor-heading-title{
+  width: 38px;
+  height: 38px;
+  font-size: 18px;
+}
+.ml-steps:not(.ml-steps-three):not(.ml-steps-four) .ml-step-title .elementor-heading-title{
+  font-size: 18.5px;
+}
+.ml-steps:not(.ml-steps-three):not(.ml-steps-four) .ml-step-label .elementor-heading-title{
+  font-size: 12px;
+}
+.ml-steps:not(.ml-steps-three):not(.ml-steps-four) .ml-step-note p{
+  font-size: 15px;
+}
+@media (max-width: 767px){
+  .ml-steps:not(.ml-steps-three):not(.ml-steps-four) .e-con.ml-step > .e-con-inner{
+    grid-template-columns: 50px minmax(0, 1fr);
+  }
+  .ml-steps:not(.ml-steps-three):not(.ml-steps-four) .ml-step-no .elementor-heading-title{
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+  .ml-steps:not(.ml-steps-three):not(.ml-steps-four)
+    > .e-con-inner > .e-con.ml-step:not(:last-child):after{ left: 25px; }
 }
 /* ==========================================================================
    THE THIRD COLOUR
