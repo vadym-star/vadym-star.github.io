@@ -2319,6 +2319,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -5240,6 +5242,58 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
 }
 @media (max-width: 767px){
   .ml-edit-photo img{ height: 190px; }
+}
+
+/* =========================================================================
+   REPEATING CARDS: the geometry is a rule, not a coincidence
+   Cards in a row are stretched to a common height already. That is not
+   enough: whatever sits at the foot of each card has to start at the SAME
+   offset, or three quotes read as three different components. Anything that
+   varies in length gets a floor, so the block below it cannot move.
+   ========================================================================= */
+
+/* --- Quote cards ---------------------------------------------------------
+   The person block is bottom-aligned, but a one-line role made it 29px
+   shorter than a two-line one, so the name sat lower on that card. The
+   block now has a floor of its own and the role is held to two lines.     */
+.ml-quote .ml-quote-who{
+  min-height: 84px;
+  align-items: center;
+}
+.ml-quote-role p{
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+/* the card fills its cell so the foot is always the foot of the row */
+.e-con.ml-card.ml-quote{ height: 100%; }
+.e-con.ml-card.ml-quote > .e-con-inner{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* --- Service and reason cards -------------------------------------------
+   Same rule: a card whose title wraps to two lines must not push its body
+   down relative to its neighbours.                                        */
+.e-con.ml-svc{ height: 100%; }
+.e-con.ml-svc > .e-con-inner{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.ml-svc-title .elementor-heading-title{ min-height: 2.6em; }
+.ml-svc-grid-three .ml-svc-title .elementor-heading-title,
+.ml-three-up .ml-svc-title .elementor-heading-title{ min-height: 0; }
+
+/* --- Language pair cards ------------------------------------------------ */
+.e-con.ml-pair{ height: 100%; }
+.e-con.ml-pair > .e-con-inner{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
 }
 /* ==========================================================================
    THE THIRD COLOUR
