@@ -2384,6 +2384,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -5623,7 +5625,7 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
    the date; never a leading or trailing one */
 .ml-post-cats .elementor-post-info__terms-list-item + .elementor-post-info__terms-list-item:before,
 .ml-post-cats .elementor-icon-list-item + .elementor-icon-list-item:before{
-  content: "2";
+  content: "•";
   display: inline-block;
   margin: 0 9px;
   font-size: 13px;
@@ -6023,7 +6025,7 @@ body.page-id-18589 .elementor-widget-html .text-\[11px\]{
    any term that follows another one. */
 .ml-post-cat .elementor-post-info__terms-list-item:after{ content: none !important; }
 .ml-post-cat .elementor-post-info__terms-list-item + .elementor-post-info__terms-list-item:before{
-  content: "2";
+  content: "•";
   display: inline-block;
   margin: 0 9px;
   font-size: 13px;
