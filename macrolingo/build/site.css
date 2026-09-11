@@ -2390,6 +2390,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -6137,10 +6139,15 @@ html[lang^="en"] .ml-post-byline .elementor-repeater-item-pidateja{ display: non
   font-size: 15px;
   font-weight: 600;
 }
-html[lang^="ja"] .ml-posts-archive .elementor-button-text{ font-size: 0; }
-html[lang^="ja"] .ml-posts-archive .elementor-button-text:after{
+/* The label is hidden outright and the Japanese one drawn on the button
+   itself. Setting the span to font-size 0 and putting the text in its own
+   ::after collapsed the button to 21px: a pseudo-element inside a
+   zero-sized parent does not give the parent its width back. */
+html[lang^="ja"] .ml-posts-archive .elementor-button-text{ display: none; }
+html[lang^="ja"] .ml-posts-archive .elementor-button:after{
   content: "もっと見る";
   font-size: 15px;
+  font-weight: 600;
   letter-spacing: .02em;
 }
 
