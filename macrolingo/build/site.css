@@ -2362,6 +2362,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -5838,6 +5840,10 @@ body.page-id-18589 .elementor-widget-html .text-xs,
 body.page-id-18589 .elementor-widget-html .text-\[11px\]{
   word-break: auto-phrase;
   overflow-wrap: anywhere;
+}
+/* the column headings on a blue band, same rule: no green on blue */
+.ml-band-blue .ml-colhead .elementor-heading-title{
+  color: var(--e-global-color-secondary);
 }
 /* ==========================================================================
    THE THIRD COLOUR
