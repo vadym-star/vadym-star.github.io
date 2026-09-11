@@ -2374,6 +2374,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -6056,6 +6058,14 @@ html[lang^="ja"] .ml-post-excerpt .elementor-heading-title{
   word-break: auto-phrase;
   overflow-wrap: anywhere;
 }
+/* One date per language. WordPress keeps a single date format for the whole
+   site, so a Japanese post read "1月 2, 2026" - the English shape with a
+   Japanese month dropped into it. The template carries both and the wrong
+   one is hidden by its repeater id, the same way ml-only-en works for
+   ordinary widgets. The separator still draws once: a hidden item renders
+   no pseudo-element. */
+html[lang^="ja"] .ml-post-byline .elementor-repeater-item-pidateen{ display: none !important; }
+html[lang^="en"] .ml-post-byline .elementor-repeater-item-pidateja{ display: none !important; }
 /* ==========================================================================
    THE THIRD COLOUR
 
