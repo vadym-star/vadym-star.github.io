@@ -2398,6 +2398,10 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -3312,20 +3316,20 @@ body .ml-inner .ml-prose-wide.elementor-widget p{
   margin-bottom: 0;
 }
 /* A service card may close on a line sending the reader to the page that
-   covers that service properly. These cards sit on the blue band, where
-   green is not allowed, so the link takes the heading colour and proves
-   itself teal on hover instead of the site's ordinary green link.        */
+   covers that service properly.
+
+   No colour here on purpose. These cards sit on the blue band, and the band
+   already says what a link on it looks like: blue, teal on hover. Writing a
+   colour here fought that rule at equal specificity and lost, which is the
+   right outcome - one rule decides link colour per band, and this one only
+   says how the line is drawn.                                            */
 .ml-inner .ml-svc-note a{
-  color: var(--e-global-color-secondary);
   font-weight: 600;
   text-decoration: underline;
   text-underline-offset: 3px;
   text-decoration-thickness: 1px;
 }
-.ml-inner .ml-svc-note a:hover{
-  color: var(--e-global-color-accent);
-  text-decoration-thickness: 2px;
-}
+.ml-inner .ml-svc-note a:hover{ text-decoration-thickness: 2px; }
 
 /* --- A button on its own line, centred -----------------------------------
    Several sections end on one call to action. The row is a container so an
@@ -5188,6 +5192,11 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
   color: var(--e-global-color-text);
   margin-bottom: 0;
 }
+/* Everywhere a case study was built from a data file, each paragraph is its
+   own widget and the space between them comes from the widget. The JX case
+   study is one widget holding two paragraphs, so the space has to come from
+   the paragraphs; without this they ran together as a single block.      */
+.ml-cs-val p + p{ margin-top: 14px; }
 /* the line that says this is not finished. Deliberately plain and quiet:
    it is a note to whoever fills the box in, not part of the page. */
 .ml-cs-note.elementor-widget{ margin-top: 22px; }
@@ -6225,6 +6234,16 @@ html[lang^="ja"] .ml-posts-archive .elementor-button:after{
    plan rather than beside it, so the plan reads as the cause and these as
    the effect.                                                             */
 .ml-outcomes.elementor-widget{ margin-top: 30px; }
+
+/* --- A card that ends on a link ------------------------------------------
+   A service card may close on "read the page that covers this properly".
+   The list above it is a different length in every card, so without this
+   the links in a row sit at three different heights. Pushing the link to
+   the foot lines them up, and the card already fills its cell.           */
+.e-con.ml-svc > .e-con-inner > .ml-arrow-link.elementor-widget{
+  margin-top: auto;
+  padding-top: 16px;
+}
 /* ==========================================================================
    THE THIRD COLOUR
 
