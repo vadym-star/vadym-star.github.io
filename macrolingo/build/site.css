@@ -2364,6 +2364,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -5845,6 +5847,147 @@ body.page-id-18589 .elementor-widget-html .text-\[11px\]{
 .ml-band-blue .ml-colhead .elementor-heading-title{
   color: var(--e-global-color-secondary);
 }
+
+
+/* --- Inside a post: the blocks Adam's own writing already uses -----------
+
+   The single-post template sets the words; these rules give the two
+   structures that recur inside them a shape, without editing one post.
+
+   1. A labelled list. Thirteen posts open with a bold line - "Takeaways",
+      "Key Takeaways:", "📌 Three Takeaways:" - and then a list. In plain
+      body type that summary looks like any other paragraph, which is the
+      one thing it is not. The rule matches the shape rather than the
+      words: a paragraph that is nothing but bold text, immediately
+      followed by a list. That is a labelled summary wherever it appears,
+      so a post that uses the same shape for something else is improved
+      too rather than broken.                                              */
+.ml-article p:has(> strong:only-child):has(+ ul),
+.ml-article p:has(> strong:only-child):has(+ ol){
+  margin: 34px 0 0;
+  padding: 20px 24px 12px;
+  background: var(--e-global-color-mlwarm);
+  border-left: 3px solid var(--e-global-color-primary);
+  border-radius: 14px 14px 0 0;
+}
+.ml-article p:has(> strong:only-child):has(+ ul) strong,
+.ml-article p:has(> strong:only-child):has(+ ol) strong{
+  font-family: var(--ml-sans);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--ml-accent-ink);
+}
+.ml-article p:has(> strong:only-child) + ul,
+.ml-article p:has(> strong:only-child) + ol{
+  margin: 0 0 34px;
+  padding: 0 24px 22px 48px;
+  background: var(--e-global-color-mlwarm);
+  border-left: 3px solid var(--e-global-color-primary);
+  border-radius: 0 0 14px 14px;
+}
+.ml-article p:has(> strong:only-child) + ul li:last-child,
+.ml-article p:has(> strong:only-child) + ol li:last-child{ margin-bottom: 0; }
+
+/*  2. The table of contents. Twenty posts carry one, written by two
+      different plugins - Rank Math on five and Easy TOC on the rest - each
+      with its own idea of what a list of links looks like. Both are set
+      here as the same quiet box, so a reader moving between posts does not
+      meet two different designs.                                          */
+.ml-article .wp-block-rank-math-toc-block,
+.ml-article #ez-toc-container{
+  margin: 34px 0;
+  padding: 22px 26px;
+  background: #fff;
+  border: 1px solid var(--ml-line-2);
+  border-radius: 16px;
+  box-shadow: none;
+  float: none;
+  width: auto;
+}
+.ml-article .wp-block-rank-math-toc-block h2,
+.ml-article #ez-toc-container .ez-toc-title{
+  font-family: var(--ml-sans);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--ml-accent-ink);
+  margin: 0 0 12px;
+}
+.ml-article .wp-block-rank-math-toc-block ul,
+.ml-article #ez-toc-container ul{
+  margin: 0;
+  padding-left: 20px;
+  list-style: none;
+}
+.ml-article .wp-block-rank-math-toc-block li,
+.ml-article #ez-toc-container li{
+  position: relative;
+  margin-bottom: 7px;
+  font-size: 15.5px;
+  line-height: 1.6;
+}
+.ml-article .wp-block-rank-math-toc-block li:before,
+.ml-article #ez-toc-container li:before{
+  content: "";
+  position: absolute;
+  left: -16px;
+  top: .62em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ml-accent-line);
+}
+.ml-article .wp-block-rank-math-toc-block a,
+.ml-article #ez-toc-container a{
+  color: var(--e-global-color-text);
+  text-decoration: none;
+}
+.ml-article .wp-block-rank-math-toc-block a:hover,
+.ml-article #ez-toc-container a:hover{
+  color: var(--e-global-color-mlgreendark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+/* the toggle Easy TOC draws in the corner */
+.ml-article #ez-toc-container .ez-toc-title-container{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+.ml-article #ez-toc-container .ez-toc-btn{ background: none; border: 0; padding: 0; }
+.ml-article #ez-toc-container svg{ fill: var(--e-global-color-mlmuted); }
+
+
+/* --- The categories on a blog card ---------------------------------------
+   A post can be filed under five categories, and the card used to draw the
+   first one only - so which of the five a reader saw was whichever came
+   first in the list, which is not a decision anybody made. Up to three are
+   drawn now, as small pills, which is honest about the post belonging to
+   several and reads as a tag row rather than as a label that means
+   something. A primary category per post is still Adam's call to make.    */
+.ml-post-cat .elementor-post-info__terms-list{
+  font-size: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.ml-post-cat .elementor-post-info__terms-list-item{
+  font-size: 10.5px;
+  line-height: 1.6;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: var(--ml-accent-tint);
+  color: var(--ml-accent-ink);
+  white-space: nowrap;
+}
+.ml-post-cat .elementor-post-info__terms-list-item:nth-child(-n + 3){ display: inline-block; }
+.ml-post-cat .elementor-post-info__terms-list-item:nth-child(n + 4){ display: none !important; }
+/* the separator Elementor writes between terms is not wanted between pills */
+.ml-post-cat .elementor-post-info__terms-list-item:after{ content: none !important; }
 /* ==========================================================================
    THE THIRD COLOUR
 
