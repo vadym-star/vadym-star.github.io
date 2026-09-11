@@ -2378,6 +2378,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -6085,6 +6087,21 @@ html[lang^="en"] .ml-post-byline .elementor-repeater-item-pidateja{ display: non
 /* the pill row is gone, so the floor that held two rows of pills goes too:
    one line of capitals is one line on every card */
 .ml-post-cat.elementor-widget{ min-height: 0; }
+/* The category line on a card is one line on every card, always. Three
+   categories with dots between them ran to two lines on some cards and one
+   on others, which put the titles in a row nineteen pixels apart. Two are
+   shown, on one line, and the rare long pair ends in an ellipsis rather
+   than pushing everything below it down. The post's own page shows the
+   full set. */
+.ml-post-cat .elementor-post-info__terms-list-item:nth-child(n + 3){ display: none !important; }
+.ml-post-cat .elementor-icon-list-text,
+.ml-post-cat .elementor-post-info__item{
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ml-post-cat.elementor-widget{ min-height: 30px; }
 /* ==========================================================================
    THE THIRD COLOUR
 
