@@ -2358,6 +2358,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -5799,6 +5801,35 @@ html[lang^="ja"] .ml-article li{ line-height: 1.95; }
 .ml-svc-linked .e-con.ml-svc:focus-within{
   border-color: var(--e-global-color-primary);
   box-shadow: 0 0 0 3px rgba(84, 180, 53, .22);
+}
+
+
+/* --- The PR diagnostic landing page, 18589 -------------------------------
+   The page is one HTML widget holding a complete Tailwind document, and
+   that document brought its own header and footer: a bare logo with a
+   button at the top, and at the foot a different column structure with
+   "QUICK LINKS" in English on a Japanese page and emoji in the link list.
+   It was a deliberate Elementor Canvas landing page, so the site's own
+   chrome never appeared and the reader met two different MacroLingos.
+
+   The page now uses the ordinary page template, so the real header, the
+   language switcher and the real footer are there. The document's own
+   header and footer are hidden rather than deleted: nothing is lost, and
+   if Adam wants the distraction-free version back it is this rule and one
+   template setting.                                                       */
+body.page-id-18589 .elementor-widget-html header,
+body.page-id-18589 .elementor-widget-html footer{ display: none !important; }
+/* its <body> stand-in paints a ground of its own that would otherwise run
+   under the site header */
+body.page-id-18589 .elementor-widget-html > .elementor-widget-container{
+  background: transparent;
+}
+/* the statistic labels are Japanese in a narrow column; break them on
+   phrase boundaries where the browser can, rather than mid-word */
+body.page-id-18589 .elementor-widget-html .text-xs,
+body.page-id-18589 .elementor-widget-html .text-\[11px\]{
+  word-break: auto-phrase;
+  overflow-wrap: anywhere;
 }
 /* ==========================================================================
    THE THIRD COLOUR
