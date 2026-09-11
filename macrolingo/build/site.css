@@ -2380,6 +2380,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -6174,25 +6176,23 @@ html[lang^="en"] .ml-post-byline .elementor-repeater-item-pidateja{ display: non
 
 
 /* --- The category on a published article ---------------------------------
-   The blog cards at the foot of the homepage carry the same kind of label
-   as a work card, so they are drawn the same way: a small teal pill rather
-   than a line of green capitals.                                          */
+   This was a teal pill, to match the label on a work card. Vadym, seeing it
+   on the rebuilt blog: "id prefer just plain bold teal text instead of this
+   bullets and separting different topics with a fat dot between them". So
+   it is a line of bold teal capitals, and the dots come from the rule in
+   the inner-page sheet. The ground and the padding go; the colour stays.  */
 .ml-post-cat .elementor-icon-list-item .elementor-post-info__item,
 .ml-post-cat .elementor-icon-list-item .elementor-icon-list-text,
 .ml-post-cat .elementor-post-info__item,
 .ml-post-cat .elementor-icon-list-text{
-  display: inline-block;
-  background: var(--ml-accent-tint);
+  background: none;
   color: var(--ml-accent-ink);
   /* Elementor puts padding-left: 5px on an icon list's text with a selector
-     that beats a plain class, which left the words sitting off to one side
-     of the pill. Both sides are named again here so the pill is even.     */
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 12px;
-  padding-right: 12px;
-  border-radius: 999px;
-  line-height: 1.6;
+     that beats a plain class; with no pill around the words it has to go,
+     or the line starts indented from everything under it. */
+  padding: 0;
+  border-radius: 0;
+  line-height: 1.7;
 }
 
 
