@@ -127,6 +127,15 @@ body .elementor-icon-box-title{
 body .ml-quote-name h4.elementor-heading-title{
   font-family: var(--e-global-typography-accent-font-family), "Figtree stand-in", Arial, sans-serif !important;
 }
+/* So is the line under an industry page's title, which lists what the page
+   covers. It is marked up as an h2 so that a reader on a screen reader gets
+   the hierarchy, but it reads as a subheading in the body face; set in the
+   serif at 17px it looked like a caption someone had forgotten to style. */
+body .ml-ind-sub h1.elementor-heading-title,
+body .ml-ind-sub h2.elementor-heading-title,
+body .ml-ind-sub h3.elementor-heading-title{
+  font-family: var(--e-global-typography-accent-font-family), "Figtree stand-in", "Noto Sans JP", Arial, sans-serif !important;
+}
 
 
 /* Headings the theme draws itself, on the blog and anywhere else outside
