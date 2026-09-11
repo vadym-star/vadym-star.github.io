@@ -2382,6 +2382,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -5601,7 +5603,10 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
    title, with a fat dot between them, and the author stays underneath in
    the quiet grey. */
 .ml-post-cats.elementor-widget{ margin-bottom: 14px; }
-.ml-post-cats .elementor-icon-list-icon{ display: none; }
+.ml-post-cats .elementor-icon-list-icon,
+.ml-post-cats .elementor-icon-list-icon svg,
+.ml-post-cats .elementor-post-info__terms-list svg{ display: none !important; }
+.ml-post-cats .elementor-post-info__terms-list-item:after{ content: none !important; }
 .ml-post-cats .elementor-icon-list-items{ align-items: baseline; gap: 0; }
 .ml-post-cats .elementor-icon-list-item{ margin: 0 !important; padding: 0; }
 .ml-post-cats .elementor-icon-list-text,
@@ -5615,8 +5620,8 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
   color: var(--ml-accent-ink);
 }
 /* one dot between two categories, and one between the last category and
-   the date; never a trailing one */
-.ml-post-cats .elementor-post-info__terms-list-item:not(:last-child):after,
+   the date; never a leading or trailing one */
+.ml-post-cats .elementor-post-info__terms-list-item + .elementor-post-info__terms-list-item:before,
 .ml-post-cats .elementor-icon-list-item + .elementor-icon-list-item:before{
   content: "2";
   display: inline-block;
@@ -6012,21 +6017,26 @@ body.page-id-18589 .elementor-widget-html .text-\[11px\]{
 }
 .ml-post-cat .elementor-post-info__terms-list-item:nth-child(-n + 3){ display: inline; }
 .ml-post-cat .elementor-post-info__terms-list-item:nth-child(n + 4){ display: none !important; }
-/* the fat dot between two categories, never after the last one shown */
+/* The fat dot goes between two categories and nowhere else. The first
+   attempt used nth-child arithmetic and put one in front of the first term
+   as well; a sibling combinator says what is actually meant - a dot before
+   any term that follows another one. */
 .ml-post-cat .elementor-post-info__terms-list-item:after{ content: none !important; }
-.ml-post-cat .elementor-post-info__terms-list-item:not(:last-child):not(:nth-child(3)):before,
-.ml-post-cat .elementor-post-info__terms-list-item:nth-child(n + 2):nth-child(-n + 3):before{
+.ml-post-cat .elementor-post-info__terms-list-item + .elementor-post-info__terms-list-item:before{
   content: "2";
   display: inline-block;
-  margin: 0 8px;
-  font-size: 12px;
+  margin: 0 9px;
+  font-size: 13px;
   font-weight: 700;
   line-height: 1;
   position: relative;
   top: -1px;
   color: var(--ml-accent-line);
 }
-.ml-post-cat .elementor-post-info__terms-list-item:first-child:before{ content: none; }
+/* Elementor draws a tag glyph in front of the list whatever show_icon says */
+.ml-post-cat .elementor-icon-list-icon,
+.ml-post-cat .elementor-icon-list-icon svg,
+.ml-post-cat .elementor-post-info__terms-list svg{ display: none !important; }
 /* One card carries one category and its neighbour carries three, so the
    pill row is one line on one and two on the other, and the two titles
    start nineteen pixels apart. A row of cards holds the same geometry: the
