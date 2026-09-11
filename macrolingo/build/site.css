@@ -2402,6 +2402,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -5560,13 +5562,21 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
 /* the answer is separated from the problem by a hairline rather than by a
    panel: a tinted block inside a card that already has its own ground
    reads as a card inside a card */
-.ml-issue .ml-cs-key.elementor-widget{
+/* ml-ask-split is the hairline on its own, for a card whose titles are
+   short: ml-issue also holds a 2.6em floor under the title, which keeps a
+   row of long headings level and leaves an empty line on a card whose
+   heading is one line. Academia's pain points are short, so they take the
+   separator without the floor.                                           */
+.ml-issue .ml-cs-key.elementor-widget,
+.ml-ask-split .ml-cs-key.elementor-widget{
   margin-top: 18px;
   padding-top: 16px;
   border-top: 1px solid var(--ml-line-2);
 }
-.ml-issue .ml-cs-val.elementor-widget{ margin-top: 8px; }
-.ml-issue .ml-cs-val p{ margin-bottom: 0; }
+.ml-issue .ml-cs-val.elementor-widget,
+.ml-ask-split .ml-cs-val.elementor-widget{ margin-top: 8px; }
+.ml-issue .ml-cs-val p,
+.ml-ask-split .ml-cs-val p{ margin-bottom: 0; }
 
 
 /* --- The blog index ------------------------------------------------------
