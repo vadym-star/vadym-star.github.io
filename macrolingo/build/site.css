@@ -2394,6 +2394,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -6168,6 +6170,11 @@ html[lang^="ja"] .ml-posts-archive .elementor-button:after{
 .ml-post-title .elementor-heading-title,
 .ml-post-title h3.elementor-heading-title,
 .ml-post-title .elementor-heading-title a{ font-weight: 700 !important; }
+/* The loop item on the index carried 20px of side padding and the one on
+   the homepage did not, so the same card came out 369px in one place and
+   409px in the other. The card is the thing with a width; its wrapper has
+   none. */
+.ml-posts .e-loop-item{ padding-left: 0; padding-right: 0; }
 /* ==========================================================================
    THE THIRD COLOUR
 
