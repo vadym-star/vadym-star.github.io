@@ -2388,6 +2388,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -6124,6 +6126,32 @@ html[lang^="en"] .ml-post-byline .elementor-repeater-item-pidateja{ display: non
   text-overflow: ellipsis;
 }
 .ml-post-cat.elementor-widget{ min-height: 30px; }
+
+
+/* --- Show more, instead of page numbers ----------------------------------
+   The index loads the next nine posts underneath. Elementor's button holds
+   one label and the template serves both languages, so the Japanese label
+   is drawn in place of the English one rather than duplicated.           */
+.ml-posts-archive .elementor-button{
+  font-family: var(--ml-sans);
+  font-size: 15px;
+  font-weight: 600;
+}
+html[lang^="ja"] .ml-posts-archive .elementor-button-text{ font-size: 0; }
+html[lang^="ja"] .ml-posts-archive .elementor-button-text:after{
+  content: "もっと見る";
+  font-size: 15px;
+  letter-spacing: .02em;
+}
+
+/* The archive template's own generated stylesheet loads after the kit and
+   sets the card title from the global typography weight, with a selector
+   carrying its document id - so a plain class rule loses and the titles on
+   the index stayed at 500 while the same card on a post page was at 700.
+   Named again here, and stated, so the two never drift apart. */
+.ml-post-title .elementor-heading-title,
+.ml-post-title h3.elementor-heading-title,
+.ml-post-title .elementor-heading-title a{ font-weight: 700 !important; }
 /* ==========================================================================
    THE THIRD COLOUR
 
