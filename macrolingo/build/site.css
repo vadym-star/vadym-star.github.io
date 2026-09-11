@@ -2360,6 +2360,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -5774,6 +5776,12 @@ html[lang^="ja"] .ml-article li{ line-height: 1.95; }
    below simply stretches that one anchor over the card it sits in. Scoped
    to `ml-svc-linked`, because a card with no link must not get a pointer. */
 .ml-svc-linked .e-con.ml-svc{ position: relative; transition: border-color .16s, box-shadow .16s, transform .16s; }
+/* Elementor gives every widget wrapper `position: relative`, so the anchor's
+   stretched pseudo-element resolved against the little link box rather than
+   against the card - 231x26 instead of the whole 192px tall card. Inside a
+   linked card that one wrapper goes static, and the card is the only
+   positioned ancestor left. */
+.ml-svc-linked .e-con.ml-svc .ml-arrow-link.elementor-widget{ position: static; }
 .ml-svc-linked .e-con.ml-svc .ml-arrow-link a:after{
   content: "";
   position: absolute;
