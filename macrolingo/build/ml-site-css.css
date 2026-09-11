@@ -2325,6 +2325,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -5261,18 +5263,23 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
    shorter than a two-line one, so the name sat lower on that card. The
    block now has a floor of its own and the role is held to two lines.     */
 .ml-quote .ml-quote-who{
-  min-height: 84px;
+  min-height: 0;
   align-items: center;
 }
 /* Two lines, always. Clamping alone was not enough: a one-line role left
    that card's person block 19px shorter than its neighbours, so the name
    sat lower. A floor in em rather than px, so it holds at any type size. */
+/* Measured, not guessed: in a three-across row these roles run to THREE
+   lines, and a two-line one left that card's person block 19px shorter. The
+   display needs !important because something else sets it to flow-root and
+   the clamp was silently doing nothing. Three lines is both the floor and
+   the ceiling, so every role occupies the same space and none is cut. */
 .ml-quote-role p{
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  min-height: 2.9em;
+  min-height: 4.5em;
 }
 /* the card fills its cell so the foot is always the foot of the row */
 .e-con.ml-card.ml-quote{ height: 100%; }
