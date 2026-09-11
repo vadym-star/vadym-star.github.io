@@ -2376,6 +2376,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -5589,74 +5591,54 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
 .ml-article-head{ max-width: 780px; margin-left: 0; margin-right: auto; }
 .ml-article-head > .e-con-inner{ padding-left: 0; padding-right: 0; }
 
-/* The categories above the title are the same teal pills as on the cards,
-   so the mark a reader met on the index is the mark they meet again here.  */
-.ml-post-cats.elementor-widget{ margin-bottom: 16px; }
+/* Vadym, having seen both: "it was better without bullets, looked way
+   better, but should be teal, and also the date". So no pills here - the
+   categories and the date are one line of bold teal capitals above the
+   title, with a fat dot between them, and the author stays underneath in
+   the quiet grey. */
+.ml-post-cats.elementor-widget{ margin-bottom: 14px; }
 .ml-post-cats .elementor-icon-list-icon{ display: none; }
-.ml-post-cats .elementor-icon-list-item{ margin: 0; padding: 0; }
+.ml-post-cats .elementor-icon-list-items{ align-items: baseline; gap: 0; }
+.ml-post-cats .elementor-icon-list-item{ margin: 0 !important; padding: 0; }
+.ml-post-cats .elementor-icon-list-text,
+.ml-post-cats .elementor-post-info__item,
 .ml-post-cats .elementor-post-info__terms-list{
-  font-size: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
-}
-.ml-post-cats .elementor-post-info__terms-list-item{
   font-family: var(--ml-sans);
-  font-size: 11px;
+  font-size: 12.5px;
   font-weight: 700;
-  letter-spacing: .07em;
+  letter-spacing: .08em;
   text-transform: uppercase;
-  line-height: 1.6;
-  padding: 4px 11px;
-  border-radius: 999px;
-  background: var(--ml-accent-tint);
   color: var(--ml-accent-ink);
-  white-space: nowrap;
 }
-.ml-post-cats .elementor-post-info__terms-list-item:after{ content: none !important; }
+/* one dot between two categories, and one between the last category and
+   the date; never a trailing one */
+.ml-post-cats .elementor-post-info__terms-list-item:not(:last-child):after,
+.ml-post-cats .elementor-icon-list-item + .elementor-icon-list-item:before{
+  content: "2";
+  display: inline-block;
+  margin: 0 9px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  position: relative;
+  top: -1px;
+  color: var(--ml-accent-line);
+}
 
-/* Author and date are provenance, not a heading. One quiet line under the
-   title, with a real separator: the middle dot used to inherit the
-   article's 17px and the body ink, so it sat between two 13px capitals
-   looking like a full stop somebody had dropped. It is drawn here at its
-   own size and colour, and only between items - never after the last.     */
-.ml-post-byline.elementor-widget{ margin-top: 18px; }
+/* the author, under the title */
+.ml-post-byline.elementor-widget{ margin-top: 16px; }
 .ml-post-byline .elementor-icon-list-icon{ display: none; }
-.ml-post-byline .elementor-icon-list-items{ align-items: baseline; gap: 0; }
-/* Elementor puts 8px of margin on each side of an inline list item, which
-   with the separator's own margin left the dot floating in 37px of space
-   and pushed the line 10px right of the title it sits under. */
 .ml-post-byline .elementor-icon-list-item{ margin: 0 !important; padding: 0; }
 .ml-post-byline .elementor-icon-list-text,
 .ml-post-byline .elementor-post-info__item{
   font-family: var(--ml-sans);
   font-size: 14.5px;
-  font-weight: 400;
+  font-weight: 600;
   letter-spacing: 0;
   text-transform: none;
-  color: var(--e-global-color-mlmuted);
-}
-.ml-post-byline .elementor-icon-list-item:first-child .elementor-icon-list-text,
-.ml-post-byline .elementor-icon-list-item:first-child .elementor-post-info__item{
-  font-weight: 600;
   color: var(--e-global-color-secondary);
 }
-.ml-post-byline .elementor-icon-list-item + .elementor-icon-list-item:before{
-  content: "•";
-  display: inline-block;
-  margin: 0 9px;
-  font-size: 11px;
-  line-height: 1;
-  position: relative;
-  top: -1px;
-  color: var(--e-global-color-mlmuted);
-}
-.ml-post-h1 .elementor-heading-title{
-  font-size: clamp(30px, 3.8vw, 44px);
-  line-height: 1.18;
-  letter-spacing: -.015em;
-  color: var(--e-global-color-secondary);
-}
+
 /* a hairline closes the header and opens the picture, so the two read as
    one block rather than as a title floating above a photograph */
 .ml-article-hero{ border-bottom: 1px solid var(--e-global-color-mlline); }
@@ -6016,25 +5998,31 @@ body.page-id-18589 .elementor-widget-html .text-\[11px\]{
    drawn now, as small pills, which is honest about the post belonging to
    several and reads as a tag row rather than as a label that means
    something. A primary category per post is still Adam's call to make.    */
-.ml-post-cat .elementor-post-info__terms-list{
-  font-size: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
+.ml-post-cat .elementor-post-info__terms-list{ font-size: 0; }
 .ml-post-cat .elementor-post-info__terms-list-item{
-  font-size: 10.5px;
-  line-height: 1.6;
-  padding: 3px 9px;
-  border-radius: 999px;
-  background: var(--ml-accent-tint);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  line-height: 1.7;
   color: var(--ml-accent-ink);
-  white-space: nowrap;
 }
-.ml-post-cat .elementor-post-info__terms-list-item:nth-child(-n + 3){ display: inline-block; }
+.ml-post-cat .elementor-post-info__terms-list-item:nth-child(-n + 3){ display: inline; }
 .ml-post-cat .elementor-post-info__terms-list-item:nth-child(n + 4){ display: none !important; }
-/* the separator Elementor writes between terms is not wanted between pills */
+/* the fat dot between two categories, never after the last one shown */
 .ml-post-cat .elementor-post-info__terms-list-item:after{ content: none !important; }
+.ml-post-cat .elementor-post-info__terms-list-item:not(:last-child):not(:nth-child(3)):before,
+.ml-post-cat .elementor-post-info__terms-list-item:nth-child(n + 2):nth-child(-n + 3):before{
+  content: "2";
+  display: inline-block;
+  margin: 0 8px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  position: relative;
+  top: -1px;
+  color: var(--ml-accent-line);
+}
+.ml-post-cat .elementor-post-info__terms-list-item:first-child:before{ content: none; }
 /* One card carries one category and its neighbour carries three, so the
    pill row is one line on one and two on the other, and the two titles
    start nineteen pixels apart. A row of cards holds the same geometry: the
@@ -6066,6 +6054,37 @@ html[lang^="ja"] .ml-post-excerpt .elementor-heading-title{
    no pseudo-element. */
 html[lang^="ja"] .ml-post-byline .elementor-repeater-item-pidateen{ display: none !important; }
 html[lang^="en"] .ml-post-byline .elementor-repeater-item-pidateja{ display: none !important; }
+
+
+/* --- The blog cards, after Vadym saw the pills ---------------------------
+   "id prefer just plain bold teal text instead of this bullets and
+    separting different topics with a fat dot between them, also blog cards
+    should be a little bit wider, and header text should be bold, all of
+    this changes should be as well as on blog page also on home"
+
+   So: no pills anywhere, bold teal capitals with a fat dot between two
+   categories, a bolder title, and more room. The grid runs wider than the
+   site's 1100px column - on the index and on the homepage's Latest
+   insights alike, because they are the same card and should not drift
+   apart. Written in Elementor's own shape, or its widget cap wins.       */
+.e-con > .e-con-inner > .elementor-widget.ml-posts,
+.e-con > .elementor-widget.ml-posts{
+  width: min(100%, 1280px);
+  max-width: min(100%, 1280px);
+  margin-left: auto;
+  margin-right: auto;
+}
+.ml-inner:has(> .e-con-inner > .ml-posts) > .e-con-inner{
+  width: min(100%, 1280px);
+  max-width: 1280px;
+}
+/* the card title carries the weight now that the category line is quieter */
+.ml-post-title .elementor-heading-title,
+.ml-post-title h3.elementor-heading-title,
+.ml-post-title .elementor-heading-title a{ font-weight: 700; }
+/* the pill row is gone, so the floor that held two rows of pills goes too:
+   one line of capitals is one line on every card */
+.ml-post-cat.elementor-widget{ min-height: 0; }
 /* ==========================================================================
    THE THIRD COLOUR
 
