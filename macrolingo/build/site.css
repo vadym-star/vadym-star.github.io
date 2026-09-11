@@ -2370,6 +2370,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -5583,24 +5585,63 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
 .ml-article-head{ max-width: 780px; margin-left: 0; margin-right: auto; }
 .ml-article-head > .e-con-inner{ padding-left: 0; padding-right: 0; }
 
-.ml-post-meta.elementor-widget{ margin-bottom: 14px; }
-.ml-post-meta .elementor-icon-list-icon{ display: none; }
-.ml-post-meta .elementor-icon-list-items{ gap: 0 18px; }
-.ml-post-meta .elementor-icon-list-item{ margin: 0; }
-.ml-post-meta .elementor-icon-list-text,
-.ml-post-meta .elementor-post-info__item{
-  font-family: var(--ml-sans);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-  color: var(--ml-accent-ink);
+/* The categories above the title are the same teal pills as on the cards,
+   so the mark a reader met on the index is the mark they meet again here.  */
+.ml-post-cats.elementor-widget{ margin-bottom: 16px; }
+.ml-post-cats .elementor-icon-list-icon{ display: none; }
+.ml-post-cats .elementor-icon-list-item{ margin: 0; padding: 0; }
+.ml-post-cats .elementor-post-info__terms-list{
+  font-size: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
 }
-/* the separator Elementor puts between inline items */
-.ml-post-meta .elementor-icon-list-item:not(:last-child):after{
-  content: "·";
-  margin-left: 18px;
+.ml-post-cats .elementor-post-info__terms-list-item{
+  font-family: var(--ml-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  line-height: 1.6;
+  padding: 4px 11px;
+  border-radius: 999px;
+  background: var(--ml-accent-tint);
+  color: var(--ml-accent-ink);
+  white-space: nowrap;
+}
+.ml-post-cats .elementor-post-info__terms-list-item:after{ content: none !important; }
+
+/* Author and date are provenance, not a heading. One quiet line under the
+   title, with a real separator: the middle dot used to inherit the
+   article's 17px and the body ink, so it sat between two 13px capitals
+   looking like a full stop somebody had dropped. It is drawn here at its
+   own size and colour, and only between items - never after the last.     */
+.ml-post-byline.elementor-widget{ margin-top: 18px; }
+.ml-post-byline .elementor-icon-list-icon{ display: none; }
+.ml-post-byline .elementor-icon-list-items{ align-items: baseline; gap: 0; }
+.ml-post-byline .elementor-icon-list-item{ margin: 0; padding: 0; }
+.ml-post-byline .elementor-icon-list-text,
+.ml-post-byline .elementor-post-info__item{
+  font-family: var(--ml-sans);
+  font-size: 14.5px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
   color: var(--e-global-color-mlmuted);
+}
+.ml-post-byline .elementor-icon-list-item:first-child .elementor-icon-list-text,
+.ml-post-byline .elementor-icon-list-item:first-child .elementor-post-info__item{
+  font-weight: 600;
+  color: var(--e-global-color-secondary);
+}
+.ml-post-byline .elementor-icon-list-item + .elementor-icon-list-item:before{
+  content: "•";
+  display: inline-block;
+  margin: 0 10px;
+  font-size: 9px;
+  line-height: 1;
+  vertical-align: middle;
+  color: var(--ml-accent-line);
 }
 .ml-post-h1 .elementor-heading-title{
   font-size: clamp(30px, 3.8vw, 44px);
@@ -5608,15 +5649,9 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
   letter-spacing: -.015em;
   color: var(--e-global-color-secondary);
 }
-.ml-post-author.elementor-widget{ margin-top: 18px; }
-.ml-post-author .elementor-icon-list-icon{ display: none; }
-.ml-post-author .elementor-icon-list-item{ margin: 0; }
-.ml-post-author .elementor-icon-list-text,
-.ml-post-author .elementor-post-info__item{
-  font-family: var(--ml-sans);
-  font-size: 15px;
-  color: var(--e-global-color-mlmuted);
-}
+/* a hairline closes the header and opens the picture, so the two read as
+   one block rather than as a title floating above a photograph */
+.ml-article-hero{ border-bottom: 1px solid var(--e-global-color-mlline); }
 
 /* The picture sits on the same left edge as the text and runs wider, so the
    article reads as one column with a picture set into it rather than as two
