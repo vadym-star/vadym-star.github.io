@@ -2317,6 +2317,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -5190,6 +5192,54 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
   }
   .ml-steps:not(.ml-steps-three):not(.ml-steps-four)
     > .e-con-inner > .e-con.ml-step:not(:last-child):after{ left: 25px; }
+}
+
+/* =========================================================================
+   Editing & Proofreading: the three levels
+   The card itself is ml-svc, which every service card on the site already
+   uses. Only the badge and the "popular" state are new, and the CTA is
+   pushed to the foot so three cards of different lengths still line their
+   buttons up.
+   ========================================================================= */
+.e-con.ml-plan > .e-con-inner{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.ml-plan-badge .elementor-heading-title{
+  display: inline-block;
+  font-family: var(--ml-sans);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ml-accent-ink);
+  background: var(--ml-accent-tint, #D4E5E5);
+  border-radius: 999px;
+  padding: 5px 12px;
+  line-height: 1.4;
+}
+.ml-plan .ml-svc-title.elementor-widget{ margin-top: 14px; }
+.ml-plan-cta.elementor-widget,
+.e-con.ml-plan-cta{ margin-top: auto; padding-top: 22px; }
+/* the level most clients take is stated, not just badged */
+.e-con.ml-plan-on{
+  border-color: var(--e-global-color-primary);
+  box-shadow: 0 10px 30px rgba(69, 143, 44, .12);
+}
+/* the certification mark inside the first reason */
+.ml-plan-badge-img.elementor-widget{ margin-top: 16px; }
+.ml-plan-badge-img img{ max-width: 190px; height: auto; }
+/* the two supporting photographs under the reasons */
+.ml-edit-photos > .e-con-inner{ gap: 22px; }
+.ml-edit-photo img{
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: var(--ml-radius);
+}
+@media (max-width: 767px){
+  .ml-edit-photo img{ height: 190px; }
 }
 /* ==========================================================================
    THE THIRD COLOUR
