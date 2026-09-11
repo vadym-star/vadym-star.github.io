@@ -2327,6 +2327,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -5318,6 +5320,8 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
 .ml-team-role .elementor-heading-title{ min-height: 2.9em; }
 .ml-plan .ml-svc-note p{ min-height: 2.9em; }
 .ml-pair-note p{ min-height: 2.8em; }
+/* the team name too: identical geometry beats tight spacing, Vadym's call */
+.ml-team-name .elementor-heading-title{ min-height: 2.5em; }
 /* ==========================================================================
    THE THIRD COLOUR
 
