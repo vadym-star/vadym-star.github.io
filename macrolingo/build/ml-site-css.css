@@ -2323,6 +2323,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -5301,6 +5303,14 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
   justify-content: center;
   height: 100%;
 }
+
+/* --- The same rule, applied to every card sub-block that can wrap --------
+   A line that is one line on one card and two on the next moves everything
+   under it. Each of these gets a floor in em, so the blocks below start at
+   the same offset whatever the words are.                                 */
+.ml-team-role .elementor-heading-title{ min-height: 2.9em; }
+.ml-plan .ml-svc-note p{ min-height: 2.9em; }
+.ml-pair-note p{ min-height: 2.8em; }
 /* ==========================================================================
    THE THIRD COLOUR
 
