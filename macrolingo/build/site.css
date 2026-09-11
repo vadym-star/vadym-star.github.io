@@ -2333,6 +2333,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -5329,8 +5331,13 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
 
 /* Service-card notes run two, three and four lines on the same row, which
    moved each card's tick list to a different height. Floored at four lines,
-   measured off the Japanese editing page where the spread was widest.    */
-.ml-svc-grid .ml-svc-note p{ min-height: 6em; }
+   measured off the Japanese editing page where the spread was widest.
+
+   Scoped to ml-svc-listed, the cards that actually carry a list under the
+   note. Applied to every service card it padded out cards that are nothing
+   but paragraphs - the industry pages - with a block of empty space after
+   each one.                                                              */
+.ml-svc-listed .ml-svc-note p{ min-height: 6em; }
 
 /* =========================================================================
    The six industry pages - one layout, so one block of rules
