@@ -2414,6 +2414,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -6736,6 +6738,29 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
     align-items: center;
     font-size: 15.5px !important;
   }
+  /* A button in a centred row: the row is a flex container that shrinks to
+     its content, so width:100% on the button was 100% of a shrunken box
+     and the button came out at about 40% of the screen. The widget has to
+     be told to fill the row first.                                       */
+  .ml-cta-centred > .e-con-inner > *,
+  .ml-hero-cta > .e-con-inner > *,
+  .ml-plan-cta > .e-con-inner > *{ width: 100% !important; max-width: 100% !important; }
+
+  /* The arrow link that closes a card was centred, so a two-word link wrapped
+     to two centred lines with the arrow stranded at the right. Left is where
+     the card's text begins and where the eye already is.                 */
+  .ml-arrow-link .elementor-button,
+  .ml-btn-link .elementor-button{
+    justify-content: flex-start;
+    text-align: left;
+  }
+  .ml-arrow-link .elementor-button-content-wrapper{
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .ml-svc .ml-arrow-link,
+  .ml-card .ml-arrow-link{ align-self: flex-start; }
+
   /* a tick list whose items are links needs the same room per row */
   .ml-tlist .elementor-icon-list-item > a,
   .ml-footer-links .elementor-icon-list-item > a{ min-height: 40px; display: flex; align-items: center; }
@@ -6771,6 +6796,23 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
   /* --- 2.9 the client marks ---------------------------------------------- */
   .ml-logo-carousel .swiper-slide-image{ max-height: 26px; }
   .ml-strip-label .elementor-heading-title{ font-size: 11px !important; }
+
+  /* Two marks adrift in a tall white band reads as a strip that failed to
+     load. Smaller marks fit three, and the band comes in to match.      */
+  .ml-rule-top.e-con,
+  .ml-rule-bottom.e-con{ padding-top: 26px !important; padding-bottom: 26px !important; }
+  .ml-strip-label.elementor-widget{ margin-bottom: 14px; }
+
+  /* the blog's own load-more button came out 25px tall */
+  .ml-posts-archive .elementor-button,
+  .elementor-pagination .elementor-button,
+  .e-load-more-anchor + * .elementor-button{ min-height: 48px; }
+  .ml-posts .elementor-button-link{
+    min-height: 48px;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+  }
 
   /* --- 2.10 figures and statistics --------------------------------------- */
   .ml-stat-figure .elementor-heading-title,
