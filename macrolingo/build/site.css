@@ -2412,6 +2412,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -6519,9 +6521,20 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
    ========================================================================== */
 @media (max-width: 1024px){
 
-  /* --- the page's own margins ------------------------------------------- */
-  .ml-inner.e-con{ padding-left: 40px !important; padding-right: 40px !important; }
-  .ml-inner.e-con{ padding-top: 72px !important; padding-bottom: 72px !important; }
+  /* --- the page's own margins -------------------------------------------
+     Said structurally, as "a top-level section of a page", rather than by
+     the ml-inner class the inner pages carry: the two homepages were built
+     before that class existed and keep a section() of their own that does
+     not set it. Anything scoped to ml-inner simply misses them, which is
+     how the first pass left the two most-visited pages almost untouched. */
+  .elementor-location-single > .e-con,
+  [data-elementor-type="wp-post"] > .e-con,
+  [data-elementor-type="wp-page"] > .e-con{
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+    padding-top: 72px !important;
+    padding-bottom: 72px !important;
+  }
   .ml-page-hero.e-con{ padding-top: 16px !important; padding-bottom: 64px !important; }
 
   /* --- type ------------------------------------------------------------- */
@@ -6566,11 +6579,18 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
      the width on nothing; 20 still clears the thumb rail and gives the text
      350px to work with. Section padding comes down from 56 to 44: the space
      between sections has to read as a separation, not as a rest stop.    */
-  .ml-inner.e-con,
-  .ml-page-hero.e-con{ padding-left: 20px !important; padding-right: 20px !important; }
-  .ml-inner.e-con{ padding-top: 44px !important; padding-bottom: 44px !important; }
-  .ml-page-hero.e-con{ padding-top: 10px !important; padding-bottom: 40px !important; }
-  .ml-inner > .e-con-inner{ gap: 0 !important; }
+  [data-elementor-type="wp-post"] > .e-con,
+  [data-elementor-type="wp-page"] > .e-con{
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-top: 44px !important;
+    padding-bottom: 44px !important;
+  }
+  .ml-page-hero.e-con{
+    padding-top: 10px !important;
+    padding-bottom: 40px !important;
+  }
+  [data-elementor-type] > .e-con > .e-con-inner{ gap: 0 !important; }
 
   /* --- 2.2 the type scale -----------------------------------------------
      Set here as one scale rather than page by page. 30/25/18/16 with the

@@ -145,7 +145,7 @@ add_action( 'wp_footer', function () {
     /* a long grid of cards - the industry hub's five, the twelve agency
        issues, six service cards                                          */
     { sel: '.ml-svc-grid > .e-con-inner, .ml-two-up > .e-con-inner, .ml-three-up > .e-con-inner, .ml-pairs > .e-con-inner, .ml-opts > .e-con-inner, .ml-plans > .e-con-inner',
-      keep: 3, min: 5, label: 'Show all %n', labelJa: 'すべて表示（%n件）' },
+      keep: 3, min: 4, label: 'Show all %n', labelJa: 'すべて表示（%n件）' },
     /* a long list of ticks under a service card */
     { sel: '.ml-svc-list .elementor-icon-list-items, .ml-ticks .elementor-icon-list-items',
       keep: 5, min: 7, label: 'Show all %n', labelJa: 'すべて表示（%n件）' },
