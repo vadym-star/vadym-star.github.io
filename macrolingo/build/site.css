@@ -2416,6 +2416,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -6529,20 +6531,31 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
      before that class existed and keep a section() of their own that does
      not set it. Anything scoped to ml-inner simply misses them, which is
      how the first pass left the two most-visited pages almost untouched. */
-  .elementor-location-single > .e-con,
   [data-elementor-type="wp-post"] > .e-con,
-  [data-elementor-type="wp-page"] > .e-con{
+  [data-elementor-type="wp-page"] > .e-con,
+  [data-elementor-type="single-post"] > .e-con,
+  [data-elementor-type="archive"] > .e-con{
     padding-left: 40px !important;
     padding-right: 40px !important;
     padding-top: 72px !important;
     padding-bottom: 72px !important;
   }
+  [data-elementor-type="single-post"] > .e-con > .e-con-inner,
+  [data-elementor-type="archive"] > .e-con > .e-con-inner{
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+  }
   .ml-page-hero.e-con{ padding-top: 16px !important; padding-bottom: 64px !important; }
 
   /* --- type ------------------------------------------------------------- */
   .ml-hero-title .elementor-heading-title{ font-size: 44px !important; line-height: 1.1 !important; }
-  .ml-section-head .elementor-heading-title,
+  /* h2 only. A section head holds both the small green label (an h6) and the
+     heading, and a rule written as ".ml-section-head .elementor-heading-title"
+     sets them both - which drew the label at 34px across the whole width,
+     three lines of shouting above every heading on every tablet.        */
+  .ml-section-head h2.elementor-heading-title,
   .ml-heading-mid .elementor-heading-title{ font-size: 34px !important; line-height: 1.15 !important; }
+  .ml-label .elementor-heading-title{ font-size: 12px !important; letter-spacing: .09em; }
   .ml-lead p, .ml-hero-intro p, .ml-lead-body p{ font-size: 17px !important; }
   .ml-svc-title .elementor-heading-title{ font-size: 19px !important; }
 
@@ -6568,6 +6581,42 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
 
   /* --- the client marks are smaller, so more of them show --------------- */
   .ml-logo-carousel .swiper-slide-image{ max-height: 34px; }
+
+  /* --- anything you tap ---------------------------------------------------
+     A tablet is a touch device and the same 44px minimum applies, but it is
+     not a phone: a full-width button on a 768px screen reads as a banner,
+     so these grow in height and keep their own width. Measured before this:
+     the header button came out at 43px and every arrow link at 24 to 26. */
+  .ml-btn-primary .elementor-button,
+  .ml-btn-soft .elementor-button{
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .ml-header-cta .elementor-button{ min-height: 44px; }
+  .ml-arrow-link .elementor-button,
+  .ml-btn-link .elementor-button{
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .ml-tlist .elementor-icon-list-item > a,
+  .ml-taglist .elementor-icon-list-item > a,
+  .ml-footer-links .elementor-icon-list-item > a{
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+  }
+  .ml-posts .elementor-button-link,
+  .ml-posts-archive .elementor-button{
+    min-height: 48px;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+  /* the post card's "Read more" is a link inside a card, not a control */
+  .ml-post-card .ml-arrow-link .elementor-button{ min-height: 44px; }
 }
 
 
@@ -6582,11 +6631,24 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
      350px to work with. Section padding comes down from 56 to 44: the space
      between sections has to read as a separation, not as a rest stop.    */
   [data-elementor-type="wp-post"] > .e-con,
-  [data-elementor-type="wp-page"] > .e-con{
+  [data-elementor-type="wp-page"] > .e-con,
+  [data-elementor-type="single-post"] > .e-con,
+  [data-elementor-type="archive"] > .e-con{
     padding-left: 20px !important;
     padding-right: 20px !important;
     padding-top: 44px !important;
     padding-bottom: 44px !important;
+  }
+  /* On the two blog templates the inner box ignores the section's side
+     padding and sits at the full width of the screen, so the article ran
+     edge to edge while every other page had its gutter. Measured, not
+     guessed: the section read 0..390 with 20px of padding and its inner
+     read 0..390 as well. The gutter is therefore said on the inner box
+     for these two, where it holds.                                      */
+  [data-elementor-type="single-post"] > .e-con > .e-con-inner,
+  [data-elementor-type="archive"] > .e-con > .e-con-inner{
+    padding-left: 20px !important;
+    padding-right: 20px !important;
   }
   .ml-page-hero.e-con{
     padding-top: 10px !important;
@@ -6602,7 +6664,7 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
     line-height: 1.16 !important;
     letter-spacing: -.01em;
   }
-  .ml-section-head .elementor-heading-title,
+  .ml-section-head h2.elementor-heading-title,
   .ml-heading-mid .elementor-heading-title,
   .ml-heading-solo .elementor-heading-title,
   .ml-heading-founder .elementor-heading-title{
@@ -6639,7 +6701,7 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
 
   /* a centred section head is right on a wide screen and wrong on a narrow
      one: centred text over four or five short lines has two ragged edges  */
-  .ml-section-head .elementor-heading-title,
+  .ml-section-head h2.elementor-heading-title,
   .ml-section-head .ml-lead p{ text-align: left !important; }
   .ml-label-centred .elementor-heading-title{ text-align: left !important; }
 
@@ -6666,6 +6728,8 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
   .ml-split-founder > .e-con-inner,
   .ml-cs > .e-con-inner,
   .ml-work-cols > .e-con-inner,
+  .ml-split-ngo > .e-con-inner,
+  .ml-split-about > .e-con-inner,
   .ml-why-split > .e-con-inner{
     display: grid !important;
     grid-template-columns: 1fr !important;
@@ -6703,6 +6767,7 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
 
   /* --- 2.5 cards --------------------------------------------------------- */
   .e-con.ml-card,
+  .e-con.ml-service-card,
   .e-con.ml-svc,
   .e-con.ml-ask,
   .e-con.ml-plan,
@@ -6738,28 +6803,56 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
     align-items: center;
     font-size: 15.5px !important;
   }
-  /* A button in a centred row: the row is a flex container that shrinks to
-     its content, so width:100% on the button was 100% of a shrunken box
-     and the button came out at about 40% of the screen. The widget has to
-     be told to fill the row first.                                       */
-  .ml-cta-centred > .e-con-inner > *,
-  .ml-hero-cta > .e-con-inner > *,
-  .ml-plan-cta > .e-con-inner > *{ width: 100% !important; max-width: 100% !important; }
+  /* A button in a row: the row is a flex container that shrinks to its
+     content, so the widget came out 164px wide and width:100% on the button
+     inside it was 100% of that. The widget itself has to fill first.
 
-  /* The arrow link that closes a card was centred, so a two-word link wrapped
-     to two centred lines with the arrow stranded at the right. Left is where
-     the card's text begins and where the eye already is.                 */
+     Said of every button widget on a page rather than of the three wrapper
+     classes I first wrote it for. The two homepages use ml-cta-row and one
+     unclassed container where the inner pages use ml-cta-centred, and a
+     rule naming wrappers will keep missing one; a rule about what a button
+     is on a phone cannot.                                                */
+  [data-elementor-type="wp-post"] .elementor-widget-button,
+  [data-elementor-type="wp-page"] .elementor-widget-button,
+  [data-elementor-type="single-post"] .elementor-widget-button,
+  [data-elementor-type="archive"] .elementor-widget-button{
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  /* rows of buttons stack rather than share a line */
+  .ml-cta-row > .e-con-inner,
+  .ml-cta-centred > .e-con-inner,
+  .ml-plan-cta > .e-con-inner{
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+  }
+
+  /* The exception: a text link that closes a card is a link, not a control.
+     It keeps its own width so the arrow sits beside the words instead of
+     being stranded at the right edge of the card, and it reads from the
+     left, where the card's text already begins.                          */
+  [data-elementor-type] .ml-btn-link.elementor-widget-button{ width: auto !important; }
   .ml-arrow-link .elementor-button,
   .ml-btn-link .elementor-button{
+    width: auto !important;
     justify-content: flex-start;
     text-align: left;
   }
-  .ml-arrow-link .elementor-button-content-wrapper{
+  /* the words and the arrow are one inline group, so the arrow follows the
+     text instead of being stranded at the card's right edge when the link
+     runs to two lines */
+  .ml-arrow-link .elementor-button-content-wrapper,
+  .ml-btn-link .elementor-button-content-wrapper{
+    display: inline-flex !important;
+    width: auto !important;
+    max-width: 100%;
     justify-content: flex-start;
     align-items: center;
   }
   .ml-svc .ml-arrow-link,
-  .ml-card .ml-arrow-link{ align-self: flex-start; }
+  .ml-card .ml-arrow-link,
+  .ml-service-card .ml-arrow-link{ align-self: flex-start; }
 
   /* a tick list whose items are links needs the same room per row */
   .ml-tlist .elementor-icon-list-item > a,
@@ -6837,6 +6930,42 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
   /* --- 2.13 the blog ------------------------------------------------------ */
   .ml-posts .elementor-grid{ grid-template-columns: 1fr !important; }
   .ml-post-title .elementor-heading-title{ font-size: 18px !important; }
+
+  /* Elementor's inline icon list - the categories-and-date line under a post
+     title, and the byline - offsets its items with a -8px margin on each
+     side. At 390px that makes the list 406px wide and the whole document
+     scrolls sideways. The items keep their spacing; only the offset goes. */
+  [data-elementor-type="single-post"] .elementor-inline-items,
+  [data-elementor-type="archive"] .elementor-inline-items,
+  .ml-post-cats .elementor-inline-items{
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  [data-elementor-type="single-post"] .elementor-inline-items > .elementor-icon-list-item:first-child,
+  [data-elementor-type="archive"] .elementor-inline-items > .elementor-icon-list-item:first-child,
+  .ml-post-cats .elementor-inline-items > .elementor-icon-list-item:first-child{
+    padding-left: 0 !important;
+  }
+
+  /* The post body escapes its container's padding - measured: the inner box
+     reads 0..390 with 20px of padding and the article widget inside it reads
+     0..390 as well, while the title in the same box sits correctly at 20.
+     Rather than keep chasing why, the article carries the gutter itself.  */
+  [data-elementor-type="single-post"] .ml-article,
+  [data-elementor-type="single-post"] .elementor-widget-theme-post-content{
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    box-sizing: border-box;
+  }
+
+  /* the article itself: a post is read, not scanned, so it keeps its full
+     measure and a comfortable line */
+  .ml-article img,
+  [data-elementor-type="single-post"] img{ height: auto; max-width: 100%; }
+  .ml-article table,
+  [data-elementor-type="single-post"] table{ display: block; overflow-x: auto; max-width: 100%; }
+  .ml-article pre,
+  [data-elementor-type="single-post"] pre{ overflow-x: auto; max-width: 100%; }
 
   /* --- 2.14 the header ---------------------------------------------------
      Logo, language, burger. The green button leaves the bar because the
@@ -7062,6 +7191,44 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
   .ml-band-warm .ml-folded{ --ml-fold-fade: var(--e-global-color-mlwarm, #F5F8F0); }
   .ml-band-blue .ml-folded{ --ml-fold-fade: #EAF2FE; }
   .ml-folded.ml-fold-open:after{ display: none; }
+}
+
+
+/* ==========================================================================
+   6. THE GLOBAL PR DIAGNOSTIC, ON A PHONE
+   Fifteen questions with two answers each, in an HTML widget of its own.
+   The tool works at 390px - it measured 356px wide with no overflow - but
+   the two answers sat side by side at 143px, which is a narrow column for a
+   Japanese sentence and a small thing to hit while holding a phone one
+   handed. One answer to a row, full width, with the second line of each
+   answer still legible.
+   ========================================================================== */
+@media (max-width: 767px){
+  #diagnostic-box{ padding: 18px 16px !important; }
+  #diagnostic-box .grid{
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+  #diagnostic-box .grid > button{
+    min-height: 64px !important;
+    text-align: left;
+    padding: 14px 16px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  #diagnostic-box #question-text{ font-size: 17px !important; line-height: 1.5 !important; }
+  #back-btn{ min-height: 44px; display: inline-flex; align-items: center; }
+
+  /* the bands inside the widget keep their own rhythm, just tighter */
+  .elementor-widget-html section{ padding-top: 44px !important; padding-bottom: 44px !important; }
+  .elementor-widget-html .max-w-4xl,
+  .elementor-widget-html .max-w-5xl,
+  .elementor-widget-html .max-w-6xl,
+  .elementor-widget-html .max-w-3xl{ padding-left: 20px !important; padding-right: 20px !important; }
+  /* the numbered row: the disc and its heading stay on one line */
+  .ml-numrow{ gap: 10px; }
 }
 
 
