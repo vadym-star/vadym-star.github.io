@@ -1,0 +1,241 @@
+<?php
+/**
+ * MacroLingo: small screens
+ * ---------------------------------------------------------------------------
+ * Code Snippets > "MacroLingo: small screens". Front end only.
+ *
+ * Two jobs, both of them rules about the whole site rather than properties of
+ * any one page, which is why they live here and not in a page:
+ *
+ *   1. Mark the pages that carry the sticky call to action, by adding the
+ *      body class the stylesheet looks for. The bar itself is a container in
+ *      the Elementor footer template, so its words and its link are edited
+ *      like anything else on the site - this only decides where it shows.
+ *
+ *   2. Fold the long blocks on a phone. The fold is presentation: nothing is
+ *      removed from the page, so Google - which indexes the phone version -
+ *      still sees every word, and a reader who wants the whole thing is one
+ *      tap away. Which blocks fold is decided by the classes they already
+ *      carry, so a new page built from the same components folds the same
+ *      way with nothing added to it.
+ *
+ * If this snippet is switched off, every block simply shows in full and the
+ * sticky bar never appears. Nothing breaks.
+ */
+
+/* -------------------------------------------------------------------------
+ * 1. Which pages carry the sticky call to action
+ *
+ * The pages that sell something: the five services, the industries and the
+ * hub above them, and the standalone offers. Not the homepage (its own hero
+ * button is never far away), not About or Our Work, not the legal pages, not
+ * the blog. Add a slug here when a page like these is added to the site.
+ * ---------------------------------------------------------------------- */
+function ml_sticky_cta_slugs() {
+    return array(
+        // English services
+        'copywriting',
+        'editing-proofreading',
+        'ai-search-optimization',
+        'pr-media-science-b2b',
+        'localization-translation',
+        // English industries, and the hub above them
+        'industry-content-seo',
+        'content-for-ngos-npos',
+        'content-for-research-organizations',
+        'content-for-healthcare-companies',
+        'content-for-environmental-companies',
+        'content-for-inbound-tourism',
+        // English standalone offers
+        'jx',
+        'science-academia',
+        'ai-tool-search',
+        // Japanese services
+        'english-copywriting',
+        'editing-proofreading-ja',
+        'seo-geo',
+        'translation_localization',
+        'english_pr_media_japan',
+        'content-seo',
+        // Japanese industries
+        'healthcare',
+        'industry-research',
+        'japan-inbound-tourism',
+        // Japanese standalone offers
+        'agency-assist-japan',
+        'global_pr_score',
+    );
+}
+
+add_filter( 'body_class', function ( $classes ) {
+    if ( is_admin() || ! is_page() ) {
+        return $classes;
+    }
+    $post = get_queried_object();
+    if ( $post && isset( $post->post_name )
+         && in_array( $post->post_name, ml_sticky_cta_slugs(), true ) ) {
+        $classes[] = 'ml-has-sticky';
+    }
+    return $classes;
+} );
+
+
+/* -------------------------------------------------------------------------
+ * 2. The behaviour: the sticky bar's entrance, and the folds
+ * ---------------------------------------------------------------------- */
+add_action( 'wp_footer', function () {
+    if ( is_admin() ) {
+        return;
+    }
+    ?>
+<script>
+/* MacroLingo small screens.
+   Nothing here runs above 767px, and nothing runs inside the Elementor
+   editor, so a block the editor redraws can never be left folded shut while
+   somebody is working on it. */
+(function () {
+  if (/elementor-preview=/.test(location.search)) { return; }
+  if (document.body.classList.contains('elementor-editor-active')) { return; }
+
+  var PHONE = '(max-width: 767px)';
+  var isPhone = function () { return window.matchMedia(PHONE).matches; };
+
+  /* ---- the sticky call to action -------------------------------------
+     It arrives once the reader is past the hero, so it never doubles the
+     hero's own button, and it leaves again at the foot of the page so it
+     cannot sit on top of the contact form somebody is filling in.      */
+  function stickyBar() {
+    var body = document.body;
+    if (!body.classList.contains('ml-has-sticky')) { return; }
+    var bar = document.querySelector('.ml-sticky-cta');
+    if (!bar) { return; }
+    var hero = document.querySelector('.ml-page-hero') || document.querySelector('[data-elementor-type] > .e-con');
+    var form = document.querySelector('.ml-split-contact') || document.querySelector('.ml-footer');
+
+    function check() {
+      if (!isPhone()) { body.classList.remove('ml-sticky-on'); return; }
+      var past = hero ? (hero.getBoundingClientRect().bottom < 0) : (window.scrollY > 400);
+      var atForm = form ? (form.getBoundingClientRect().top < window.innerHeight * 0.9) : false;
+      body.classList.toggle('ml-sticky-on', past && !atForm);
+    }
+    var ticking = false;
+    function onScroll() {
+      if (ticking) { return; }
+      ticking = true;
+      requestAnimationFrame(function () { check(); ticking = false; });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    check();
+  }
+
+  /* ---- the folds -------------------------------------------------------
+     Three rules, each of them about a shape the site already uses:
+
+       a long grid of cards   show three, fold the rest
+       a long list of ticks   show five, fold the rest
+       a run of paragraphs    show two, fold the rest
+
+     A block below the threshold is left alone, which is why most sections
+     are untouched. Folding is done by measuring the last visible child and
+     capping the container's height, so nothing is detached from the page -
+     the words stay in the document for a reader's find-on-page and for a
+     search engine, they are only not drawn.                            */
+  var RULES = [
+    { sel: '.ml-svc-grid > .e-con-inner, .ml-two-up > .e-con-inner, .ml-three-up > .e-con-inner',
+      keep: 3, min: 5, label: 'Show all %n', labelJa: 'すべて表示（%n件）' },
+    { sel: '.ml-svc-list .elementor-icon-list-items, .ml-ticks .elementor-icon-list-items',
+      keep: 5, min: 7, label: 'Show all %n', labelJa: 'すべて表示（%n件）' },
+    { sel: '.ml-fold-prose',
+      keep: 2, min: 4, label: 'Read more', labelJa: '続きを読む' }
+  ];
+
+  var isJa = /^ja/i.test(document.documentElement.lang || '');
+
+  function foldOne(box, rule) {
+    var kids = [].slice.call(box.children).filter(function (k) {
+      return k.offsetParent !== null || k.getClientRects().length;
+    });
+    if (kids.length < rule.min) { return; }
+    if (box.__mlFold) { return; }
+
+    var last = kids[rule.keep - 1];
+    if (!last) { return; }
+
+    var wrap = box;
+    wrap.classList.add('ml-folded');
+    var shut = function () {
+      var top = wrap.getBoundingClientRect().top;
+      var cut = last.getBoundingClientRect().bottom - top;
+      wrap.style.maxHeight = Math.round(cut) + 'px';
+    };
+
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'ml-fold-btn';
+    var word = (isJa ? rule.labelJa : rule.label).replace('%n', kids.length);
+    btn.textContent = word;
+    btn.setAttribute('aria-expanded', 'false');
+    wrap.parentNode.insertBefore(btn, wrap.nextSibling);
+
+    btn.addEventListener('click', function () {
+      var open = wrap.parentNode.classList.toggle('ml-fold-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (open) {
+        wrap.style.maxHeight = '';
+        wrap.classList.remove('ml-folded');
+        btn.textContent = isJa ? '閉じる' : 'Show less';
+      } else {
+        wrap.classList.add('ml-folded');
+        shut();
+        btn.textContent = word;
+        btn.scrollIntoView({ block: 'center', behavior: 'smooth' });
+      }
+    });
+
+    shut();
+    box.__mlFold = { shut: shut, btn: btn, wrap: wrap };
+  }
+
+  function unfoldOne(box) {
+    var f = box.__mlFold;
+    if (!f) { return; }
+    f.wrap.style.maxHeight = '';
+    f.wrap.classList.remove('ml-folded');
+    f.wrap.parentNode.classList.remove('ml-fold-open');
+    if (f.btn && f.btn.parentNode) { f.btn.parentNode.removeChild(f.btn); }
+    box.__mlFold = null;
+  }
+
+  function applyFolds() {
+    RULES.forEach(function (rule) {
+      [].slice.call(document.querySelectorAll(rule.sel)).forEach(function (box) {
+        if (isPhone()) { foldOne(box, rule); }
+        else { unfoldOne(box); }
+      });
+    });
+  }
+
+  function start() {
+    stickyBar();
+    applyFolds();
+    var t;
+    window.addEventListener('resize', function () {
+      clearTimeout(t);
+      t = setTimeout(applyFolds, 200);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', start);
+  } else {
+    start();
+  }
+  /* the reveal animation moves blocks into place after load, so the height a
+     fold measured at load can be the wrong one; measure once more when
+     everything has settled */
+  window.addEventListener('load', function () { setTimeout(applyFolds, 900); });
+})();
+</script>
+    <?php
+}, 25 );

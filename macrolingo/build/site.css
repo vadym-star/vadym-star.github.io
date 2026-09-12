@@ -2404,6 +2404,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -6456,6 +6458,525 @@ html[lang^="ja"] .ml-posts-archive .elementor-button:after{
 table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
 
 .ml-opt-rate .elementor-heading-title{ color: var(--ml-accent-ink); }
+/* ==========================================================================
+   MacroLingo on a tablet and on a phone
+
+   A separate file, merged last, because it is a design of its own rather
+   than a set of patches to the desktop one. Reading it top to bottom should
+   tell you what a small screen gets and why.
+
+   THE ARGUMENT
+   The desktop pages are built out of rows: two, three or five cards abreast,
+   a picture beside its words, a figure beside its label. A row is what makes
+   the desktop page readable and it is exactly what a phone cannot show. Left
+   alone, every row becomes a stack and the page becomes four times longer -
+   measured, not guessed: the homepage ran to 12,796px on a 390px screen and
+   Copywriting to 16,235px. So the phone design is not the desktop design
+   narrowed. It is the same content with:
+
+     * a type scale of its own, because 19px body and a 38px headline are
+       desktop sizes shown on a screen a fifth the width;
+     * every equal-height floor removed, because those exist to level a row
+       and in one column they are nothing but empty space;
+     * tighter vertical rhythm, because white space that frames a section on
+       a wide screen becomes dead scrolling on a narrow one;
+     * long blocks folded behind a tap rather than dropped - Google indexes
+       the phone page now, so anything not rendered here is not indexed;
+     * one thumb-sized call to action always within reach.
+
+   BREAKPOINTS are Elementor's own two and no others, so that what Adam sees
+   under the tablet and phone icons in the editor is what the site does:
+
+       tablet   max-width: 1024px
+       phone    max-width:  767px
+
+   !important appears often and deliberately. Elementor writes padding,
+   width, gap, display and alignment onto the element from the widget panel,
+   into a per-page stylesheet that loads after this one. Anything about how a
+   container lays its children out has to be said loudly or it is not said at
+   all. Anything that is only ours - colour, type, radius - does not.
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. TABLET   768 - 1024
+   A tablet is not a big phone. It holds two cards abreast comfortably, so
+   the row survives; what changes is the measure, the gutters and the type.
+   ========================================================================== */
+@media (max-width: 1024px){
+
+  /* --- the page's own margins ------------------------------------------- */
+  .ml-inner.e-con{ padding-left: 40px !important; padding-right: 40px !important; }
+  .ml-inner.e-con{ padding-top: 72px !important; padding-bottom: 72px !important; }
+  .ml-page-hero.e-con{ padding-top: 16px !important; padding-bottom: 64px !important; }
+
+  /* --- type ------------------------------------------------------------- */
+  .ml-hero-title .elementor-heading-title{ font-size: 44px; line-height: 1.1; }
+  .ml-section-head .elementor-heading-title,
+  .ml-heading-mid .elementor-heading-title{ font-size: 34px; line-height: 1.15; }
+  .ml-lead p, .ml-hero-intro p, .ml-lead-body p{ font-size: 17px; }
+  .ml-svc-title .elementor-heading-title{ font-size: 19px; }
+
+  /* --- rows that hold, and rows that do not ----------------------------- */
+  /* three abreast becomes two, and a lone third centres under them the way
+     five industry cards do on the desktop hub                             */
+  .ml-three-up > .e-con-inner,
+  .ml-svc-grid-three > .e-con-inner{ grid-template-columns: repeat(2, 1fr) !important; }
+  .ml-three-up > .e-con-inner > *:last-child:nth-child(odd),
+  .ml-svc-grid-three > .e-con-inner > *:last-child:nth-child(odd){
+    grid-column: 1 / -1;
+    width: min(100%, calc(50% - 11px));
+    justify-self: center;
+  }
+  /* the contact block's two columns: the form needs the whole width to be
+     usable, and the details read fine underneath it                       */
+  .ml-split-contact > .e-con-inner{ grid-template-columns: 1fr !important; gap: 40px; }
+  .ml-split-contact .ml-form{ order: -1; }
+
+  /* --- the hero keeps its two columns, at a calmer ratio ----------------- */
+  .ml-split-hero > .e-con-inner{ grid-template-columns: 1.05fr 1fr !important; gap: 34px; }
+  .ml-hero-photo img{ max-height: 340px; object-fit: cover; width: 100%; }
+
+  /* --- the client marks are smaller, so more of them show --------------- */
+  .ml-logo-carousel .swiper-slide-image{ max-height: 34px; }
+}
+
+
+/* ==========================================================================
+   2. PHONE   up to 767
+   ========================================================================== */
+@media (max-width: 767px){
+
+  /* --- 2.1 the page's own margins ---------------------------------------
+     20px of gutter, not 30. On a 390px screen 30 either side spends 15% of
+     the width on nothing; 20 still clears the thumb rail and gives the text
+     350px to work with. Section padding comes down from 56 to 44: the space
+     between sections has to read as a separation, not as a rest stop.    */
+  .ml-inner.e-con,
+  .ml-page-hero.e-con{ padding-left: 20px !important; padding-right: 20px !important; }
+  .ml-inner.e-con{ padding-top: 44px !important; padding-bottom: 44px !important; }
+  .ml-page-hero.e-con{ padding-top: 10px !important; padding-bottom: 40px !important; }
+  .ml-inner > .e-con-inner{ gap: 0 !important; }
+
+  /* --- 2.2 the type scale -----------------------------------------------
+     Set here as one scale rather than page by page. 30/25/18/16 with the
+     leading each size wants: a headline can be tight, body text cannot.  */
+  .ml-hero-title .elementor-heading-title{
+    font-size: 30px;
+    line-height: 1.16;
+    letter-spacing: -.01em;
+  }
+  .ml-section-head .elementor-heading-title,
+  .ml-heading-mid .elementor-heading-title,
+  .ml-heading-solo .elementor-heading-title,
+  .ml-heading-founder .elementor-heading-title{
+    font-size: 25px;
+    line-height: 1.2;
+  }
+  .ml-cs-head .elementor-heading-title,
+  .ml-case-title .elementor-heading-title{ font-size: 21px; line-height: 1.25; }
+  .ml-svc-title .elementor-heading-title,
+  .ml-ask-q .elementor-heading-title,
+  .ml-pair-name .elementor-heading-title,
+  .ml-step-title .elementor-heading-title,
+  .ml-colhead .elementor-heading-title{ font-size: 18px; line-height: 1.3; }
+  .ml-label .elementor-heading-title{ font-size: 11.5px; letter-spacing: .1em; }
+
+  /* body copy: 16px is the phone's reading size. 19 was the desktop size
+     shown small, which is why every page felt shouted.                    */
+  .ml-lead p,
+  .ml-hero-intro p,
+  .ml-lead-body p,
+  .ml-contact-intro p,
+  .ml-bio-wide p,
+  .ml-prose p,
+  .ml-work-note p,
+  .ml-case-note p{ font-size: 16px; line-height: 1.62; }
+  .ml-svc-note p,
+  .ml-ask-a p,
+  .ml-cs-val p,
+  .ml-step-note p,
+  .ml-pair-note p,
+  .ml-quote-text p{ font-size: 15.5px; line-height: 1.58; }
+  .ml-svc-list .elementor-icon-list-text,
+  .ml-ticks .elementor-icon-list-text{ font-size: 15.5px; line-height: 1.5; }
+
+  /* a centred section head is right on a wide screen and wrong on a narrow
+     one: centred text over four or five short lines has two ragged edges  */
+  .ml-section-head .elementor-heading-title,
+  .ml-section-head .ml-lead p{ text-align: left !important; }
+  .ml-label-centred .elementor-heading-title{ text-align: left !important; }
+
+  /* --- 2.3 every row becomes one column ---------------------------------- */
+  .ml-three-up > .e-con-inner,
+  .ml-two-up > .e-con-inner,
+  .ml-svc-grid > .e-con-inner,
+  .ml-svc-grid-three > .e-con-inner,
+  .ml-pairs > .e-con-inner,
+  .ml-faq-cols > .e-con-inner,
+  .ml-split-hero > .e-con-inner,
+  .ml-split-contact > .e-con-inner,
+  .ml-split-founder > .e-con-inner,
+  .ml-cs > .e-con-inner,
+  .ml-work-cols > .e-con-inner,
+  .ml-why-split > .e-con-inner{
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+  /* the lone-last rule has nothing to centre in one column */
+  .ml-svc-grid > .e-con-inner > *:last-child:nth-child(odd),
+  .ml-svc-grid-three > .e-con-inner > *:last-child:nth-child(odd),
+  .ml-three-up > .e-con-inner > *:last-child:nth-child(odd){
+    grid-column: auto;
+    width: 100%;
+    justify-self: stretch;
+  }
+
+  /* --- 2.4 THE FLOORS COME OFF ------------------------------------------
+     Every one of these exists to level a row of cards on the desktop: a
+     two-line minimum on a title so three headings sit on the same line, a
+     three-line clamp on a role, a 6em floor under a list. In one column
+     there is no row to level, and each of them is now simply a hole. This
+     block alone takes a couple of thousand pixels off a long page.      */
+  .ml-svc-title .elementor-heading-title,
+  .ml-svc-grid-three .ml-svc-title .elementor-heading-title,
+  .ml-issue .ml-ask-q .elementor-heading-title,
+  .ml-ask-q .elementor-heading-title{ min-height: 0 !important; }
+  .ml-issue .ml-ask-a p,
+  .ml-svc-listed .ml-svc-note p,
+  .ml-plan .ml-svc-note p,
+  .ml-svc-note p{ min-height: 0 !important; }
+  .ml-quote-role p{
+    -webkit-line-clamp: unset;
+    min-height: 0 !important;
+    display: block !important;
+    overflow: visible;
+  }
+
+  /* --- 2.5 cards --------------------------------------------------------- */
+  .e-con.ml-card,
+  .e-con.ml-svc,
+  .e-con.ml-ask,
+  .e-con.ml-plan,
+  .e-con.ml-opt,
+  .e-con.ml-step{ padding: 20px !important; }
+  .e-con.ml-card > .e-con-inner,
+  .e-con.ml-svc > .e-con-inner,
+  .e-con.ml-ask > .e-con-inner{ padding: 0 !important; }
+
+  /* --- 2.6 anything you tap is at least 48px ---------------------------
+     Measured before this: primary buttons came out at 43px and the arrow
+     links at 26. 26px is half a fingertip.                               */
+  .ml-btn-primary .elementor-button,
+  .ml-btn-soft .elementor-button{
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 15.5px !important;
+  }
+  .ml-hero-cta{ width: 100%; }
+  .ml-hero-cta.e-con > .e-con-inner{
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+  }
+  .ml-cta-centred > .e-con-inner{ flex-direction: column !important; gap: 10px !important; }
+  .ml-btn-link .elementor-button,
+  .ml-arrow-link .elementor-button{
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    font-size: 15.5px !important;
+  }
+  /* a tick list whose items are links needs the same room per row */
+  .ml-tlist .elementor-icon-list-item > a,
+  .ml-footer-links .elementor-icon-list-item > a{ min-height: 40px; display: flex; align-items: center; }
+
+  /* --- 2.7 the hero ------------------------------------------------------
+     The standing rule is that a hero is readable on load. On a 390x844
+     screen the header takes 64, which leaves 780: label, headline, three
+     lines of intro and one button come to about 520, so the argument and
+     the action are both above the fold and the picture follows. The photo
+     is cropped to 16:10 rather than shown whole - a portrait photograph
+     here would push the whole page down a screen and a half.            */
+  .ml-split-hero > .e-con-inner{ gap: 24px !important; }
+  .ml-hero-photo img,
+  .ml-photo.ml-photo-square img{
+    width: 100%;
+    max-height: 220px;
+    object-fit: cover;
+    border-radius: 14px;
+  }
+  .ml-hero-intro.elementor-widget{ margin-top: 12px; }
+  .ml-hero-cta.e-con{ margin-top: 20px; }
+
+  /* --- 2.8 the contact block --------------------------------------------
+     The form first. Someone who has scrolled a phone page to its foot has
+     decided; making them pass the address and a map to reach the field is
+     asking them to decide twice.                                        */
+  .ml-split-contact .ml-form{ order: -1; }
+  .ml-map iframe{ height: 170px !important; }
+  .ml-crow{ padding: 0 !important; }
+  .ml-form .forminator-row{ margin-bottom: 12px !important; }
+  .ml-form input, .ml-form textarea, .ml-form select{ font-size: 16px !important; }
+
+  /* --- 2.9 the client marks ---------------------------------------------- */
+  .ml-logo-carousel .swiper-slide-image{ max-height: 26px; }
+  .ml-strip-label .elementor-heading-title{ font-size: 11px; }
+
+  /* --- 2.10 figures and statistics --------------------------------------- */
+  .ml-stat-figure .elementor-heading-title,
+  .ml-fig-number .elementor-heading-title{ font-size: 34px; }
+  .ml-stats > .e-con-inner{ flex-direction: column !important; gap: 20px !important; }
+  .ml-stat-sep{ display: none; }
+
+  /* --- 2.11 the numbered steps ------------------------------------------
+     The connector arrow between steps is drawn for a column on the desktop
+     and still reads in one column here, so it stays; the number moves onto
+     the same line as the label so a step costs one line less.           */
+  .e-con.ml-step{ padding: 18px 18px 18px 18px !important; }
+  .ml-step-no .elementor-heading-title{ font-size: 15px; }
+
+  /* --- 2.12 the article and the legal pages ------------------------------ */
+  .e-con > .e-con-inner > .elementor-widget.ml-article,
+  .e-con > .e-con-inner > .elementor-widget.ml-legal{ max-width: 100%; }
+  .ml-article p, .ml-legal p{ font-size: 16px; line-height: 1.68; }
+  .ml-article h2, .ml-legal h2{ font-size: 22px; }
+  .ml-article h3, .ml-legal h3{ font-size: 19px; }
+
+  /* --- 2.13 the blog ------------------------------------------------------ */
+  .ml-posts .elementor-grid{ grid-template-columns: 1fr !important; }
+  .ml-post-title .elementor-heading-title{ font-size: 18px; }
+
+  /* --- 2.14 the header ---------------------------------------------------
+     Logo, language, burger. The green button leaves the bar because the
+     sticky call to action at the foot carries it, and three controls plus
+     a wordmark in 390px leaves the wordmark nothing.                     */
+  .ml-header.e-con{ padding-left: 16px !important; padding-right: 16px !important; }
+  .ml-header-cta{ display: none !important; }
+  .ml-logo img{ max-width: 132px; }
+  .elementor-nav-menu--dropdown .elementor-item{
+    font-size: 17px !important;
+    min-height: 56px;
+    display: flex !important;
+    align-items: center;
+  }
+
+  /* --- 2.15 the footer ---------------------------------------------------
+     Adam asked for the whole site in the footer and it stays there, but as
+     four stacked groups rather than four columns squeezed to 80px.      */
+  .ml-footer.e-con{ padding-left: 20px !important; padding-right: 20px !important; }
+  .ml-footer-cols > .e-con-inner{
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 26px 18px !important;
+  }
+  .ml-footer-cols > .e-con-inner > *:first-child{ grid-column: 1 / -1; }
+  .ml-footer-bottom > .e-con-inner{
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+  }
+  .ml-footer-links .elementor-icon-list-text{ font-size: 13.5px; }
+
+  /* --- 2.16 room for the sticky bar -------------------------------------- */
+  body.ml-has-sticky .ml-footer.e-con{ padding-bottom: 84px !important; }
+}
+
+
+/* ==========================================================================
+   3. A TABLE ON A PHONE
+   The comparison table is four columns: what is being compared, then a tick
+   or a cross under MacroLingo, under the agencies and under the AI tools.
+   At 390px it measured 403px wide inside a box with overflow hidden, so the
+   last column was not merely cramped, it was unreachable.
+
+   Rather than scroll it sideways - which hides the comparison, the one
+   thing the block exists to make - each row becomes a small card: the row
+   label as its heading, then the three verdicts as labelled lines. The
+   labels come from data-label attributes the builder writes from the very
+   same strings as the column heads, so editing a head keeps them in step.
+   ========================================================================== */
+@media (max-width: 767px){
+  table.ml-compare{ border: 0; border-spacing: 0; }
+  table.ml-compare thead{ display: none; }
+  table.ml-compare,
+  table.ml-compare tbody,
+  table.ml-compare tr,
+  table.ml-compare th,
+  table.ml-compare td{ display: block; width: auto; }
+
+  table.ml-compare tbody tr{
+    border: 1px solid var(--ml-line, #E9EEE3);
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+  table.ml-compare tbody th[scope="row"]{
+    border: 0 !important;
+    padding: 0 0 10px 0 !important;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+    color: var(--e-global-color-secondary);
+  }
+  table.ml-compare tbody td{
+    border: 0 !important;
+    border-top: 1px solid var(--ml-line-2, #EEF1EA) !important;
+    padding: 9px 0 !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    font-size: 14.5px;
+  }
+  table.ml-compare tbody td:before{
+    content: attr(data-label);
+    color: var(--e-global-color-text);
+    padding-right: 14px;
+  }
+  /* our own column is the one the reader is here for, so it is named and
+     tinted rather than left to look like the other two */
+  table.ml-compare tbody td.ml-col-us{
+    background: var(--ml-accent-tint, #E7F1F1);
+    margin: 0 -16px;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  table.ml-compare tbody td.ml-col-us:before{ font-weight: 600; color: var(--ml-accent-ink, #00595A); }
+
+  /* the same treatment for the facts table on the Japanese About page */
+  table.ml-facts,
+  table.ml-facts tbody,
+  table.ml-facts tr,
+  table.ml-facts th,
+  table.ml-facts td{ display: block; width: auto; }
+  table.ml-facts tr{
+    border: 1px solid var(--ml-line, #E9EEE3);
+    border-radius: 12px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+  }
+  table.ml-facts th{
+    border: 0 !important;
+    padding: 0 0 4px 0 !important;
+    text-align: left;
+    font-size: 12px;
+    letter-spacing: .04em;
+    color: var(--e-global-color-text);
+  }
+  table.ml-facts td{ border: 0 !important; padding: 0 !important; font-size: 15.5px; }
+}
+
+
+/* ==========================================================================
+   4. THE STICKY CALL TO ACTION
+   One thumb-sized action, always in reach, on the pages that sell something
+   - services and industries - and nowhere else. It appears once the reader
+   is past the hero, so the hero's own button is not doubled, and it is a
+   plain container in the footer template, so its words and its link are
+   edited in Elementor like anything else.
+   ========================================================================== */
+.ml-sticky-cta{ display: none; }
+
+@media (max-width: 767px){
+  body.ml-has-sticky .ml-sticky-cta{
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 998;
+    padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px)) 16px;
+    background: rgba(255, 255, 255, .96);
+    backdrop-filter: saturate(140%) blur(8px);
+    border-top: 1px solid var(--ml-line, #E9EEE3);
+    transform: translateY(110%);
+    transition: transform .22s ease;
+  }
+  body.ml-has-sticky.ml-sticky-on .ml-sticky-cta{ transform: translateY(0); }
+  .ml-sticky-cta .elementor-button{
+    width: 100%;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+@media (prefers-reduced-motion: reduce){
+  .ml-sticky-cta{ transition: none !important; }
+}
+
+
+/* ==========================================================================
+   5. FOLDED BLOCKS
+   What the "show more" control looks like. The folding itself is done by a
+   snippet, because which blocks fold is a rule about the whole site rather
+   than a property of any one page; this is only its appearance.
+   ========================================================================== */
+.ml-fold-btn{ display: none; }
+
+@media (max-width: 767px){
+  .ml-fold-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    min-height: 46px;
+    margin-top: 14px;
+    padding: 0 18px;
+    border: 1.6px solid #DDE6D6;
+    border-radius: 10px;
+    background: #fff;
+    font-family: var(--ml-sans);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--e-global-color-secondary);
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .ml-fold-btn:hover{ border-color: var(--e-global-color-primary); }
+  /* the chevron is drawn from two borders rather than loaded as a mask,
+     so this file carries no asset of its own and nothing to keep in step
+     with build_css.py                                                    */
+  .ml-fold-btn:after{
+    content: "";
+    width: 8px;
+    height: 8px;
+    margin-top: -4px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform .18s ease;
+  }
+  .ml-fold-open .ml-fold-btn:after{ margin-top: 2px; }
+  .ml-fold-open .ml-fold-btn:after{ transform: rotate(-135deg); }
+
+  /* on a blue band the control takes the band's own ink */
+  .ml-band-blue .ml-fold-btn{ border-color: #D7E6FB; }
+
+  /* what is folded away, and the fade that says there is more under it */
+  .ml-folded{ position: relative; overflow: hidden; }
+  .ml-folded:after{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 56px;
+    pointer-events: none;
+    background: linear-gradient(to bottom, rgba(255,255,255,0), var(--ml-fold-fade, #fff));
+  }
+  .ml-band-warm .ml-folded{ --ml-fold-fade: var(--e-global-color-mlwarm, #F5F8F0); }
+  .ml-band-blue .ml-folded{ --ml-fold-fade: #EAF2FE; }
+  .ml-fold-open .ml-folded:after{ display: none; }
+}
 
 
 /* MacroLingo cookie notice
