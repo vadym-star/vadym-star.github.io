@@ -2426,6 +2426,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -6976,18 +6978,19 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
   .ml-post-title .elementor-heading-title{ font-size: 18px !important; }
 
   /* Elementor's inline icon list - the categories-and-date line under a post
-     title, and the byline - offsets its items with a -8px margin on each
-     side. At 390px that makes the list 406px wide and the whole document
-     scrolls sideways. The items keep their spacing; only the offset goes. */
-  [data-elementor-type="single-post"] .elementor-inline-items,
-  [data-elementor-type="archive"] .elementor-inline-items,
-  .ml-post-cats .elementor-inline-items{
+     title, the byline, the tag row on the Japanese case-examples page -
+     offsets its items with a -8px margin on each side. At 390px that makes
+     the list 406px wide and the whole document scrolls sideways.
+
+     Said of every inline list rather than only of the two blog templates:
+     the first version of this rule was scoped to those, and the same widget
+     then turned up on /ja/case-examples/ with the same 8px of sideways
+     scroll. The items keep their spacing; only the offset goes.        */
+  .elementor-inline-items{
     margin-left: 0 !important;
     margin-right: 0 !important;
   }
-  [data-elementor-type="single-post"] .elementor-inline-items > .elementor-icon-list-item:first-child,
-  [data-elementor-type="archive"] .elementor-inline-items > .elementor-icon-list-item:first-child,
-  .ml-post-cats .elementor-inline-items > .elementor-icon-list-item:first-child{
+  .elementor-inline-items > .elementor-icon-list-item:first-child{
     padding-left: 0 !important;
   }
 
