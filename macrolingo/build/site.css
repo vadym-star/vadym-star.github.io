@@ -2418,6 +2418,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -6698,6 +6700,12 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
   .ml-quote-text p{ font-size: 15.5px !important; line-height: 1.58 !important; }
   .ml-svc-list .elementor-icon-list-text,
   .ml-ticks .elementor-icon-list-text{ font-size: 15.5px !important; line-height: 1.5 !important; }
+
+  /* ml-nb holds a phrase together so a heading does not break in the wrong
+     place. On a phone a phrase can be wider than the screen - 英語ウェブ
+     マーケティングと measured 378px in a 350px column and pushed the whole
+     document 8px sideways - so here the phrase is allowed to break.     */
+  .ml-nb{ white-space: normal !important; }
 
   /* a centred section head is right on a wide screen and wrong on a narrow
      one: centred text over four or five short lines has two ragged edges  */
