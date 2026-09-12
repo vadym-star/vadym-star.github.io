@@ -2430,6 +2430,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -6981,6 +6983,21 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
   .ml-article h3, .ml-legal h3{ font-size: 19px !important; }
 
   /* --- 2.13 the blog ------------------------------------------------------ */
+  /* A card carries up to three categories with a fat dot between them. On a
+     card 350px wide the second one does not fit and the line is ellipsised,
+     so the index read "CASE STUDIES AND REPORTS . C...". Letting it wrap
+     was the first attempt and changed nothing - the line is clipped, not
+     wrapped. One category is enough on a card, and the post itself still
+     lists every one of them. The dot is a pseudo-element on the items that
+     follow the first, so it goes with them.
+
+     The 48px floor under the row goes too: it exists to level a row of
+     three cards, and in one column there is no row to level.            */
+  .ml-post-cat .elementor-post-info__terms-list-item:nth-child(n + 2){
+    display: none !important;
+  }
+  .ml-post-cat.elementor-widget{ min-height: 0 !important; }
+
   .ml-posts .elementor-grid{ grid-template-columns: 1fr !important; }
   .ml-post-title .elementor-heading-title{ font-size: 18px !important; }
 
