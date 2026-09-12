@@ -2420,6 +2420,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -6589,6 +6591,20 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
      not a phone: a full-width button on a 768px screen reads as a banner,
      so these grow in height and keep their own width. Measured before this:
      the header button came out at 43px and every arrow link at 24 to 26. */
+  /* Every button on a page, whatever widget made it, clears the 44px touch
+     floor. Said blanket rather than widget by widget because the loop
+     grid's own "Show more posts" came out at 25px and carries none of the
+     classes this design names - and the next widget Adam adds will not
+     either.                                                             */
+  [data-elementor-type="wp-post"] .elementor-button,
+  [data-elementor-type="wp-page"] .elementor-button,
+  [data-elementor-type="single-post"] .elementor-button,
+  [data-elementor-type="archive"] .elementor-button{
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
   .ml-btn-primary .elementor-button,
   .ml-btn-soft .elementor-button{
     min-height: 48px;
