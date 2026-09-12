@@ -2422,6 +2422,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -6272,6 +6274,18 @@ html[lang^="ja"] .ml-posts-archive .elementor-button:after{
   margin-top: auto;
   padding-top: 16px;
 }
+
+/* --- A band that says one thing ------------------------------------------
+   Two industry pages carry a heading here with no paragraph under it, and
+   his own page has none to give. At full section padding that reads as a
+   section whose text failed to load - measured 370px of band for two lines
+   of type. Closed down, the same heading reads as a deliberate statement
+   between two sections.                                                   */
+.ml-inner.ml-statement{
+  padding-top: 54px !important;
+  padding-bottom: 54px !important;
+}
+.ml-statement .ml-section-head.e-con{ padding-bottom: 0 !important; }
 /* ==========================================================================
    THE THIRD COLOUR
 
