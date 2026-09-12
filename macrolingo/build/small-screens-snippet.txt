@@ -142,10 +142,23 @@ add_action( 'wp_footer', function () {
      the words stay in the document for a reader's find-on-page and for a
      search engine, they are only not drawn.                            */
   var RULES = [
-    { sel: '.ml-svc-grid > .e-con-inner, .ml-two-up > .e-con-inner, .ml-three-up > .e-con-inner',
+    /* a long grid of cards - the industry hub's five, the twelve agency
+       issues, six service cards                                          */
+    { sel: '.ml-svc-grid > .e-con-inner, .ml-two-up > .e-con-inner, .ml-three-up > .e-con-inner, .ml-pairs > .e-con-inner',
       keep: 3, min: 5, label: 'Show all %n', labelJa: 'すべて表示（%n件）' },
+    /* a long list of ticks under a service card */
     { sel: '.ml-svc-list .elementor-icon-list-items, .ml-ticks .elementor-icon-list-items',
       keep: 5, min: 7, label: 'Show all %n', labelJa: 'すべて表示（%n件）' },
+    /* the comparison table, which on a phone is one card per row. Twelve
+       of them is the single longest block on the Copywriting page - it
+       measured 2,153px - and the first four already make the point.     */
+    { sel: 'table.ml-compare tbody',
+      keep: 4, min: 6, label: 'Show all %n comparisons', labelJa: '比較をすべて表示（%n件）' },
+    /* the numbered process. Three steps show how the work starts, which is
+       what a reader on a phone is deciding about; the rest is detail.   */
+    { sel: '.ml-steps > .e-con-inner',
+      keep: 3, min: 5, label: 'Show all %n steps', labelJa: 'すべての手順を表示（%n件）' },
+    /* a run of paragraphs a builder has marked as foldable */
     { sel: '.ml-fold-prose',
       keep: 2, min: 4, label: 'Read more', labelJa: '続きを読む' }
   ];
@@ -176,10 +189,24 @@ add_action( 'wp_footer', function () {
     var word = (isJa ? rule.labelJa : rule.label).replace('%n', kids.length);
     btn.textContent = word;
     btn.setAttribute('aria-expanded', 'false');
-    wrap.parentNode.insertBefore(btn, wrap.nextSibling);
 
+    /* The button goes after the block it opens - except inside a table,
+       where a <button> between <tbody> and </table> is not valid markup and
+       the browser hoists it out of the table on its own. There it goes
+       after the whole table instead. */
+    var anchor = wrap;
+    if (/^(TBODY|THEAD|TR|TD|TH)$/.test(wrap.tagName)) {
+      anchor = wrap.closest('table') || wrap;
+    }
+    anchor.parentNode.insertBefore(btn, anchor.nextSibling);
+
+    /* the open state is carried on the two elements themselves rather than
+       on a shared parent, because after the table case they no longer have
+       one */
     btn.addEventListener('click', function () {
-      var open = wrap.parentNode.classList.toggle('ml-fold-open');
+      var open = !wrap.classList.contains('ml-fold-open');
+      wrap.classList.toggle('ml-fold-open', open);
+      btn.classList.toggle('ml-fold-open', open);
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
       if (open) {
         wrap.style.maxHeight = '';
@@ -201,8 +228,7 @@ add_action( 'wp_footer', function () {
     var f = box.__mlFold;
     if (!f) { return; }
     f.wrap.style.maxHeight = '';
-    f.wrap.classList.remove('ml-folded');
-    f.wrap.parentNode.classList.remove('ml-fold-open');
+    f.wrap.classList.remove('ml-folded', 'ml-fold-open');
     if (f.btn && f.btn.parentNode) { f.btn.parentNode.removeChild(f.btn); }
     box.__mlFold = null;
   }

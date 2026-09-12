@@ -2406,6 +2406,10 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -6490,11 +6494,19 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
        tablet   max-width: 1024px
        phone    max-width:  767px
 
-   !important appears often and deliberately. Elementor writes padding,
-   width, gap, display and alignment onto the element from the widget panel,
-   into a per-page stylesheet that loads after this one. Anything about how a
-   container lays its children out has to be said loudly or it is not said at
-   all. Anything that is only ours - colour, type, radius - does not.
+   !important appears often and deliberately, for two separate reasons.
+   Elementor writes padding, width, gap, display and alignment onto the
+   element from the widget panel, into a per-page stylesheet that loads after
+   this one, so anything about how a container lays its children out has to
+   be said loudly or it is not said at all. And the desktop type rules are
+   written with four-class selectors over a clamp() -
+
+       .ml-inner.ml-page-hero .ml-hero-title.elementor-widget-heading
+       .elementor-heading-title{ font-size: clamp(38px, 5vw, 60px) }
+
+   - which a two-class rule here loses to on specificity however late it is
+   merged. That is why every size and leading below is marked. Colour and
+   radius are not, because nothing else is fighting for them.
    ========================================================================== */
 
 
@@ -6511,11 +6523,11 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
   .ml-page-hero.e-con{ padding-top: 16px !important; padding-bottom: 64px !important; }
 
   /* --- type ------------------------------------------------------------- */
-  .ml-hero-title .elementor-heading-title{ font-size: 44px; line-height: 1.1; }
+  .ml-hero-title .elementor-heading-title{ font-size: 44px !important; line-height: 1.1 !important; }
   .ml-section-head .elementor-heading-title,
-  .ml-heading-mid .elementor-heading-title{ font-size: 34px; line-height: 1.15; }
-  .ml-lead p, .ml-hero-intro p, .ml-lead-body p{ font-size: 17px; }
-  .ml-svc-title .elementor-heading-title{ font-size: 19px; }
+  .ml-heading-mid .elementor-heading-title{ font-size: 34px !important; line-height: 1.15 !important; }
+  .ml-lead p, .ml-hero-intro p, .ml-lead-body p{ font-size: 17px !important; }
+  .ml-svc-title .elementor-heading-title{ font-size: 19px !important; }
 
   /* --- rows that hold, and rows that do not ----------------------------- */
   /* three abreast becomes two, and a lone third centres under them the way
@@ -6562,25 +6574,25 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
      Set here as one scale rather than page by page. 30/25/18/16 with the
      leading each size wants: a headline can be tight, body text cannot.  */
   .ml-hero-title .elementor-heading-title{
-    font-size: 30px;
-    line-height: 1.16;
+    font-size: 30px !important;
+    line-height: 1.16 !important;
     letter-spacing: -.01em;
   }
   .ml-section-head .elementor-heading-title,
   .ml-heading-mid .elementor-heading-title,
   .ml-heading-solo .elementor-heading-title,
   .ml-heading-founder .elementor-heading-title{
-    font-size: 25px;
-    line-height: 1.2;
+    font-size: 25px !important;
+    line-height: 1.2 !important;
   }
   .ml-cs-head .elementor-heading-title,
-  .ml-case-title .elementor-heading-title{ font-size: 21px; line-height: 1.25; }
+  .ml-case-title .elementor-heading-title{ font-size: 21px !important; line-height: 1.25 !important; }
   .ml-svc-title .elementor-heading-title,
   .ml-ask-q .elementor-heading-title,
   .ml-pair-name .elementor-heading-title,
   .ml-step-title .elementor-heading-title,
-  .ml-colhead .elementor-heading-title{ font-size: 18px; line-height: 1.3; }
-  .ml-label .elementor-heading-title{ font-size: 11.5px; letter-spacing: .1em; }
+  .ml-colhead .elementor-heading-title{ font-size: 18px !important; line-height: 1.3 !important; }
+  .ml-label .elementor-heading-title{ font-size: 11.5px !important; letter-spacing: .1em; }
 
   /* body copy: 16px is the phone's reading size. 19 was the desktop size
      shown small, which is why every page felt shouted.                    */
@@ -6591,15 +6603,15 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
   .ml-bio-wide p,
   .ml-prose p,
   .ml-work-note p,
-  .ml-case-note p{ font-size: 16px; line-height: 1.62; }
+  .ml-case-note p{ font-size: 16px !important; line-height: 1.62 !important; }
   .ml-svc-note p,
   .ml-ask-a p,
   .ml-cs-val p,
   .ml-step-note p,
   .ml-pair-note p,
-  .ml-quote-text p{ font-size: 15.5px; line-height: 1.58; }
+  .ml-quote-text p{ font-size: 15.5px !important; line-height: 1.58 !important; }
   .ml-svc-list .elementor-icon-list-text,
-  .ml-ticks .elementor-icon-list-text{ font-size: 15.5px; line-height: 1.5; }
+  .ml-ticks .elementor-icon-list-text{ font-size: 15.5px !important; line-height: 1.5 !important; }
 
   /* a centred section head is right on a wide screen and wrong on a narrow
      one: centred text over four or five short lines has two ragged edges  */
@@ -6725,11 +6737,11 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
 
   /* --- 2.9 the client marks ---------------------------------------------- */
   .ml-logo-carousel .swiper-slide-image{ max-height: 26px; }
-  .ml-strip-label .elementor-heading-title{ font-size: 11px; }
+  .ml-strip-label .elementor-heading-title{ font-size: 11px !important; }
 
   /* --- 2.10 figures and statistics --------------------------------------- */
   .ml-stat-figure .elementor-heading-title,
-  .ml-fig-number .elementor-heading-title{ font-size: 34px; }
+  .ml-fig-number .elementor-heading-title{ font-size: 34px !important; }
   .ml-stats > .e-con-inner{ flex-direction: column !important; gap: 20px !important; }
   .ml-stat-sep{ display: none; }
 
@@ -6738,18 +6750,18 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
      and still reads in one column here, so it stays; the number moves onto
      the same line as the label so a step costs one line less.           */
   .e-con.ml-step{ padding: 18px 18px 18px 18px !important; }
-  .ml-step-no .elementor-heading-title{ font-size: 15px; }
+  .ml-step-no .elementor-heading-title{ font-size: 15px !important; }
 
   /* --- 2.12 the article and the legal pages ------------------------------ */
   .e-con > .e-con-inner > .elementor-widget.ml-article,
   .e-con > .e-con-inner > .elementor-widget.ml-legal{ max-width: 100%; }
-  .ml-article p, .ml-legal p{ font-size: 16px; line-height: 1.68; }
-  .ml-article h2, .ml-legal h2{ font-size: 22px; }
-  .ml-article h3, .ml-legal h3{ font-size: 19px; }
+  .ml-article p, .ml-legal p{ font-size: 16px !important; line-height: 1.68 !important; }
+  .ml-article h2, .ml-legal h2{ font-size: 22px !important; }
+  .ml-article h3, .ml-legal h3{ font-size: 19px !important; }
 
   /* --- 2.13 the blog ------------------------------------------------------ */
   .ml-posts .elementor-grid{ grid-template-columns: 1fr !important; }
-  .ml-post-title .elementor-heading-title{ font-size: 18px; }
+  .ml-post-title .elementor-heading-title{ font-size: 18px !important; }
 
   /* --- 2.14 the header ---------------------------------------------------
      Logo, language, burger. The green button leaves the bar because the
@@ -6780,7 +6792,7 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
     align-items: flex-start !important;
     gap: 10px !important;
   }
-  .ml-footer-links .elementor-icon-list-text{ font-size: 13.5px; }
+  .ml-footer-links .elementor-icon-list-text{ font-size: 13.5px !important; }
 
   /* --- 2.16 room for the sticky bar -------------------------------------- */
   body.ml-has-sticky .ml-footer.e-con{ padding-bottom: 84px !important; }
@@ -6819,7 +6831,7 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
   table.ml-compare tbody th[scope="row"]{
     border: 0 !important;
     padding: 0 0 10px 0 !important;
-    font-size: 16px;
+    font-size: 16px !important;
     font-weight: 600;
     text-align: left;
     color: var(--e-global-color-secondary);
@@ -6832,7 +6844,7 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
     align-items: center;
     justify-content: space-between;
     text-align: left;
-    font-size: 14.5px;
+    font-size: 14.5px !important;
   }
   table.ml-compare tbody td:before{
     content: attr(data-label);
@@ -6865,11 +6877,11 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
     border: 0 !important;
     padding: 0 0 4px 0 !important;
     text-align: left;
-    font-size: 12px;
+    font-size: 12px !important;
     letter-spacing: .04em;
     color: var(--e-global-color-text);
   }
-  table.ml-facts td{ border: 0 !important; padding: 0 !important; font-size: 15.5px; }
+  table.ml-facts td{ border: 0 !important; padding: 0 !important; font-size: 15.5px !important; }
 }
 
 
@@ -6934,7 +6946,7 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
     border-radius: 10px;
     background: #fff;
     font-family: var(--ml-sans);
-    font-size: 15px;
+    font-size: 15px !important;
     font-weight: 600;
     color: var(--e-global-color-secondary);
     cursor: pointer;
@@ -6955,8 +6967,7 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
     transform: rotate(45deg);
     transition: transform .18s ease;
   }
-  .ml-fold-open .ml-fold-btn:after{ margin-top: 2px; }
-  .ml-fold-open .ml-fold-btn:after{ transform: rotate(-135deg); }
+  .ml-fold-btn.ml-fold-open:after{ margin-top: 2px; transform: rotate(-135deg); }
 
   /* on a blue band the control takes the band's own ink */
   .ml-band-blue .ml-fold-btn{ border-color: #D7E6FB; }
@@ -6975,7 +6986,7 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
   }
   .ml-band-warm .ml-folded{ --ml-fold-fade: var(--e-global-color-mlwarm, #F5F8F0); }
   .ml-band-blue .ml-folded{ --ml-fold-fade: #EAF2FE; }
-  .ml-fold-open .ml-folded:after{ display: none; }
+  .ml-folded.ml-fold-open:after{ display: none; }
 }
 
 
