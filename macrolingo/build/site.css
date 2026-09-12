@@ -2410,6 +2410,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -6618,6 +6620,17 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
   .ml-section-head .elementor-heading-title,
   .ml-section-head .ml-lead p{ text-align: left !important; }
   .ml-label-centred .elementor-heading-title{ text-align: left !important; }
+
+  /* the space between a section's heading and the block under it: 46px
+     frames a row on a wide screen and is a gap on a narrow one         */
+  .ml-inner .ml-svc-grid,
+  .ml-inner .ml-three-up,
+  .ml-inner .ml-two-up,
+  .ml-inner .ml-steps,
+  .ml-inner .ml-pairs,
+  .ml-inner .ml-faq-cols,
+  .ml-inner .ml-opts{ margin-top: 24px !important; }
+  .ml-section-head.e-con{ padding-bottom: 0 !important; }
 
   /* --- 2.3 every row becomes one column ---------------------------------- */
   .ml-three-up > .e-con-inner,

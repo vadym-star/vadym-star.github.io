@@ -144,7 +144,7 @@ add_action( 'wp_footer', function () {
   var RULES = [
     /* a long grid of cards - the industry hub's five, the twelve agency
        issues, six service cards                                          */
-    { sel: '.ml-svc-grid > .e-con-inner, .ml-two-up > .e-con-inner, .ml-three-up > .e-con-inner, .ml-pairs > .e-con-inner',
+    { sel: '.ml-svc-grid > .e-con-inner, .ml-two-up > .e-con-inner, .ml-three-up > .e-con-inner, .ml-pairs > .e-con-inner, .ml-opts > .e-con-inner, .ml-plans > .e-con-inner',
       keep: 3, min: 5, label: 'Show all %n', labelJa: 'すべて表示（%n件）' },
     /* a long list of ticks under a service card */
     { sel: '.ml-svc-list .elementor-icon-list-items, .ml-ticks .elementor-icon-list-items',
@@ -158,8 +158,10 @@ add_action( 'wp_footer', function () {
        what a reader on a phone is deciding about; the rest is detail.   */
     { sel: '.ml-steps > .e-con-inner',
       keep: 3, min: 5, label: 'Show all %n steps', labelJa: 'すべての手順を表示（%n件）' },
-    /* a run of paragraphs a builder has marked as foldable */
-    { sel: '.ml-fold-prose',
+    /* a long run of prose - the founder's own account of the company runs
+       to five paragraphs, which is a screen and a half on a phone before
+       anything else happens */
+    { sel: '.ml-bio-wide .elementor-widget-container, .ml-prose .elementor-widget-container, .ml-fold-prose',
       keep: 2, min: 4, label: 'Read more', labelJa: '続きを読む' }
   ];
 
