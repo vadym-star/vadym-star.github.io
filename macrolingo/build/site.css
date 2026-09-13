@@ -2452,6 +2452,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -6841,6 +6843,10 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
   .ml-svc-grid-three > .e-con-inner > *:last-child:nth-child(odd){
     grid-column: 1 / -1;
     width: min(100%, calc(50% - 11px));
+    /* the desktop rule for a lone card in a row of three caps it at a third
+       (max-width: calc(33.333% - 15px)); a seventh card matches both rules,
+       so without this it came out 102px wide on a phone (/ja/case-examples/) */
+    max-width: none;
     justify-self: center;
   }
   /* the contact block's two columns: the form needs the whole width to be
@@ -7044,6 +7050,7 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
   .ml-three-up > .e-con-inner > *:last-child:nth-child(odd){
     grid-column: auto;
     width: 100%;
+    max-width: none;
     justify-self: stretch;
   }
 
