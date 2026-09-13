@@ -45,10 +45,7 @@ function ml_sticky_cta_slugs() {
         'content-for-research-organizations',
         'content-for-healthcare-companies',
         'content-for-environmental-companies',
-        'content-for-inbound-tourism',
-        // English standalone offers
-        'jx',
-        'science-academia',
+        // English standalone offers (JX and Academia are retired, 13 Sep 2026)
         'ai-tool-search',
         // Japanese services
         'english-copywriting',
@@ -56,7 +53,6 @@ function ml_sticky_cta_slugs() {
         'seo-geo',
         'translation_localization',
         'english_pr_media_japan',
-        'content-seo',
         // Japanese industries
         'healthcare',
         'industry-research',
