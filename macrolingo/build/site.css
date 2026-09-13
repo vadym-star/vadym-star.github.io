@@ -2432,6 +2432,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -6294,6 +6296,65 @@ html[lang^="ja"] .ml-posts-archive .elementor-button:after{
   padding-bottom: 54px !important;
 }
 .ml-statement .ml-section-head.e-con{ padding-bottom: 0 !important; }
+
+/* --- Case study: the photo takes a corner, the words take the rest -------
+   Vadym, 13 Sep 2026: "case study text is locked to the left side, it
+   cannot go under the photo currently so there's a lot of blank space, fix
+   it so the photo zone is limited."
+
+   The card was a two-column grid, so however long a case study ran, its
+   words were held to half the card and the space under the photograph sat
+   empty. Now the photograph is floated into the top-right corner at a fixed
+   share of the card, and the words run beside it and then on under it at
+   the full width.
+
+   A float only wraps text that comes after it, so the picture has to be the
+   first thing in the card - it was moved there in the editor on every case
+   study, which changes nothing else about either half. The rule is written
+   against that order (`:first-child`), so a card still in the old order
+   keeps the old grid instead of breaking.
+
+   Every box in the words half is set to plain block flow: a flex box sits
+   beside a float as one solid block and would still leave the gap; a block
+   lets each line of text find its own width.                             */
+@media (min-width: 768px){
+  .ml-cs > .e-con-inner:has(> .ml-cs-pic:first-child){
+    display: block !important;
+  }
+  .ml-cs > .e-con-inner:has(> .ml-cs-pic:first-child)::after{
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .ml-cs > .e-con-inner > .ml-cs-pic.e-con:first-child{
+    float: right;
+    width: 40% !important;
+    max-width: 440px;
+    margin: 4px 0 20px 40px !important;
+  }
+  .ml-cs > .e-con-inner > .ml-cs-pic:first-child + .ml-cs-words.e-con,
+  .ml-cs > .e-con-inner > .ml-cs-pic:first-child + .ml-cs-words > .e-con-inner,
+  .ml-cs > .e-con-inner > .ml-cs-pic:first-child + .ml-cs-words .ml-cs-row.e-con,
+  .ml-cs > .e-con-inner > .ml-cs-pic:first-child + .ml-cs-words .ml-cs-row > .e-con-inner{
+    display: block !important;
+    width: auto !important;
+  }
+  /* the photo zone is a fixed shape, so a tall portrait cannot push the
+     corner down the whole card */
+  .ml-cs > .e-con-inner > .ml-cs-pic:first-child img{
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    height: auto;
+    min-height: 0;
+    object-fit: cover;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px){
+  .ml-cs > .e-con-inner > .ml-cs-pic.e-con:first-child{
+    width: 44% !important;
+    margin-left: 28px !important;
+  }
+}
 /* ==========================================================================
    THE THIRD COLOUR
 
@@ -6930,6 +6991,10 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
   }
   .ml-hero-intro.elementor-widget{ margin-top: 12px; }
   .ml-hero-cta.e-con{ margin-top: 20px; }
+
+  /* On a phone the case study stacks, and the picture - now first in the
+     card so it can float on wider screens - goes back under the words.  */
+  .ml-cs > .e-con-inner > .ml-cs-pic{ order: 2; float: none !important; width: 100% !important; margin: 0 !important; }
 
   /* --- 2.8 the contact block --------------------------------------------
      The form first. Someone who has scrolled a phone page to its foot has
