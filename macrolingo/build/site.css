@@ -2442,6 +2442,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -2701,12 +2703,16 @@ table.ml-facts tr:last-child td{ border-bottom: 0; }
 table.ml-facts th{
   width: 1%;
   white-space: nowrap;
-  background: var(--e-global-color-mlwarm);
+  /* teal on Vadym's word (13 Sep 2026), replacing the warm green-grey. The
+     tint keeps the labels readable; the hairline between rows turns teal
+     with it so the column reads as one strip rather than stacked tiles.  */
+  background: var(--ml-accent-tint);
+  border-bottom-color: var(--ml-accent-line);
   font-family: var(--ml-body);
   font-size: 15px;
   font-weight: 600;
   line-height: 1.7;
-  color: var(--e-global-color-secondary);
+  color: var(--ml-accent-ink);
 }
 table.ml-facts td{
   font-size: 15.5px;
@@ -7269,7 +7275,7 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
     text-align: left;
     font-size: 12px !important;
     letter-spacing: .04em;
-    color: var(--e-global-color-text);
+    color: var(--ml-accent-ink);
   }
   table.ml-facts td{ border: 0 !important; padding: 0 !important; font-size: 15.5px !important; }
 }
