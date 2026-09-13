@@ -1,0 +1,436 @@
+[
+ {
+  "target": "/ai-search-optimization/",
+  "kind": "typo",
+  "old": "search engine optimization (GEO)",
+  "new": "search engine optimization (SEO)",
+  "why": "wrong abbreviation"
+ },
+ {
+  "target": "/ai-search-optimization/",
+  "kind": "typo",
+  "old": "questions, if you need some advice",
+  "new": "questions, or if you need some advice",
+  "why": "missing 'or'"
+ },
+ {
+  "target": "/ai-search-optimization/",
+  "kind": "typo",
+  "old": "completely overall the web page",
+  "new": "completely overhaul the web page",
+  "why": "overall -> overhaul"
+ },
+ {
+  "target": "/ai-search-optimization/",
+  "kind": "typo",
+  "old": "localized by presentation",
+  "new": "localized my presentation",
+  "why": "by -> my"
+ },
+ {
+  "target": "/content-for-environmental-companies/",
+  "kind": "typo",
+  "old": "innovative produces, services",
+  "new": "innovative products, services",
+  "why": "produces -> products"
+ },
+ {
+  "target": "/content-for-environmental-companies/",
+  "kind": "typo",
+  "old": "We specialized in Asia-related",
+  "new": "We specialize in Asia-related",
+  "why": "wrong tense slip"
+ },
+ {
+  "target": "/content-for-healthcare-companies/",
+  "kind": "typo",
+  "old": "With these knowledge we",
+  "new": "With this knowledge we",
+  "why": "these -> this"
+ },
+ {
+  "target": "/content-for-healthcare-companies/",
+  "kind": "typo",
+  "old": "options that accurate described",
+  "new": "options that accurately described",
+  "why": "accurate -> accurately"
+ },
+ {
+  "target": "/content-for-ngos-npos/",
+  "kind": "typo",
+  "old": "and other international institutions",
+  "new": "and other international institutions.",
+  "why": "missing full stop"
+ },
+ {
+  "target": "/content-for-research-organizations/",
+  "kind": "typo",
+  "old": "the deal is countering climate",
+  "new": "the deal in countering climate",
+  "why": "is -> in"
+ },
+ {
+  "target": "/copywriting/",
+  "kind": "typo",
+  "old": "buyers or doners",
+  "new": "buyers or donors",
+  "why": "doners -> donors"
+ },
+ {
+  "target": "/copywriting/",
+  "kind": "typo",
+  "old": "expertise, unless general agencies",
+  "new": "expertise, unlike general agencies",
+  "why": "unless -> unlike"
+ },
+ {
+  "target": "/copywriting/",
+  "kind": "typo",
+  "old": "lived much of life in Japan",
+  "new": "lived much of his life in Japan",
+  "why": "missing 'his'"
+ },
+ {
+  "target": "/copywriting/",
+  "kind": "typo",
+  "old": "questions, if you need some advice",
+  "new": "questions, or if you need some advice",
+  "why": "missing 'or'"
+ },
+ {
+  "target": "/copywriting/",
+  "kind": "typo",
+  "old": "localized by presentation",
+  "new": "localized my presentation",
+  "why": "by -> my"
+ },
+ {
+  "target": "/editing-proofreading/",
+  "kind": "typo",
+  "old": "policymakers, journalist, and",
+  "new": "policymakers, journalists, and",
+  "why": "journalist -> journalists"
+ },
+ {
+  "target": "/pr-media-science-b2b/",
+  "kind": "typo",
+  "old": "Deep Scientific Understading",
+  "new": "Deep Scientific Understanding",
+  "why": "Understading -> Understanding"
+ },
+ {
+  "target": "/pr-media-science-b2b/",
+  "kind": "typo",
+  "old": "Why not act take action now?",
+  "new": "Why not take action now?",
+  "why": "extra word 'act'"
+ },
+ {
+  "target": "/pr-media-science-b2b/",
+  "kind": "typo",
+  "old": "with a visible earned media plan",
+  "new": "with a visible earned media plan.",
+  "why": "missing full stop"
+ },
+ {
+  "target": "/privacy-policy/",
+  "kind": "typo",
+  "old": "With whom may the information may be shared?",
+  "new": "With whom may the information be shared?",
+  "why": "doubled 'may'"
+ },
+ {
+  "target": "/privacy-policy/",
+  "kind": "typo",
+  "old": "database by contacting. However",
+  "new": "database by contacting us. However",
+  "why": "missing 'us'"
+ },
+ {
+  "target": "/privacy-policy/",
+  "kind": "typo",
+  "old": "https://macrolingo.com , with",
+  "new": "https://macrolingo.com, with",
+  "why": "space before comma"
+ },
+ {
+  "target": "/privacy-policy/",
+  "kind": "typo",
+  "old": "age of 18 years , and",
+  "new": "age of 18 years, and",
+  "why": "space before comma"
+ },
+ {
+  "target": "/success/",
+  "kind": "typo",
+  "old": "emails campaign",
+  "new": "email campaign",
+  "why": "emails -> email"
+ },
+ {
+  "target": "/success/",
+  "kind": "typo",
+  "old": "* Coordinated questions of",
+  "new": "Coordinated questions of",
+  "why": "stray asterisk, no footnote"
+ },
+ {
+  "target": "/success/",
+  "kind": "typo",
+  "old": "A Lead in Interested in Your Product",
+  "new": "A Lead Is Interested in Your Product",
+  "why": "in -> Is"
+ },
+ {
+  "target": "/terms-of-use/",
+  "kind": "typo",
+  "old": "controlled by MacroLingo LLC .",
+  "new": "controlled by MacroLingo LLC.",
+  "why": "space before full stop"
+ },
+ {
+  "target": "/terms-of-use/",
+  "kind": "typo",
+  "old": "Neither MacroLingo LLC , nor",
+  "new": "Neither MacroLingo LLC, nor",
+  "why": "space before comma"
+ },
+ {
+  "target": "/ja/editing-proofreading/",
+  "kind": "typo",
+  "old": "末長いお付き合い",
+  "new": "末永いお付き合い",
+  "why": "末長い -> 末永い"
+ },
+ {
+  "target": "/ja/editing-proofreading/",
+  "kind": "typo",
+  "old": "末長くお付き合い",
+  "new": "末永くお付き合い",
+  "why": "末長く -> 末永く"
+ },
+ {
+  "target": "/ja/english-copywriting/",
+  "kind": "typo",
+  "old": "末長いお付き合い",
+  "new": "末永いお付き合い",
+  "why": "末長い -> 末永い"
+ },
+ {
+  "target": "/ja/english-copywriting/",
+  "kind": "typo",
+  "old": "末長くお付き合い",
+  "new": "末永くお付き合い",
+  "why": "末長く -> 末永く"
+ },
+ {
+  "target": "/ja/seo-geo/",
+  "kind": "typo",
+  "old": "末長いお付き合い",
+  "new": "末永いお付き合い",
+  "why": "末長い -> 末永い"
+ },
+ {
+  "target": "/ja/seo-geo/",
+  "kind": "typo",
+  "old": "末長くお付き合い",
+  "new": "末永くお付き合い",
+  "why": "末長く -> 末永く"
+ },
+ {
+  "target": "/ja/translation_localization/",
+  "kind": "typo",
+  "old": "末長いお付き合い",
+  "new": "末永いお付き合い",
+  "why": "末長い -> 末永い"
+ },
+ {
+  "target": "/ja/translation_localization/",
+  "kind": "typo",
+  "old": "末長くお付き合い",
+  "new": "末永くお付き合い",
+  "why": "末長く -> 末永く"
+ },
+ {
+  "target": "/ja/",
+  "kind": "typo",
+  "old": "NGO・NPO 対応",
+  "new": "NGO・NPO対応",
+  "why": "stray space"
+ },
+ {
+  "target": "/ja/about/",
+  "kind": "typo",
+  "old": "にも通づる基本",
+  "new": "にも通じる基本",
+  "why": "通づる -> 通じる"
+ },
+ {
+  "target": "/ja/agency-assist-japan/",
+  "kind": "typo",
+  "old": "（もしくは日本語で）で",
+  "new": "（もしくは日本語）で",
+  "why": "doubled で"
+ },
+ {
+  "target": "/ja/agency-assist-japan/",
+  "kind": "typo",
+  "old": "外部委託先、など）",
+  "new": "外部委託先など）",
+  "why": "stray 、 before など"
+ },
+ {
+  "target": "/ja/agency-assist-japan/",
+  "kind": "typo",
+  "old": "大丈夫か」悩む",
+  "new": "大丈夫か」と悩む",
+  "why": "missing と"
+ },
+ {
+  "target": "/ja/case-examples/",
+  "kind": "typo",
+  "old": "ゲストポーストの作成",
+  "new": "ゲストポストの作成",
+  "why": "ゲストポースト -> ゲストポスト"
+ },
+ {
+  "target": "/ja/case-examples/",
+  "kind": "typo",
+  "old": "*日本と英語の両方で",
+  "new": "*日本語と英語の両方で",
+  "why": "日本 -> 日本語, stray asterisk"
+ },
+ {
+  "target": "/ja/case-examples/",
+  "kind": "typo",
+  "old": "A Lead in Interested in Your Product",
+  "new": "A Lead Is Interested in Your Product",
+  "why": "in -> Is"
+ },
+ {
+  "target": "/ja/english_pr_media_japan/",
+  "kind": "typo",
+  "old": "理由の一つです。 Ellerton",
+  "new": "理由の一つです。Ellerton",
+  "why": "stray space after 。"
+ },
+ {
+  "target": "/ja/english_pr_media_japan/",
+  "kind": "typo",
+  "old": "一部です。 Ellerton",
+  "new": "一部です。Ellerton",
+  "why": "stray space after 。"
+ },
+ {
+  "target": "/ja/english_pr_media_japan/",
+  "kind": "typo",
+  "old": "ありません。 AI検索の参照元",
+  "new": "ありません。AI検索の参照元",
+  "why": "stray space after 。"
+ },
+ {
+  "target": "/ja/global_pr_score/",
+  "kind": "typo",
+  "old": "グローバルPRPRファーム",
+  "new": "グローバルPRファーム",
+  "why": "doubled PR"
+ },
+ {
+  "target": "/ja/global_pr_score/",
+  "kind": "typo",
+  "old": "取り組べき",
+  "new": "取り組むべき",
+  "why": "missing む"
+ },
+ {
+  "target": "/ja/healthcare/",
+  "kind": "typo",
+  "old": "SEO、翻訳​",
+  "new": "SEO、翻訳",
+  "why": "zero-width space in h1"
+ },
+ {
+  "target": "/ja/healthcare/",
+  "kind": "typo",
+  "old": "記事を こちら からご覧",
+  "new": "記事をこちらからご覧",
+  "why": "stray spaces"
+ },
+ {
+  "target": "/ja/healthcare/",
+  "kind": "typo",
+  "old": "MacroLingoの英文構成は",
+  "new": "MacroLingoの英文校正は",
+  "why": "構成 -> 校正"
+ },
+ {
+  "target": "/ja/healthcare/",
+  "kind": "typo",
+  "old": "サポートします。 私たちは",
+  "new": "サポートします。私たちは",
+  "why": "stray space after 。"
+ },
+ {
+  "target": "/ja/industry-research/",
+  "kind": "remove",
+  "old": "国内の広告代理店を信頼できるネイティブ英語でサポート。英語翻訳、ローカライゼーション、英文校正のニーズに応じます。​",
+  "new": "",
+  "why": "Agency Assist tagline pasted as h2"
+ },
+ {
+  "target": "/ja/industry-research/",
+  "kind": "typo",
+  "old": "公共領域もに進出",
+  "new": "公共領域にも進出",
+  "why": "もに -> にも"
+ },
+ {
+  "target": "/ja/industry-research/",
+  "kind": "typo",
+  "old": "ウェブプラニングなし",
+  "new": "ウェブプランニングなし",
+  "why": "missing ン"
+ },
+ {
+  "target": "/ja/industry-research/",
+  "kind": "typo",
+  "old": "促進することにつながります",
+  "new": "促進することにつながります。",
+  "why": "missing 。"
+ },
+ {
+  "target": "/ja/japan-inbound-tourism/",
+  "kind": "remove",
+  "old": "国内の広告代理店を信頼できるネイティブ英語でサポート。英語翻訳、ローカライゼーション、英文校正のニーズに応じます。​",
+  "new": "",
+  "why": "Agency Assist tagline pasted as h2"
+ },
+ {
+  "target": "/ja/japan-inbound-tourism/",
+  "kind": "typo",
+  "old": "○○ 広告代理店※",
+  "new": "○○広告代理店※",
+  "why": "stray space"
+ },
+ {
+  "target": "/ja/japan-inbound-tourism/",
+  "kind": "typo",
+  "old": "ローカライズを行います",
+  "new": "ローカライズを行います。",
+  "why": "missing 。"
+ },
+ {
+  "target": "/ja/japan-inbound-tourism/",
+  "kind": "typo",
+  "old": "オンラインプレセンス",
+  "new": "オンラインプレゼンス",
+  "why": "プレセンス -> プレゼンス"
+ },
+ {
+  "target": "/ja/translation_localization/",
+  "kind": "typo",
+  "old": "翻訳を対応していますか",
+  "new": "翻訳に対応していますか",
+  "why": "を -> に"
+ }
+]
