@@ -2436,6 +2436,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -6363,6 +6365,27 @@ html[lang^="ja"] .ml-posts-archive .elementor-button:after{
     width: 44% !important;
     margin-left: 28px !important;
   }
+}
+
+/* --- Two figures, the same distance either side of their divider --------
+   Vadym, 13 Sep 2026, on Our Work: "3000 and 15 should be on the same
+   distance from divider, because 15 is very far currently."
+
+   The row is a grid of three equal thirds - figure, hairline, figure - and
+   each child sits at the left of its third. So the hairline was at the
+   start of the middle third: 89px after "3,000+" and 195px before "15+".
+   Sized to their content instead, with one gap either side, the two figures
+   sit exactly the same distance from the line. The centred row on the
+   Localization page (ml-stats-centred) has its own layout and is left
+   alone; on a phone the figures stack as before.                          */
+@media (min-width: 768px){
+  .ml-stats:not(.ml-stats-centred) > .e-con-inner{
+    grid-template-columns: max-content 1px max-content !important;
+    justify-content: start !important;
+    column-gap: 36px !important;
+    align-items: center;
+  }
+  .ml-stats:not(.ml-stats-centred) > .e-con-inner > .e-con{ width: auto !important; }
 }
 /* ==========================================================================
    THE THIRD COLOUR
