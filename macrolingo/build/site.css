@@ -2434,6 +2434,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -6338,6 +6340,13 @@ html[lang^="ja"] .ml-posts-archive .elementor-button:after{
   .ml-cs > .e-con-inner > .ml-cs-pic:first-child + .ml-cs-words .ml-cs-row > .e-con-inner{
     display: block !important;
     width: auto !important;
+  }
+  /* The theme sets `clear: both` on every h1-h6, so each heading in the
+     words - the title, and every row's key - jumped to below the photo and
+     took all the text after it along. Inside this card a heading must not
+     clear the float.                                                      */
+  .ml-cs > .e-con-inner > .ml-cs-pic:first-child + .ml-cs-words :is(h1, h2, h3, h4, h5, h6){
+    clear: none !important;
   }
   /* the photo zone is a fixed shape, so a tall portrait cannot push the
      corner down the whole card */
