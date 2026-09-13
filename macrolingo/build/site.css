@@ -2450,6 +2450,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -6531,6 +6533,11 @@ html[lang^="ja"] :is(p,li,dd,blockquote,figcaption){ text-wrap: pretty; }
    widgets, so they did not.                                               */
 [data-elementor-type] :is(.elementor-widget-text-editor, .ml-article) :is(h2,h3,h4,h5){ text-wrap: balance; }
 [data-elementor-type] :is(p,li){ text-wrap: pretty; }
+/* The PR score quiz is one HTML widget, so its narrow cards are not "two
+   boxes deep" and kept ordinary breaking: 評価し / ます。 on four cards.
+   Chrome's text-wrap: pretty does nothing for Japanese broken between
+   characters; breaking by phrase is what brings the verb back up.        */
+html[lang^="ja"] .elementor-widget-html :is(p,li,h3,h4){ word-break: auto-phrase; overflow-wrap: break-word; }
 /* ==========================================================================
    THE THIRD COLOUR
 
