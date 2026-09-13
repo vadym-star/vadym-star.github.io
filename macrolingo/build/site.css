@@ -2438,6 +2438,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -6386,6 +6388,14 @@ html[lang^="ja"] .ml-posts-archive .elementor-button:after{
     align-items: center;
   }
   .ml-stats:not(.ml-stats-centred) > .e-con-inner > .e-con{ width: auto !important; }
+  /* The label under "3,000+" is wider than the figure, so with both blocks
+     left-aligned the number itself still sat 13px further from the line
+     than "15+". The first figure reads from the right instead, so the two
+     numbers face the line from the same distance, a mirrored pair.       */
+  .ml-stats:not(.ml-stats-centred) > .e-con-inner > .ml-stat:first-child .elementor-heading-title,
+  .ml-stats:not(.ml-stats-centred) > .e-con-inner > .ml-stat:first-child p{
+    text-align: right !important;
+  }
 }
 /* ==========================================================================
    THE THIRD COLOUR
