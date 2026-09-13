@@ -2446,6 +2446,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -6481,6 +6483,44 @@ html[lang^="ja"] .ml-posts-archive .e-loop__load-more .elementor-button:after{
     text-align: right !important;
   }
 }
+
+/* --- Japanese line breaking, the whole site (14 Sep 2026) -----------------
+   A line-by-line measurement of every Japanese page at three widths found
+   the same three faults everywhere, all of them the browser's defaults:
+
+   1. lines starting with ー or a small kana (コミ / ュニケーション,
+      ハ / ードル). Japanese typesetting forbids that; `line-break: strict`
+      is the rule set that does.
+   2. words cut in half outside the headings - list items, buttons, card
+      text, labels, the FAQ questions, the quiz page (最適 / 化, 権 / 利).
+      The heading rule above only reached .elementor-heading-title, so the
+      same phrase-aware breaking is given to every short piece of text.
+      Running text in a blog article keeps ordinary breaking.
+   3. one or two characters alone on a last line (…しま / す。). `text-wrap:
+      pretty` lets the browser move a word down so the last line is not a
+      stub; it changes nothing else about the paragraph.
+
+   No text is changed by any of this. overflow-wrap: break-word is the
+   safety net for a phrase longer than its box; unlike `anywhere` it does
+   not let a flex or grid column shrink below the longest phrase.         */
+html[lang^="ja"] body{ line-break: strict; }
+html[lang^="ja"] [data-elementor-type] :is(h1,h2,h3,h4,h5,h6,th,td,dt,dd,label,summary,figcaption,
+  .elementor-button-text,.elementor-icon-list-text,.elementor-counter-title,.elementor-heading-title),
+html[lang^="ja"] [data-elementor-type] li:not(.ml-article *),
+html[lang^="ja"] [data-elementor-type] .e-con.e-child .e-con.e-child p:not(.ml-article *),
+html[lang^="ja"] .ml-article :is(h1,h2,h3,h4,h5,h6,th,td,figcaption){
+  word-break: auto-phrase;
+  overflow-wrap: break-word;
+}
+/* A paragraph at full measure on a wide screen keeps ordinary Japanese
+   breaking: phrase breaks over forty characters leave a ragged right edge
+   a reader notices. The rule above still reaches a paragraph inside a card
+   (two nested boxes deep), where lines are short. On a phone every line is
+   short, so every paragraph breaks by phrase there.                        */
+@media (max-width: 767px){
+  html[lang^="ja"] [data-elementor-type] p:not(.ml-article *){ word-break: auto-phrase; overflow-wrap: break-word; }
+}
+html[lang^="ja"] :is(p,li,dd,blockquote,figcaption){ text-wrap: pretty; }
 /* ==========================================================================
    THE THIRD COLOUR
 
@@ -6940,6 +6980,10 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
      cannot break across lines whatever its white-space says. Making it a
      plain inline is what lets the phrase wrap.                          */
   .ml-nb{ display: inline !important; white-space: normal !important; }
+  /* In Japanese the phrase still asks to stay whole - keep-all removes the
+     breaks between its characters - and break-word lets it wrap only if it
+     truly cannot fit, so the sideways push above cannot come back.       */
+  html[lang^="ja"] .ml-nb{ word-break: keep-all !important; overflow-wrap: break-word; }
 
   /* a centred section head is right on a wide screen and wrong on a narrow
      one: centred text over four or five short lines has two ragged edges  */
