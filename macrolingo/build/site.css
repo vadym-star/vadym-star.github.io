@@ -2448,6 +2448,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -6521,6 +6523,14 @@ html[lang^="ja"] .ml-article :is(h1,h2,h3,h4,h5,h6,th,td,figcaption){
   html[lang^="ja"] [data-elementor-type] p:not(.ml-article *){ word-break: auto-phrase; overflow-wrap: break-word; }
 }
 html[lang^="ja"] :is(p,li,dd,blockquote,figcaption){ text-wrap: pretty; }
+
+/* The same two faults in English, milder: a heading inside a text block or
+   a blog article ends on a single word (…is 100% / Unaware), and a paragraph
+   ends on one short word. Elementor heading widgets already balance their
+   lines (see the heading rules at the top); these headings are not heading
+   widgets, so they did not.                                               */
+[data-elementor-type] :is(.elementor-widget-text-editor, .ml-article) :is(h2,h3,h4,h5){ text-wrap: balance; }
+[data-elementor-type] :is(p,li){ text-wrap: pretty; }
 /* ==========================================================================
    THE THIRD COLOUR
 
