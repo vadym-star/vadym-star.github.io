@@ -2444,6 +2444,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -6095,6 +6097,70 @@ body.page-id-18589 .elementor-widget-html .text-\[11px\]{
 .ml-article #ez-toc-container .ez-toc-btn{ background: none; border: 0; padding: 0; }
 .ml-article #ez-toc-container svg{ fill: var(--e-global-color-mlmuted); }
 
+/* A third plugin, Gutentoc, writes the contents box on the newer Japanese
+   posts, and none of the above reached it: it kept its own grey table with
+   a hairline border (Vadym caught it, 13 Sep 2026). Same quiet box here.
+   Its show/hide toggle is dropped and the list always shown: the toggle is
+   in English on Japanese posts and its label runs one click out of step
+   with the list ("show" while the list is open).                          */
+.ml-article .gutentoc{
+  display: block;
+  max-width: none !important;
+  margin: 34px 0;
+  padding: 22px 26px;
+  background: #fff;
+  border: 1px solid var(--ml-line-2);
+  border-radius: 16px;
+  box-shadow: none;
+}
+.ml-article .gutentoc .gutentoc-toc-title-wrap{ display: block; margin: 0 0 12px; }
+.ml-article .gutentoc .gutentoc-toc-title{
+  display: block;
+  font-family: var(--ml-sans);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--ml-accent-ink);
+}
+.ml-article .gutentoc .text_open{ display: none !important; }
+.ml-article .gutentoc #toclist{ display: block !important; }
+.ml-article .gutentoc ul{
+  margin: 0 !important;
+  padding: 0 0 0 20px !important;
+  list-style: none;
+}
+/* the plugin nests a sub-list as a sibling of its parent item, not inside
+   it, so the indent is given to that list rather than to a child li     */
+.ml-article .gutentoc ul ul{ margin: 0 0 7px !important; }
+.ml-article .gutentoc li{
+  position: relative;
+  margin: 0 0 7px;
+  font-size: 15.5px;
+  line-height: 1.6;
+  list-style: none;
+}
+.ml-article .gutentoc li:before{
+  content: "";
+  position: absolute;
+  left: -16px;
+  top: .62em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ml-accent-line);
+}
+.ml-article .gutentoc ul ul li:before{ background: var(--ml-line-2); }
+.ml-article .gutentoc a{
+  color: var(--e-global-color-text);
+  text-decoration: none;
+}
+.ml-article .gutentoc a:hover{
+  color: var(--e-global-color-mlgreendark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 
 /* --- The categories on a blog card ---------------------------------------
    A post can be filed under five categories, and the card used to draw the
@@ -6234,8 +6300,12 @@ html[lang^="en"] .ml-post-byline .elementor-repeater-item-pidateja{ display: non
    itself. Setting the span to font-size 0 and putting the text in its own
    ::after collapsed the button to 21px: a pseudo-element inside a
    zero-sized parent does not give the parent its width back. */
-html[lang^="ja"] .ml-posts-archive .elementor-button-text{ display: none; }
-html[lang^="ja"] .ml-posts-archive .elementor-button:after{
+/* Scoped to the load-more button itself. Written against every button in
+   the archive, it also reached the read-more link inside each card: the
+   card lost its 続きを読む and the link's full-card ::after overlay drew
+   もっと見る across the middle of the card (caught 13 Sep 2026). */
+html[lang^="ja"] .ml-posts-archive .e-loop__load-more .elementor-button-text{ display: none; }
+html[lang^="ja"] .ml-posts-archive .e-loop__load-more .elementor-button:after{
   content: "もっと見る";
   font-size: 15px;
   font-weight: 600;
