@@ -2454,6 +2454,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -3658,6 +3660,7 @@ table.ml-compare thead th.ml-col-us{
    word in half. A phrase wrapped in ml-nb cannot break inside itself, so the
    only break left is the one the copy asks for.                           */
 .ml-nb{ display: inline-block; }
+html[lang^="ja"] .ml-nb{ max-width: 100%; }
 
 /* The Japanese headline runs longer than the English one at the same size —
    eleven characters at 60px do not fit the half column — so it is set a size
@@ -7003,10 +7006,18 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
      cannot break across lines whatever its white-space says. Making it a
      plain inline is what lets the phrase wrap.                          */
   .ml-nb{ display: inline !important; white-space: normal !important; }
-  /* In Japanese the phrase still asks to stay whole - keep-all removes the
-     breaks between its characters - and break-word lets it wrap only if it
-     truly cannot fit, so the sideways push above cannot come back.       */
-  html[lang^="ja"] .ml-nb{ word-break: keep-all !important; overflow-wrap: break-word; }
+  /* Japanese is different: a plain inline let the phrase split at the end
+     of a line all the same (マーケティ / ング, a lone 。). An inline block
+     capped at the line width moves the whole phrase down, and only a phrase
+     longer than the entire line wraps inside itself - so it still cannot
+     push the page sideways. Measured on four pages at 390px, 14 Sep 2026. */
+  html[lang^="ja"] .ml-nb{
+    display: inline-block !important;
+    max-width: 100%;
+    white-space: normal !important;
+    word-break: auto-phrase !important;
+    overflow-wrap: break-word;
+  }
 
   /* a centred section head is right on a wide screen and wrong on a narrow
      one: centred text over four or five short lines has two ragged edges  */
