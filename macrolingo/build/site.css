@@ -2462,6 +2462,12 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
+
+
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -7861,6 +7867,61 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
   .elementor-widget-html .max-w-3xl{ padding-left: 20px !important; padding-right: 20px !important; }
   /* the numbered row: the disc and its heading stay on one line */
   .ml-numrow{ gap: 10px; }
+}
+
+
+/* ==========================================================================
+   5. EVERY HERO STARTS ON THE SAME LINE
+   Adam, 14 Sep 2026: the tops of the pages did not match - Copywriting and
+   Our Work sat too high, PR looked right - and it has to be the same on
+   every page. Measured on all 40 pages at 1440: the photo heroes centred
+   their two columns against each other, so a tall photo was pushed up to
+   16px under the navigation and dragged the headline down with it
+   (Copywriting, Editing, Our Work, Contact, Localization), while a long
+   column of words did the opposite (PR). The industry, legal and blog heads
+   used a third and fourth set of numbers.
+
+   One distance now, said once: the label and the photo both start
+   --ml-hero-top below the header, on every inner page, in both languages,
+   at every width. Both columns hang from the top instead of centring, so
+   what is taller simply runs further down. The two homepages are left out
+   on purpose: that hero fills the screen and centres by design.
+
+   The paddings Elementor writes on these containers are zeroed and the one
+   distance is set on the inner box, so a padding changed in the panel on one
+   page cannot put that page out of line again.
+   ========================================================================== */
+:root{ --ml-hero-top: 48px; }
+@media (max-width: 1024px){ :root{ --ml-hero-top: 40px; } }
+@media (max-width: 767px){ :root{ --ml-hero-top: 30px; } }
+
+:is(.ml-page-hero:not(.ml-hero), .ml-ind-hero, .ml-legal-hero, .ml-archive-hero).e-con{
+  padding-top: 0 !important;
+}
+:is(.ml-page-hero:not(.ml-hero), .ml-ind-hero, .ml-legal-hero, .ml-archive-hero).e-con > .e-con-inner{
+  padding-top: var(--ml-hero-top) !important;
+}
+.ml-split-hero.ml-page-hero:not(.ml-hero) > .e-con-inner{ align-items: start !important; }
+:is(.ml-page-hero:not(.ml-hero), .ml-ind-hero, .ml-legal-hero, .ml-archive-hero).e-con > .e-con-inner > .e-con{
+  align-self: start !important;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+/* the headline too: the words-only heads (industry, legal, blog) put 12px
+   more between label and headline than the photo heroes do (63 against 51
+   at 1440), so the headline sat lower on those pages */
+:is(.ml-ind-hero, .ml-legal-hero, .ml-archive-hero) .ml-hero-title.elementor-widget .elementor-heading-title{
+  margin-top: 0 !important;
+}
+/* the words column is a boxed container, and its own inner box carried the
+   10px Elementor gives every container - the label sat that much below the
+   photo */
+:is(.ml-page-hero:not(.ml-hero), .ml-ind-hero, .ml-legal-hero, .ml-archive-hero).e-con > .e-con-inner > .e-con > .e-con-inner{
+  padding-top: 0 !important;
+}
+:is(.ml-page-hero:not(.ml-hero), .ml-ind-hero, .ml-legal-hero, .ml-archive-hero).e-con > .e-con-inner > .e-con > .elementor-widget:first-child,
+:is(.ml-page-hero:not(.ml-hero), .ml-ind-hero, .ml-legal-hero, .ml-archive-hero).e-con > .e-con-inner > .e-con > .e-con-inner > .elementor-widget:first-child{
+  margin-top: 0 !important;
 }
 
 
