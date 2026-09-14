@@ -2460,6 +2460,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -6806,6 +6808,32 @@ html[lang^="ja"] .elementor-widget-html :is(p,li,h3,h4){ word-break: auto-phrase
 .ml-tf .ml-tf-btn-soft, .ml-tf .ml-tf-btn-soft:focus, .ml-tf .ml-tf-btn-soft:active{ background: #fff !important; color: var(--e-global-color-secondary) !important; }
 .ml-tf .ml-tf-btn-soft:hover{ background: #fff !important; color: var(--e-global-color-mlgreendark) !important; }
 .ml-tf button:focus-visible, .ml-tf a:focus-visible, .ml-tf textarea:focus-visible{ outline: 2px solid var(--ml-accent); outline-offset: 2px; }
+
+/* Every tool card is one link (Vadym, 14 Sep 2026: "it has to be a button
+   as a whole, not just a little link"). The name's link is stretched over
+   the card, so a click anywhere opens the tool; the star, Save and See
+   similar sit above that layer and keep working on their own. No markup
+   change - a <button> cannot live inside an <a>, so this is done in CSS. */
+.ml-tf .ml-tf-tool,
+.ml-tf .ml-tf-result{ position: relative; cursor: pointer; }
+.ml-tf .ml-tf-tool-name::after,
+.ml-tf .ml-tf-result-name::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: 1;
+}
+.ml-tf .ml-tf-tool .ml-tf-star,
+.ml-tf .ml-tf-result .ml-tf-actions{ position: relative; z-index: 2; }
+.ml-tf .ml-tf-tool:hover .ml-tf-tool-name,
+.ml-tf .ml-tf-result:hover .ml-tf-result-name{ color: var(--e-global-color-mlgreendark) !important; }
+.ml-tf .ml-tf-tool:hover{ box-shadow: var(--ml-shadow-soft); transform: translateY(-1px); }
+.ml-tf .ml-tf-tool{ transition: border-color .18s, box-shadow .18s, transform .18s; }
+.ml-tf .ml-tf-tool-name:focus-visible,
+.ml-tf .ml-tf-result-name:focus-visible{ outline: none; }
+.ml-tf .ml-tf-tool:focus-within,
+.ml-tf .ml-tf-result:focus-within{ outline: 2px solid var(--ml-accent); outline-offset: 2px; }
 /* ==========================================================================
    THE THIRD COLOUR
 
