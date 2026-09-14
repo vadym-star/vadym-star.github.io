@@ -2476,6 +2476,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -7943,11 +7945,13 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
   margin-top: 0 !important;
 }
 /* Adam, on the Japanese homepage: "quite different proportions here". The
-   Japanese heroes gave the words 1.2 parts to the photo's 0.8, the English
-   1.06 to 0.94; the Japanese headlines break at the same places at the
-   English proportions (measured on /ja/), so both languages now share them. */
+   Japanese heroes give the words 1.2 parts to the photo's 0.8, the English
+   1.06 to 0.94. The homepage headline breaks at the same places at the
+   English proportions (measured on /ja/), so the homepage takes them. The
+   inner Japanese pages keep 1.2 : 0.8 - at the narrower column their longer
+   headlines split a word (英語コピーライティン / グ・ on /ja/english-copywriting/). */
 @media (min-width: 1025px){
-  .ml-jp.ml-split-hero > .e-con-inner{ grid-template-columns: 1.06fr .94fr !important; }
+  .ml-jp.ml-hero.ml-split-hero > .e-con-inner{ grid-template-columns: 1.06fr .94fr !important; }
 }
 /* the words hang from the top line on every width */
 .ml-split-hero:is(.ml-page-hero, .ml-hero) > .e-con-inner > .e-con:not(.ml-hero-photo){
