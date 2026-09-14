@@ -2458,6 +2458,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -6782,6 +6784,28 @@ html[lang^="ja"] .elementor-widget-html :is(p,li,h3,h4){ word-break: auto-phrase
   .ml-tf-note{ padding: 18px; }
   .ml-tf-note .ml-tf-btn{ width: 100%; }
 }
+
+/* The theme styles every <button> on hover and focus (white text, its own
+   background), which turned the open category's name white on the pale
+   ground. Each of the tool's buttons states its colours in every state. */
+.ml-tf button{ text-transform: none; letter-spacing: normal; }
+.ml-tf .ml-tf-tab, .ml-tf .ml-tf-tab:hover, .ml-tf .ml-tf-tab:focus, .ml-tf .ml-tf-tab:active{ color: var(--e-global-color-text) !important; background: transparent !important; }
+.ml-tf .ml-tf-tab.is-on, .ml-tf .ml-tf-tab.is-on:hover, .ml-tf .ml-tf-tab.is-on:focus{ color: var(--e-global-color-secondary) !important; background: #fff !important; }
+.ml-tf .ml-tf-tab:hover{ color: var(--e-global-color-secondary) !important; }
+.ml-tf .ml-tf-new, .ml-tf .ml-tf-new:focus, .ml-tf .ml-tf-new:active{ color: var(--e-global-color-secondary) !important; background: #fff !important; }
+.ml-tf .ml-tf-new:hover{ color: var(--e-global-color-mlgreendark) !important; background: #fff !important; }
+.ml-tf .ml-tf-cat-btn, .ml-tf .ml-tf-cat-btn:focus, .ml-tf .ml-tf-cat-btn:active{ color: var(--e-global-color-secondary) !important; background: #fff !important; }
+.ml-tf .ml-tf-cat-btn:hover{ color: var(--e-global-color-secondary) !important; background: #fff !important; }
+.ml-tf .ml-tf-cat.is-open .ml-tf-cat-btn, .ml-tf .ml-tf-cat.is-open .ml-tf-cat-btn:hover, .ml-tf .ml-tf-cat.is-open .ml-tf-cat-btn:focus{ background: var(--e-global-color-mlwarm) !important; color: var(--e-global-color-secondary) !important; }
+.ml-tf .ml-tf-star, .ml-tf .ml-tf-similar, .ml-tf .ml-tf-star:focus, .ml-tf .ml-tf-similar:focus, .ml-tf .ml-tf-star:active, .ml-tf .ml-tf-similar:active{ background: none !important; color: var(--e-global-color-mlmuted) !important; }
+.ml-tf .ml-tf-star.is-on, .ml-tf .ml-tf-star.is-on:focus{ color: var(--e-global-color-mlgreendark) !important; }
+.ml-tf .ml-tf-star:hover, .ml-tf .ml-tf-similar:hover{ background: none !important; color: var(--e-global-color-secondary) !important; }
+.ml-tf .ml-tf-btn:focus, .ml-tf .ml-tf-btn:active{ background: var(--e-global-color-primary) !important; color: #fff !important; }
+.ml-tf .ml-tf-btn:hover{ background: var(--e-global-color-mlgreendark) !important; color: #fff !important; }
+.ml-tf .ml-tf-btn:disabled, .ml-tf .ml-tf-btn:disabled:hover{ background: var(--ml-line-2) !important; color: var(--e-global-color-mlmuted) !important; }
+.ml-tf .ml-tf-btn-soft, .ml-tf .ml-tf-btn-soft:focus, .ml-tf .ml-tf-btn-soft:active{ background: #fff !important; color: var(--e-global-color-secondary) !important; }
+.ml-tf .ml-tf-btn-soft:hover{ background: #fff !important; color: var(--e-global-color-mlgreendark) !important; }
+.ml-tf button:focus-visible, .ml-tf a:focus-visible, .ml-tf textarea:focus-visible{ outline: 2px solid var(--ml-accent); outline-offset: 2px; }
 /* ==========================================================================
    THE THIRD COLOUR
 
