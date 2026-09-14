@@ -2478,6 +2478,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -8071,6 +8073,21 @@ html[lang^="ja"] .ml-strip-label .elementor-heading-title{ font-size: 15px !impo
 @media (min-width: 1025px){
   .ml-wide#posts.e-con{ padding-top: 56px !important; }
   .ml-wide#posts.e-con > .e-con-inner{ padding-top: 0 !important; }
+}
+
+
+/* ==========================================================================
+   8. /ja/seo-geo/ (page 16686): A WIDER WORDS COLUMN
+   The headline's first phrase, 英語ウェブマーケティングと, is kept together and
+   measures 630px at the desktop size; the column was 624px, so と dropped
+   onto a line of its own. Vadym: "just make the box with text a little wider
+   and it will fit easily". This page only, desktop only. Remove this block
+   to put the page back on the Japanese heroes' usual 1.2 : 0.8.
+   ========================================================================== */
+@media (min-width: 1025px){
+  .elementor-16686 .ml-page-hero.ml-split-hero > .e-con-inner{
+    grid-template-columns: minmax(650px, 1.3fr) minmax(0, .7fr) !important;
+  }
 }
 
 
