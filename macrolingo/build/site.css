@@ -2456,6 +2456,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -6543,6 +6545,243 @@ html[lang^="ja"] :is(p,li,dd,blockquote,figcaption){ text-wrap: pretty; }
    Chrome's text-wrap: pretty does nothing for Japanese broken between
    characters; breaking by phrase is what brings the verb back up.        */
 html[lang^="ja"] .elementor-widget-html :is(p,li,h3,h4){ word-break: auto-phrase; overflow-wrap: break-word; }
+
+/* --- Scholarly AI Tool Finder (/ai-tool-search/) ---------------------------
+   The tool's interface, rebuilt from Adam's Vercel app (build_tool_finder.py
+   writes the snippet). Same site language as everything else: a white card
+   on the page's ground, Figtree for the controls, Newsreader for the view
+   titles, green for the action, teal for categories (a category is a label
+   of evidence, so it takes the accent pill, as post categories do).      */
+.ml-tf{
+  width: 100%;
+  background: #fff;
+  border: 1px solid var(--ml-line-2);
+  border-radius: var(--ml-radius);
+  box-shadow: var(--ml-shadow-soft);
+  overflow: hidden;
+  font-family: var(--ml-body);
+  color: var(--e-global-color-text);
+}
+.ml-tf-bar{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--ml-line-2);
+  background: var(--e-global-color-mlwarm);
+}
+.ml-tf-tab{
+  font: 600 14.5px/1.2 var(--ml-sans);
+  padding: 10px 18px;
+  border-radius: 11px;
+  border: 1.6px solid transparent;
+  background: transparent;
+  color: var(--e-global-color-text);
+  cursor: pointer;
+  transition: background .18s, color .18s, border-color .18s;
+}
+.ml-tf-tab:hover{ color: var(--e-global-color-secondary); background: rgba(255,255,255,.7); }
+.ml-tf-tab.is-on{
+  background: #fff;
+  color: var(--e-global-color-secondary);
+  border-color: var(--ml-line-2);
+  box-shadow: var(--ml-shadow-soft);
+}
+.ml-tf-new{
+  margin-left: auto;
+  font: 600 14px/1.2 var(--ml-sans);
+  padding: 9px 16px;
+  border-radius: 11px;
+  border: 1.6px solid var(--ml-line-2);
+  background: #fff;
+  color: var(--e-global-color-secondary);
+  cursor: pointer;
+}
+.ml-tf-new:hover{ border-color: var(--e-global-color-primary); color: var(--e-global-color-mlgreendark); }
+.ml-tf-body{ padding: 38px 42px 30px; }
+.ml-tf-view{ display: flex; flex-direction: column; animation: mlTfIn .3s ease both; }
+@keyframes mlTfIn{ from{ opacity: 0; transform: translateY(6px); } to{ opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce){ .ml-tf-view, .ml-tf-result{ animation: none !important; } }
+.ml-tf-title{
+  font-family: var(--ml-serif);
+  font-size: 34px;
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--e-global-color-secondary);
+  margin: 0 0 10px;
+  text-wrap: balance;
+}
+.ml-tf-lead{ font-size: 17.5px; line-height: 1.65; margin: 0 0 6px; max-width: 640px; }
+.ml-tf-meta{ font: 600 13px/1.6 var(--ml-sans); color: var(--ml-accent-ink); margin: 0 0 22px; }
+.ml-tf-sr{ position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.ml-tf-input{
+  width: 100%;
+  min-height: 130px;
+  padding: 16px 18px;
+  font: 400 16px/1.65 var(--ml-body);
+  color: var(--e-global-color-secondary);
+  background: #fff;
+  border: 1.6px solid var(--ml-line-2);
+  border-radius: 14px;
+  resize: vertical;
+  transition: border-color .18s, box-shadow .18s;
+}
+.ml-tf-input:focus{
+  outline: none;
+  border-color: var(--e-global-color-primary);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--e-global-color-primary) 16%, transparent);
+}
+.ml-tf-row{ display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
+.ml-tf-hint{ font: 500 12.5px/1.4 var(--ml-sans); color: var(--e-global-color-mlmuted); }
+.ml-tf-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  font: 600 15px/1.2 var(--ml-sans);
+  padding: 11px 24px;
+  border-radius: 11px;
+  border: 1.6px solid transparent;
+  background: var(--e-global-color-primary);
+  color: #fff !important;
+  text-decoration: none !important;
+  cursor: pointer;
+  box-shadow: 0 10px 22px rgba(84,180,53,.24);
+  transition: background .18s, transform .18s, box-shadow .18s;
+  white-space: nowrap;
+}
+.ml-tf-btn:hover{ background: var(--e-global-color-mlgreendark); transform: translateY(-2px); }
+.ml-tf-btn:disabled{ background: var(--ml-line-2); color: var(--e-global-color-mlmuted) !important; box-shadow: none; transform: none; cursor: default; }
+.ml-tf-btn-soft{ background: #fff; color: var(--e-global-color-secondary) !important; border-color: var(--ml-line-2); box-shadow: none; }
+.ml-tf-btn-soft:hover{ background: #fff; border-color: var(--e-global-color-primary); color: var(--e-global-color-mlgreendark) !important; }
+.ml-tf-wait{ display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: 34px; font-size: 15px; color: var(--e-global-color-mlmuted); }
+.ml-tf-dots{ display: flex; gap: 6px; }
+.ml-tf-dots i{ width: 8px; height: 8px; border-radius: 50%; background: var(--e-global-color-primary); animation: mlTfPulse 1.2s ease infinite; }
+.ml-tf-dots i:nth-child(2){ animation-delay: .2s; }
+.ml-tf-dots i:nth-child(3){ animation-delay: .4s; }
+@keyframes mlTfPulse{ 0%,100%{ opacity: .25; } 50%{ opacity: 1; } }
+.ml-tf-alert{ margin: 22px 0 0; padding: 14px 18px; border-radius: 14px; font-size: 15px; line-height: 1.6; background: #FDF1EF; border: 1px solid #F3D3CD; color: #7A2A1F; }
+.ml-tf-alert-soft{ background: var(--e-global-color-mlwarm); border-color: var(--ml-line-2); color: var(--e-global-color-secondary); }
+
+/* results */
+.ml-tf-summary{ font-size: 15px; line-height: 1.6; margin: 0 0 22px; padding-bottom: 16px; border-bottom: 1px solid var(--ml-line-2); color: var(--e-global-color-mlmuted); }
+.ml-tf-summary-label{ color: var(--e-global-color-text); font-weight: 600; }
+.ml-tf-summary-query{ color: var(--e-global-color-secondary); font-weight: 600; }
+.ml-tf-results{ display: flex; flex-direction: column; gap: 14px; }
+.ml-tf-result{
+  padding: 22px 26px;
+  background: #fff;
+  border: 1px solid var(--ml-line-2);
+  border-radius: 18px;
+  transition: box-shadow .2s, transform .2s, border-color .2s;
+  animation: mlTfIn .35s ease both;
+}
+.ml-tf-result:hover{ box-shadow: var(--ml-shadow-lift); border-color: var(--e-global-color-primary); transform: translateY(-2px); }
+.ml-tf-result-top{ display: flex; align-items: center; gap: 10px 12px; flex-wrap: wrap; margin-bottom: 8px; }
+.ml-tf-result-name{ font: 600 21px/1.3 var(--ml-serif); color: var(--e-global-color-secondary) !important; text-decoration: none !important; }
+.ml-tf-result-name:hover{ color: var(--e-global-color-mlgreendark) !important; }
+.ml-tf-ext{ color: var(--e-global-color-primary); font-family: var(--ml-sans); font-size: .8em; }
+.ml-tf-pill{
+  font: 700 11px/1 var(--ml-sans);
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--ml-accent-ink);
+  background: var(--ml-accent-tint);
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+.ml-tf-reason{ font-size: 16px; line-height: 1.7; margin: 0 0 12px; }
+.ml-tf-actions{ display: flex; gap: 18px; align-items: center; }
+.ml-tf-star, .ml-tf-similar{
+  font: 600 14px/1.2 var(--ml-sans);
+  background: none;
+  border: 0;
+  padding: 6px 0;
+  cursor: pointer;
+  color: var(--e-global-color-mlmuted);
+}
+.ml-tf-star.is-on{ color: var(--e-global-color-mlgreendark); }
+.ml-tf-star:hover, .ml-tf-similar:hover{ color: var(--e-global-color-secondary); }
+.ml-tf-empty{ font-size: 16px; }
+.ml-tf-again{ align-self: flex-start; margin-top: 24px; }
+
+/* notes under a view */
+.ml-tf-note{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px 24px;
+  flex-wrap: wrap;
+  margin-top: 26px;
+  padding: 20px 24px;
+  background: var(--e-global-color-mlwarm);
+  border: 1px solid var(--ml-line-2);
+  border-radius: 18px;
+}
+.ml-tf-note + .ml-tf-note{ margin-top: 12px; }
+.ml-tf-note-accent{ background: #fff; }
+.ml-tf-note-head{ font: 600 16px/1.4 var(--ml-sans); color: var(--e-global-color-secondary); margin: 0 0 2px; }
+.ml-tf-note-text{ font-size: 14.5px; line-height: 1.55; margin: 0; color: var(--e-global-color-text); }
+
+/* browse */
+.ml-tf-cats{ display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; align-items: start; }
+.ml-tf-cat.is-open{ grid-column: 1 / -1; }
+.ml-tf-cat-btn{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 15px 18px;
+  font: 600 15px/1.35 var(--ml-sans);
+  color: var(--e-global-color-secondary);
+  text-align: left;
+  background: #fff;
+  border: 1.6px solid var(--ml-line-2);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: border-color .18s, background .18s;
+}
+.ml-tf-cat-btn:hover{ border-color: var(--e-global-color-primary); }
+.ml-tf-cat.is-open .ml-tf-cat-btn{ border-color: var(--e-global-color-primary); background: var(--e-global-color-mlwarm); border-radius: 14px 14px 0 0; }
+.ml-tf-cat-side{ display: inline-flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.ml-tf-cat-n{ font: 700 12px/1 var(--ml-sans); color: var(--ml-accent-ink); background: var(--ml-accent-tint); padding: 5px 9px; border-radius: 999px; }
+.ml-tf-cat-arrow{ font-size: 18px; color: var(--e-global-color-mlmuted); transition: transform .2s; }
+.ml-tf-cat.is-open .ml-tf-cat-arrow{ transform: rotate(90deg); color: var(--e-global-color-mlgreendark); }
+.ml-tf-cat-list{ display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; padding: 12px; border: 1.6px solid var(--e-global-color-primary); border-top: 0; border-radius: 0 0 14px 14px; background: #fff; }
+.ml-tf-saved{ border: 0; padding: 0; }
+.ml-tf-tool{ display: flex; justify-content: space-between; gap: 10px; padding: 14px 16px; border: 1px solid var(--ml-line-2); border-radius: 12px; background: #fff; }
+.ml-tf-tool:hover{ border-color: var(--e-global-color-primary); }
+.ml-tf-tool-name{ font: 600 15.5px/1.35 var(--ml-sans); color: var(--e-global-color-secondary) !important; text-decoration: none !important; }
+.ml-tf-tool-name:hover{ color: var(--e-global-color-mlgreendark) !important; }
+.ml-tf-tool-brief{ font-size: 14px; line-height: 1.55; margin: 4px 0 0; color: var(--e-global-color-text); }
+.ml-tf-tool .ml-tf-star{ font-size: 19px; padding: 0 2px; align-self: flex-start; }
+.ml-tf-none{ text-align: center; padding: 34px 16px 10px; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.ml-tf-none-star{ font-size: 44px; color: var(--ml-line-2); line-height: 1; }
+.ml-tf-none p{ margin: 0; font-size: 16px; }
+.ml-tf-none .ml-tf-btn{ margin-top: 14px; }
+.ml-tf-foot{ margin: 0; padding: 14px 24px; border-top: 1px solid var(--ml-line-2); text-align: center; font-size: 13px; font-style: italic; color: var(--e-global-color-mlmuted); background: #fff; }
+
+@media (max-width: 1024px){
+  .ml-tf-body{ padding: 30px 28px 24px; }
+  .ml-tf-cat-list{ grid-template-columns: 1fr; }
+}
+@media (max-width: 767px){
+  .ml-tf-bar{ padding: 10px 12px; gap: 4px; }
+  .ml-tf-tab{ padding: 9px 12px; font-size: 14px; }
+  .ml-tf-new{ margin-left: 0; width: 100%; }
+  .ml-tf-body{ padding: 24px 18px 20px; }
+  .ml-tf-title{ font-size: 27px; }
+  .ml-tf-lead{ font-size: 16px; }
+  .ml-tf-row .ml-tf-btn{ width: 100%; }
+  .ml-tf-hint{ display: none; }
+  .ml-tf-result{ padding: 18px; }
+  .ml-tf-result-name{ font-size: 19px; }
+  .ml-tf-cats{ grid-template-columns: 1fr; }
+  .ml-tf-note{ padding: 18px; }
+  .ml-tf-note .ml-tf-btn{ width: 100%; }
+}
 /* ==========================================================================
    THE THIRD COLOUR
 
