@@ -2474,6 +2474,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -7911,7 +7913,7 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
    page cannot put that page out of line again.
    ========================================================================== */
 :root{ --ml-hero-top: 48px; --ml-hero-photo-min: 360px; --ml-hero-photo-max: 660px; }
-@media (max-width: 1024px){ :root{ --ml-hero-top: 40px; --ml-hero-photo-min: 300px; --ml-hero-photo-max: 520px; } }
+@media (max-width: 1024px){ :root{ --ml-hero-top: 40px; --ml-hero-photo-min: 300px; --ml-hero-photo-max: 700px; } }
 @media (max-width: 767px){ :root{ --ml-hero-top: 30px; } }
 
 :is(.ml-page-hero, .ml-hero, .ml-ind-hero, .ml-legal-hero, .ml-archive-hero).e-con{
@@ -8064,6 +8066,7 @@ html[lang^="ja"] .ml-strip-label .elementor-heading-title{ font-size: 15px !impo
    up: 92px of section padding over a hairline was a gap, not a pause */
 @media (min-width: 1025px){
   .ml-wide#posts.e-con{ padding-top: 56px !important; }
+  .ml-wide#posts.e-con > .e-con-inner{ padding-top: 0 !important; }
 }
 
 
