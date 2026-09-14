@@ -2472,6 +2472,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -8010,8 +8012,14 @@ table.ml-compare thead th.ml-col-us{ color: var(--ml-accent-ink); }
 .ml-post-cats .elementor-repeater-item-pidateja,
 .ml-post-byline .elementor-repeater-item-pidateen,
 .ml-post-byline .elementor-repeater-item-pidateja{ display: none !important; }
-/* no line under the head, and the picture follows the author closely */
+/* no line under the head (a border, and the hairline every page hero draws
+   with :after), and the picture follows the author closely */
 .ml-article-hero{ border-bottom: 0 !important; }
+.ml-article-hero:after{ display: none !important; }
+/* the head sat 10px right of the picture and the body - Elementor's default
+   container padding on the words box; the picture and the body start on the
+   column's edge */
+.ml-article-head.e-con{ padding-left: 0 !important; padding-right: 0 !important; }
 .ml-article-hero.e-con > .e-con-inner,
 .ml-article-head > .e-con-inner{ padding-bottom: 0 !important; }
 .e-con > .e-con-inner > .elementor-widget.ml-article-photo{ margin-top: 28px !important; }
@@ -8052,6 +8060,11 @@ html[lang^="ja"] :is(.ml-label, .ml-label-centred) .elementor-heading-title{
 /* the small line over the client logos is 12px in English; the same three
    points up */
 html[lang^="ja"] .ml-strip-label .elementor-heading-title{ font-size: 15px !important; }
+/* with the index head down to a word and a line, the band under it closes
+   up: 92px of section padding over a hairline was a gap, not a pause */
+@media (min-width: 1025px){
+  .ml-wide#posts.e-con{ padding-top: 56px !important; }
+}
 
 
 /* MacroLingo cookie notice
