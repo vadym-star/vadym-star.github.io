@@ -2484,6 +2484,12 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
+
+
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -8112,10 +8118,13 @@ html[lang^="ja"] .ml-strip-label .elementor-heading-title{ font-size: 15px !impo
    per row type and screen size - the same counts as before, so no page that
    nobody has edited moves.
    ========================================================================== */
-.ml-three-up, .ml-svc-grid.ml-svc-grid-three, .ml-figs.ml-figs-three{ --ml-per: 3; }
-.ml-svc-grid:not(.ml-svc-grid-three), .ml-two-up, .ml-opts{ --ml-per: 2; }
-.ml-figs:not(.ml-figs-three), .ml-pairs{ --ml-per: 4; }
+/* single classes first, the two-class variants after them, and the same
+   pattern inside each breakpoint, so a variant never outranks a breakpoint */
+.ml-svc-grid, .ml-two-up, .ml-opts{ --ml-per: 2; }
+.ml-three-up{ --ml-per: 3; }
+.ml-figs, .ml-pairs{ --ml-per: 4; }
 .ml-mkts{ --ml-per: 6; }
+.ml-svc-grid.ml-svc-grid-three, .ml-figs.ml-figs-three{ --ml-per: 3; }
 /* The spacing between cards, per row type - the values these rows always
    had. Two-up rows take the container's own Gap from Elementor (they never
    had a spacing of their own in the stylesheet); the others do not, because
@@ -8128,6 +8137,7 @@ html[lang^="ja"] .ml-strip-label .elementor-heading-title{ font-size: 15px !impo
 .ml-pairs{ --ml-cg: 18px; --ml-rg: 18px; }
 .ml-mkts{ --ml-cg: 16px; --ml-rg: 16px; }
 .ml-two-up{ --ml-cg: var(--column-gap, 22px); --ml-rg: var(--row-gap, 22px); }
+.ml-two-up.ml-edit-photos{ --ml-cg: 22px; --ml-rg: 22px; }
 :is(.ml-three-up, .ml-svc-grid, .ml-two-up, .ml-opts, .ml-figs, .ml-pairs, .ml-mkts) > .e-con-inner{
   display: flex !important;
   flex-direction: row !important;
@@ -8150,18 +8160,19 @@ html[lang^="ja"] .ml-strip-label .elementor-heading-title{ font-size: 15px !impo
   height: auto !important;
 }
 @media (max-width: 1024px){
-  .ml-three-up, .ml-svc-grid.ml-svc-grid-three, .ml-figs, .ml-figs.ml-figs-three, .ml-pairs{ --ml-per: 2; }
+  .ml-three-up, .ml-figs, .ml-pairs{ --ml-per: 2; }
   .ml-mkts{ --ml-per: 3; }
+  .ml-svc-grid.ml-svc-grid-three, .ml-figs.ml-figs-three{ --ml-per: 2; }
 }
 @media (max-width: 920px){
   .ml-two-up{ --ml-per: 1; }
 }
 @media (max-width: 767px){
-  .ml-three-up, .ml-svc-grid, .ml-svc-grid.ml-svc-grid-three, .ml-two-up, .ml-opts,
-  .ml-figs, .ml-figs.ml-figs-three, .ml-pairs{ --ml-per: 1; }
+  .ml-three-up, .ml-svc-grid, .ml-two-up, .ml-opts, .ml-figs, .ml-pairs{ --ml-per: 1; }
   .ml-mkts{ --ml-per: 2; }
+  .ml-svc-grid.ml-svc-grid-three, .ml-figs.ml-figs-three{ --ml-per: 1; }
   /* the phone's own tighter rhythm (section 2.3) */
-  :is(.ml-three-up, .ml-two-up, .ml-svc-grid, .ml-pairs){ --ml-cg: 14px; --ml-rg: 14px; }
+  :is(.ml-three-up, .ml-two-up, .ml-svc-grid, .ml-pairs), .ml-two-up.ml-edit-photos{ --ml-cg: 14px; --ml-rg: 14px; }
 }
 
 
