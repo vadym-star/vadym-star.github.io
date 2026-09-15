@@ -2482,6 +2482,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -8114,12 +8116,18 @@ html[lang^="ja"] .ml-strip-label .elementor-heading-title{ font-size: 15px !impo
 .ml-svc-grid:not(.ml-svc-grid-three), .ml-two-up, .ml-opts{ --ml-per: 2; }
 .ml-figs:not(.ml-figs-three), .ml-pairs{ --ml-per: 4; }
 .ml-mkts{ --ml-per: 6; }
-/* the gap is read once, on the row itself: each card is a container with a
-   gap setting of its own, which would otherwise shadow it */
-:is(.ml-three-up, .ml-svc-grid, .ml-two-up, .ml-opts, .ml-figs, .ml-pairs, .ml-mkts){
-  --ml-cg: var(--column-gap, 22px);
-  --ml-rg: var(--row-gap, 22px);
-}
+/* The spacing between cards, per row type - the values these rows always
+   had. Two-up rows take the container's own Gap from Elementor (they never
+   had a spacing of their own in the stylesheet); the others do not, because
+   many of those containers carry a Gap of 0 in Elementor that the old grid
+   rules were quietly overriding. Set once on the row: each card is a
+   container with a gap setting of its own, which would otherwise shadow it. */
+.ml-three-up, .ml-svc-grid{ --ml-cg: 22px; --ml-rg: 22px; }
+.ml-opts{ --ml-cg: 12px; --ml-rg: 12px; }
+.ml-figs{ --ml-cg: 20px; --ml-rg: 20px; }
+.ml-pairs{ --ml-cg: 18px; --ml-rg: 18px; }
+.ml-mkts{ --ml-cg: 16px; --ml-rg: 16px; }
+.ml-two-up{ --ml-cg: var(--column-gap, 22px); --ml-rg: var(--row-gap, 22px); }
 :is(.ml-three-up, .ml-svc-grid, .ml-two-up, .ml-opts, .ml-figs, .ml-pairs, .ml-mkts) > .e-con-inner{
   display: flex !important;
   flex-direction: row !important;
@@ -8135,6 +8143,11 @@ html[lang^="ja"] .ml-strip-label .elementor-heading-title{ font-size: 15px !impo
   min-width: 0 !important;
   grid-column: auto !important;
   justify-self: auto !important;
+  /* cards on one line are the same height, as the grid made them (Elementor
+     writes a height onto each card container, which stops a flex line from
+     stretching it) */
+  align-self: stretch !important;
+  height: auto !important;
 }
 @media (max-width: 1024px){
   .ml-three-up, .ml-svc-grid.ml-svc-grid-three, .ml-figs, .ml-figs.ml-figs-three, .ml-pairs{ --ml-per: 2; }
