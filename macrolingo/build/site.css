@@ -2480,6 +2480,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -8088,6 +8090,65 @@ html[lang^="ja"] .ml-strip-label .elementor-heading-title{ font-size: 15px !impo
   .elementor-16686 .ml-page-hero.ml-split-hero > .e-con-inner{
     grid-template-columns: minmax(650px, 1.3fr) minmax(0, .7fr) !important;
   }
+}
+
+
+/* ==========================================================================
+   9. CARD ROWS RE-FLOW WHEN A CARD IS REMOVED OR ADDED
+   Adam, 15 Sep 2026, deleting Gareth's card from the PR team row: "it went
+   all misaligned. It looks like you're not using columns." Every row of
+   cards was a CSS grid with a fixed number of columns, so two cards in a
+   three-column grid left an empty third column, and the nth-child rules
+   that centred a lone last card only knew the counts the pages were built
+   with.
+
+   Now each of these rows is a wrapping flexbox that centres its last line:
+   take a card out and the rest close up and centre; duplicate one and it
+   lands in the next free place. The spacing between cards is the container's
+   own Gap setting in Elementor (Layout > Gaps), so changing it in the panel
+   changes it on the page. How many cards share a line is --ml-per, below,
+   per row type and screen size - the same counts as before, so no page that
+   nobody has edited moves.
+   ========================================================================== */
+.ml-three-up, .ml-svc-grid.ml-svc-grid-three, .ml-figs.ml-figs-three{ --ml-per: 3; }
+.ml-svc-grid:not(.ml-svc-grid-three), .ml-two-up, .ml-opts{ --ml-per: 2; }
+.ml-figs:not(.ml-figs-three), .ml-pairs{ --ml-per: 4; }
+.ml-mkts{ --ml-per: 6; }
+/* the gap is read once, on the row itself: each card is a container with a
+   gap setting of its own, which would otherwise shadow it */
+:is(.ml-three-up, .ml-svc-grid, .ml-two-up, .ml-opts, .ml-figs, .ml-pairs, .ml-mkts){
+  --ml-cg: var(--column-gap, 22px);
+  --ml-rg: var(--row-gap, 22px);
+}
+:is(.ml-three-up, .ml-svc-grid, .ml-two-up, .ml-opts, .ml-figs, .ml-pairs, .ml-mkts) > .e-con-inner{
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: stretch !important;
+  gap: var(--ml-rg) var(--ml-cg) !important;
+}
+:is(.ml-three-up, .ml-svc-grid, .ml-two-up, .ml-opts, .ml-figs, .ml-pairs, .ml-mkts) > .e-con-inner > *{
+  flex: 0 0 calc((100% - (var(--ml-per) - 1) * var(--ml-cg)) / var(--ml-per)) !important;
+  width: auto !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  grid-column: auto !important;
+  justify-self: auto !important;
+}
+@media (max-width: 1024px){
+  .ml-three-up, .ml-svc-grid.ml-svc-grid-three, .ml-figs, .ml-figs.ml-figs-three, .ml-pairs{ --ml-per: 2; }
+  .ml-mkts{ --ml-per: 3; }
+}
+@media (max-width: 920px){
+  .ml-two-up{ --ml-per: 1; }
+}
+@media (max-width: 767px){
+  .ml-three-up, .ml-svc-grid, .ml-svc-grid.ml-svc-grid-three, .ml-two-up, .ml-opts,
+  .ml-figs, .ml-figs.ml-figs-three, .ml-pairs{ --ml-per: 1; }
+  .ml-mkts{ --ml-per: 2; }
+  /* the phone's own tighter rhythm (section 2.3) */
+  :is(.ml-three-up, .ml-two-up, .ml-svc-grid, .ml-pairs){ --ml-cg: 14px; --ml-rg: 14px; }
 }
 
 
