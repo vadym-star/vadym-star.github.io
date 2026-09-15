@@ -2490,6 +2490,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -8174,6 +8176,33 @@ html[lang^="ja"] .ml-strip-label .elementor-heading-title{ font-size: 15px !impo
   /* the phone's own tighter rhythm (section 2.3) */
   :is(.ml-three-up, .ml-two-up, .ml-svc-grid, .ml-pairs), .ml-two-up.ml-edit-photos{ --ml-cg: 14px; --ml-rg: 14px; }
 }
+
+
+/* ==========================================================================
+   10. THE BLOG INDEX HEAD, 16 SEP 2026
+   Adam, on /blog/ (and /ja/blog/): "Expand the top header and the subtext so
+   it goes across the whole page and aligns left-and-right with the posts (it
+   creates an awkward break in the Japanese)." And: "Please remove that
+   divider line above all the posts."
+
+   The head was capped at 820px and left-aligned, so its right edge stopped
+   short of the grid of posts, which runs the full 1100px content width. Adam
+   has since put a longer sentence under the heading, and at 820px the
+   Japanese one wrapped to three lines with an ugly break. Widening the head
+   to the content width lines its left and right edges up with the cards and
+   gives the sentence the room it needs. Measured on /ja/blog/ at 1536:
+   head 210..1030 (820) against posts 210..1310 (1100); the left edge already
+   matched, only the right fell short.
+
+   The line above the posts is the hairline every page hero draws with
+   :after; on the index that hero is .ml-archive-hero, so the line is turned
+   off there.
+   ========================================================================== */
+.ml-archive-head{
+  max-width: var(--ml-content-width) !important;
+  width: 100% !important;
+}
+.ml-archive-hero:after{ display: none !important; }
 
 
 /* MacroLingo cookie notice
