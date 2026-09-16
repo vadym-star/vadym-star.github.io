@@ -2520,6 +2520,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -7029,6 +7031,19 @@ html[lang^="ja"] .elementor-widget-html :is(p,li,h3,h4){ word-break: auto-phrase
 }
 @media (max-width: 767px){
   .ml-ind-pic .ml-photo img{ aspect-ratio: 4 / 3; }
+}
+
+/* ml-ind-pic-lg: the big version, added to one page's photo container in
+   Elementor (Advanced > CSS Classes). Adam, 16 Sep, on inbound tourism:
+   "250x250 for this one is too small". A landscape - Fuji and the woman
+   with the parasol are both in the frame at 4:3, and the square crop cut her
+   out. Desktop only; below 900px every hero photo is already full width.  */
+@media (min-width: 901px){
+  .e-con.ml-ind-hero > .e-con-inner > .ml-ind-pic.ml-ind-pic-lg{
+    width: 460px;
+    max-width: 42%;
+  }
+  .ml-ind-pic.ml-ind-pic-lg .ml-photo img{ aspect-ratio: 4 / 3; }
 }
 
 
