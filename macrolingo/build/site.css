@@ -2518,6 +2518,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -7008,9 +7010,21 @@ html[lang^="ja"] .elementor-widget-html :is(p,li,h3,h4){ word-break: auto-phrase
   .e-con.ml-ind-hero > .e-con-inner{
     flex-direction: column;
     align-items: stretch;
-    gap: 30px;
   }
-  .e-con.ml-ind-hero > .e-con-inner > .ml-ind-pic{ width: 100%; max-width: 100%; }
+  /* The space between the button and the photo cannot be a gap or a margin
+     on the photo: on a phone every section row is gap: 0 !important, and
+     every column inside a hero has its top margin and padding forced to 0
+     (both in responsive.css, both on purpose). So the words column carries
+     it underneath instead - but only when a photo follows, so a hero whose
+     photo has been deleted does not keep an empty 28px. The photo takes
+     the words column's 10px side inset, or it runs past the text on both
+     sides.                                                               */
+  .e-con.ml-ind-hero > .e-con-inner > .ml-ind-hero-words:has(+ .ml-ind-pic){ margin-bottom: 28px; }
+  .e-con.ml-ind-hero > .e-con-inner > .ml-ind-pic{
+    width: 100%;
+    max-width: 100%;
+    padding: 0 10px;
+  }
   .ml-ind-pic .ml-photo img{ aspect-ratio: 16 / 9; }
 }
 @media (max-width: 767px){
