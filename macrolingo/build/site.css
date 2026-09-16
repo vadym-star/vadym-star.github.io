@@ -196,7 +196,7 @@ body{
    text around it.
    ml-i-pen  ml-i-check  ml-i-search  ml-i-send  ml-i-arrow  ml-i-tick
    ml-i-pin  ml-i-mail  ml-i-clock  ml-i-dot  ml-i-chevron
-   ml-i-globe  ml-i-leaf  ml-i-cap  ml-i-arw  ml-i-doc  ml-i-spark
+   ml-i-globe  ml-i-leaf  ml-i-cap  ml-i-arw  ml-i-doc  ml-i-spark  ml-i-tag
    Put the class on an Icon, Icon Box or Icon List widget.                 */
 [class*="ml-i-"] .elementor-icon > *,
 [class*="ml-i-"] .elementor-icon-list-icon > *{ display: none; }
@@ -291,6 +291,11 @@ body{
 .ml-i-spark .elementor-icon-list-icon:before{
   -webkit-mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22%3E%3Cg stroke=%22%23000%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M11 3.5 12.9 9.1 18.5 11 12.9 12.9 11 18.5 9.1 12.9 3.5 11 9.1 9.1Z%22/%3E%3Cpath d=%22M18.5 16v4%22/%3E%3Cpath d=%22M20.5 18h-4%22/%3E%3C/g%3E%3C/svg%3E");
   mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22%3E%3Cg stroke=%22%23000%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M11 3.5 12.9 9.1 18.5 11 12.9 12.9 11 18.5 9.1 12.9 3.5 11 9.1 9.1Z%22/%3E%3Cpath d=%22M18.5 16v4%22/%3E%3Cpath d=%22M20.5 18h-4%22/%3E%3C/g%3E%3C/svg%3E");
+}
+.ml-i-tag .elementor-icon:before,
+.ml-i-tag .elementor-icon-list-icon:before{
+  -webkit-mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22%3E%3Cg stroke=%22%23000%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M3.5 12.1V4.5a1 1 0 0 1 1-1h7.6a1 1 0 0 1 .7.3l7.9 7.9a1.5 1.5 0 0 1 0 2.1l-6.9 6.9a1.5 1.5 0 0 1-2.1 0L3.8 12.8a1 1 0 0 1-.3-.7Z%22/%3E%3Ccircle cx=%228.3%22 cy=%228.3%22 r=%221.4%22/%3E%3C/g%3E%3C/svg%3E");
+  mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22%3E%3Cg stroke=%22%23000%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M3.5 12.1V4.5a1 1 0 0 1 1-1h7.6a1 1 0 0 1 .7.3l7.9 7.9a1.5 1.5 0 0 1 0 2.1l-6.9 6.9a1.5 1.5 0 0 1-2.1 0L3.8 12.8a1 1 0 0 1-.3-.7Z%22/%3E%3Ccircle cx=%228.3%22 cy=%228.3%22 r=%221.4%22/%3E%3C/g%3E%3C/svg%3E");
 }
 .ml-i-tick .elementor-icon:before,
 .ml-i-tick .elementor-icon-list-icon:before{
@@ -2165,6 +2170,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
    dressed from here instead. Everything below reads from the Global Colors,
    so it follows the rest of the site.
    ========================================================================== */
+
+
 
 
 
