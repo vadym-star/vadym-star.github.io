@@ -196,6 +196,7 @@ body{
    text around it.
    ml-i-pen  ml-i-check  ml-i-search  ml-i-send  ml-i-arrow  ml-i-tick
    ml-i-pin  ml-i-mail  ml-i-clock  ml-i-dot  ml-i-chevron
+   ml-i-globe  ml-i-leaf  ml-i-cap  ml-i-arw  ml-i-doc  ml-i-spark
    Put the class on an Icon, Icon Box or Icon List widget.                 */
 [class*="ml-i-"] .elementor-icon > *,
 [class*="ml-i-"] .elementor-icon-list-icon > *{ display: none; }
@@ -241,6 +242,11 @@ body{
   -webkit-mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22%3E%3Cg stroke=%22%23000%22 stroke-width=%221.8%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%229%22/%3E%3Cpath d=%22M12 7v5.2l3.2 2%22/%3E%3C/g%3E%3C/svg%3E");
   mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22%3E%3Cg stroke=%22%23000%22 stroke-width=%221.8%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%229%22/%3E%3Cpath d=%22M12 7v5.2l3.2 2%22/%3E%3C/g%3E%3C/svg%3E");
 }
+.ml-i-doc .elementor-icon:before,
+.ml-i-doc .elementor-icon-list-icon:before{
+  -webkit-mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22%3E%3Cg stroke=%22%23000%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z%22/%3E%3Cpath d=%22M14 3v5h5%22/%3E%3Cpath d=%22M9 13h6%22/%3E%3Cpath d=%22M9 17h4%22/%3E%3C/g%3E%3C/svg%3E");
+  mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22%3E%3Cg stroke=%22%23000%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z%22/%3E%3Cpath d=%22M14 3v5h5%22/%3E%3Cpath d=%22M9 13h6%22/%3E%3Cpath d=%22M9 17h4%22/%3E%3C/g%3E%3C/svg%3E");
+}
 .ml-i-dot .elementor-icon:before,
 .ml-i-dot .elementor-icon-list-icon:before{
   -webkit-mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 fill=%22none%22%3E%3Ccircle cx=%228%22 cy=%228%22 r=%228%22 fill=%22%23000%22/%3E%3C/svg%3E");
@@ -280,6 +286,11 @@ body{
 .ml-i-send .elementor-icon-list-icon:before{
   -webkit-mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22%3E%3Cpath d=%22M3 11 22 2l-9 19-2-8Z%22 stroke=%22%23000%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E");
   mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22%3E%3Cpath d=%22M3 11 22 2l-9 19-2-8Z%22 stroke=%22%23000%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E");
+}
+.ml-i-spark .elementor-icon:before,
+.ml-i-spark .elementor-icon-list-icon:before{
+  -webkit-mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22%3E%3Cg stroke=%22%23000%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M11 3.5 12.9 9.1 18.5 11 12.9 12.9 11 18.5 9.1 12.9 3.5 11 9.1 9.1Z%22/%3E%3Cpath d=%22M18.5 16v4%22/%3E%3Cpath d=%22M20.5 18h-4%22/%3E%3C/g%3E%3C/svg%3E");
+  mask: no-repeat center / contain url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22%3E%3Cg stroke=%22%23000%22 stroke-width=%221.7%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M11 3.5 12.9 9.1 18.5 11 12.9 12.9 11 18.5 9.1 12.9 3.5 11 9.1 9.1Z%22/%3E%3Cpath d=%22M18.5 16v4%22/%3E%3Cpath d=%22M20.5 18h-4%22/%3E%3C/g%3E%3C/svg%3E");
 }
 .ml-i-tick .elementor-icon:before,
 .ml-i-tick .elementor-icon-list-icon:before{
@@ -2154,6 +2165,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
    dressed from here instead. Everything below reads from the Global Colors,
    so it follows the rest of the site.
    ========================================================================== */
+
+
 
 
 
@@ -5548,8 +5561,10 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
    The six industry pages - one layout, so one block of rules
    ========================================================================= */
 
-/* The hero here is words only: these pages carry no photograph of their own
-   and inventing one would be worse than leaving the space to the title. */
+/* The hero was words only: these pages carried no photograph of their own
+   and inventing one would have been worse than leaving the space to the
+   title. Each now has a real one beside the words - see "Industry pages: a
+   face, a client, and a way out" at the end of this file. */
 .ml-ind-hero > .e-con-inner{ padding-top: 54px; padding-bottom: 54px; }
 .ml-ind-hero-words > .e-con-inner{ padding: 0; max-width: 62rem; }
 .ml-ind-hero .ml-hero-title.elementor-widget .elementor-heading-title{
@@ -6892,6 +6907,162 @@ html[lang^="ja"] .elementor-widget-html :is(p,li,h3,h4){ word-break: auto-phrase
 .ml-tf .ml-tf-result-name:focus-visible{ outline: none; }
 .ml-tf .ml-tf-tool:focus-within,
 .ml-tf .ml-tf-result:focus-within{ outline: 2px solid var(--ml-accent); outline-offset: 2px; }
+
+
+/* =========================================================================
+   INDUSTRY PAGES: A FACE, A CLIENT, AND A WAY OUT, 16 SEP 2026
+
+   Adam, 16 Sep: "add a mini hero (maybe 250x250), just something to make
+   this page look more alive / add case study logo and link / add icons and
+   links for services mentioned."
+
+   Three separate problems, and they are worth naming separately because
+   they are not all cosmetic.
+
+   The hero was words only by decision - the note at the top of the industry
+   section above says "these pages carry no photograph of their own and
+   inventing one would be worse than leaving the space to the title". That
+   held while there was nothing to put there. There is now: each of these
+   pages had a photograph on it before the redesign, sitting unused in the
+   Media Library, and the research page gets the one MacroLingo already uses
+   for researchers. So the reason for leaving the space empty has gone, and
+   a 250px square beside the title fills the right-hand third that the
+   measured title never reaches.
+
+   Square, not wide, and beside the words rather than under them: a wide
+   banner would push the call to action below the fold on a laptop, and the
+   whole point of these pages is that the button is visible while the reader
+   is still reading the promise.
+
+   The case study was the page's only proof and it had no mark of who it was
+   about and nowhere to go afterwards. A logo answers "is this someone I
+   recognise" in a glance that a company name in a heading does not, and the
+   link gives the reader who is now interested somewhere to be interested
+   at. It points at our own case studies page, not the client's site: we can
+   promise that page stays up and stays relevant, and we cannot promise that
+   about somebody else's homepage.
+
+   The service cards were three or five white rectangles of equal weight,
+   which is what a list looks like when nothing distinguishes its items. The
+   icon gives each card a shape you can find again after scrolling past it;
+   the link is the part that was actually missing - every one of these cards
+   describes a service that has its own page, and none of them said so.
+   ========================================================================= */
+
+/* --- The mini hero -------------------------------------------------------
+   ml-ind-pic wraps one ml-photo ml-photo-square image beside the words.
+   The words keep flex: 1 so that deleting the picture leaves a hero that is
+   exactly what it was before - no empty column, no reflow to fix.        */
+.e-con.ml-ind-hero > .e-con-inner{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 46px;
+}
+.e-con.ml-ind-hero > .e-con-inner > .ml-ind-hero-words{
+  flex: 1 1 auto;
+  width: auto;
+  min-width: 0;
+}
+.e-con.ml-ind-hero > .e-con-inner > .ml-ind-pic{
+  flex: 0 0 auto;
+  width: 250px;
+  max-width: 250px;
+}
+.ml-ind-pic > .e-con-inner{ padding: 0; }
+/* the widget's own max-width is what stops a 1200px original from deciding
+   the column width for us */
+.ml-ind-pic .ml-photo.elementor-widget{
+  width: 100%;
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+.ml-ind-pic .ml-photo img{
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+/* Below a laptop the square would squeeze the title into a column two words
+   wide, so it goes under the words and turns wide - a 250px square centred
+   on a phone reads as a stray thumbnail, a full-width band reads as part of
+   the page.                                                              */
+@media (max-width: 900px){
+  .e-con.ml-ind-hero > .e-con-inner{
+    flex-direction: column;
+    align-items: stretch;
+    gap: 30px;
+  }
+  .e-con.ml-ind-hero > .e-con-inner > .ml-ind-pic{ width: 100%; max-width: 100%; }
+  .ml-ind-pic .ml-photo img{ aspect-ratio: 16 / 9; }
+}
+@media (max-width: 767px){
+  .ml-ind-pic .ml-photo img{ aspect-ratio: 4 / 3; }
+}
+
+
+/* --- The client's mark on the case study ---------------------------------
+   ml-cs-logo sits above the CASE STUDY label. Height, not width, because
+   the logos are every shape there is - a 128px square mark, a 267x68
+   wordmark - and matching their heights is what makes them look like they
+   belong to the same set. No radius and no shadow: these are somebody
+   else's marks and dressing them up misrepresents them.                  */
+.ml-cs-logo.elementor-widget{ margin: 0 0 18px; }
+.ml-cs-logo img{
+  width: auto;
+  height: 46px;
+  max-width: 200px;
+  object-fit: contain;
+  object-position: left center;
+  display: block;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.ml-cs-link.elementor-widget{ margin-top: 24px; }
+@media (max-width: 767px){
+  .ml-cs-logo img{ height: 38px; }
+}
+
+
+/* --- Icon and link on a service card -------------------------------------
+   The tile is the same object as the contact icon, one size up and filled
+   rather than outlined, because on a card it has to hold its own against a
+   20px serif title right under it.                                       */
+.ml-svc-ico.elementor-widget{ margin: 0 0 16px; }
+.ml-svc-ico .elementor-icon-wrapper{
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: var(--ml-green-tint-2);
+  display: grid;
+  place-items: center;
+  margin-right: auto;
+}
+.ml-svc-ico .elementor-icon{
+  width: 20px;
+  height: 20px;
+  color: var(--e-global-color-mlgreendark);
+}
+/* The link is pinned to the foot of the card so that the row of links reads
+   as one line across the grid however much text each card carries. That
+   needs the card to be a column with a height to push against, which is
+   what the height: 100% on ml-svc's inner already gives us.              */
+.e-con.ml-svc > .e-con-inner{
+  display: flex;
+  flex-direction: column;
+}
+.ml-svc-link.elementor-widget{
+  margin-top: auto;
+  padding-top: 18px;
+}
+/* the card lifts on hover; the arrow moves with it rather than waiting to
+   be hovered itself, so the whole card reads as the thing you click */
+.e-con.ml-svc:hover .ml-svc-link .elementor-button-icon{ transform: translateX(3px); }
+.ml-svc-link .elementor-button-icon{ transition: transform .18s; }
 /* ==========================================================================
    THE THIRD COLOUR
 
