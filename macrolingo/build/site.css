@@ -2516,6 +2516,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -7024,7 +7026,10 @@ html[lang^="ja"] .elementor-widget-html :is(p,li,h3,h4){ word-break: auto-phrase
    too small to read; the box lets a square mark stand 72px tall while a
    wide wordmark stops at 200px across. No radius and no shadow: these are
    somebody else's marks and dressing them up misrepresents them.        */
-.ml-cs-logo.elementor-widget{ margin: 0 0 18px; }
+/* the space goes under the logo, and Elementor zeroes a widget's bottom
+   margin with .e-con .elementor-widget.elementor-widget (three classes), so
+   this needs four or the logo sits on the label */
+.e-con > .e-con-inner > .ml-cs-logo.elementor-widget{ margin: 0 0 18px; }
 .ml-cs-logo img{
   width: auto;
   height: auto;
@@ -7047,7 +7052,7 @@ html[lang^="ja"] .elementor-widget-html :is(p,li,h3,h4){ word-break: auto-phrase
    The tile is the same object as the contact icon, one size up and filled
    rather than outlined, because on a card it has to hold its own against a
    20px serif title right under it.                                       */
-.ml-svc-ico.elementor-widget{ margin: 0 0 16px; }
+.e-con > .e-con-inner > .ml-svc-ico.elementor-widget{ margin: 0 0 16px; }
 .ml-svc-ico .elementor-icon-wrapper{
   width: 44px;
   height: 44px;
