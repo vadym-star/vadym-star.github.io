@@ -2492,6 +2492,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -5424,6 +5426,27 @@ table.ml-compare .ml-col-us{ background: #E4F2DA; }
 .e-con.ml-plan-on{
   border-color: var(--e-global-color-primary);
   box-shadow: 0 10px 30px rgba(69, 143, 44, .12);
+}
+/* The price, under the one-line description and above the tick list. The
+   figure is set in the serif at heading weight so it reads as the thing a
+   reader is looking for; the unit stays small and quiet beside it. Adam,
+   16 Sep 2026: the prices were on the old pages and the redesign dropped
+   them - they come straight from the live editing pages (EN per word in
+   USD, JA per word in yen). */
+.ml-plan-price.elementor-widget{ margin-top: 14px; margin-bottom: 2px; }
+.ml-plan-price p{ margin: 0; display: flex; align-items: baseline; flex-wrap: wrap; gap: 7px; }
+.ml-plan-price .ml-plan-amt{
+  font-family: var(--ml-serif);
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -.01em;
+  color: var(--e-global-color-secondary);
+}
+.ml-plan-price .ml-plan-unit{
+  font-family: var(--ml-sans);
+  font-size: 14px;
+  color: var(--e-global-color-mlmuted, #7C8797);
 }
 /* the certification mark inside the first reason */
 .ml-plan-badge-img.elementor-widget{ margin-top: 16px; }
