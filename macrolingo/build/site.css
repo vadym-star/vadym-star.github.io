@@ -2522,6 +2522,8 @@ html.ml-js .ml-reveal-3{ transition-delay: .21s; }
 
 
 
+
+
 /* ==========================================================================
    INNER PAGES
    Everything from here down belongs to the pages other than the homepage:
@@ -4593,6 +4595,20 @@ input.ml-qty-input:focus{
   .ml-split-contact .ml-form > .e-con-inner{
     justify-content: flex-start !important;
   }
+}
+
+/* --- A form card standing on its own, 18 SEP 2026 ------------------------
+   The Japanese PR page ends on one call to action instead of the split
+   contact row, so the form has no column to sit in. ml-form-solo keeps it
+   at a readable width and centred, however wide the section grows.       */
+.e-con.ml-form.ml-form-solo{
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+}
+@media (max-width: 767px){
+  .e-con.ml-form.ml-form-solo{ padding: 26px; }
 }
 
 
